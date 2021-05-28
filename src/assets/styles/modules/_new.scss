@@ -68,3 +68,131 @@ $breakpoint: 1280px;
     margin-top: 30px;
   }
 }
+
+.social {
+  @media (min-width: $breakpoint) {
+    padding: 30px 0;
+    margin-left: 20px;
+
+    width: calc((#{$grid-part-d}) * 5 - 40px);
+    flex-shrink: 0;
+
+    border: 1px solid $color-border-white;
+    border-radius: 240px;
+  }
+
+  &__list {
+    @media (min-width: $breakpoint) {
+      // padding-left: 90px;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    // display: flex;
+    // align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      width: calc((100vw - (#{$grid-gap-m}* 2)) / 2);
+      &:nth-child(2n) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+    }
+  }
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(2) {
+      margin-left: 10px;
+    }
+
+    @media (min-width: $breakpoint) {
+      &:nth-child(1) {
+        padding-left: calc(#{$grid-part-d} - #{$grid-gap-d});
+        width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d} * 2);
+        display: flex;
+        justify-content: flex-end;
+      }
+      &:nth-child(2) {
+        padding-right: calc(#{$grid-part-d});
+        margin-left: $grid-gap-d;
+        width: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
+      }
+    }
+  }
+
+  &__img {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid $color-border-white;
+    border-radius: 50%;
+  }
+
+  &__link {
+    // margin-left: 10px;
+    @media (min-width: $breakpoint) {
+      // margin-left: 20px;
+    }
+
+    text-decoration: none;
+    color: $color-white;
+    font-size: 14px;
+  }
+}
+
+.grid-test {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+
+  width: 100vw;
+  overflow: hidden;
+  pointer-events: none;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    width: calc(#{$grid-col-m});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-col-d});
+    }
+    flex-shrink: 0;
+    min-height: 100vh;
+
+    background-color: rgba($color: black, $alpha: 0.1);
+
+    &:nth-child(even) {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+}

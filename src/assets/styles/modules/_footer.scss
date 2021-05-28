@@ -1,5 +1,5 @@
 .container {
-  padding: 0 20px;
+  padding: 0 15px;
   @media (min-width: $breakpoint) {
     padding: 0 60px;
   }
@@ -28,8 +28,10 @@
   }
 
   &__top {
-    display: flex;
-    justify-content: space-between;
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__nav {
@@ -50,7 +52,7 @@
 
   &__list {
     @media (min-width: $breakpoint) {
-      padding: 0 80px;
+      padding-left: calc(#{$grid-part-d});
 
       height: 151px;
     }
@@ -65,14 +67,41 @@
     margin-bottom: 15px;
     @media (min-width: $breakpoint) {
       margin-bottom: 20px;
+      @each $index in (1, 2, 3) {
+        &:nth-child(#{$index}) {
+          width: calc((#{$grid-part-d}) * 5);
+        }
+      }
+
+      @each $index in (4, 5, 6) {
+        &:nth-child(#{$index}) {
+          width: calc((#{$grid-part-d}) * 4);
+        }
+      }
+
+      @each $index in (7, 8, 9) {
+        &:nth-child(#{$index}) {
+          width: calc((#{$grid-part-d}) * 3);
+        }
+      }
+
       &:nth-child(3n) {
         margin-bottom: 0;
       }
-      flex-shrink: 0;
-      width: calc((#{$grid-part-d}) * 4);
+    }
 
-      &:nth-child(-n + 3) {
-        width: calc((#{$grid-part-d}) * 5);
+    display: flex;
+    flex-shrink: 0;
+
+    @media (max-width: $breakpoint - 1px) {
+      width: calc((100vw - (#{$grid-gap-m}* 2)) / 2);
+
+      &:nth-child(5n) {
+        margin-bottom: 0;
+      }
+
+      &:nth-child(-n + 5) {
+        margin-right: 20px;
       }
     }
   }
@@ -82,6 +111,113 @@
     color: $color-white;
     font-weight: 900;
     font-size: 16px;
+    line-height: 19px;
+    @media (min-width: $breakpoint) {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+
+  &__bottom {
+    margin-top: 40px;
+    @media (min-width: $breakpoint) {
+      margin-top: 80px;
+
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+
+  &__docs {
+    @media (min-width: $breakpoint) {
+      padding-left: calc((#{$grid-part-d}));
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      order: 2;
+    }
+  }
+
+  &__corp {
+    color: $color-white;
+    font-size: 12px;
+    @media (min-width: $breakpoint) {
+      font-size: 14px;
+    }
+
+    &:first-child {
+      margin-bottom: 15px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__author {
+    font-weight: 900;
+    color: $color-white;
+    text-decoration: none;
+    font-size: 12px;
+    @media (min-width: $breakpoint) {
+      font-size: 14px;
+    }
+  }
+
+  &__contact {
+    @media (min-width: $breakpoint) {
+      padding-right: calc((#{$grid-part-d}) * 3);
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      margin-bottom: 40px;
+
+      order: 1;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    @media (min-width: $breakpoint) {
+      font-size: 13px;
+    }
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+
+  &__media {
+    margin-top: 15px;
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+  }
+
+  &__phone {
+    display: block;
+
+    text-decoration: none;
+    color: $color-yellow;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    @media (min-width: $breakpoint) {
+      font-size: 52px;
+      line-height: 62px;
+    }
+  }
+
+  &__mail {
+    display: block;
+
+    color: $color-yellow;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
     @media (min-width: $breakpoint) {
       font-size: 30px;
       line-height: 36px;

@@ -63,20 +63,60 @@ footer.footer
                 a.footer__link(href="#") 
                   |Контакты
           .social 
-            ul.social__list 
-              li.social__item 
-                .social__img
-                  +instagram-svg
-                .social__link
-                  |Instagram
+            ul.social__list
+              li.social__item
+                .social__row
+                  .social__col
+                    a.social__img(href="#") 
+                      +instagram-svg
+                  .social__col
+                    a.social__link(href="#")
+                      |Instagram
+              li.social__item
+                .social__row
+                  .social__col
+                    a.social__img(href="#") 
+                      +vk-svg
+                  .social__col
+                    a.social__link(href="#")
+                      |Вконтакте
+              li.social__item
+                .social__row
+                  .social__col
+                    a.social__img(href="#") 
+                      +facebook-svg
+                  .social__col
+                    a.social__link(href="#")
+                      |Facebook
+              li.social__item
+                .social__row
+                  .social__col
+                    a.social__img(href="#") 
+                      +classmates-svg
+                  .social__col
+                    a.social__link(href="#")
+                      |Одноклассники
         .footer__bottom
           .footer__docs
-            .footer__author 
             .footer__corp
+              |Сделано в 
+              a.footer__author(href="#")  
+                |CloudMill
+            .footer__corp
+              |© Дубки. Продукты от производителя. 2021
           .footer__contact 
             .footer__text 
-            h3.footer__media 
-              .footer__phone 
-              .footer__mail
+              |По вопросам качества продукции
+            .footer__media 
+              a.footer__phone(href="#") 
+                |8 800 333-82-54
+              a.footer__mail(href="#") 
+                |info@dubki-producty.ru
+
+.grid-test
+  .container
+    .grid-test__row
+      - for (let i=0; i<18; i++)
+        .grid-test__col
 
 
