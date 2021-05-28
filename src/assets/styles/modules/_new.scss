@@ -3,6 +3,12 @@ $breakpoint: 1280px;
 .card {
   $comp: &;
 
+  @media (max-width: $breakpoint - 1px) {
+    &:nth-child(1) {
+      margin-bottom: 15px;
+    }
+  }
+
   &--height-100p {
     height: 100%;
 
@@ -22,10 +28,18 @@ $breakpoint: 1280px;
     height: 100%;
     overflow: hidden;
 
-    background-color: green;
+    background-color: $color-light-green;
     border-radius: 0 70px 0 0;
     @media (min-width: $breakpoint) {
       border-radius: 0 150px 0 0;
+    }
+
+    &--alt {
+      background-color: $color-yellow;
+      border-radius: 0 0 70px 70px;
+      @media (min-width: $breakpoint) {
+        border-radius: 0 150px 150px 0;
+      }
     }
   }
 
@@ -60,12 +74,34 @@ $breakpoint: 1280px;
   }
 
   &__title {
+    color: $color-grey-white;
+
+    &--black {
+      color: $color-black;
+    }
   }
   &__text {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.2;
+    @media (min-width: $breakpoint) {
+      font-size: 38px;
+    }
+
+    &--large {
+      font-weight: 900;
+      font-size: 90px;
+      @media (min-width: $breakpoint) {
+        font-size: 150px;
+      }
+      line-height: 1;
+    }
   }
 
   &__button {
     margin-top: 30px;
+
+    display: flex;
   }
 }
 
@@ -195,4 +231,57 @@ $breakpoint: 1280px;
       }
     }
   }
+}
+
+.section {
+  padding-bottom: 60px;
+  @media (min-width: $breakpoint) {
+    padding-bottom: 200px;
+  }
+
+  background-color: $color-grey;
+}
+
+.row {
+  margin: 0;
+
+  display: flex;
+  @media (min-width: $breakpoint) {
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  @media (max-width: $breakpoint - 1px) {
+    flex-direction: column;
+  }
+
+  &__side {
+    flex-shrink: 0;
+    @media (min-width: $breakpoint) {
+      width: calc((#{$grid-part-d}) * 6 - #{$grid-gap-d});
+    }
+  }
+
+  &__main {
+    flex-shrink: 0;
+    @media (min-width: $breakpoint) {
+      width: calc((#{$grid-part-d}) * 12 - #{$grid-gap-d});
+    }
+  }
+}
+
+.button {
+  padding: 18px 30px;
+  @media (min-width: $breakpoint) {
+    padding: 28px 40px;
+
+    font-size: 18px;
+    border-radius: 25px;
+  }
+  color: $color-black;
+  background-color: $color-yellow;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 0.8;
+  border-radius: 15px;
 }
