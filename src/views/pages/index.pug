@@ -42,7 +42,47 @@ mixin classmates-svg(className)
                 .card__text
                   |регионов России
              
-
+.section
+  .container 
+    .row 
+      .row__side 
+        .section__content 
+          h3.section__title 
+            |Новости
+          p.section__text 
+            |Актуальные акции, скидки и новости компании.
+        .section__button    
+          .button 
+            |Все новости
+      .row__main 
+        .news
+          .news__item 
+            .news__content 
+              p.news__data 
+                |24 апреля 2021
+              h3.news__text
+                |Скидка на сырокопченую колбасу во всех фирменных магазинах
+            .news__container
+              img.news__photo(src="assets/images/news-1.jpg", alt="")
+          .news__item 
+            .news__content 
+              p.news__data 
+                |24 апреля 2021
+              h3.news__text
+                |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
+            .news__container
+              img.news__photo(src="assets/images/news-2.jpg", alt="")
+          .news__item 
+            .news__content 
+              p.news__data 
+                |24 апреля 2021
+              h3.news__text
+                |Скидка на сырокопченую колбасу во всех фирменных магазинах
+            .news__container
+              img.news__photo(src="assets/images/news-3.jpg", alt="")
+        .news__button 
+          .button 
+            |Все новости
 
 footer.footer
   .footer__frame 
@@ -130,10 +170,10 @@ footer.footer
               a.footer__mail(href="#") 
                 |info@dubki-producty.ru
 
-//- .grid-test
-//-   .container
-//-     .grid-test__row
-//-       - for (let i=0; i<18; i++)
-//-         .grid-test__col
+.grid-test
+  .container
+    .grid-test__row
+      - for (let i=0; i<18; i++)
+        .grid-test__col
 
 

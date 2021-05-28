@@ -110,7 +110,7 @@ $breakpoint: 1280px;
     padding: 30px 0;
     margin-left: 20px;
 
-    width: calc((#{$grid-part-d}) * 5 - 40px);
+    width: calc((#{$grid-part-d}) * 5 - #{$grid-gap-d * 2});
     flex-shrink: 0;
 
     border: 1px solid $color-border-white;
@@ -240,6 +240,45 @@ $breakpoint: 1280px;
   }
 
   background-color: $color-grey;
+
+  &__content {
+    margin-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 40px;
+
+      width: calc((#{$grid-part-d}) * 4 - #{$grid-gap-d});
+    }
+
+    color: $color-black;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+
+    font-weight: 900;
+    font-size: 30px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 40px;
+
+      font-size: 70px;
+    }
+    line-height: 0.8;
+  }
+
+  &__text {
+    font-size: 14px;
+    @media (min-width: $breakpoint) {
+      font-size: 18px;
+    }
+    line-height: 1.4;
+  }
+
+  &__button {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
 }
 
 .row {
@@ -257,12 +296,14 @@ $breakpoint: 1280px;
 
   &__side {
     flex-shrink: 0;
+    width: 100%;
     @media (min-width: $breakpoint) {
       width: calc((#{$grid-part-d}) * 6 - #{$grid-gap-d});
     }
   }
 
   &__main {
+    width: 100%;
     flex-shrink: 0;
     @media (min-width: $breakpoint) {
       width: calc((#{$grid-part-d}) * 12 - #{$grid-gap-d});
@@ -284,4 +325,95 @@ $breakpoint: 1280px;
   font-size: 16px;
   line-height: 0.8;
   border-radius: 15px;
+}
+
+.news {
+  @media (max-width: $breakpoint - 1px) {
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-shrink: 0;
+
+    background-color: $color-white;
+    border-radius: 15px;
+    @media (min-width: $breakpoint) {
+      padding-right: 10px;
+      padding-left: calc(#{$grid-part-d});
+
+      border-radius: 100px;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      padding: 14px;
+    }
+  }
+
+  &__content {
+    margin-right: 20px;
+    @media (min-width: $breakpoint) {
+      padding: 30px 0;
+
+      width: calc((#{$grid-part-d}) * 7 - #{$grid-gap-d});
+    }
+    // width: 600px;?
+    width: calc(#{$grid-pard-m} * 3 - 20px);
+  }
+
+  &__data {
+    margin-bottom: 15px;
+
+    color: $color-light-green;
+    font-weight: 700;
+    font-size: 11px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 10px;
+
+      font-size: 13px;
+    }
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-weight: 900;
+    color: $color-black;
+    font-size: 14px;
+    @media (min-width: $breakpoint) {
+      font-size: 30px;
+    }
+    line-height: 1.2;
+  }
+
+  &__container {
+    flex-shrink: 0;
+    width: 77px;
+    height: 77px;
+    @media (min-width: $breakpoint) {
+      margin: 10px 0;
+
+      width: 180px;
+      height: 180px;
+    }
+
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__button {
+    display: flex;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
 }

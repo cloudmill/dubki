@@ -334,7 +334,8 @@ $grid-length-d: 18;
 $grid-col-m: "((100vw - #{$grid-gap-m} * #{$grid-length-m - 1} - #{$grid-pad-m * 2}) / #{$grid-length-m})";
 $grid-col-d: "((100vw - #{$grid-gap-d} * #{$grid-length-d - 1} - #{$grid-pad-d * 2}) / #{$grid-length-d})";
 
-$grid-part-d: "(#{$grid-col-d} + #{$grid-gap-d: 20px;})";
+$grid-part-d: "(#{$grid-col-d} + #{$grid-gap-d})";
+$grid-pard-m: "(#{$grid-col-m} + #{$grid-gap-m})";
 
 // миксин для параметров шрифта
 // начало
