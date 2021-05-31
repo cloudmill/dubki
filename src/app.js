@@ -1,6 +1,7 @@
 import "Styles/_app.scss";
 
-import Swiper from "swiper";
+import Swiper from "swiper/bundle";
+
 
 // slider
 {
@@ -27,17 +28,17 @@ import Swiper from "swiper";
         // watchSlidesVisibility: 3,
         // slideVisibleClass: 'top-slide--visible',
         slidesPerView: 'auto',
-        slidesPerGroup: 3,
+        // slidesPerGroup: 3,
         spaceBetween: 25,
-        // effect: 'flip',
-        // flipEffect: {
-        //   slideShadows: true,
-        // }
-
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
+        effect: 'flip',
+        flipEffect: {
+          slideShadows: true,
         },
+
+        // effect: 'fade',
+        // fadeEffect: {
+        //   crossFade: true
+        // },
       })
     }
   });
