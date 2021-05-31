@@ -234,22 +234,48 @@ $breakpoint: 1280px;
 }
 
 .section {
-  padding-bottom: 60px;
-  @media (min-width: $breakpoint) {
-    padding-bottom: 200px;
-  }
+  
 
   background-color: $color-grey;
+
+
+  &--top {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 200px;
+    }
+  }
+
+  &__inner {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+    padding-bottom: 200px;
+    }
+
+  }
 
   &__frame {
     padding-top: 60px;
     @media (min-width: $breakpoint) {
       padding-top: 200px;
+
       border-radius: 170px 0px 0px 0px;
     }
+    overflow: hidden;
 
     background-color: $color-light-green;
     border-radius: 70px 0px 0px 0px;
+
+    &--top {
+      padding-bottom: 40px;
+      @media (min-width: $breakpoint) {
+        padding-bottom: 60px;
+
+        border-radius: 0 0 170px  170px ;
+      }
+
+      border-radius: 0 0 70px  70px ;
+    }
   }
 
   &__content {
@@ -551,6 +577,211 @@ $breakpoint: 1280px;
     display: flex;
     @media (min-width: $breakpoint) {
       display: none;
+    }
+  }
+}
+
+
+.header {
+  $comp: &;
+
+  padding-top: 15px;
+
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  @media (min-width: $breakpoint) {
+    padding-top: 30px;
+    height: 70px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    @media (max-width: $breakpoint - 1px) {
+      justify-content: space-between;
+    }
+  }
+
+  &__catalog {
+    width: calc((#{$grid-part-d}) * 4 - #{$grid-gap-d});
+    flex-shrink: 0;
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+    cursor: pointer;
+
+    &-button {
+      padding: 28px 33px;
+
+      display: flex;
+      align-items: center;
+
+      background-color: $color-yellow;
+      border-radius: 25px;
+    }
+
+    &-text {
+      color: $color-black;
+      font-size: 18px;
+      line-height: 0.8;
+      font-weight: 700;
+    }
+
+    &-icon {
+      margin-left: 10px;
+    }
+  }
+
+  &__store {
+    width: calc((#{$grid-part-d}) * 4);
+    flex-shrink: 0;
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+
+      cursor: pointer;
+    }
+
+    &-text {
+      font-weight: 700;
+      color: $color-white;
+      font-size: 18px;
+      line-height: 0.8;
+    }
+  }
+
+  &__logo {
+    @media (max-width: $breakpoint - 1px) {
+      order: 2;
+    }
+    
+    display: flex;
+    @media (min-width: $breakpoint) {
+      width: calc((#{$grid-part-d}) * 4 + #{$grid-gap-d});
+      flex-shrink: 0;
+    }
+
+    &-link {
+      display: flex;
+    }
+
+    &-icon {
+      max-width: 103px;
+      @media (min-width: $breakpoint) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__city {
+    width: calc((#{$grid-part-d}) * 2 - #{$grid-gap-d});
+    flex-shrink: 0;
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+
+      .header__arrow path {
+        stroke: $color-white;
+      }
+    }
+
+    &-text {
+      font-weight: 700;
+      color: $color-white;
+      font-size: 18px;
+      line-height: 0.8;
+    }
+
+    &-icon {
+      margin-left: 10px;
+    }
+  }
+
+  &__nav {
+    width: calc((#{$grid-part-d}) * 2 + #{$grid-gap-d});
+    flex-shrink: 0;
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+
+    &-link {
+      font-weight: 700;
+      text-decoration: none;
+      color: $color-white;
+      font-size: 18px;
+      line-height: 0.8;
+    }
+  }
+
+  &__search {
+    margin-right: 10px;
+
+    @media (max-width: $breakpoint - 1px) {
+      order: 1;
+    }
+    
+    &-button {
+      padding: 13px;
+      @media (min-width: $breakpoint) {
+        padding: 25px;
+
+        border: 2px solid $color-white;
+      }
+
+      border: 1px solid $color-white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &-icon {
+      max-width: 14px;
+      max-height: 14px;
+      @media (min-width: $breakpoint) {
+        max-width: 22px;
+        max-height: 22px;
+      }
+    }
+  }
+
+  &__menu {
+    @media (max-width: $breakpoint - 1px) {
+      order: 3;
+    }
+
+    &-button {
+      padding: 17px 12px;
+      @media (min-width: $breakpoint) {
+        padding: 30px 20px;
+      }
+
+      background-color: $color-yellow;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &-icon {
+      max-width: 17px;
+      max-height: 6px;
+      @media (min-width: $breakpoint) {
+        max-width: 30px;
+        max-height: 10px;
+      }
     }
   }
 }
