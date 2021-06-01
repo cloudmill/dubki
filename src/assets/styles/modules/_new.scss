@@ -282,10 +282,10 @@ $breakpoint: 1280px;
         padding-bottom: 60px;
         padding-top: 200px;
 
-        border-radius: 0 0 170px  170px ;
+        border-radius: 0 0 170px  170px;
       }
 
-      border-radius: 0 0 70px  70px ;
+      border-radius: 0 0 70px  70px;
     }
 
     &--white {
@@ -299,6 +299,38 @@ $breakpoint: 1280px;
       }
       background-color: $color-white;
     }
+
+    &--clear {
+      display: flex;
+      height: 370px;
+      @media (min-width: $breakpoint) {
+        height: 562px;
+
+        border-radius: 0 0 170px  170px;
+      }
+      border-radius: 0 0 70px  70px;
+     
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    filter: blur(10px);
   }
 
   &__content {
@@ -342,6 +374,12 @@ $breakpoint: 1280px;
     @media (min-width: $breakpoint) {
       display: flex;
     }
+  }
+
+  &__row {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
   }
 }
 
@@ -404,6 +442,35 @@ $breakpoint: 1280px;
     border: 1px solid $color-light-grey;
     border-radius: 15px;
     cursor: pointer;
+  }
+
+  &--xl {
+    padding: 18px 0;
+    @media (min-width: $breakpoint) {
+      padding: 28px 0;
+
+      width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    background-color: inherit;
+    border: 1px solid $color-light-green;
+  }
+
+  &__wrapper {
+    margin-right: 10px;
+
+    &-icon {
+      transform: rotate(-135deg);
+      
+      path {
+        stroke: $color-black;
+      }
+    }
   }
 }
 
@@ -1181,7 +1248,20 @@ $breakpoint: 1280px;
 }
 
 .block {
-  
+  $comp: &;
+
+  &--white {
+
+    #{$comp}__title {
+      color: $color-white;
+      line-height: 1;
+    }
+
+    #{$comp}__item-text {
+      color: $color-white;
+    }
+  }
+
   &__inner {
     padding-top: 40px;
     @media (min-width: $breakpoint) {
@@ -1197,10 +1277,14 @@ $breakpoint: 1280px;
   }
 
   &__title {
+    width: 100%;
+
     font-weight: 900;
     color: $color-black;
     font-size: 24px;
     @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
+
       font-size: 70px;
     }
     line-height: 0.8;
@@ -1238,6 +1322,31 @@ $breakpoint: 1280px;
       &--active {
         font-weight: 700;
       }
+    }
+  }
+
+  &__data {
+    margin-top: 46px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-wrapper {
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &-text {
+      font-weight: 700;
+      color: $color-white;
+      font-size: 14px;
+      @media (min-width: $breakpoint) {
+        font-size: 18px;
+      }
+      line-height: 1.2;
     }
   }
 }
@@ -1512,5 +1621,66 @@ $breakpoint: 1280px;
       font-size: 25px;  
     }
     line-height: 1.2;
+  }
+}
+
+.news-page {
+  @media (min-width: $breakpoint) {
+    margin-left: calc(#{$grid-part-d} * 4);
+  }
+
+  &__wrapper {
+    margin-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 50px;
+
+      width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+    }
+  }
+
+  &__text {
+    color: $color-black;
+    font-size: 16px;
+    @media (min-width: $breakpoint) {
+      font-size: 22px;
+    }
+    line-height: 1.4;
+
+    &:nth-child(2) {
+      margin-top: 15px;
+    }
+  }
+
+  &__list {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      margin-right: 30px;
+    }
+
+    &-text {
+      color: $color-black;
+      font-size: 14px;
+      @media (min-width: $breakpoint) {
+        font-size: 16px;
+      }
+      line-height: 1.4;
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__button {
+    display: flex;
   }
 }

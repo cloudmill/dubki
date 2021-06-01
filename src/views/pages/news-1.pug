@@ -1,0 +1,67 @@
+extends ../layouts/master.pug
+
+block content 
+  .section--grey 
+    .section__frame--clear
+      .section__image
+        img.section__image-bg(src="assets/images/news-bg-1.jpg", alt="")
+      .section__row
+        .container 
+          .block.block--white
+            h3.block__title 
+              |Скидка на сырокопченую колбасу во всех фирменных магазинах!
+            ul.block__list
+              li.block__item 
+                p.block__item-text 
+                  |Главная
+              li.block__item
+                .block__item-icon
+                  +leaflet-svg 
+                p.block__item-text 
+                  |Акционный каталог
+              li.block__item
+                .block__item-icon 
+                  +leaflet-svg 
+                p.block__item-text.block__item-text--active
+                  |Мясная гастрономия
+            .block__data 
+              .block__data-wrapper 
+                .block__data-text 
+                  |24 апреля 2021
+
+
+  .section--grey.section--catalog
+    .container 
+      .section__inner
+        .news-page 
+          .news-page__wrapper 
+            p.news-page__text 
+              |Этот повод —  аппетитные ватрушки с творогом, которые теперь доступны в этом регионе! 
+            p.news-page__text 
+              |Наша сладкая выпечка уже полюбилась многим покупателям: ее вкус дарит радость и наслаждение, а кому-то напоминает детство. Оцените и вы ватрушку с творогом, порадуйте домашних лакомствами к чаю и выберите свой любимый вкус! С 1 февраля спрашивайте  в фирменных магазинах «Дубки.Продукты от производителя» по следующим адресам:
+
+          ul.news-page__list 
+            - for (i = 0; i < 9; i++)
+              li.news-page__item 
+                .news-page__item-icon
+                  +ball-svg
+                p.news-page__item-text
+                  |г. Волгоград, б-р Энгельса, д.19, пом. ХIII
+          .news-page__button 
+            .button--xl.button
+              .button__wrapper
+                +cursor-svg('button__wrapper-icon') 
+              .button__text
+                |Вернуться ко всем новостям
+
+
+
+
+
+
+
+  //- .grid-test
+  //-   .container
+  //-     .grid-test__row
+  //-       - for (let i=0; i<18; i++)
+  //-         .grid-test__col
