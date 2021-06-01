@@ -237,6 +237,8 @@ $breakpoint: 1280px;
   
   background-color: $color-grey;
 
+  
+
   &--grey {
     background-color: $color-catalog-grey;
   }
@@ -252,6 +254,14 @@ $breakpoint: 1280px;
     padding-top: 100px;
     @media (min-width: $breakpoint) {
       padding-top: 200px;
+    }
+  }
+
+
+  &--top {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 200px;
     }
   }
 
@@ -390,32 +400,7 @@ $breakpoint: 1280px;
   line-height: 0.8;
   border-radius: 15px;
   text-decoration: none;
-
-  &--s {
-    padding: 18px 30px;
-
-    color: $color-black;
-    font-size: 14px;
-    @media (min-width: $breakpoint) {
-      font-size: 16px;
-      border-radius: 20px;
-    }
-    line-height: 0.8;
-    border: 1px solid $color-light-grey;
-    border-radius: 15px;
-    cursor: pointer;
-  }
 }
-
-.wrapper {
-  margin-top: 40px;
-  @media (min-width: $breakpoint) {
-    margin-top: 80px;
-  }
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
 
 .news {
   @media (max-width: $breakpoint - 1px) {
@@ -505,12 +490,6 @@ $breakpoint: 1280px;
     @media (min-width: $breakpoint) {
       display: none;
     }
-  }
-
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
@@ -1331,7 +1310,27 @@ $breakpoint: 1280px;
     }
   }
 
-  
+  &__wrapper {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 18px 30px;
+
+    color: $color-black;
+    font-size: 14px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      border-radius: 20px;
+    }
+    line-height: 0.8;
+    border: 1px solid $color-light-grey;
+    border-radius: 15px;
+    cursor: pointer;
+  }
 }
 
 .action-catalog {
