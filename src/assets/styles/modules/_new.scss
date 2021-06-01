@@ -1300,9 +1300,6 @@ $breakpoint: 1280px;
     flex-wrap: wrap;
   }
 
-  &__card {
-    
-  }
 
   &__icon {
     max-width: 54px;
@@ -1337,20 +1334,70 @@ $breakpoint: 1280px;
 }
 
 .action-catalog {
-  &__list {
+  $comp: &;
+
+  &__row {
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__list {
+    width: 100%;
+
+    @media (min-width: $breakpoint) {
+      margin-left: 20px;
+
+      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
+      flex-shrink: 0;
+    }
+
+    @media (max-width: $breakpoint -1px) {
+      width: 100%;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &--wide {
+      margin-left: 0;
+      width: 100%;
+    }
   }
 
   &__card {
+    margin-top: 15px;
     padding: 20px;
-
-    width: 100%;
     @media (min-width: $breakpoint) {
       padding: 30px;
 
       width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
       height: 250px;
+
+      &--primary {
+        margin-top: 20px;
+        margin-left: calc(#{$grid-gap-d});
+
+        &:nth-child(-n + 2) {
+        margin-top: 0;
+        }
+
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+        }
+      }
+
+      &--secondary {
+        margin-top: 20px;
+        margin-left: calc(#{$grid-gap-d});
+
+        &:nth-child(3n + 1) {
+          margin-left: 0;
+        }
+      }
     }
+    width: 100%;
+    height: 159px;
+    
     flex-shrink: 0;
     display: flex;
     align-items: flex-end;
@@ -1358,6 +1405,22 @@ $breakpoint: 1280px;
 
     background-color: $color-white;
     border-radius: 20px;
+
+    &--big {
+      margin-top: 0;
+
+      height: 397px;
+      @media (min-width: $breakpoint) {
+        height: 520px;
+      }
+
+      #{$comp}__img {
+        transform: scale(0.5);
+        @media (min-width: $breakpoint) {
+          transform: scale(0.7);
+        }
+      }
+    }
   }
 
   &__frame {
@@ -1367,10 +1430,15 @@ $breakpoint: 1280px;
     bottom: 0;
     right: 0;
     overflow: hidden;
+
+    border-radius: inherit;
   }
 
   &__img {
-    transform: scale(0.5);
+    transform: scale(0.35);
+    @media (min-width: $breakpoint) {
+      transform: scale(0.5);
+    }
     transform-origin: left top;
   }
 
@@ -1405,6 +1473,33 @@ $breakpoint: 1280px;
       color: $color-black;
       font-size: 14px;
       line-height: 1;
+    }
+  }
+
+  &__content {
+    
+    &-list {
+      margin-top: 20px;
+      @media (min-width: $breakpoint) {
+        margin-top: 30px;
+      }
+    }
+
+    &-item {
+      color: $color-black;
+      font-size: 13px;
+      @media (min-width: $breakpoint) {
+        font-size: 15px;
+
+        :not(:first-child) {
+          margin-top: 15px;
+        }
+      }
+      line-height: 1.2;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
     }
   }
 
