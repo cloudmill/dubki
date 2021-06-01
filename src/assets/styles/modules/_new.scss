@@ -1415,7 +1415,7 @@ $breakpoint: 1280px;
       }
 
       #{$comp}__img {
-        transform: scale(0.5);
+        transform: scale(0.4);
         @media (min-width: $breakpoint) {
           transform: scale(0.7);
         }
