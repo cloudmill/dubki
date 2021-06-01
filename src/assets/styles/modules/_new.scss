@@ -263,6 +263,13 @@ $breakpoint: 1280px;
 
   }
 
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+    }
+  }
+
   &__frame {
     padding-top: 60px;
     @media (min-width: $breakpoint) {
@@ -359,6 +366,16 @@ $breakpoint: 1280px;
       font-size: 70px;
     }
     line-height: 0.8;
+
+    &--m {
+      color: $color-black;
+      font-weight: 900;
+      font-size: 24px;
+      @media (min-width: $breakpoint) {
+        font-size: 50px;
+      }
+      line-height: 0.8;
+    }
   }
 
   &__text {
