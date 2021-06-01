@@ -235,14 +235,13 @@ $breakpoint: 1280px;
 
 .section {
   
-
   background-color: $color-grey;
 
   &--grey {
-    color: $color-catalog-grey;
+    background-color: $color-catalog-grey;
   }
 
-  &--padding {
+  &--catalog {
     padding-top: 40px;
     @media (min-width: $breakpoint) {
       padding-top: 100px;
@@ -865,8 +864,6 @@ $breakpoint: 1280px;
   }
 
   &__wrapper {
-    
-
     display: flex;
     align-items: flex-end;
   }
@@ -885,16 +882,22 @@ $breakpoint: 1280px;
     justify-content: center;
     position: relative;
     z-index: 0;
-    // opacity: 0;
 
     transition: .4s;
 
     background-color: $color-white;
     border-radius: 137px;
 
-    &--visible {
-      opacity: 1;
+    &--catalog {
+      width: 50%;
+      height: 241px;
+      @media (min-width: $breakpoint) {
+        width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
+        height: 350px;
+      }
+
     }
+    
 
     &--big {
       @media (min-width: $breakpoint) {
@@ -951,6 +954,13 @@ $breakpoint: 1280px;
         font-size: 28px;
         line-height: .8;
         color: $color-black;
+
+        &--catalog {
+          font-size: 20px;
+          @media (min-width: $breakpoint) {
+            font-size: 28px;
+          }
+        }
       }
     }
 
@@ -961,6 +971,27 @@ $breakpoint: 1280px;
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      &--catalog {
+        padding: 0 10px;
+
+        height: 100%;
+      }
+    }
+
+    &__frame {
+      margin-top: 20px;
+      @media (min-width: $breakpoint) {
+        margin-top: 30px;
+      }
+
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+      border-radius: 50%;
     }
 
 
@@ -968,6 +999,10 @@ $breakpoint: 1280px;
       width: 129px;
       height: 91px;
       flex-shrink: 0;
+      
+      &--catalog {
+        flex-shrink: 0;
+      }
     }
 
     &__text {
@@ -979,6 +1014,15 @@ $breakpoint: 1280px;
       font-size: 13px;
       line-height: 1.2;
       color: $color-black;
+
+      &--catalog {
+        margin-top: 0;
+
+        font-size: 10px;
+        @media (min-width: $breakpoint) {
+          font-size: 15px;
+        }
+      }
     }
 
     &__price {
@@ -999,12 +1043,27 @@ $breakpoint: 1280px;
         text-decoration: line-through;
 
       }
+
+      &--catalog {
+
+        font-size: 10px;
+        @media (min-width: $breakpoint) {
+          font-size: 15px;
+        }
+
+        span {
+          font-size: 10px;
+          @media (min-width: $breakpoint) {
+          font-size: 15px;
+          }
+        }
+      }
     }
   }
 }
 
 .banner {
-  
+  display: none;
 
   background-color: $color-banner-yellow;
   border-radius: 50px;
@@ -1067,9 +1126,9 @@ $breakpoint: 1280px;
 .block {
   
   &__inner {
-    margin-top: 40px;
+    padding-top: 40px;
     @media (min-width: $breakpoint) {
-    margin-top: 50px;
+    padding-top: 50px;
     }
   }
 
@@ -1110,6 +1169,7 @@ $breakpoint: 1280px;
         font-size: 16px;
       }
       line-height: 0.8;
+      cursor: pointer;
 
       &--active {
         font-weight: 700;
@@ -1155,6 +1215,10 @@ $breakpoint: 1280px;
 
   &__list {
       display: flex;
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 20px;
+      }
   }
 
   &__item {
@@ -1164,6 +1228,7 @@ $breakpoint: 1280px;
 
         border-radius: 20px;
         font-size: 16px;
+        cursor: pointer;
       }
 
       display: flex;
@@ -1183,4 +1248,58 @@ $breakpoint: 1280px;
         color: $color-white;
       }
     }
+}
+
+.catalog {
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    @media (min-width: $breakpoint) {
+      margin-top: 50px;
+      margin-left: calc(#{$grid-gap-d});
+    }
+
+    &:nth-child(-n + 6) {
+      margin-top: 0;
+    }
+
+    &:nth-child(6n + 1) {
+      margin-left: 0;
+    }
+  }
+
+  &__icon {
+    max-width: 54px;
+    max-height: 57px;
+    @media (min-width: $breakpoint) {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__wrapper {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 18px 30px;
+
+    color: $color-black;
+    font-size: 14px;
+    @media (min-width: $breakpoint) {
+      font-size: 16px;
+      border-radius: 20px;
+    }
+    line-height: 0.8;
+    border: 1px solid $color-light-grey;
+    border-radius: 15px;
+    cursor: pointer;
+  }
 }
