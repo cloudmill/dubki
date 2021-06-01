@@ -237,6 +237,8 @@ $breakpoint: 1280px;
   
   background-color: $color-grey;
 
+  
+
   &--grey {
     background-color: $color-catalog-grey;
   }
@@ -294,6 +296,18 @@ $breakpoint: 1280px;
       }
 
       border-radius: 0 0 70px  70px ;
+    }
+
+    &--white {
+      padding-top: 100px;
+
+      border-radius: 0 0 50px 50px;
+      @media (min-width: $breakpoint) {
+        padding-top: 200px;
+
+        border-radius: 0 0 170px 170px;
+      }
+      background-color: $color-white;
     }
   }
 
@@ -600,7 +614,6 @@ $breakpoint: 1280px;
   }
 }
 
-
 .header {
   $comp: &;
 
@@ -889,13 +902,36 @@ $breakpoint: 1280px;
     border-radius: 137px;
 
     &--catalog {
-      width: 50%;
+      margin-left: 11px;
+      margin-top: 15px;
+
       height: 241px;
       @media (min-width: $breakpoint) {
+        margin-top: 50px;
+        margin-left: calc(#{$grid-gap-d});
+
         width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
         height: 350px;
+
+        &:nth-child(-n + 6) {
+          margin-top: 0;
+        }
+
+        &:nth-child(6n + 1) {
+          margin-left: 0;
+        }
       }
 
+      @media (max-width: $breakpoint) {
+        &:nth-child(-n + 2) {
+          margin-top: 0;
+        }
+
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+        }
+      }
+      
     }
     
 
@@ -1132,6 +1168,13 @@ $breakpoint: 1280px;
     }
   }
 
+  &__wrapper {
+    padding-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+    }
+  }
+
   &__title {
     font-weight: 900;
     color: $color-black;
@@ -1258,18 +1301,7 @@ $breakpoint: 1280px;
   }
 
   &__card {
-    @media (min-width: $breakpoint) {
-      margin-top: 50px;
-      margin-left: calc(#{$grid-gap-d});
-    }
-
-    &:nth-child(-n + 6) {
-      margin-top: 0;
-    }
-
-    &:nth-child(6n + 1) {
-      margin-left: 0;
-    }
+    
   }
 
   &__icon {
@@ -1301,5 +1333,88 @@ $breakpoint: 1280px;
     border: 1px solid $color-light-grey;
     border-radius: 15px;
     cursor: pointer;
+  }
+}
+
+.action-catalog {
+  &__list {
+    display: flex;
+  }
+
+  &__card {
+    padding: 20px;
+
+    width: 100%;
+    @media (min-width: $breakpoint) {
+      padding: 30px;
+
+      width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+      height: 250px;
+    }
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    background-color: $color-white;
+    border-radius: 20px;
+  }
+
+  &__frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  &__img {
+    transform: scale(0.5);
+    transform-origin: left top;
+  }
+
+  &__discont {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    }
+
+    &-num {
+      margin-right: 7px;
+
+      color: $color-black;
+      font-weight: 900;
+      font-size: 28px;
+      line-height: 0.8;
+    }
+
+    &-text {
+      width: 60px;
+
+      color: $color-black;
+      font-size: 14px;
+      line-height: 1;
+    }
+  }
+
+  &__title {
+    color: $color-black;
+    font-weight: 700;
+    font-size: 16px;
+    @media (min-width: $breakpoint) {
+      font-size: 25px;  
+    }
+    line-height: 1.2;
   }
 }
