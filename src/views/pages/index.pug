@@ -55,6 +55,7 @@ mixin rotate-button-svg(className)
     clipPath(id="clip0")
       rect(width="30" height="30" fill="white")
 
+
 block header
   header.header 
     .container 
@@ -92,63 +93,64 @@ block header
 
 main.main
   block content
-    .section.section--top
-      .section__frame.section__frame--top
-        .section__layout 
-        .container 
-          .top
-            .top__content 
-              .top__button 
-                +rotate-button-svg('top__button-icon')
-              h3.top__title
-                |Сейчас по акции
-            .top__container.swiper-container
-              .top__wrapper.swiper-wrapper
-                - for (i = 0; i < 3; i++)
-                  .top-slide.top-slide--big.swiper-slide
-                    .top-slide__discont
-                      .top-slide__discont-icon
-                        +top-icon-svg
-                      .top-slide__discont-text
-                        |-25%
-                    .top-slide__container 
-                      img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
-                      p.top-slide__text 
-                        |Колбаса Балыковая ТМ Дубки, 1 кг
-                      .top-slide__price
-                        span 
-                          |760 ₽
-                        |610 ₽
+    .section
+      .section__inner
+        .section__frame.section__frame--top
+          .section__layout 
+          .container 
+            .top
+              .top__content 
+                .top__button 
+                  +rotate-button-svg('top__button-icon')
+                h3.top__title
+                  |Сейчас по акции
+              .top__container.swiper-container
+                .top__wrapper.swiper-wrapper
+                  - for (i = 0; i < 3; i++)
+                    .top-slide.top-slide--big.swiper-slide
+                      .top-slide__discont
+                        .top-slide__discont-icon
+                          +top-icon-svg
+                        .top-slide__discont-text
+                          |-25%
+                      .top-slide__container 
+                        img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
+                        p.top-slide__text 
+                          |Колбаса Балыковая ТМ Дубки, 1 кг
+                        .top-slide__price
+                          span 
+                            |760 ₽
+                          |610 ₽
 
-                  .top-slide.swiper-slide
-                    .top-slide__discont
-                      .top-slide__discont-icon
-                        +top-icon-svg
-                      .top-slide__discont-text
-                        |-40%
-                    .top-slide__container 
-                      img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
-                      p.top-slide__text 
-                        |Блинчики с творогом, 1 кг
-                      .top-slide__price
-                        span 
-                          |760 ₽
-                        |610 ₽
+                    .top-slide.swiper-slide
+                      .top-slide__discont
+                        .top-slide__discont-icon
+                          +top-icon-svg
+                        .top-slide__discont-text
+                          |-40%
+                      .top-slide__container 
+                        img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
+                        p.top-slide__text 
+                          |Блинчики с творогом, 1 кг
+                        .top-slide__price
+                          span 
+                            |760 ₽
+                          |610 ₽
 
-                  .top-slide.swiper-slide 
-                    .top-slide__discont
-                      .top-slide__discont-icon
-                        +top-icon-svg
-                      .top-slide__discont-text
-                        |-40%
-                    .top-slide__container 
-                      img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
-                      p.top-slide__text 
-                        |Колбаса Прованс ТМ Дубки, 1 кг
-                      .top-slide__price
-                        span 
-                          |760 ₽
-                        |610 ₽
+                    .top-slide.swiper-slide 
+                      .top-slide__discont
+                        .top-slide__discont-icon
+                          +top-icon-svg
+                        .top-slide__discont-text
+                          |-40%
+                      .top-slide__container 
+                        img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
+                        p.top-slide__text 
+                          |Колбаса Прованс ТМ Дубки, 1 кг
+                        .top-slide__price
+                          span 
+                            |760 ₽
+                          |610 ₽
 
     //card
     .section
