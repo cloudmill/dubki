@@ -1,4 +1,62 @@
 extends ../layouts/master.pug
 
 block content 
-  
+  .section--grey
+    .section__frame.section__frame--white
+      .container 
+        .block
+          .block__wrapper
+            h3.block__title 
+              |Рецепты
+            ul.block__list
+              li.block__item 
+                p.block__item-text 
+                  |Главная
+              li.block__item
+                .block__item-icon
+                  +leaflet-svg 
+                p.block__item-text.block__item-text--active
+                  |Рецепты
+
+  .section--grey.section--catalog 
+    .container 
+      .section__inner 
+        .recipes
+          .recipes__row 
+            .recipes__col
+              .recipes__text 
+                |Тип блюда
+              .recipes__button
+                select#type(name="")
+                  option(value="Все")
+                    |Все 
+            .recipes__col
+              .recipes__text 
+                  |Время готовки
+              .recipes__button
+                select#time(name="")
+                  option(value="Все")
+                    |Все 
+          .section--catalog 
+            .recipes__wrapper 
+              ul.recipes__list 
+                li.slider__item
+                        .slider__container
+                          .slider__frame
+                            img.slider__photo(src="assets/images/slider-1.jpg", alt="")
+                          .slider__info 
+                            .slider__time.slider__time--green
+                              .slider__icon
+                                +clock-svg
+                              |30 мин
+                            .slider__time
+                              |Завтрак
+                        h3.slider__title 
+                          |Пицца с грибами и колбасой
+
+
+  .grid-test
+      .container
+        .grid-test__row
+          - for (let i=0; i<18; i++)
+            .grid-test__col

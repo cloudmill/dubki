@@ -1707,3 +1707,37 @@ $breakpoint: 1280px;
     display: flex;
   }
 }
+
+.recipes {
+
+  &__row {
+    display: flex;
+  }
+
+  &__col {
+
+    &:nth-child(1) {
+      margin-right: calc(#{$grid-gap-m});
+      @media (min-width: $breakpoint) {
+        margin-right: calc(#{$grid-gap-d});
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    color: $color-black;
+    font-size: 16px;
+    @media (min-width: $breakpoint) {
+      font-size: 22px;
+    }
+    line-height: 0.8;
+  }
+
+  &__button {
+    margin-top: 15px;
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+  }
+}
