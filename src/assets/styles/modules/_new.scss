@@ -1872,10 +1872,22 @@ $breakpoint: 1280px;
   }
 
   &__item {
+    $comp: &;
+
     &:not(:first-child) {
       margin-left: 15px;
       @media (min-width: $breakpoint) {
         margin-left: calc(#{$grid-gap-d});
+      }
+    }
+
+    &--black {
+      #{$comp}-thumb {
+        border: 1px solid $color-black;
+      }
+
+      #{$comp}-icon--revers {
+        transform: rotate(-135deg);
       }
     }
 
@@ -2462,5 +2474,33 @@ $breakpoint: 1280px;
         margin-top: 15px;
       }
     }
+  }
+}
+
+.similar-products {
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__col {
+    &:nth-child(2) {
+      width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d});
+      @media (max-width: $breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    color: $color-black;
+    font-size: 24px;
+    @media (min-width: $breakpoint) {
+      font-size: 50px;
+    }
+    line-height: 0.8;
   }
 }

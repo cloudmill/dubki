@@ -212,10 +212,48 @@ block content
                 .button__wrapper.button__wrapper--alt
                   +cursor-svg('button__icon') 
 
+  .section--grey 
+    .container 
+      .similar-products 
+        .similar-products__row 
+          .similar-products__col
+            h3.similar-products__title 
+              |Похожие товары
+          .similar-products__col
+            .product-card 
+              .product-card__item.product-card__item--black
+                .product-card__item-thumb
+                  .product-card__item-button 
+                    +cursor-svg('product-card__item-icon product-card__item-icon--revers')
+              .product-card__item.product-card__item--black
+                .product-card__item-thumb 
+                  .product-card__item-button 
+                    +cursor-svg('product-card__item-icon')
+  
+  .section--grey.section--catalog
+    .container 
+      .section__inner 
+        .swiper-container
+          .swiper-wrapper 
+            - for (i = 0; i < 6; i++)
+              .swiper-slide.top-slide.top-slide--catalog
+                .top-slide__discont
+                  .top-slide__discont-icon
+                    +top-icon-svg('catalog__icon')
+                  .top-slide__discont-text.top-slide__discont-text--catalog
+                    |-40%
+                .top-slide__container.top-slide__container--catalog
+                  .top-slide__frame
+                    img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
+                  p.top-slide__text.top-slide__text--catalog
+                    |Ветчина из Говядины ТМ Русские колбасы, 1 кг
+                  .top-slide__price.top-slide__price--catalog
+                    span 
+                      |760 ₽
+                    |610 ₽
 
-
-  .grid-test
-    .container
-      .grid-test__row
-        - for (let i=0; i<18; i++)
-          .grid-test__col
+  //- .grid-test
+  //-   .container
+  //-     .grid-test__row
+  //-       - for (let i=0; i<18; i++)
+  //-         .grid-test__col
