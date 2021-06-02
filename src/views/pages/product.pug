@@ -2,7 +2,7 @@ extends ../layouts/master.pug
 
 block content 
   .section--grey 
-    .section__frame.section__frame--white
+    .section__frame.section__frame--product
       .section__layout 
       .container 
         .section__wrapper 
@@ -90,11 +90,170 @@ block content
                           |760 ₽
                         .product__price-new
                           |610 ₽
+                .product__link 
+                  a.button(href="#") 
+                    |Купить в интернет-магазине
 
+  .section--grey 
+    .container 
+      .section__inner
+        .info 
+          .info__inner 
+            .info__description
+              .info__description-container 
+                p.info__description-text 
+                  |Сырокопченая колбаса из свинины с добавлением филе куриных грудок. 
+                p.info__description-text 
+                  |Букет специй: красная паприка, перец, свежий чеснок и любисток. 
+                p.info__description-text 
+                  |Идеальное украшение для праздничного стола.
+          .info__inner 
+            .info__structure
+              h3.info__title 
+                |Состав
+              .info__wrapper
+                p.info__text 
+                  |Молоко нормализованное, закваска для творога. Количество молочнокислых микроорганизмов КОЕ в 1 г продукта в течение срока годности - не менее 106   
+          .info__inner 
+            .info-card 
+              .info-card__row 
+                .info-card__col
+                  .info-card__card.info-card__card--green
+                    .info-card__frame 
+                      .info-card__layot
+                    .info-card__container
+                      .info-card__content 
+                        .info-card__item.info-card__item--first 
+                          p.info-card__item-text 
+                            |Энергетическая ценность, кКал
+                          .info-card__item-num 
+                            |100
+                        ul.info-card__list 
+                          li.info-card__item 
+                            p.info-card__item-text 
+                              |Белки, г
+                            .info-card__item-num 
+                              |12
+                          li.info-card__item 
+                            p.info-card__item-text 
+                              |Жиры, г
+                            .info-card__item-num 
+                              |34
+                          li.info-card__item 
+                            p.info-card__item-text 
+                              |Углеводы, г
+                            .info-card__item-num 
+                              |67
+          
+                .info-card__col 
+                  .info-card__card.info-card__card--yellow
+                    .info-card__frame 
+                      .info-card__layot
+                    .info-card__container
+                      .info-card__content.info-card__content--alt
+                        h4.info-card__content-title 
+                          |На 100 гр продукта % от суточной нормы КБЖУ
+                        .info-card__wrapper 
+                          ul.info-card__list.info-card__list--alt
+                            li.info-card__item 
+                              p.info-card__item-text 
+                                |Белки, г
+                              .info-card__item-num 
+                                |16%
+                            li.info-card__item 
+                              p.info-card__item-text 
+                                |Жиры, г
+                              .info-card__item-num 
+                                |0%
+                            li.info-card__item 
+                              p.info-card__item-text 
+                                |Углеводы, г
+                              .info-card__item-num 
+                                |1%
+                            li.info-card__item 
+                              p.info-card__item-text 
+                                |кКал
+                              .info-card__item-num 
+                                |6%
 
+          .info__inner 
+            .conditions 
+              .conditions__row 
+                .conditions__col
+                  h4.conditions__title 
+                    |Срок и условия хранения
+                .conditions__col
+                  .conditions__day 
+                    p.conditions__text 
+                      |Количество суток
+                    .conditions__num 
+                      |4
+                  .conditions__temp 
+                    p.conditions__text 
+                      |Температура
+                    .conditions__num 
+                      |4±2 ºС
+    
+  .section--grey
+    .container 
+      .section__inner 
+        .store-buttons
+          .store-buttons__row 
+            .store-buttons__col
+              .button--xl.button.button--m
+                .button__wrapper
+                  +cursor-svg('button__wrapper-icon') 
+                .button__text
+                  |Вернуться ко всем новостям
+            .store-buttons__col
+              .button--xl.button.button--m-yellow
+                .button__text
+                  |Вернуться ко всем новостям
+                .button__wrapper.button__wrapper--alt
+                  +cursor-svg('button__icon') 
 
-  .grid-test
-    .container
-      .grid-test__row
-        - for (let i=0; i<18; i++)
-          .grid-test__col
+  .section--grey 
+    .container 
+      .similar-products 
+        .similar-products__row 
+          .similar-products__col
+            h3.similar-products__title 
+              |Похожие товары
+          .similar-products__col
+            .product-card 
+              .product-card__item.product-card__item--black
+                .product-card__item-thumb
+                  .product-card__item-button 
+                    +cursor-svg('product-card__item-icon product-card__item-icon--revers')
+              .product-card__item.product-card__item--black
+                .product-card__item-thumb 
+                  .product-card__item-button 
+                    +cursor-svg('product-card__item-icon')
+  
+  .section--grey.section--catalog
+    .container 
+      .section__inner 
+        .swiper-container
+          .swiper-wrapper 
+            - for (i = 0; i < 6; i++)
+              .swiper-slide.top-slide.top-slide--catalog
+                .top-slide__discont
+                  .top-slide__discont-icon
+                    +top-icon-svg('catalog__icon')
+                  .top-slide__discont-text.top-slide__discont-text--catalog
+                    |-40%
+                .top-slide__container.top-slide__container--catalog
+                  .top-slide__frame
+                    img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
+                  p.top-slide__text.top-slide__text--catalog
+                    |Ветчина из Говядины ТМ Русские колбасы, 1 кг
+                  .top-slide__price.top-slide__price--catalog
+                    span 
+                      |760 ₽
+                    |610 ₽
+
+  //- .grid-test
+  //-   .container
+  //-     .grid-test__row
+  //-       - for (let i=0; i<18; i++)
+  //-         .grid-test__col
