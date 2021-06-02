@@ -308,6 +308,18 @@ $breakpoint: 1280px;
       background-color: $color-white;
     }
 
+    &--product {
+      padding-top: 100px;
+
+      border-radius: 0 0 50px 50px;
+      @media (min-width: $breakpoint) {
+        padding-top: 140px;
+
+        border-radius: 0 0 170px 170px;
+      }
+      background-color: $color-white;
+    }
+
     &--clear {
       display: flex;
       height: 370px;
@@ -2069,3 +2081,4 @@ $breakpoint: 1280px;
   }
 
 }
+
