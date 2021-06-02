@@ -20,12 +20,15 @@ $fs: 16px;
   font-weight: $font-weight;
 }
 // миксин для font-size и line-height
-// пример: @include fslh(22px, 120%);
+// пример: @include fsl(22px, 120%);
+// line-height можно не указывать, когда необходимо изменить только font-size
 // функционал: переводит из px в rem
 // начальный размер шрифта для вычисления rem -> $fs (тэг <html>)
-@mixin fslh($font-size, $line-height) {
+@mixin fsl($font-size, $line-height: null) {
   font-size: unquote("#{($font-size / $fs)}rem");
-  line-height: $line-height;
+  @if $line-height {
+    line-height: $line-height;
+  }
 }
 
 // colors
