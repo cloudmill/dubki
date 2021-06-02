@@ -23,20 +23,21 @@ block content
         .block__inner
           h3.block__title 
             |Мясная гастрономия
-          ul.block__list
-            li.block__item 
-              p.block__item-text 
-                |Главная
-            li.block__item
-              .block__item-icon
-                +leaflet-svg 
-              p.block__item-text 
-                |Акционный каталог
-            li.block__item
-              .block__item-icon 
-                +leaflet-svg 
-              p.block__item-text.block__item-text--active
-                |Мясная гастрономия
+          .block__list
+            ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text 
+                    |Акционный каталог
+                li.block-list__item
+                  .block-list__item-icon 
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list__item-text--active
+                    |Мясная гастрономия
             
   .section--grey.section--catalog
     .container 

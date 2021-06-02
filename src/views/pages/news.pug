@@ -8,15 +8,16 @@ block content
           .block__wrapper
             h3.block__title 
               |Новости
-            ul.block__list
-              li.block__item 
-                p.block__item-text 
-                  |Главная
-              li.block__item
-                .block__item-icon
-                  +leaflet-svg 
-                p.block__item-text.block__item-text--active
-                  |Новости
+            .block__list
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list__item-text--active
+                    |Новости
   .section--grey.section--catalog
     .container 
       .section__inner
