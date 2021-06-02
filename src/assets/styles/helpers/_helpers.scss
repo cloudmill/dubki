@@ -56,6 +56,22 @@ $grid-col-d: "((100vw - #{$grid-gap-d} * #{$grid-length-d - 1} - #{$grid-pad-d *
 
 $grid-part-d: "(#{$grid-col-d} + #{$grid-gap-d})";
 $grid-pard-m: "(#{$grid-col-m} + #{$grid-gap-m})";
+// параметры grid'a на сайте
+// за основу взято 100vw (боковой скроллбар страниц не учитываем)
+$col-count-m: 4;
+$col-count-d: 18;
+
+$col-pad-m: 15px;
+$col-pad-d: 60px;
+
+$col-gap-m: 15px;
+$col-gap-d: 20px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
 
 // breakpoints
 $breakpoint-m: 768px;
