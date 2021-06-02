@@ -22,41 +22,13 @@ block content
               
   .section--grey.section--catalog
     .container
-      .action-catalog
-        .action-catalog__row 
-          .action-catalog__card.action-catalog__card--big
-            .action-catalog__frame 
-              img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
-            .action-catalog__discont 
-              +top-icon-svg
-              .action-catalog__discont-content 
-                .action-catalog__discont-num
-                  |23
-                .action-catalog__discont-text
-                  |позиции по акции
-            .action-catalog__content
-              h4.action-catalog__title
-                |Мясная гастрономия
-              ul.action-catalog__content-list 
-                li.action-catalog__content-item 
-                  |Вареные колбасы
-                li.action-catalog__content-item 
-                  |Ветчина
-                li.action-catalog__content-item 
-                  |Деликатесы
-                li.action-catalog__content-item 
-                  |Копченые колбасы
-                li.action-catalog__content-item 
-                  |Паштеты
-                li.action-catalog__content-item 
-                  |Сардельки
-                li.action-catalog__content-item 
-                  |Сосиски  
-          ul.action-catalog__list 
-            - for (i = 0; i < 4; i++)
-              li.action-catalog__card.action-catalog__card--primary
+      .section__inner
+        .action-catalog
+          .action-catalog__row 
+            .action-catalog__col
+              .action-catalog__card.action-catalog__card--big
                 .action-catalog__frame 
-                  img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
+                  img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
                 .action-catalog__discont 
                   +top-icon-svg
                   .action-catalog__discont-content 
@@ -64,22 +36,53 @@ block content
                       |23
                     .action-catalog__discont-text
                       |позиции по акции
-                h4.action-catalog__title
-                  |Мясная гастрономия
-        ul.action-catalog__list.action-catalog__list--wide 
-          - for (i = 0; i < 9; i++)
-              li.action-catalog__card.action-catalog__card--secondary
-                .action-catalog__frame 
-                  img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
-                .action-catalog__discont 
-                  +top-icon-svg
-                  .action-catalog__discont-content 
-                    .action-catalog__discont-num
-                      |23
-                    .action-catalog__discont-text
-                      |позиции по акции
-                h4.action-catalog__title
-                  |Мясная гастрономия
+                .action-catalog__content
+                  h4.action-catalog__title
+                    |Мясная гастрономия
+                  ul.action-catalog__content-list 
+                    li.action-catalog__content-item 
+                      |Вареные колбасы
+                    li.action-catalog__content-item 
+                      |Ветчина
+                    li.action-catalog__content-item 
+                      |Деликатесы
+                    li.action-catalog__content-item 
+                      |Копченые колбасы
+                    li.action-catalog__content-item 
+                      |Паштеты
+                    li.action-catalog__content-item 
+                      |Сардельки
+                    li.action-catalog__content-item 
+                      |Сосиски  
+            .action-catalog__col
+              ul.action-catalog__list 
+                - for (i = 0; i < 4; i++)
+                  li.action-catalog__card.action-catalog__card--primary
+                    .action-catalog__frame 
+                      img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
+                    .action-catalog__discont 
+                      +top-icon-svg
+                      .action-catalog__discont-content 
+                        .action-catalog__discont-num
+                          |23
+                        .action-catalog__discont-text
+                          |позиции по акции
+                    h4.action-catalog__title
+                      |Мясная гастрономия
+          ul.action-catalog__list.action-catalog__list--wide 
+            - for (i = 0; i < 9; i++)
+                li.action-catalog__card.action-catalog__card--secondary
+                  .action-catalog__frame 
+                    img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
+                  .action-catalog__discont 
+                    +top-icon-svg
+                    .action-catalog__discont-content 
+                      .action-catalog__discont-num
+                        |23
+                      .action-catalog__discont-text
+                        |позиции по акции
+                  h4.action-catalog__title
+                    |Мясная гастрономия
 
 
 
