@@ -46,8 +46,8 @@ module.exports = env => {
 			maxAssetSize: 512000
 		},
 		/*
-      Loaders with configurations
-    */
+			Loaders with configurations
+		*/
 		module: {
 			rules: [
 				{
@@ -60,7 +60,7 @@ module.exports = env => {
 					use: [
 						{
 							loader: 'babel-loader',
-							options: {presets: ['@babel/preset-env']}
+							options: { presets: ['@babel/preset-env'] }
 						}
 					]
 				},
@@ -81,7 +81,7 @@ module.exports = env => {
 					test: /\.scss$/,
 					use: [
 						env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
-						{loader: 'css-loader', options: {importLoaders: 1, sourceMap: true}},
+						{ loader: 'css-loader', options: { importLoaders: 1, sourceMap: true } },
 						{
 							loader: 'sass-loader',
 							options: {
@@ -171,9 +171,9 @@ module.exports = env => {
 		plugins: [
 			new CopyWebpackPlugin({
 				patterns: [
-					{from: 'assets/images/favicons/favicon.ico', to: 'assets/favicon.ico'},
-					{from: 'assets/images', to: 'assets/images'},
-					{from: 'assets/fonts', to: 'assets/fonts'},
+					// {from: 'assets/images/favicons/favicon.ico', to: 'assets/favicon.ico'},
+					{ from: 'assets/images', to: 'assets/images' },
+					{ from: 'assets/fonts', to: 'assets/fonts' },
 				]
 			}),
 
@@ -181,9 +181,9 @@ module.exports = env => {
 				minimizerOptions: {
 					cache: true,
 					plugins: [
-						['gifsicle', {interlaced: true}],
-						['jpegtran', {progressive: true}],
-						['optipng', {optimizationLevel: 5}],
+						['gifsicle', { interlaced: true }],
+						['jpegtran', { progressive: true }],
+						['optipng', { optimizationLevel: 5 }],
 						[
 							'svgo',
 							{
@@ -211,8 +211,8 @@ module.exports = env => {
 			}),
 
 			/*
-        Pages
-      */
+				Pages
+			*/
 			...utils.pages(env.NODE_ENV),
 
 			new HtmlBeautifyPlugin({

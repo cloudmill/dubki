@@ -1,0 +1,11 @@
+// основной шрифт 'CeraPro' с чаще всего встречаюшимся начертанием (font-weight)
+@mixin font-main() {
+  font-family: $ff-main;
+  font-weight: 700;
+}
+
+// альтернативный(второй) шрифт 'TTRamillas' с чаще всего встречаюшимся начертанием (font-weight)
+@mixin font-alt() {
+  font-family: $ff-alt;
+  font-weight: 900;
+}
