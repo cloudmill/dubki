@@ -248,7 +248,6 @@ $breakpoint: 1280px;
     }
   }
 
-
   &--header {
     padding-top: 100px;
     @media (min-width: $breakpoint) {
@@ -475,6 +474,7 @@ $breakpoint: 1280px;
   line-height: 0.8;
   border-radius: 15px;
   text-decoration: none;
+  cursor: pointer;
 
   &--s {
     padding: 18px 30px;
@@ -508,8 +508,32 @@ $breakpoint: 1280px;
     border: 1px solid $color-light-green;
   }
 
+  &--m {
+    width: 100%;
+  }
+
+  &--m-yellow {
+    padding: 19px 0;
+    @media (min-width: $breakpoint) {
+      padding: 29px 0;
+    }
+    width: 100%;
+
+    border: none;
+    background-color: $color-yellow;
+  }
+
   &__wrapper {
     margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--alt {
+      margin-right: 0;
+      margin-left: 10px;
+    }
 
     &-icon {
       transform: rotate(-135deg);
@@ -517,6 +541,14 @@ $breakpoint: 1280px;
       path {
         stroke: $color-black;
       }
+    }
+  }
+
+  &__icon {
+    transform: rotate(45deg);
+    
+    path {
+      stroke: $color-black;
     }
   }
 }
@@ -2272,6 +2304,9 @@ $breakpoint: 1280px;
           width: 100%;
 
           border-top: 1px solid #BEB034;
+          @media (min-width: $breakpoint) {
+            border-top: none;
+          }
           border-left: none;
           @media (min-width: $breakpoint) {
             width: calc(100% / 4);
@@ -2331,6 +2366,101 @@ $breakpoint: 1280px;
   &__wrapper {
     @media (min-width: $breakpoint) {
       margin-top: 41px;
+    }
+  }
+}
+
+.conditions {
+  @media (min-width: $breakpoint) {
+    margin: 0 auto;
+
+    width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+  }
+  
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+
+  &__col {
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 5);
+      }
+    }
+
+    &:nth-child(2) {
+      display: flex;
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    color: $color-black;
+    font-size: 18px;
+    @media (min-width: $breakpoint) {
+      font-size: 25px;
+    }
+    line-height: 0.8;
+  }
+
+  &__day {
+    width: 50%;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 3);
+    }
+  }
+
+  &__temp {
+    width: 50%;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d});
+    }
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    color: $color-black;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  &__num {
+    font-weight: 700;
+    color: $color-black;
+    font-size: 16px;
+    line-height: 1;
+  }
+}
+
+.store-buttons {
+  
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__col {
+    width: 100%;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
+    }
+    flex-shrink: 0;
+
+    &:nth-child(2) {
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 15px;
+      }
     }
   }
 }
