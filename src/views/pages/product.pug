@@ -1,3 +1,100 @@
 extends ../layouts/master.pug
 
 block content 
+  .section--grey 
+    .section__frame.section__frame--white
+      .section__layout 
+      .container 
+        .section__wrapper 
+          .row 
+            .row__col 
+              .product-card 
+                .product-card__col 
+                  .product-card__thumbs 
+                    ul.product-card__list 
+                      li.product-card__item 
+                        .product-card__item-thumb 
+                          img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
+                      li.product-card__item 
+                        .product-card__item-thumb 
+                          img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
+                      li.product-card__item 
+                        .product-card__item-thumb 
+                          img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
+                      li.product-card__item 
+                        .product-card__item-thumb 
+                          .product-card__item-button 
+                            +cursor-svg('product-card__item-icon')
+
+                  .product-card__video 
+                    .product-card__video-text 
+                      |Видео-обзор продукта
+                    .product-card__video-wrapper 
+                      .product-card__video-button 
+                        +play-svg('product-card__video-icon')
+                .product-card__col
+                  .top-slide.top-slide--product
+                    .top-slide__discont
+                      .top-slide__discont-icon
+                        +top-icon-svg
+                      .top-slide__discont-text
+                        |-30%
+                    img.top-slide__image--product(src="assets/images/top-slide-1.jpg", alt="")
+            .row__col
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text 
+                    |Акционный каталог
+                li.block-list__item
+                  .block-list__item-icon 
+                    +leaflet-svg 
+                  p.block-list__item-text
+                    |Мясная гастрономия
+                li.block-list__item
+                  .block-list__item-icon 
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list__item-text--active
+                    |Мясная гастрономия
+              .product 
+                h3.product__title 
+                  |Колбаса Прованс с крупным шпиком ТМ Дубки, 1 кг
+                .product__wrapper 
+                  .product__row 
+                    .product__col
+                      .product__info
+                        .product__text 
+                          |Артикул
+                        .product__text.product__text--bold
+                          |10345
+                      .product__city
+                        .product__text 
+                          |Цена для города
+                        .product__city-item
+                          .product__city-name 
+                            |Саратов
+                          .product__city-img 
+                            +arrow-svg
+                    .product__col
+                      .product__info
+                        .product__text 
+                          |Производитель
+                        .product__text.product__text--bold
+                          |ТМ Дубки
+                      .product__price 
+                        .product__price-old
+                          |760 ₽
+                        .product__price-new
+                          |610 ₽
+
+
+
+  .grid-test
+    .container
+      .grid-test__row
+        - for (let i=0; i<18; i++)
+          .grid-test__col
