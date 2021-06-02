@@ -1840,13 +1840,17 @@ $breakpoint: 1280px;
   @media (min-width: $breakpoint) {
     justify-content: space-between;
   }
+
+  @media (max-width: $breakpoint - 1px) {
+    flex-direction: column;
+    align-items: center;
+  }
   
   &__col {
     flex-shrink: 0;
-    width: 100%;
-
+    display: flex;
     &:nth-child(1) {
-      display: flex;
+      width: 100%;
       @media (min-width: $breakpoint) {
         width: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
         flex-direction: column;
@@ -1854,16 +1858,26 @@ $breakpoint: 1280px;
       }
 
       @media (max-width: $breakpoint - 1px) {
+        margin-top: 15px;
+
+        order: 2;
         justify-content: center;
       }
     }
 
     &:nth-child(2) {
+      width: 345px;
       @media (min-width: $breakpoint) {
         margin-left: calc(#{$grid-gap-d});
 
         width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
       } 
+
+      @media (max-width: $breakpoint) {
+        margin-top: 30px;
+
+        order: 1;
+      }
     }
   }
   
@@ -1929,6 +1943,10 @@ $breakpoint: 1280px;
   &__video {
     @media (min-width: $breakpoint) {
       margin-left: auto;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
     }
 
     &-text {
