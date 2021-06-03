@@ -1070,24 +1070,10 @@ body > .wrapper { // ?
   border-radius: 137px;
 
   &--catalog {
-    margin-left: 11px;
-    margin-top: 15px;
-
     height: 241px;
     @media (min-width: $breakpoint) {
-      margin-top: 50px;
-      margin-left: calc(#{$grid-gap-d});
-
       width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
       height: 350px;
-
-      &:nth-child(-n + 6) {
-        margin-top: 0;
-      }
-
-      &:nth-child(6n + 1) {
-        margin-left: 0;
-      }
     }
 
     @media (max-width: $breakpoint) {
@@ -1554,6 +1540,24 @@ body > .wrapper { // ?
   &__list {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-left: 11px;
+    margin-top: 15px;
+
+    @media (min-width: $breakpoint) {
+      margin-top: 50px;
+      margin-left: calc(#{$grid-gap-d});
+    }
+
+    &:nth-child(-n + 6) {
+      margin-top: 0;
+    }
+
+      &:nth-child(6n + 1) {
+      margin-left: 0;
+    }
   }
 
 
@@ -2243,8 +2247,8 @@ body > .wrapper { // ?
     }
 
     &-text {
-      color: $color-black;
       font-style: italic;
+      font-weight: 400;
       font-size: 16px;
       @media (min-width: $breakpoint) {
         font-size: 22px;
@@ -2252,9 +2256,9 @@ body > .wrapper { // ?
       line-height: 1.4;
 
       &:nth-child(1) {
-        padding-left: 30px;
+        text-indent: 30px;
         @media (min-width: $breakpoint) {
-          padding-left: 60px;
+          text-indent: 60px;
         }
       }
     }
@@ -2591,3 +2595,4 @@ body > .wrapper { // ?
     line-height: 0.8;
   }
 }
+
