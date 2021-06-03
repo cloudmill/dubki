@@ -19,6 +19,8 @@
     @media (min-width: $breakpoint) {
       width: calc(#{$col-width-d});
     }
+
+    background-color: rgba($color: black, $alpha: 0.1);
     flex-shrink: 0;
     min-height: 100vh;
 
