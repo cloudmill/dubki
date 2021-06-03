@@ -1921,6 +1921,12 @@ body > .wrapper { // ?
       }
     }
 
+    &--button {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+
     &-thumb {
       width: 51px;
       height: 51px;
