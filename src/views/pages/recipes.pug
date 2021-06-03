@@ -1,5 +1,11 @@
 extends ../layouts/master.pug
 
+include ../components/_header.pug
+include ../components/_footer.pug
+
+block header 
+  +header
+
 block content 
   .section--grey
     .section__frame.section__frame--white
@@ -8,15 +14,16 @@ block content
           .block__wrapper
             h3.block__title 
               |Рецепты
-            ul.block__list
-              li.block__item 
-                p.block__item-text 
-                  |Главная
-              li.block__item
-                .block__item-icon
-                  +leaflet-svg 
-                p.block__item-text.block__item-text--active
-                  |Рецепты
+            .block__list
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list_item-text--active
+                    |Рецепты
 
   .section--grey.section--catalog 
     .container 
@@ -40,23 +47,30 @@ block content
           .section--catalog 
             .recipes__wrapper 
               ul.recipes__list 
-                li.slider__item
-                        .slider__container
-                          .slider__frame
-                            img.slider__photo(src="assets/images/slider-1.jpg", alt="")
-                          .slider__info 
-                            .slider__time.slider__time--green
-                              .slider__icon
-                                +clock-svg
-                              |30 мин
-                            .slider__time
-                              |Завтрак
-                        h3.slider__title 
-                          |Пицца с грибами и колбасой
-
+                - for (i = 0; i < 9; i++)
+                  li.recipes__item
+                    .slider__item
+                      .slider__container
+                        .slider__frame
+                          img.slider__photo(src="assets/images/slider-1.jpg", alt="")
+                        .slider__info 
+                          .slider__time.slider__time--green
+                            .slider__icon
+                              +clock-svg
+                            |30 мин
+                          .slider__time
+                            |Завтрак
+                      h3.slider__title.slider__title--black
+                        |Пицца с грибами и колбасой
+              .wrapper 
+                .button--s
+                  |Показать еще
 
   .grid-test
-      .container
-        .grid-test__row
-          - for (let i=0; i<18; i++)
-            .grid-test__col
+    .container
+      .grid-test__row
+        - for (let i=0; i<18; i++)
+          .grid-test__col
+
+block footer 
+  +footer
