@@ -868,7 +868,6 @@ body > .wrapper { // ?
 }
 
 .slider {
-  
 
   &__inner {
     display: flex;
@@ -1435,6 +1434,21 @@ body > .wrapper { // ?
     }
   }
 
+  &--hidden {
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
   &__item {
     display: flex;
     align-items: center;
@@ -1951,17 +1965,27 @@ body > .wrapper { // ?
       display: none;
     }
 
-    &-text {
-      margin: 0 auto;
+    &--mobile {
+      margin-bottom: 30px;
 
-      width: 90px;
-      text-align: center;
+      display: flex;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+
+    &-text {
+
+      width: calc(#{$grid-pard-m});
 
       color: $color-black;
       font-weight: 700;
       font-size: 14px;
       @media(min-width: $breakpoint) {
+        margin: 0 auto;
+
         width: 105px;
+        text-align: center;
 
         font-size: 16px;
       }
@@ -1969,9 +1993,12 @@ body > .wrapper { // ?
     }
 
     &-wrapper {
+      margin-left: calc(#{$grid-col-m});
+
       padding: 12px 0;
       @media (min-width: $breakpoint) {
         padding: 18px 0;
+        margin-left: 0;        
         margin-top: 20px;
 
         width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d});
@@ -2057,7 +2084,16 @@ body > .wrapper { // ?
   }
 
   &__row {
-    display: flex;
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+
+    &--mobile {
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
   }
 
   &__col {
@@ -2068,12 +2104,26 @@ body > .wrapper { // ?
         width: calc(#{$grid-part-d} * 2);
       }
     }
+
+    &--mobile {
+      display: flex;
+
+      &:nth-child(1) {
+        margin-bottom: 30px;
+      }
+    }
   }
   
   &__info {
-    margin-bottom: 30px;
     @media (min-width: $breakpoint) {
       margin-bottom: 40px;
+    }
+
+    &:nth-child(1) {
+      @media (max-width: $breakpoint - 1px) {
+        width: calc(#{$grid-pard-m});
+        flex-shrink: 0;
+      }
     }
   }
 
@@ -2093,6 +2143,10 @@ body > .wrapper { // ?
   }
 
   &__city {
+    @media (max-width: $breakpoint - 1px) {
+      width: 50%;
+      flex-shrink: 0;
+    }
 
     &-item {
       margin-top: 10px;
@@ -2119,6 +2173,10 @@ body > .wrapper { // ?
   &__price {
     display: flex;
     align-items: flex-start;
+    @media (max-width: $breakpoint - 1px) {
+      width: 50%;
+      flex-shrink: 0;
+    }
 
     &-old {
       color: $color-light-grey;

@@ -5,7 +5,26 @@ block content
     .section__frame.section__frame--product
       .section__layout 
       .container 
-        .section__wrapper 
+        .section__wrapper
+          ul.block-list.block-list--mobile
+            li.block-list__item 
+              p.block-list__item-text 
+                |Главная
+            li.block-list__item
+              .block-list__item-icon
+                +leaflet-svg 
+              p.block-list__item-text 
+                |Акционный каталог
+            li.block-list__item
+              .block-list__item-icon 
+                +leaflet-svg 
+              p.block-list__item-text
+                |Мясная гастрономия
+            li.block-list__item
+              .block-list__item-icon 
+                +leaflet-svg 
+              p.block-list__item-text.block-list__item-text--active
+                |Мясная гастрономия 
           .row 
             .row__col 
               .product-card 
@@ -41,7 +60,7 @@ block content
                         |-30%
                     img.top-slide__image--product(src="assets/images/top-slide-1.jpg", alt="")
             .row__col
-              ul.block-list
+              ul.block-list.block-list--hidden
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -90,6 +109,38 @@ block content
                           |760 ₽
                         .product__price-new
                           |610 ₽
+                  .product__row--mobile 
+                    .product__col--mobile
+                      .product__info
+                        .product__text 
+                          |Артикул
+                        .product__text.product__text--bold
+                          |10345
+                      .product__info
+                        .product__text 
+                          |Производитель
+                        .product__text.product__text--bold
+                          |ТМ Дубки
+                    .product__col--mobile
+                      .product__city
+                        .product__text 
+                          |Цена для города
+                        .product__city-item
+                          .product__city-name 
+                            |Саратов
+                          .product__city-img 
+                            +arrow-svg
+                      .product__price 
+                        .product__price-old
+                          |760 ₽
+                        .product__price-new
+                          |610 ₽
+                .product-card__video--mobile
+                  .product-card__video-text 
+                    |Видео-обзор продукта
+                  .product-card__video-wrapper 
+                    .product-card__video-button 
+                      +play-svg('product-card__video-icon')
                 .product__link 
                   a.button(href="#") 
                     |Купить в интернет-магазине
