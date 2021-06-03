@@ -1,11 +1,3 @@
-.container {
-  padding: 0 15px;
-  @media (min-width: $breakpoint) {
-    padding: 0 60px;
-  }
-  width: 100%;
-}
-
 .footer {
   background-color: $color-light-green;
 
@@ -35,28 +27,28 @@
   }
 
   &__nav {
-    margin-bottom: 40px;
-    height: 174px;
+    margin-bottom: 40px; 
+    height: 160px;
+    flex-shrink: 0;
+
     @media (min-width: $breakpoint) {
-      padding: 60px 0;
-
       margin-bottom: 0;
-      width: calc((#{$grid-part-d}) * 13);
-      min-height: 268px;
+      padding: 60px 0;        
+      width: calc((#{$col-part-d}) * 13);
+      height: 280px;
+      display: flex;
+      align-items: center;
 
-      border: 1px solid rgba($color-white, 0.2);
+      border: 1px solid rgba($color-white, 0.2); // ? можно вынести в отдельный цвет
       border-radius: 240px;
     }
-    flex-shrink: 0;
   }
 
   &__list {
     @media (min-width: $breakpoint) {
       padding-left: calc(#{$grid-part-d});
-
-      height: 151px;
     }
-    height: 170px;
+    max-height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -69,19 +61,19 @@
       margin-bottom: 20px;
       @each $index in (1, 2, 3) {
         &:nth-child(#{$index}) {
-          width: calc((#{$grid-part-d}) * 5);
+          width: calc((#{$col-part-d}) * 5);
         }
       }
 
       @each $index in (4, 5, 6) {
         &:nth-child(#{$index}) {
-          width: calc((#{$grid-part-d}) * 4);
+          width: calc((#{$col-part-d}) * 4);
         }
       }
 
       @each $index in (7, 8, 9) {
         &:nth-child(#{$index}) {
-          width: calc((#{$grid-part-d}) * 3);
+          width: calc((#{$col-part-d}) * 3);
         }
       }
 
@@ -94,27 +86,25 @@
     flex-shrink: 0;
 
     @media (max-width: $breakpoint - 1px) {
-      width: calc((100vw - (#{$grid-gap-m}* 2)) / 2);
+      margin-left: $col-gap-m;
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
 
       &:nth-child(5n) {
         margin-bottom: 0;
       }
 
       &:nth-child(-n + 5) {
-        margin-right: 20px;
+        margin-left: 0;
       }
     }
   }
 
   &__link {
-    text-decoration: none;
     color: $color-white;
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 19px;
+    @include f-alt();
+    @include fsl(16px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 30px;
-      line-height: 36px;
+      @include fsl(30px);
     }
   }
 

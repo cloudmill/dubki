@@ -1,0 +1,35 @@
+mixin header()
+  header.header
+    .container
+      .header__row
+        .header__catalog
+          .header__catalog-button
+            .header__catalog-text
+              |Акционный каталог
+            .header__catalog-icon
+              +arrow-svg
+        .header__store
+          .header__store-button 
+            .header__store-text 
+              |Интернет-магазин
+            .header__store-icon
+              +cursor-svg
+        .header__logo
+          a.header__logo-link(href="#")
+            +logo-svg
+        .header__city
+          .header__city-button 
+            .header__city-text 
+              |Саратов
+            .header__city-icon
+              +arrow-svg('header__arrow')
+        .header__nav
+          a.header__nav-link(href="#") 
+            |Где купить
+        .header__search
+          .header__search-button 
+            +search-svg('header__search-icon')
+        .header__menu
+          .header__menu-button
+            +menu-svg
+

@@ -1,0 +1,86 @@
+// здесь переменные и миксины(связка), по категориям
+
+// font
+// семейства
+$ff-main: 'CeraPro', sans-serif;
+$ff-alt: 'TTRamillas', serif;
+// начальный размер (тэг <html>)
+$fs: 16px;
+// миксины для установки семейства шрифта (с часто используемым начертанием(font-weight))
+// пример: в основном используется 'CeraPro', в случае, когда требуется 'TTRamillas'
+// указываем @include $f-alt();
+// если начертание не 900 (по-умолчание)
+// то можем сразу указать @include $f-alt(700);
+@mixin f-main($font-weight: 700) {
+  font-family: $ff-main;
+  font-weight: $font-weight;
+}
+@mixin f-alt($font-weight: 900) {
+  font-family: $ff-alt;
+  font-weight: $font-weight;
+}
+// миксин для font-size и line-height
+// пример: @include fsl(22px, 120%);
+// line-height можно не указывать, когда необходимо изменить только font-size
+// функционал: переводит из px в rem
+// начальный размер шрифта для вычисления rem -> $fs (тэг <html>)
+@mixin fsl($font-size, $line-height: null) {
+  font-size: unquote("#{($font-size / $fs)}rem");
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
+
+// colors
+$color-green: #009035;
+$color-light-green: #62b944;
+$color-white: #fff;
+$color-yellow: #ffe401;
+$color-banner-yellow: #FFF283;
+$color-grey: #f5f5f5;
+$color-light-grey: #A7B7A2;
+$color-catalog-grey: #E5E5E5;
+$color-border-white: rgba($color-white, 0.2);
+$color-grey-white: #f6f6f6;
+$color-black: #2e322c;
+
+// grid
+$grid-pad-d: 60px;
+$grid-pad-m: 15px;
+
+$grid-gap-m: 15px;
+$grid-gap-d: 20px;
+
+$grid-length-m: 4;
+$grid-length-d: 18;
+
+$grid-col-m: "((100vw - #{$grid-gap-m} * #{$grid-length-m - 1} - #{$grid-pad-m * 2}) / #{$grid-length-m})";
+$grid-col-d: "((100vw - #{$grid-gap-d} * #{$grid-length-d - 1} - #{$grid-pad-d * 2}) / #{$grid-length-d})";
+
+$grid-part-d: "(#{$grid-col-d} + #{$grid-gap-d})";
+$grid-pard-m: "(#{$grid-col-m} + #{$grid-gap-m})";
+// параметры grid'a на сайте
+// за основу взято 100vw (боковой скроллбар страниц не учитываем)
+$col-count-m: 4;
+$col-count-d: 18;
+
+$col-pad-m: 15px;
+$col-pad-d: 60px;
+
+$col-gap-m: 15px;
+$col-gap-d: 20px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap-d} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
+
+// breakpoints
+$breakpoint-m: 768px;
+$breakpoint-t: 1024px;
+$breakpoint: 1280px; // основной, переходный (мобильный - десктоп) брейкпоинт
+$breakpoint-l: 1366px;
+$breakpoint-ll: 1440px;
+$breakpoint-xl: 1680px;
+$breakpoint-xxl: 1920px;
