@@ -566,6 +566,9 @@ body > .wrapper { // ?
     left: 0;
     bottom: 0;
 
+    background: url(assets/images/news-bg-1.jpg) center no-repeat;
+    background-size: cover;
+    
     filter: blur(10px);
   }
 
@@ -794,10 +797,12 @@ body > .wrapper { // ?
       }
     }
 
-    &:not(:last-child) {
-      margin-bottom: 15px;
+    @media (max-width: $breakpoint) {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
     }
-
+    
     @media (max-width: $breakpoint - 1px) {
       padding: 14px;
     }
@@ -1865,6 +1870,32 @@ body > .wrapper { // ?
     margin-top: 15px;
     @media (min-width: $breakpoint) {
       margin-top: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    @media (min-width: $breakpoint) {
+      margin-top: 80px;
+      margin-left: 20px;
+
+      &:nth-child(-n + 3) {
+        margin-top: 0;
+      }
+
+      &:nth-child(3n + 1) {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
     }
   }
 }
