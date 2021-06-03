@@ -873,6 +873,26 @@ body > .wrapper { // ?
     display: flex;
   }
 
+  &__item {
+    width: calc(#{$grid-pard-m} * 3 - #{$grid-gap-m});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+    }
+    flex-shrink: 0;
+
+    &--s {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+      }
+    }
+
+    &--m {
+      @media (min-width: $breakpoint) {
+        width: 419px;
+      }
+    }
+  }
+
   &__container {
     margin-bottom: 15px;
     @media (min-width: $breakpoint) {
@@ -884,27 +904,18 @@ body > .wrapper { // ?
   }
 
   &__frame {
-    width: 255px;
-    height: 265.56px;
-    @media (min-width: $breakpoint) {
-      width: 507px;
-      height: 528px;
-    }
+    width: 100%;
+    flex-shrink: 0;
     overflow: hidden;
 
     border-radius: 20px;
 
-    &--s {
+    &--recipes {
+      width: 345px;
+      height: 359px;
       @media (min-width: $breakpoint) {
-        width: 331px;
-        height: 345px;
-      }
-    }
-
-    &--m {
-      @media (min-width: $breakpoint) {
-        width: 419px;
-        height: 437px;
+        width: 507px;
+        height: 528px;
       }
     }
   }
@@ -968,13 +979,17 @@ body > .wrapper { // ?
   }
 
   &__title {
-    font-weight: 900;
+    @include f-alt(900);
     color: $color-white;
     font-size: 16px;
     @media (min-width: $breakpoint) {
       font-size: 30px;
     }
     line-height: 1.2;
+
+    &--black {
+      color: $color-black;
+    }
   }
 
   &__button {
@@ -986,7 +1001,6 @@ body > .wrapper { // ?
     }
   }
 }
-
 
 .top {
 
