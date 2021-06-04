@@ -1,10 +1,6 @@
 extends ../layouts/master.pug
 
-include ../components/_header.pug
-include ../components/_footer.pug
 
-block header 
-  +header
 
 block content 
   .section--grey
@@ -24,7 +20,6 @@ block content
                     +leaflet-svg 
                   p.block-list__item-text.block-list_item-text--active
                     |Рецепты
-
   .section--grey.section--catalog 
     .container 
       .section__inner 
@@ -33,23 +28,15 @@ block content
             .recipes__col
               .recipes__text 
                 |Тип блюда
-              .recipes__button
-                select#type(name="")
-                  option(value="Все")
-                    |Все 
             .recipes__col
               .recipes__text 
-                  |Время готовки
-              .recipes__button
-                select#time(name="")
-                  option(value="Все")
-                    |Все 
+                |Время готовки
           .section--catalog 
             .recipes__wrapper 
               ul.recipes__list 
                 - for (i = 0; i < 9; i++)
                   li.recipes__item
-                    .slider__item
+                    a.slider__item(href='#')
                       .slider__container
                         .slider__frame
                           img.slider__photo(src="assets/images/slider-1.jpg", alt="")
@@ -66,11 +53,9 @@ block content
                 .button--s
                   |Показать еще
 
-  .grid-test
-    .container
-      .grid-test__row
-        - for (let i=0; i<18; i++)
-          .grid-test__col
+
 
 block footer 
-  +footer
+  +footer({
+    mod: 'catalog-grey',
+  })

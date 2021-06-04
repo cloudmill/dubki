@@ -1664,6 +1664,8 @@ body > .wrapper { // ?
       border-radius: 15px;
       white-space: nowrap;
 
+      cursor: pointer;
+
       &:not(:first-child) {
         margin-left: 10px;
       }
@@ -2031,28 +2033,49 @@ body > .wrapper { // ?
   }
 
   &__list {
+    margin-top: -80px;
+    margin-left: -$col-gap-d;
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: -40px;
+      margin-left: -$col-gap-m;
+    }
     display: flex;
     flex-wrap: wrap;
   }
 
   &__item {
-    @media (min-width: $breakpoint) {
-      margin-top: 80px;
-      margin-left: 20px;
+    // @media (min-width: $breakpoint) {
+    //   margin-top: 80px;
+    //   margin-left: 20px;
 
-      &:nth-child(-n + 3) {
-        margin-top: 0;
-      }
+    //   &:nth-child(-n + 3) {
+    //     margin-top: 0;
+    //   }
 
-      &:nth-child(3n + 1) {
-        margin-left: 0;
-      }
-    }
+    //   &:nth-child(3n + 1) {
+    //     margin-left: 0;
+    //   }
+    // }
 
+    // @media (max-width: $breakpoint - 1px) {
+    //   &:not(:first-child) {
+    //     margin-top: 40px;
+    //   }
+    // }
+    
+    width: calc((100% - #{$col-gap-d} * 3) / 3);
+    margin-left: $col-gap-d;
+    margin-top: 80px;
     @media (max-width: $breakpoint - 1px) {
-      &:not(:first-child) {
-        margin-top: 40px;
-      }
+      width: calc((100% - #{$col-gap-m} * 3) / 3);
+      margin-left: $col-gap-m;
+      margin-top: 40px;
+    }
+    @media (max-width: $breakpoint-t - 1px) {
+      width: calc((100% - #{$col-gap-m} * 2) / 2);
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      width: calc((100% - #{$col-gap-m} * 1) / 1);
     }
   }
 }
