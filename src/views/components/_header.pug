@@ -36,27 +36,36 @@ mixin header()
           .nav-modal__content
             .nav-modal__top
               ul.nav-modal__list
-                -
-                  var data = [
-                    'Где купить',
-                    'Поставщикам',
-                    'Арендодателям',
-                    'О компании',
-                    'Новости',
-                    'Рецепты',
-                    'Вакансии',
-                    'Контакты',
-                  ];
                 li.nav-modal__item
                   a.nav-modal__link(href="action-catalog.html")
                     |Акционный каталог
                 li.nav-modal__item
                   a.nav-modal__link(href="catalog.html")
                     |Каталог
-                each item in data
-                  li.nav-modal__item
-                    a.nav-modal__link(href="#")
-                      |#{item}
+                li.nav-modal__item
+                  a.nav-modal__link(href="#")
+                    |Где купить
+                li.nav-modal__item
+                  a.nav-modal__link(href="#")
+                    |Поставщикам
+                li.nav-modal__item
+                  a.nav-modal__link(href="#")
+                    |Арендодателям
+                li.nav-modal__item
+                  a.nav-modal__link(href="#")
+                    |О компании
+                li.nav-modal__item
+                  a.nav-modal__link(href="news.html")
+                    |Новости
+                li.nav-modal__item
+                  a.nav-modal__link(href="recipes.html")
+                    |Рецепты
+                li.nav-modal__item
+                  a.nav-modal__link(href="#")
+                    |Вакансии
+                li.nav-modal__item
+                  a.nav-modal__link(href="#")
+                    |Контакты
             .nav-modal__bottom
               .footer__text 
                 |По вопросам качества продукции
