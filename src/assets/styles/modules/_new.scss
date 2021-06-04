@@ -544,6 +544,7 @@ body > .wrapper { // ?
 }
 
 .section {
+  $comp: &;
   
   background-color: $color-grey;
 
@@ -593,6 +594,22 @@ body > .wrapper { // ?
     border-radius: 70px 0px 0px 0px;
 
     &--top {
+      position: relative;
+      z-index: 0;
+      
+      #{$comp}__layout {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-image: url('assets/images/top-background.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+
       padding-top: 175px;
       padding-bottom: 40px;
       @media (min-width: $breakpoint) {

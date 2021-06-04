@@ -58,8 +58,10 @@ import Swiper from "swiper/bundle";
 
         if (header.hasClass('header--nav-modal')) {
           header.removeClass('header--nav-modal');
+          navModalButton.removeClass('header__button-button--active');
         } else {
           header.addClass('header--nav-modal');
+          navModalButton.addClass('header__button-button--active');
         }
       });
 
@@ -71,6 +73,7 @@ import Swiper from "swiper/bundle";
           $(event.target).closest('.nav-modal').length === 0
         ) {
           header.removeClass('header--nav-modal');
+          navModalButton.removeClass('header__button-button--active');
         }
       });
     }
