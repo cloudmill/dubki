@@ -1472,8 +1472,6 @@ body>.wrapper {
       color: $color-white;
       line-height: 1;
     }
-
-
   }
 
   &__inner {
@@ -1558,6 +1556,17 @@ body>.wrapper {
     }
   }
 
+  &--straight {
+    #{$comp}__item {
+      &:not(:first-child) {
+        margin-left: 0;
+      }
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+  }
+
   &--hidden {
     @media (max-width: $breakpoint - 1px) {
       display: none;
@@ -1587,13 +1596,12 @@ body>.wrapper {
 
     &-text {
       color: $color-black;
-      font-size: 14px;
+      font-weight: 400;
+      @include fsl (14px, 80%);
 
       @media (min-width: $breakpoint) {
-        font-size: 16px;
+        @include fsl (16px, 80%);
       }
-
-      line-height: 0.8;
       cursor: pointer;
 
       &--active {
@@ -2936,5 +2944,63 @@ body>.wrapper {
 
       width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
     } 
+  }
+}
+
+.about {
+
+  &__inner {
+    padding-top: 60px;
+    padding-bottom: 100px; // Временно
+    @media (min-width: $breakpoint) {
+      padding-top: 150px;
+      padding-bottom: 300px;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__indent {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$grid-part-d} * 3);
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    @include f-alt();
+    @include fsl(30px, 110%);
+    @media (min-width: $breakpoint) {
+      @include fsl(60px, 110%);
+
+      width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
+    }
+
+    &-span {
+      color: $color-yellow;
+    }
+  }
+
+  &__subtitle {
+    color: $color-white;
+    font-style: italic;
+    @include fsl(22px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(34px, 120%);
+
+      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+    }
+  }
+
+  &__list {
+    padding-top: 30px;
+    @media (min-width: $breakpoint) {
+      padding-top: 40px;
+    }
   }
 }
