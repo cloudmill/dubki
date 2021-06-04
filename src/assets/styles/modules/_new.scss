@@ -2259,6 +2259,11 @@ body>.wrapper {
     align-items: center;
   }
 
+  &--alt {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__col {
     flex-shrink: 0;
     display: flex;
@@ -3255,6 +3260,7 @@ body>.wrapper {
       @include fsl(60px, 110%);
 
       width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
+      flex-shrink: 0;
     }
 
     &-span {
@@ -3270,6 +3276,7 @@ body>.wrapper {
       @include fsl(34px, 120%);
 
       width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+      flex-shrink: 0;
     }
   }
 
@@ -3315,6 +3322,130 @@ body>.wrapper {
   &__col {
     &:nth-child(1) {
       margin-right: 10px;
+    }
+  }
+}
+
+.shops {
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  &__col {
+
+    &:nth-child(1) {
+      margin-bottom: 15px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 0;
+
+        width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+        flex-shrink: 0;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__content {
+    background-color: $color-light-green;
+    border-radius: 0px 70px 0px 0px;
+    @media (min-width: $breakpoint) {
+      border-radius: 0px 210px 0px 0px; 
+    }
+  }
+
+  &__container {
+    padding: 30px;
+    @media (min-width: $breakpoint) {
+      padding: 80px calc(#{$grid-part-d});
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    @include f-alt();
+    @include fsl(20px, 110%);
+    @media (min-width: $breakpoint) {
+      @include fsl(35px, 110%);
+    }
+  }
+
+  &__wrapper {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 40px;
+    }
+  }
+
+  &__text {
+    color: $color-white;
+    font-weight: 400;
+    @include fsl(16px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 140%);
+    }
+  }
+
+  &-card {
+
+    &__container {
+      position: relative;
+    }
+
+    &__frame {
+      position: relative;
+      overflow: hidden;
+      @media (min-width: $breakpoint) {
+        height: 520px;
+      }
+    }
+  
+    &__image {
+      @media (min-width: $breakpoint) {
+        position: absolute;
+        z-index: 0;
+        top: 51px;
+        left: 85px;
+        transform: scale(1.2);
+
+        min-width: 100%;
+
+        border-radius: 210px 0px 0px 0px;
+      }
+      border-radius: 70px 0px 0px 0px;
+    }
+
+    &__buttons {
+      padding: 13px;
+      @media (min-width: $breakpoint) {
+        padding: 20px;
+
+        width: 186px;
+        height: 108px;
+        bottom: 20px;
+        left: 20px;
+
+        border-radius: 30px;
+      }
+      width: 120px;
+      height: 70px;
+      position: absolute;
+      z-index: 1;
+      bottom: 10px;
+      left: 10px;
+
+      background-color: $color-white;
+      border-radius: 20px;
     }
   }
 }
