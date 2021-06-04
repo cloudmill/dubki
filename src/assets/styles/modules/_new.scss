@@ -41,11 +41,39 @@ body > .wrapper { // ?
   right: 0;
   z-index: 1000;
 
-  margin-top: 15px;
-  height: 40px;
+  padding: 15px 0;
+  height: 70px;
   @media (min-width: $breakpoint) {
-    margin-top: 30px;
-    height: 70px;
+    padding: 30px 0;
+    height: 130px;
+  }
+
+  background-color: $color-light-green;
+  
+  &::before {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    content: '';
+    pointer-events: none;
+
+    background-color: rgba($color-black, 0.3);
+    opacity: 0;
+    transition: $transition;
+  }
+
+  &--nav-modal {
+    &::before {
+      opacity: 1;
+    }
+
+    .nav-modal {
+      transform: translateX(0);
+    }
   }
 
   &__row {
@@ -127,12 +155,15 @@ body > .wrapper { // ?
 
     &-link {
       display: flex;
-    }
+      align-items: center;
 
-    &-icon {
-      @media (max-width: $breakpoint - 1px) {
-        max-width: 103px;
-        max-height: 41px;
+      svg {
+        width: auto;
+        height: auto;
+        @media (max-width: $breakpoint - 1px) {
+          max-width: 103px;
+          max-height: 41px;
+        }
       }
     }
   }
@@ -152,6 +183,8 @@ body > .wrapper { // ?
       .header__arrow path { // ? можно заменить на &__arrow { path { ... у блока (не создавать зависимость)
         stroke: $color-white;
       }
+
+      cursor: pointer;
     }
 
     &-text {
@@ -220,39 +253,99 @@ body > .wrapper { // ?
     }
   }
 
-  &__menu {
+  &__button {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
     @media (min-width: $breakpoint) {
       margin-left: 10px;
     }
     @media (max-width: $breakpoint - 1px) {
       order: 3;
     }
-
-    &-button {
+  }
+  &__button-button {
+    $size: 70px;
+    width: $size;
+    height: $size;
+    @media (max-width: $breakpoint - 1px) {
       $size: 40px;
       width: $size;
       height: $size;
-      @media (min-width: $breakpoint) {
-        $size: 70px;
+    }
+    display: flex;
+
+    background-color: $color-yellow;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $transition;
+
+    &--active {
+      background-color: $color-black;
+
+      #{$comp}__button-image {
+        $size: 23px;
         width: $size;
         height: $size;
-      }
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        @media (max-width: $breakpoint - 1px) {
+          $size: 13px;
+          width: $size;
+          height: $size;
+        }
 
-      background-color: $color-yellow;
-      border-radius: 50%;
-      cursor: pointer;
+        &::before,
+        &::after {
+          background-color: $color-white;
+        }
+        &::before {
+          transform: rotate(-45deg);
+        }
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
     }
+  }
+  &__button-image {
+    position: relative;
+    z-index: 0;
 
-    &-icon {
-      max-width: 17px;
-      max-height: 6px;
-      @media (min-width: $breakpoint) {
-        max-width: 30px;
-        max-height: 10px;
+    margin: auto;
+    width: 30px;
+    height: 12px;
+    @media (max-width: $breakpoint - 1px) {
+      width: 17px;
+      height: 7px;
+    }
+    pointer-events: none;
+
+    transition: $transition;
+
+    &::before,
+    &::after {
+      position: absolute;
+      right: 0;
+
+      content: '';
+      width: 30px;
+      height: 2px;
+      @media (max-width: $breakpoint - 1px) {
+        width: 17px;
+        height: 1px;
       }
+
+      background-color: $color-black;
+      transition: $transition;
+    }
+    &::before {
+      top: 0;
+      transform-origin: right center;
+    }
+    &::after {
+      bottom: 0;
+      transform-origin: right center;
     }
   }
 }
@@ -657,6 +750,7 @@ body > .wrapper { // ?
     width: 100%;
     flex-shrink: 0;
     @media (min-width: $breakpoint) {
+      margin-left: $col-gap-d;
       width: calc((#{$grid-part-d}) * 12 - #{$grid-gap-d});
     }
   }
@@ -1013,9 +1107,7 @@ body > .wrapper { // ?
     display: flex;
     align-items: center;
     @media (min-width: $breakpoint) {
-      margin-left: 77px;
-
-      justify-content: center;
+      margin-left: 491px;
     }
   }
 
@@ -1024,9 +1116,11 @@ body > .wrapper { // ?
     @media (min-width: $breakpoint) {
       padding: 42px;
     }
+    flex-shrink: 0;
 
     border: 2px solid $color-white;
     border-radius: 50%;
+    cursor: pointer;
 
     &-icon {
       width: 19px;
@@ -1054,18 +1148,22 @@ body > .wrapper { // ?
   }
 
   &__container {
-    overflow: hidden;
-    width: 906px;
-    flex-shrink: 0;
-    margin-top: 40px;
-    @media (min-width: $breakpoint) {
-      margin-top: -144px;
+    margin: 40px #{-$col-pad-m} 0;
+    @media (max-width: $breakpoint - 1px) {
+      padding: 0 $col-pad-m;
     }
-  }
+    @media (min-width: $breakpoint) {
+      margin: -144px 0 0;
+      width: 906px;
+    }
+    pointer-events: none;
 
-  &__wrapper {
-    display: flex;
-    align-items: flex-end;
+    .swiper-slide {
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: flex-end;
+    }
   }
 }
 
@@ -1082,6 +1180,8 @@ body > .wrapper { // ?
   justify-content: center;
   position: relative;
   z-index: 0;
+
+  pointer-events: all;
 
   transition: .4s;
 
@@ -2638,6 +2738,88 @@ body > .wrapper { // ?
       font-size: 50px;
     }
     line-height: 0.8;
+  }
+}
+
+// nav-modal
+.nav-modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+
+  padding: 160px $col-pad-d 60px calc(#{$col-width-d});
+  width: calc(#{$col-part-d} * 6 - #{$col-gap-d} + #{$col-pad-d});
+  @media (max-width: $breakpoint - 1px) {
+    padding: 70px $col-pad-m 30px 30px;
+    width: calc(#{$col-part-m} * 3 - #{$col-gap-m} + #{$col-pad-m});
+  }
+  flex-shrink: 0;
+  overflow-y: auto;
+
+  background-color: $color-light-green;
+  transition: $transition;
+
+  &__content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__top {
+
+  }
+  &__bottom {
+    margin-top: 60px;
+  }
+
+  &__list {
+    
+  }
+  &__item {
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 15px;
+      }
+    }
+  }
+  &__link {
+    @include f-alt();
+    @include fsl(26px, 120%);
+    @media (max-width: $breakpoint - 1px) {
+      @include fsl(16px);
+    }
+    color: $color-white;
+  }
+
+  .footer {
+    &__media-item {
+      &:not(:first-child) {
+        margin-top: 10px;
+        @media (max-width: $breakpoint - 1px) {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    &__phone {
+      @include fsl(42px, 120%);
+      @media (max-width: $breakpoint - 1px) {
+        @include fsl(24px);
+      }
+    }
+    &__mail {
+      @include fsl(24px, 120%);
+      @media (max-width: $breakpoint - 1px) {
+        @include fsl(14px);
+      }
+    }
   }
 }
 

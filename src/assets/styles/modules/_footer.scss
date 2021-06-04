@@ -125,11 +125,14 @@
   &__docs {
     @media (min-width: $breakpoint) {
       padding-left: calc((#{$grid-part-d}));
+      width: calc(#{$col-part-d} * 10);
     }
 
     @media (max-width: $breakpoint - 1px) {
       order: 2;
     }
+
+    flex-shrink: 0;
   }
 
   &__corp {
@@ -159,7 +162,7 @@
 
   &__contact {
     @media (min-width: $breakpoint) {
-      padding-right: calc((#{$grid-part-d}) * 3);
+      width: calc(#{$col-part-d} * 8);
     }
 
     @media (max-width: $breakpoint - 1px) {
@@ -167,14 +170,16 @@
 
       order: 1;
     }
+
+    flex-shrink: 0;
   }
 
   &__text {
-    font-size: 12px;
+    @include f-alt(700);
+    @include fsl(12px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 13px;
+      @include fsl(13px);
     }
-    font-weight: 700;
     text-transform: uppercase;
     color: $color-white;
   }
@@ -184,6 +189,9 @@
     @media (min-width: $breakpoint) {
       margin-top: 30px;
     }
+  }
+  &__media-item {
+    display: flex;
   }
 
   &__phone {

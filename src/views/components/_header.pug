@@ -9,7 +9,7 @@ mixin header()
             .header__catalog-icon
               +arrow-svg
         .header__store
-          .header__store-button 
+          a.header__store-button(href='#')
             .header__store-text 
               |Интернет-магазин
             .header__store-icon
@@ -18,7 +18,7 @@ mixin header()
           a.header__logo-link(href="#")
             +logo-svg
         .header__city
-          .header__city-button 
+          .header__city-button
             .header__city-text 
               |Саратов
             .header__city-icon
@@ -29,7 +29,37 @@ mixin header()
         .header__search
           .header__search-button 
             +search-svg('header__search-icon')
-        .header__menu
-          .header__menu-button
-            +menu-svg
-
+        .header__button
+          .header__button-button(data-modal-button='3')
+            .header__button-image
+        .nav-modal
+          .nav-modal__content
+            .nav-modal__top
+              ul.nav-modal__list
+                -
+                  var data = [
+                    'Акционный каталог',
+                    'Где купить',
+                    'Акционный каталог',
+                    'Поставщикам',
+                    'Арендодателям',
+                    'О компании',
+                    'Новости',
+                    'Рецепты',
+                    'Вакансии',
+                    'Контакты',
+                  ];
+                each item in data
+                  li.nav-modal__item
+                    a.nav-modal__link(href="#")
+                      |#{item}
+            .nav-modal__bottom
+              .footer__text 
+                |По вопросам качества продукции
+              .footer__media
+                .footer__media-item
+                  a.footer__phone(href="#") 
+                    |8 800 333-82-54
+                .footer__media-item
+                  a.footer__mail(href="#") 
+                    |info@dubki-producty.ru

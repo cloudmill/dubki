@@ -2,6 +2,9 @@ include ../mixins/_mixins.pug
 
 include ../components/_grid-test.pug
 
+include ../components/_header.pug
+include ../components/_footer.pug
+
 
 
 block variables
@@ -25,7 +28,9 @@ html(lang='en')
     +grid-test
     .wrapper
       block header
+        +header
       main.main
         block content
       block footer
+        +footer
       block scripts

@@ -8,8 +8,8 @@ import Swiper from "swiper/bundle";
   $(() => {
     const slider = $('.slider');
 
-    if (slider.length !== 0 ) {
-      const swiper = new Swiper(slider[0] , {
+    if (slider.length !== 0) {
+      const swiper = new Swiper(slider[0], {
         slidesPerView: 'auto',
         spaceBetween: 20,
       });
@@ -23,23 +23,56 @@ import Swiper from "swiper/bundle";
     const topSlider = $('.top__container');
 
     if (topSlider.length !== 0) {
-      const swiper = new Swiper(topSlider[0] , {
-        // watchSlidesProgress: true,
-        // watchSlidesVisibility: 3,
-        // slideVisibleClass: 'top-slide--visible',
+      const swiper = new Swiper(topSlider[0], {
         slidesPerView: 'auto',
-        // slidesPerGroup: 3,
+        slidesPerGroup: 1,
         spaceBetween: 25,
-        effect: 'flip',
-        flipEffect: {
-          slideShadows: true,
+        // effect: 'flip',
+        loop: true,
+        breakpoints: {
+          [1280]: {
+            slidesPerGroup: 3,
+          },
         },
+      });
 
-        // effect: 'fade',
-        // fadeEffect: {
-        //   crossFade: true
-        // },
-      })
+      $('.top__button').on('click', () => {
+        console.log(123);
+        swiper.slideNext();
+      });
+    }
+  });
+}
+
+// nav-modal
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      const navModalButton = header.find('.header__button-button');
+
+      // button
+      navModalButton.on('click', function () {
+        console.log(123);
+
+        if (header.hasClass('header--nav-modal')) {
+          header.removeClass('header--nav-modal');
+        } else {
+          header.addClass('header--nav-modal');
+        }
+      });
+
+      // click close
+      $(window).on('click', event => {
+        if (
+          header.hasClass('header--nav-modal') &&
+          event.target !== navModalButton[0] &&
+          $(event.target).closest('.nav-modal').length === 0
+        ) {
+          header.removeClass('header--nav-modal');
+        }
+      });
     }
   });
 }
