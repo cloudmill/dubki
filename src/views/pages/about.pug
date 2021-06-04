@@ -27,43 +27,25 @@ block content
                                     p.block-list__item-text.block-list__item-text--active
                                         |О нас
             
+    .section--grey 
+        .container 
+            .about-info 
+                .about-info__inner 
+                    .about-info__wrapper 
+                        h3.about-info__title 
+                            |«Дубки. Продукты от производителя» — торговая сеть продуктовых магазинов «у дома». Широкий ассортимент от мясколбасных изделий до молочной продукции — все от производителей.
+                    .about-info__description
+                        p.about-info__text 
+                            |Помимо продуктов питания, наша сеть радует клиентов вкусными готовыми блюдами. В магазинах новой концепции мы готовим:
+
+
     .section--grey
         .container 
             .about-card
-                .about-card__row 
-                    .about-card__col 
-                        .action-catalog 
-                            .action-catalog__card.action-catalog__card--big
-                                .action-catalog__frame 
-                                    img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
-                                .action-catalog__discont 
-                                    +top-icon-svg
-                                    .action-catalog__discont-content 
-                                        .action-catalog__discont-num
-                                            |23
-                                        .action-catalog__discont-text
-                                            |позиции по акции
-                                .action-catalog__content
-                                    h4.action-catalog__title
-                                        |Мясная гастрономия
-                                    ul.action-catalog__content-list 
-                                        li.action-catalog__content-item 
-                                            |Вареные колбасы
-                                        li.action-catalog__content-item 
-                                            |Ветчина
-                                        li.action-catalog__content-item 
-                                            |Деликатесы
-                                        li.action-catalog__content-item 
-                                            |Копченые колбасы
-                                        li.action-catalog__content-item 
-                                            |Паштеты
-                                        li.action-catalog__content-item 
-                                            |Сардельки
-                                        li.action-catalog__content-item 
-                                            |Сосиски
-                    .about-card__col 
-                        .action-catalog 
-                            .about-card__item--hidden
+                .about-card__inner
+                    .about-card__row 
+                        .about-card__col 
+                            .action-catalog 
                                 .action-catalog__card.action-catalog__card--big
                                     .action-catalog__frame 
                                         img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
@@ -92,35 +74,70 @@ block content
                                                 |Сардельки
                                             li.action-catalog__content-item 
                                                 |Сосиски
-                    .about-card__col 
-                        .action-catalog
-                            .about-card__item
-                                .action-catalog__card
-                                    .action-catalog__frame 
-                                        img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
-                                    .action-catalog__discont 
-                                        +top-icon-svg
-                                        .action-catalog__discont-content 
-                                            .action-catalog__discont-num
-                                                |23
-                                            .action-catalog__discont-text
-                                                |позиции по акции
-                                    h4.action-catalog__title
-                                        |Мясная гастрономия
-                            
-                            .about-card__item
-                                .action-catalog__card
-                                    .action-catalog__frame 
-                                        img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
-                                    .action-catalog__discont 
-                                        +top-icon-svg
-                                        .action-catalog__discont-content 
-                                            .action-catalog__discont-num
-                                                |23
-                                            .action-catalog__discont-text
-                                                |позиции по акции
-                                    h4.action-catalog__title
-                                        |Мясная гастрономия
+                        .about-card__col 
+                            .action-catalog 
+                                .about-card__item--hidden
+                                    .action-catalog__card.action-catalog__card--big
+                                        .action-catalog__frame 
+                                            img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
+                                        .action-catalog__discont 
+                                            +top-icon-svg
+                                            .action-catalog__discont-content 
+                                                .action-catalog__discont-num
+                                                    |23
+                                                .action-catalog__discont-text
+                                                    |позиции по акции
+                                        .action-catalog__content
+                                            h4.action-catalog__title
+                                                |Мясная гастрономия
+                                            ul.action-catalog__content-list 
+                                                li.action-catalog__content-item 
+                                                    |Вареные колбасы
+                                                li.action-catalog__content-item 
+                                                    |Ветчина
+                                                li.action-catalog__content-item 
+                                                    |Деликатесы
+                                                li.action-catalog__content-item 
+                                                    |Копченые колбасы
+                                                li.action-catalog__content-item 
+                                                    |Паштеты
+                                                li.action-catalog__content-item 
+                                                    |Сардельки
+                                                li.action-catalog__content-item 
+                                                    |Сосиски
+                        .about-card__col 
+                            .action-catalog
+                                .about-card__item
+                                    .action-catalog__card
+                                        .action-catalog__frame 
+                                            img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
+                                        .action-catalog__discont 
+                                            +top-icon-svg
+                                            .action-catalog__discont-content 
+                                                .action-catalog__discont-num
+                                                    |23
+                                                .action-catalog__discont-text
+                                                    |позиции по акции
+                                        h4.action-catalog__title
+                                            |Мясная гастрономия
+                                
+                                .about-card__item
+                                    .action-catalog__card
+                                        .action-catalog__frame 
+                                            img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
+                                        .action-catalog__discont 
+                                            +top-icon-svg
+                                            .action-catalog__discont-content 
+                                                .action-catalog__discont-num
+                                                    |23
+                                                .action-catalog__discont-text
+                                                    |позиции по акции
+                                        h4.action-catalog__title
+                                            |Мясная гастрономия
+
+    .section--light-green
+        .container 
+            .about
 
 
 

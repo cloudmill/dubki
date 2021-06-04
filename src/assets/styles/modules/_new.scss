@@ -495,6 +495,10 @@ body>.wrapper {
     background-color: $color-catalog-grey;
   }
 
+  &--light-green {
+    background-color: $color-light-green;
+  }
+
   &--catalog {
     padding-top: 40px;
 
@@ -2851,6 +2855,10 @@ body>.wrapper {
 
 .about-card {
 
+  &__inner {
+    padding-bottom: 100px;
+  }
+
   &__row {
     
     @media (min-width: $breakpoint) {
@@ -2882,5 +2890,51 @@ body>.wrapper {
         display: none;
       }
     }
+  }
+}
+
+.about-info {
+
+  &__inner {
+    padding-top: 60px;
+    padding-bottom: 155px;
+    @media (min-width: $breakpoint) {
+      padding-top: 150px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+      padding-left: calc(#{$grid-part-d} * 3);
+      
+    }
+  }
+
+  &__title {
+    @include f-alt();
+    @include fsl(20px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(45px, 120%);
+      width: calc(#{$grid-part-d} * 11 - #{$grid-gap-d});
+    }
+  }
+
+  &__description {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$grid-part-d} * 6);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    @include fsl(16px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 140%);
+
+      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+    } 
   }
 }
