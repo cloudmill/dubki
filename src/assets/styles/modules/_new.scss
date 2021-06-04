@@ -754,7 +754,7 @@ body>.wrapper {
     padding: 28px 40px;
 
     @include fsl(18px, 80%);
-    border-radius: 25px;
+    border-radius: 15px;
   }
 
   background-color: $color-yellow;
@@ -765,11 +765,27 @@ body>.wrapper {
   cursor: pointer;
 
   &--l {
+    padding: 12px 30px;
+    @media (min-width: $breakpoint) {
+      padding: 18px 30px;
 
+      @include fsl(16px, 80%);
+      border-radius: 20px;
+    }
+    @include fsl(14px, 80%);
+    font-weight: 400;
+    border-radius: 15px;
   }
 
   &--l-transparent {
-    
+    padding: 11px 30px;
+    @media (min-width: $breakpoint) {
+      padding: 17px 30px;
+
+    }
+
+    background-color: inherit;
+    border: 1px solid $color-green;
   }
 
   &--s {
@@ -3012,7 +3028,9 @@ body>.wrapper {
 
   &__inner {
     padding-top: 60px;
+    padding-bottom: 30px;
     @media (min-width: $breakpoint) {
+      padding-bottom: 50px;
       padding-top: 0;
     }
   }
