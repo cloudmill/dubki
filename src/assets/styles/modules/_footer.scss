@@ -1,6 +1,10 @@
 .footer {
   background-color: $color-light-green;
 
+  &--catalog-grey {
+    background-color: $color-catalog-grey;
+  }
+
   &__frame {
     overflow: hidden;
 

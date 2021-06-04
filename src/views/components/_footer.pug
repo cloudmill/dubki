@@ -1,6 +1,6 @@
-mixin footer()
-  footer.footer
-    .footer__frame 
+mixin footer(opt={})
+  footer.footer(class=(opt.mod ? `footer--${opt.mod}` : ''))
+    .footer__frame
       .footer__layout
       .container
         .footer__content 

@@ -1715,7 +1715,9 @@ body > .wrapper { // ?
 
   &__row {
     display: flex;
-    flex-wrap: wrap;
+    @media (max-width: $breakpoint - 1px) {
+      flex-wrap: wrap;
+    }
   }
 
   &__col {
@@ -1726,6 +1728,9 @@ body > .wrapper { // ?
 
   &__list {
     width: 100%;
+    @media (max-width: $breakpoint - 1px) {
+      width: calc(#{$col-part-m} * 4 - #{$col-gap-m});
+    }
 
     @media (min-width: $breakpoint) {
       margin-left: 20px;
@@ -1743,13 +1748,32 @@ body > .wrapper { // ?
 
     &--wide {
       margin-left: 0;
-      width: 100%;
+      width: calc(#{$col-part-d} * #{$col-count-d} - #{$col-gap-d});
+      @media (max-width: $breakpoint - 1px) {
+        width: calc(#{$col-part-m} * 4 - #{$col-gap-m});
+      }
     }
   }
 
   &__card {
     margin-top: 15px;
     padding: 20px;
+    @media (max-width: $breakpoint - 1px) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+    }
+    @media (max-width: $breakpoint-m - 1px) {
+      width: 100%;
+    }
+
+    &:nth-child(even) {
+      @media (max-width: $breakpoint - 1px) {
+        margin-left: $col-gap-m;
+      }
+      @media (max-width: $breakpoint-m - 1px) {
+        margin-left: 0;
+      }
+    }
+
     @media (min-width: $breakpoint) {
       padding: 30px;
 
@@ -1793,6 +1817,9 @@ body > .wrapper { // ?
       margin-top: 0;
 
       height: 397px;
+      @media (max-width: $breakpoint - 1px) {
+        width: 100%;
+      }
       @media (min-width: $breakpoint) {
         height: 520px;
       }
@@ -1813,6 +1840,8 @@ body > .wrapper { // ?
     bottom: 0;
     right: 0;
     overflow: hidden;
+
+    pointer-events: none;
 
     border-radius: inherit;
   }
@@ -1869,6 +1898,8 @@ body > .wrapper { // ?
     }
 
     &-item {
+      display: block;
+
       color: $color-black;
       font-size: 13px;
       @media (min-width: $breakpoint) {
