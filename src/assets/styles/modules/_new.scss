@@ -640,7 +640,7 @@ body > .wrapper { // ?
 
       border-radius: 0 0 50px 50px;
       @media (min-width: $breakpoint) {
-        padding-top: 140px;
+        padding-top: 200px;
 
         border-radius: 0 0 170px 170px;
       }
@@ -1268,10 +1268,10 @@ body > .wrapper { // ?
   &--product {
     padding: 0;
 
-    width: 100%;
+    width: 345px;
     height: 345px;
     @media (min-width: $breakpoint) {
-      width: 100%;
+      width: 419px;
       height: 419px;
     }
     align-items: center;
@@ -2133,6 +2133,8 @@ body > .wrapper { // ?
   &__item {
     $comp: &;
 
+    flex-shrink: 0;
+
     &:not(:first-child) {
       margin-left: 15px;
       @media (min-width: $breakpoint) {
@@ -2160,7 +2162,7 @@ body > .wrapper { // ?
       width: 51px;
       height: 51px;
       @media (min-width: $breakpoint) {
-        width: calc(#{$grid-col-d});
+        width: 68px;
         height: 68px;
       }
       display: flex;

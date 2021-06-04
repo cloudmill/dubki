@@ -1,5 +1,7 @@
 extends ../layouts/master.pug
 
+
+
 block content 
   .section--grey 
     .section__frame--clear
@@ -28,8 +30,6 @@ block content
                 .block__data-wrapper 
                   .block__data-text 
                     |24 апреля 2021
-
-
   .section--grey.section--catalog
     .container 
       .section__inner
@@ -53,7 +53,6 @@ block content
                 +cursor-svg('button__wrapper-icon') 
               .button__text
                 |Вернуться ко всем новостям
-
   .section--grey 
     .container 
       .section__inner 
@@ -89,9 +88,7 @@ block content
 
 
 
-
-  //- .grid-test
-  //-   .container
-  //-     .grid-test__row
-  //-       - for (let i=0; i<18; i++)
-  //-         .grid-test__col
+block footer 
+  +footer({
+    mod: 'catalog-grey',
+  })

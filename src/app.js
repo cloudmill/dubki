@@ -14,6 +14,11 @@ import Swiper from "swiper/bundle";
         spaceBetween: 20,
       });
     }
+
+    const swiperProductSlider = new Swiper($('.product-slider')[0], {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+    });
   });
 }
 

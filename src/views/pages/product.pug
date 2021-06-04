@@ -1,5 +1,7 @@
 extends ../layouts/master.pug
 
+
+
 block content 
   .section--grey 
     .section__frame.section__frame--product
@@ -144,7 +146,6 @@ block content
                 .product__link 
                   a.button(href="#") 
                     |Купить в интернет-магазине
-
   .section--grey 
     .container 
       .section__inner
@@ -241,7 +242,6 @@ block content
                       |Температура
                     .conditions__num 
                       |4±2 ºС
-    
   .section--grey
     .container 
       .section__inner 
@@ -259,7 +259,6 @@ block content
                   |Вернуться ко всем новостям
                 .button__wrapper.button__wrapper--alt
                   +cursor-svg('button__icon') 
-
   .section--grey 
     .container 
       .similar-products 
@@ -277,11 +276,10 @@ block content
                 .product-card__item-thumb 
                   .product-card__item-button 
                     +cursor-svg('product-card__item-icon')
-  
   .section--grey.section--catalog
     .container 
       .section__inner 
-        .swiper-container
+        .swiper-container.product-slider
           .swiper-wrapper 
             - for (i = 0; i < 6; i++)
               .swiper-slide.top-slide.top-slide--catalog
@@ -300,8 +298,9 @@ block content
                       |760 ₽
                     |610 ₽
 
-  //- .grid-test
-  //-   .container
-  //-     .grid-test__row
-  //-       - for (let i=0; i<18; i++)
-  //-         .grid-test__col
+
+
+block footer 
+  +footer({
+    mod: 'catalog-grey',
+  })
