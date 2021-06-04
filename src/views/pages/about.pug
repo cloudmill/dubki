@@ -1,0 +1,198 @@
+extends ../layouts/master.pug
+
+include ../components/_header.pug
+include ../components/_footer.pug
+
+
+block header 
+    +header
+
+
+block content 
+    .section--grey
+        .section__frame.section__frame--white
+            .container
+                .block
+                    .block__wrapper
+                        h3.block__title 
+                            |О нас
+                        .block__list
+                            ul.block-list
+                                li.block-list__item 
+                                    p.block-list__item-text 
+                                        |Главная
+                                li.block-list__item
+                                    .block-list__item-icon 
+                                        +leaflet-svg 
+                                    p.block-list__item-text.block-list__item-text--active
+                                        |О нас
+            
+    .section--grey 
+        .container 
+            .about-info 
+                .about-info__inner 
+                    .about-info__wrapper 
+                        h3.about-info__title 
+                            |«Дубки. Продукты от производителя» — торговая сеть продуктовых магазинов «у дома». Широкий ассортимент от мясколбасных изделий до молочной продукции — все от производителей.
+                    .about-info__description
+                        p.about-info__text 
+                            |Помимо продуктов питания, наша сеть радует клиентов вкусными готовыми блюдами. В магазинах новой концепции мы готовим:
+
+
+    .section--grey
+        .container 
+            .about-card
+                .about-card__inner
+                    .about-card__row 
+                        .about-card__col 
+                            .action-catalog 
+                                .action-catalog__card.action-catalog__card--big
+                                    .action-catalog__frame 
+                                        img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
+                                    .action-catalog__discont 
+                                        +top-icon-svg
+                                        .action-catalog__discont-content 
+                                            .action-catalog__discont-num
+                                                |23
+                                            .action-catalog__discont-text
+                                                |позиции по акции
+                                    .action-catalog__content
+                                        h4.action-catalog__title
+                                            |Мясная гастрономия
+                                        ul.action-catalog__content-list 
+                                            li.action-catalog__content-item 
+                                                |Вареные колбасы
+                                            li.action-catalog__content-item 
+                                                |Ветчина
+                                            li.action-catalog__content-item 
+                                                |Деликатесы
+                                            li.action-catalog__content-item 
+                                                |Копченые колбасы
+                                            li.action-catalog__content-item 
+                                                |Паштеты
+                                            li.action-catalog__content-item 
+                                                |Сардельки
+                                            li.action-catalog__content-item 
+                                                |Сосиски
+                        .about-card__col 
+                            .action-catalog 
+                                .about-card__item--hidden
+                                    .action-catalog__card.action-catalog__card--big
+                                        .action-catalog__frame 
+                                            img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
+                                        .action-catalog__discont 
+                                            +top-icon-svg
+                                            .action-catalog__discont-content 
+                                                .action-catalog__discont-num
+                                                    |23
+                                                .action-catalog__discont-text
+                                                    |позиции по акции
+                                        .action-catalog__content
+                                            h4.action-catalog__title
+                                                |Мясная гастрономия
+                                            ul.action-catalog__content-list 
+                                                li.action-catalog__content-item 
+                                                    |Вареные колбасы
+                                                li.action-catalog__content-item 
+                                                    |Ветчина
+                                                li.action-catalog__content-item 
+                                                    |Деликатесы
+                                                li.action-catalog__content-item 
+                                                    |Копченые колбасы
+                                                li.action-catalog__content-item 
+                                                    |Паштеты
+                                                li.action-catalog__content-item 
+                                                    |Сардельки
+                                                li.action-catalog__content-item 
+                                                    |Сосиски
+                        .about-card__col 
+                            .action-catalog
+                                .about-card__item
+                                    .action-catalog__card
+                                        .action-catalog__frame 
+                                            img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
+                                        .action-catalog__discont 
+                                            +top-icon-svg
+                                            .action-catalog__discont-content 
+                                                .action-catalog__discont-num
+                                                    |23
+                                                .action-catalog__discont-text
+                                                    |позиции по акции
+                                        h4.action-catalog__title
+                                            |Мясная гастрономия
+                                
+                                .about-card__item
+                                    .action-catalog__card
+                                        .action-catalog__frame 
+                                            img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
+                                        .action-catalog__discont 
+                                            +top-icon-svg
+                                            .action-catalog__discont-content 
+                                                .action-catalog__discont-num
+                                                    |23
+                                                .action-catalog__discont-text
+                                                    |позиции по акции
+                                        h4.action-catalog__title
+                                            |Мясная гастрономия
+
+    .section--light-green
+        .container 
+            .about
+                .about__inner 
+                    .about__wrapper 
+                        .about__indent
+                            h3.about__title 
+                                |Мы работаем 
+                                span.about__title-span
+                                    |на клиента
+                                |, мы работаем 
+                                span.about__title-span 
+                                    |для клиента 
+                                |и все что мы делаем только 
+                                span.about__title-span 
+                                    |во благо клиента
+                                |. 
+                    .about__indent 
+                        h4.about__subtitle 
+                            |Ориентируемся на мнение клиента и постоянно улучшаем
+                        .about__list
+                            ul.block-list--straight.block-list--white
+                                li.block-list__item
+                                    .block-list__item-icon 
+                                        +leaflet-svg 
+                                    p.block-list__item-text
+                                        |Сервисное обслуживание
+                                li.block-list__item
+                                    .block-list__item-icon 
+                                        +leaflet-svg 
+                                    p.block-list__item-text
+                                        |Ассортиментную политику
+                                li.block-list__item
+                                    .block-list__item-icon 
+                                        +leaflet-svg 
+                                    p.block-list__item-text
+                                        |Качество продуктов питания
+                                li.block-list__item
+                                    .block-list__item-icon 
+                                        +leaflet-svg 
+                                    p.block-list__item-text
+                                        |Ценовое предложение
+
+    .section--light-green
+        .container 
+            .shops-format 
+                .shops-format__inner 
+                    .shops-format__wrapper
+                        h3.shops-format__title 
+                            |Форматы магазинов
+                    .shops-format__row
+                        .shops-format__col
+                            .button.button--l 
+                                |Магазины «у дома»
+                        .shops-format__col
+                            .button.button--l.button--l-transparent
+                                |Магазины «самообслуживания»
+
+
+block footer 
+    +footer

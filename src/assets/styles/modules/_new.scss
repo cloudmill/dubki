@@ -1,31 +1,37 @@
 .container {
   padding: 0 $col-pad-m;
+
   @media (min-width: $breakpoint) {
     padding: 0 $col-pad-d;
   }
-  width: 100%;
-} 
 
-body > .wrapper { // ?
+  width: 100%;
+}
+
+body>.wrapper {
+  // ?
   position: relative;
   z-index: 0;
 
   min-width: 320px; // ?
   overflow-x: hidden;
 }
-  
+
 .main {
   position: relative;
   z-index: 0;
 }
 
 .main {
+
   // поместил в контекст .main, т.к. уже есть .wrapper бэм-блок: обертка страниц
   .wrapper {
     margin-top: 40px;
+
     @media (min-width: $breakpoint) {
       margin-top: 80px;
     }
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +85,7 @@ body > .wrapper { // ?
   &__row {
     display: flex;
     align-items: center;
+
     @media (max-width: $breakpoint - 1px) {
       justify-content: space-between;
     }
@@ -88,6 +95,7 @@ body > .wrapper { // ?
     width: calc((#{$col-part-d}) * 4 - #{$col-gap-d});
     flex-shrink: 0;
     display: none;
+
     @media (min-width: $breakpoint) {
       display: flex;
     }
@@ -121,6 +129,7 @@ body > .wrapper { // ?
     width: calc((#{$col-part-d}) * 4);
     flex-shrink: 0;
     display: none;
+
     @media (min-width: $breakpoint) {
       display: flex;
     }
@@ -147,8 +156,10 @@ body > .wrapper { // ?
     @media (max-width: $breakpoint - 1px) {
       order: 2;
     }
+
     flex-shrink: 0;
     display: flex;
+
     @media (min-width: $breakpoint) {
       width: calc((#{$col-part-d}) * 4 + #{$col-gap-d});
     }
@@ -172,6 +183,7 @@ body > .wrapper { // ?
     width: calc((#{$col-part-d}) * 2 - #{$col-gap-d});
     flex-shrink: 0;
     display: none;
+
     @media (min-width: $breakpoint) {
       display: flex;
     }
@@ -180,7 +192,8 @@ body > .wrapper { // ?
       display: flex;
       align-items: center;
 
-      .header__arrow path { // ? можно заменить на &__arrow { path { ... у блока (не создавать зависимость)
+      .header__arrow path {
+        // ? можно заменить на &__arrow { path { ... у блока (не создавать зависимость)
         stroke: $color-white;
       }
 
@@ -203,6 +216,7 @@ body > .wrapper { // ?
     width: calc((#{$col-part-d}) * 2 - #{$col-gap-d});
     flex-shrink: 0;
     display: none;
+
     @media (min-width: $breakpoint) {
       display: flex;
     }
@@ -217,28 +231,34 @@ body > .wrapper { // ?
     @media (min-width: $breakpoint) {
       margin-left: auto;
     }
+
     flex-shrink: 0;
+
     @media (max-width: $breakpoint - 1px) {
       order: 1;
     }
-    
+
     &-button {
       $size: 40px;
       width: $size;
       height: $size;
+
       @media (min-width: $breakpoint) {
         $size: 70px;
         width: $size;
         height: $size;
       }
+
       display: flex;
       justify-content: center;
       align-items: center;
 
       border: 1px solid $color-white;
+
       @media (min-width: $breakpoint) {
         border-width: 2px;
       }
+
       border-radius: 50%;
       cursor: pointer;
     }
@@ -246,6 +266,7 @@ body > .wrapper { // ?
     &-icon {
       max-width: 14px;
       max-height: 14px;
+
       @media (min-width: $breakpoint) {
         max-width: 22px;
         max-height: 22px;
@@ -262,6 +283,7 @@ body > .wrapper { // ?
     @media (min-width: $breakpoint) {
       margin-left: 10px;
     }
+
     @media (max-width: $breakpoint - 1px) {
       order: 3;
     }
@@ -373,7 +395,7 @@ body > .wrapper { // ?
 
   &__item {
     flex-shrink: 0;
-    
+
     &:not(:last-child) {
       margin-bottom: 10px;
     }
@@ -381,7 +403,7 @@ body > .wrapper { // ?
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
       display: flex;
-      
+
       &:nth-child(2n) {
         margin-bottom: 0;
       }
@@ -391,10 +413,12 @@ body > .wrapper { // ?
   &__row {
     display: flex;
     align-items: center;
+
     @media (min-width: $breakpoint) {
       justify-content: space-between;
     }
   }
+
   &__col {
     flex-shrink: 0;
 
@@ -409,6 +433,7 @@ body > .wrapper { // ?
         display: flex;
         justify-content: flex-end;
       }
+
       &:nth-child(2) {
         padding-right: calc(#{$col-part-d});
         margin-left: $col-gap-d;
@@ -435,8 +460,6 @@ body > .wrapper { // ?
     color: $color-white;
   }
 }
-
-// не проверено
 
 .card {
   $comp: &;
@@ -468,6 +491,7 @@ body > .wrapper { // ?
 
     background-color: $color-light-green;
     border-radius: 0 70px 0 0;
+
     @media (min-width: $breakpoint) {
       border-radius: 0 150px 0 0;
     }
@@ -475,6 +499,7 @@ body > .wrapper { // ?
     &--alt {
       background-color: $color-yellow;
       border-radius: 0 0 70px 70px;
+
       @media (min-width: $breakpoint) {
         border-radius: 0 150px 150px 0;
       }
@@ -497,9 +522,11 @@ body > .wrapper { // ?
     padding: 20px 30px 30px;
     height: 100%;
     min-height: 253px;
+
     @media (min-width: $breakpoint) {
       min-height: 393px;
     }
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -518,10 +545,12 @@ body > .wrapper { // ?
       color: $color-black;
     }
   }
+
   &__text {
     font-weight: 700;
     font-size: 28px;
     line-height: 1.2;
+
     @media (min-width: $breakpoint) {
       font-size: 38px;
     }
@@ -529,9 +558,11 @@ body > .wrapper { // ?
     &--large {
       font-weight: 900;
       font-size: 90px;
+
       @media (min-width: $breakpoint) {
         font-size: 150px;
       }
+
       line-height: 1;
     }
   }
@@ -552,15 +583,21 @@ body > .wrapper { // ?
     background-color: $color-catalog-grey;
   }
 
+  &--light-green {
+    background-color: $color-light-green;
+  }
+
   &--catalog {
     padding-top: 40px;
+
     @media (min-width: $breakpoint) {
-      padding-top:  100px;
+      padding-top: 100px;
     }
   }
 
   &--header {
     padding-top: 100px;
+
     @media (min-width: $breakpoint) {
       padding-top: 200px;
     }
@@ -568,14 +605,16 @@ body > .wrapper { // ?
 
   &__inner {
     padding-bottom: 60px;
+
     @media (min-width: $breakpoint) {
-    padding-bottom: 200px;
+      padding-bottom: 200px;
     }
 
   }
 
   &__wrapper {
     padding-bottom: 30px;
+
     @media (min-width: $breakpoint) {
       padding-bottom: 100px;
     }
@@ -583,11 +622,13 @@ body > .wrapper { // ?
 
   &__frame {
     padding-top: 60px;
+
     @media (min-width: $breakpoint) {
       padding-top: 200px;
 
       border-radius: 170px 0px 0px 0px;
     }
+
     overflow: hidden;
 
     background-color: $color-light-green;
@@ -613,25 +654,28 @@ body > .wrapper { // ?
 
       padding-top: 175px;
       padding-bottom: 40px;
+
       @media (min-width: $breakpoint) {
         padding-bottom: 60px;
         padding-top: 200px;
 
-        border-radius: 0 0 170px  170px;
+        border-radius: 0 0 170px 170px;
       }
 
-      border-radius: 0 0 70px  70px;
+      border-radius: 0 0 70px 70px;
     }
 
     &--white {
       padding-top: 100px;
 
       border-radius: 0 0 50px 50px;
+
       @media (min-width: $breakpoint) {
         padding-top: 200px;
 
         border-radius: 0 0 170px 170px;
       }
+
       background-color: $color-white;
     }
 
@@ -639,24 +683,28 @@ body > .wrapper { // ?
       padding-top: 100px;
 
       border-radius: 0 0 50px 50px;
+
       @media (min-width: $breakpoint) {
         padding-top: 200px;
 
         border-radius: 0 0 170px 170px;
       }
+
       background-color: $color-white;
     }
 
     &--clear {
       display: flex;
       height: 370px;
+
       @media (min-width: $breakpoint) {
         height: 562px;
 
-        border-radius: 0 0 170px  170px;
+        border-radius: 0 0 170px 170px;
       }
-      border-radius: 0 0 70px  70px;
-     
+
+      border-radius: 0 0 70px 70px;
+
       position: relative;
       z-index: 1;
       overflow: hidden;
@@ -679,12 +727,13 @@ body > .wrapper { // ?
 
     background: url(assets/images/news-bg-1.jpg) center no-repeat;
     background-size: cover;
-    
+
     filter: blur(10px);
   }
 
   &__content {
     margin-bottom: 30px;
+
     @media (min-width: $breakpoint) {
       margin-bottom: 40px;
 
@@ -703,34 +752,41 @@ body > .wrapper { // ?
 
     font-weight: 900;
     font-size: 30px;
+
     @media (min-width: $breakpoint) {
       margin-bottom: 40px;
 
       font-size: 70px;
     }
+
     line-height: 0.8;
 
     &--m {
       color: $color-black;
       font-weight: 900;
       font-size: 24px;
+
       @media (min-width: $breakpoint) {
         font-size: 50px;
       }
+
       line-height: 0.8;
     }
   }
 
   &__text {
     font-size: 14px;
+
     @media (min-width: $breakpoint) {
       font-size: 18px;
     }
+
     line-height: 1.4;
   }
 
   &__button {
     display: none;
+
     @media (min-width: $breakpoint) {
       display: flex;
     }
@@ -747,6 +803,7 @@ body > .wrapper { // ?
   margin: 0;
 
   display: flex;
+
   @media (min-width: $breakpoint) {
     align-items: stretch;
     justify-content: space-between;
@@ -759,6 +816,7 @@ body > .wrapper { // ?
   &__side {
     flex-shrink: 0;
     width: 100%;
+
     @media (min-width: $breakpoint) {
       width: calc((#{$grid-part-d}) * 6 - #{$grid-gap-d});
     }
@@ -767,6 +825,7 @@ body > .wrapper { // ?
   &__main {
     width: 100%;
     flex-shrink: 0;
+
     @media (min-width: $breakpoint) {
       margin-left: $col-gap-d;
       width: calc((#{$grid-part-d}) * 12 - #{$grid-gap-d});
@@ -775,49 +834,75 @@ body > .wrapper { // ?
 
   &__col {
     flex-shrink: 0;
+
     &:nth-child(1) {
       width: 100%;
+
       @media (min-width: $breakpoint) {
         width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
-      } 
+      }
     }
 
     &:nth-child(2) {
       width: 100%;
+
       @media (min-width: $breakpoint) {
         width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
-      } 
+      }
     }
   }
 }
 
 .button {
   padding: 18px 30px;
+
   @media (min-width: $breakpoint) {
     padding: 28px 40px;
 
-    font-size: 18px;
-    border-radius: 25px;
+    @include fsl(18px, 80%);
+    border-radius: 15px;
   }
-  color: $color-black;
+
   background-color: $color-yellow;
-  font-weight: 700;
-  font-size: 16px;
+  @include fsl(16px, 80%);
   line-height: 0.8;
   border-radius: 15px;
   text-decoration: none;
   cursor: pointer;
 
+  &--l {
+    padding: 12px 30px;
+    @media (min-width: $breakpoint) {
+      padding: 18px 30px;
+
+      @include fsl(16px, 80%);
+      border-radius: 20px;
+    }
+    @include fsl(14px, 80%);
+    font-weight: 400;
+    border-radius: 15px;
+  }
+
+  &--l-transparent {
+    padding: 11px 30px;
+    @media (min-width: $breakpoint) {
+      padding: 17px 30px;
+
+    }
+
+    background-color: inherit;
+    border: 1px solid $color-green;
+  }
+
   &--s {
     padding: 18px 30px;
 
-    color: $color-black;
-    font-size: 14px;
+    @include fsl(14px, 80%);
     @media (min-width: $breakpoint) {
-      font-size: 16px;
+      @include fsl(16px, 80%);
       border-radius: 20px;
     }
-    line-height: 0.8;
+
     border: 1px solid $color-light-grey;
     border-radius: 15px;
     cursor: pointer;
@@ -825,6 +910,7 @@ body > .wrapper { // ?
 
   &--xl {
     padding: 18px 0;
+
     @media (min-width: $breakpoint) {
       padding: 28px 0;
 
@@ -846,9 +932,11 @@ body > .wrapper { // ?
 
   &--m-yellow {
     padding: 19px 0;
+
     @media (min-width: $breakpoint) {
       padding: 29px 0;
     }
+
     width: 100%;
 
     border: none;
@@ -869,7 +957,7 @@ body > .wrapper { // ?
 
     &-icon {
       transform: rotate(-135deg);
-      
+
       path {
         stroke: $color-black;
       }
@@ -878,7 +966,7 @@ body > .wrapper { // ?
 
   &__icon {
     transform: rotate(45deg);
-    
+
     path {
       stroke: $color-black;
     }
@@ -898,6 +986,7 @@ body > .wrapper { // ?
 
     background-color: $color-white;
     border-radius: 15px;
+
     @media (min-width: $breakpoint) {
       padding-right: 10px;
       padding-left: calc(#{$grid-part-d});
@@ -914,7 +1003,7 @@ body > .wrapper { // ?
         margin-bottom: 15px;
       }
     }
-    
+
     @media (max-width: $breakpoint - 1px) {
       padding: 14px;
     }
@@ -922,11 +1011,13 @@ body > .wrapper { // ?
 
   &__content {
     margin-right: 20px;
+
     @media (min-width: $breakpoint) {
       padding: 30px 0;
 
       width: calc((#{$grid-part-d}) * 7 - #{$grid-gap-d});
     }
+
     // width: 600px;?
     width: calc(#{$grid-pard-m} * 3 - 20px);
   }
@@ -937,11 +1028,13 @@ body > .wrapper { // ?
     color: $color-light-green;
     font-weight: 700;
     font-size: 11px;
+
     @media (min-width: $breakpoint) {
       margin-bottom: 10px;
 
       font-size: 13px;
     }
+
     line-height: 1.2;
   }
 
@@ -949,9 +1042,11 @@ body > .wrapper { // ?
     font-weight: 900;
     color: $color-black;
     font-size: 14px;
+
     @media (min-width: $breakpoint) {
       font-size: 30px;
     }
+
     line-height: 1.2;
   }
 
@@ -959,6 +1054,7 @@ body > .wrapper { // ?
     flex-shrink: 0;
     width: 77px;
     height: 77px;
+
     @media (min-width: $breakpoint) {
       margin: 10px 0;
 
@@ -972,6 +1068,7 @@ body > .wrapper { // ?
 
   &__button {
     display: flex;
+
     @media (min-width: $breakpoint) {
       display: none;
     }
@@ -992,9 +1089,11 @@ body > .wrapper { // ?
 
   &__item {
     width: calc(#{$grid-pard-m} * 3 - #{$grid-gap-m});
+
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
     }
+
     flex-shrink: 0;
 
     &--s {
@@ -1012,6 +1111,7 @@ body > .wrapper { // ?
 
   &__container {
     margin-bottom: 15px;
+
     @media (min-width: $breakpoint) {
       margin-bottom: 20px;
     }
@@ -1030,6 +1130,7 @@ body > .wrapper { // ?
     &--recipes {
       width: 345px;
       height: 359px;
+
       @media (min-width: $breakpoint) {
         width: 507px;
         height: 528px;
@@ -1044,6 +1145,7 @@ body > .wrapper { // ?
     position: absolute;
     left: 10px;
     bottom: 10px;
+
     @media (min-width: $breakpoint) {
       left: 20px;
       bottom: 20px;
@@ -1052,6 +1154,7 @@ body > .wrapper { // ?
 
   &__time {
     padding: 12px 15px;
+
     @media (min-width: $breakpoint) {
       padding: 15px;
 
@@ -1071,12 +1174,14 @@ body > .wrapper { // ?
     &--green {
       padding: 8px 15px;
       margin-right: 5px;
+
       @media (min-width: $breakpoint) {
         padding: 12px 15px;
         margin-right: 10px;
 
         border-radius: 20px;
       }
+
       align-items: center;
 
       background-color: $color-green;
@@ -1086,6 +1191,7 @@ body > .wrapper { // ?
 
   &__icon {
     margin-right: 5px;
+
     @media (min-width: $breakpoint) {
       margin-right: 10px;
     }
@@ -1099,9 +1205,11 @@ body > .wrapper { // ?
     @include f-alt(900);
     color: $color-white;
     font-size: 16px;
+
     @media (min-width: $breakpoint) {
       font-size: 30px;
     }
+
     line-height: 1.2;
 
     &--black {
@@ -1113,6 +1221,7 @@ body > .wrapper { // ?
     margin-top: 30px;
 
     display: flex;
+
     @media (min-width: $breakpoint) {
       display: none;
     }
@@ -1124,6 +1233,7 @@ body > .wrapper { // ?
   &__content {
     display: flex;
     align-items: center;
+
     @media (min-width: $breakpoint) {
       margin-left: 491px;
     }
@@ -1131,6 +1241,7 @@ body > .wrapper { // ?
 
   &__button {
     padding: 27px;
+
     @media (min-width: $breakpoint) {
       padding: 42px;
     }
@@ -1143,6 +1254,7 @@ body > .wrapper { // ?
     &-icon {
       width: 19px;
       height: 19px;
+
       @media (min-width: $breakpoint) {
         width: 30px;
         height: 30px;
@@ -1153,12 +1265,14 @@ body > .wrapper { // ?
   &__title {
     margin-left: 14px;
     width: 233px;
+
     @media (min-width: $breakpoint) {
       margin-left: 80px;
       width: 418px;
 
       font-size: 90px;
     }
+
     font-weight: 900;
     color: $color-white;
     font-size: 50px;
@@ -1208,6 +1322,7 @@ body > .wrapper { // ?
 
   &--catalog {
     height: 241px;
+
     @media (min-width: $breakpoint) {
       width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
       height: 350px;
@@ -1222,9 +1337,9 @@ body > .wrapper { // ?
         margin-left: 0;
       }
     }
-    
+
   }
-  
+
 
   &--big {
     @media (min-width: $breakpoint) {
@@ -1270,10 +1385,12 @@ body > .wrapper { // ?
 
     width: 345px;
     height: 345px;
+
     @media (min-width: $breakpoint) {
       width: 419px;
       height: 419px;
     }
+
     align-items: center;
 
     border: 1px solid #e9e9e9;
@@ -1299,6 +1416,7 @@ body > .wrapper { // ?
 
       &--catalog {
         font-size: 20px;
+
         @media (min-width: $breakpoint) {
           font-size: 28px;
         }
@@ -1306,107 +1424,112 @@ body > .wrapper { // ?
     }
   }
 
-    &__container {
-      padding: 0 27px;
+  &__container {
+    padding: 0 27px;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-      &--catalog {
-        padding: 0 10px;
-
-        height: 100%;
-      }
-    }
-
-    &__frame {
-      margin-top: 20px;
-      @media (min-width: $breakpoint) {
-        margin-top: 30px;
-      }
+    &--catalog {
+      padding: 0 10px;
 
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+  }
 
-      overflow: hidden;
-      border-radius: 50%;
+  &__frame {
+    margin-top: 20px;
+
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
     }
 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &__image {
-      width: 129px;
-      height: 91px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+
+  &__image {
+    width: 129px;
+    height: 91px;
+    flex-shrink: 0;
+
+    &--catalog {
       flex-shrink: 0;
-      
-      &--catalog {
-        flex-shrink: 0;
-      }
-
-      &--product {
-        transform: scale(0.5);
-        @media (min-width: $breakpoint) {
-          transform: scale(0.7);
-        }
-      }
     }
 
-    &__text {
-      margin-top: 54px;
+    &--product {
+      transform: scale(0.5);
 
-      text-align: center;
+      @media (min-width: $breakpoint) {
+        transform: scale(0.7);
+      }
+    }
+  }
 
+  &__text {
+    margin-top: 54px;
+
+    text-align: center;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+    color: $color-black;
+
+    &--catalog {
+      margin-top: 0;
+
+      font-size: 10px;
+
+      @media (min-width: $breakpoint) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &__price {
+    margin-top: 35px;
+
+    color: $color-black;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+
+    span {
+      margin-right: 8px;
+
+      color: $color-light-grey;
       font-weight: 700;
       font-size: 13px;
       line-height: 1.2;
-      color: $color-black;
+      text-decoration: line-through;
 
-      &--catalog {
-        margin-top: 0;
-
-        font-size: 10px;
-        @media (min-width: $breakpoint) {
-          font-size: 15px;
-        }
-      }
     }
 
-    &__price {
-      margin-top: 35px;
+    &--catalog {
 
-      color: $color-black;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 1.2;
+      font-size: 10px;
+
+      @media (min-width: $breakpoint) {
+        font-size: 15px;
+      }
 
       span {
-        margin-right: 8px;
-
-        color: $color-light-grey;
-        font-weight: 700;
-        font-size: 13px;
-        line-height: 1.2;
-        text-decoration: line-through;
-
-      }
-
-      &--catalog {
-
         font-size: 10px;
+
         @media (min-width: $breakpoint) {
           font-size: 15px;
         }
-
-        span {
-          font-size: 10px;
-          @media (min-width: $breakpoint) {
-          font-size: 15px;
-          }
-        }
       }
     }
+  }
 }
 
 .banner {
@@ -1481,8 +1604,6 @@ body > .wrapper { // ?
       color: $color-white;
       line-height: 1;
     }
-
-    
   }
 
   &__inner {
@@ -1494,6 +1615,7 @@ body > .wrapper { // ?
 
   &__wrapper {
     padding-bottom: 40px;
+
     @media (min-width: $breakpoint) {
       padding-bottom: 100px;
     }
@@ -1505,16 +1627,19 @@ body > .wrapper { // ?
     font-weight: 900;
     color: $color-black;
     font-size: 24px;
+
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
 
       font-size: 70px;
     }
+
     line-height: 0.8;
   }
 
   &__list {
     margin-top: 20px;
+
     @media (min-width: $breakpoint) {
       margin-top: 40px;
     }
@@ -1522,13 +1647,14 @@ body > .wrapper { // ?
 
   &__data {
     margin-top: 46px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     &-wrapper {
       margin-bottom: 20px;
+
       @media (min-width: $breakpoint) {
         margin-bottom: 30px;
       }
@@ -1538,9 +1664,11 @@ body > .wrapper { // ?
       font-weight: 700;
       color: $color-white;
       font-size: 14px;
+
       @media (min-width: $breakpoint) {
         font-size: 18px;
       }
+
       line-height: 1.2;
     }
   }
@@ -1554,6 +1682,17 @@ body > .wrapper { // ?
   &--white {
     #{$comp}__item-text {
       color: $color-white;
+    }
+  }
+
+  &--straight {
+    #{$comp}__item {
+      &:not(:first-child) {
+        margin-left: 0;
+      }
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
     }
   }
 
@@ -1586,9 +1725,11 @@ body > .wrapper { // ?
 
     &-text {
       color: $color-black;
-      font-size: 14px;
+      font-weight: 400;
+      @include fsl (14px, 80%);
+
       @media (min-width: $breakpoint) {
-        font-size: 16px;
+        @include fsl (16px, 80%);
       }
       line-height: 0.8;
       white-space: nowrap;
@@ -1612,6 +1753,7 @@ body > .wrapper { // ?
 
     &:nth-child(2) {
       margin-top: 40px;
+
       @media (min-width: $breakpoint) {
         margin-top: 30px;
       }
@@ -1620,8 +1762,8 @@ body > .wrapper { // ?
 
   &__section {
     @media (min-width: $breakpoint) {
-        width: calc(#{$grid-part-d} * 3);
-      }
+      width: calc(#{$grid-part-d} * 3);
+    }
 
     font-weight: 700;
     color: $color-black;
@@ -1630,32 +1772,32 @@ body > .wrapper { // ?
     @media (min-width: $breakpoint) {
       font-size: 22px;
     }
+
     line-height: 0.8;
 
-    
 
-    
+
+
   }
 
   &__list {
-      display: flex;
+    display: flex;
 
-      @media (max-width: $breakpoint - 1px) {
-        margin-top: 20px;
-      }
+    @media (max-width: $breakpoint - 1px) {
+      margin-top: 20px;
+    }
   }
 
   &__item {
-      padding: 12px 20px;
-      @media (min-width: $breakpoint) {
-        padding: 18px 30px;
+    padding: 12px 20px;
 
-        border-radius: 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
+    @media (min-width: $breakpoint) {
+      padding: 18px 30px;
 
-      display: flex;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
       color: $color-black;
       font-size: 14px;
@@ -1666,9 +1808,15 @@ body > .wrapper { // ?
 
       cursor: pointer;
 
-      &:not(:first-child) {
-        margin-left: 10px;
-      }
+    color: $color-black;
+    font-size: 14px;
+    line-height: 0.8;
+    border: 1px solid $color-light-green;
+    border-radius: 15px;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
 
       &--active {
         background-color: $color-light-green;
@@ -1711,13 +1859,14 @@ body > .wrapper { // ?
   &__icon {
     max-width: 54px;
     max-height: 57px;
+
     @media (min-width: $breakpoint) {
       max-width: 100%;
       max-height: 100%;
     }
   }
 
-  
+
 }
 
 .action-catalog {
@@ -1766,7 +1915,6 @@ body > .wrapper { // ?
   }
 
   &__card {
-    margin-top: 15px;
     padding: 20px;
     @media (max-width: $breakpoint - 1px) {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
@@ -1795,7 +1943,7 @@ body > .wrapper { // ?
         margin-left: calc(#{$grid-gap-d});
 
         &:nth-child(-n + 2) {
-        margin-top: 0;
+          margin-top: 0;
         }
 
         &:nth-child(2n + 1) {
@@ -1812,9 +1960,10 @@ body > .wrapper { // ?
         }
       }
     }
+
     width: 100%;
     height: 159px;
-    
+
     flex-shrink: 0;
     display: flex;
     align-items: flex-end;
@@ -1836,6 +1985,7 @@ body > .wrapper { // ?
 
       #{$comp}__img {
         transform: scale(0.4);
+
         @media (min-width: $breakpoint) {
           transform: scale(0.7);
         }
@@ -1858,9 +2008,11 @@ body > .wrapper { // ?
 
   &__img {
     transform: scale(0.35);
+
     @media (min-width: $breakpoint) {
       transform: scale(0.5);
     }
+
     transform-origin: left top;
   }
 
@@ -1875,9 +2027,9 @@ body > .wrapper { // ?
     justify-content: center;
 
     &-content {
-    position: absolute;
-    display: flex;
-    align-items: center;
+      position: absolute;
+      display: flex;
+      align-items: center;
     }
 
     &-num {
@@ -1899,9 +2051,10 @@ body > .wrapper { // ?
   }
 
   &__content {
-    
+
     &-list {
       margin-top: 20px;
+
       @media (min-width: $breakpoint) {
         margin-top: 30px;
       }
@@ -1912,6 +2065,7 @@ body > .wrapper { // ?
 
       color: $color-black;
       font-size: 13px;
+
       @media (min-width: $breakpoint) {
         font-size: 15px;
 
@@ -1919,6 +2073,7 @@ body > .wrapper { // ?
           margin-top: 15px;
         }
       }
+
       line-height: 1.2;
 
       &:not(:first-child) {
@@ -1931,9 +2086,11 @@ body > .wrapper { // ?
     color: $color-black;
     font-weight: 700;
     font-size: 16px;
+
     @media (min-width: $breakpoint) {
-      font-size: 25px;  
+      font-size: 25px;
     }
+
     line-height: 1.2;
   }
 }
@@ -1945,6 +2102,7 @@ body > .wrapper { // ?
 
   &__wrapper {
     margin-bottom: 30px;
+
     @media (min-width: $breakpoint) {
       margin-bottom: 50px;
 
@@ -1955,9 +2113,11 @@ body > .wrapper { // ?
   &__text {
     color: $color-black;
     font-size: 16px;
+
     @media (min-width: $breakpoint) {
       font-size: 22px;
     }
+
     line-height: 1.4;
 
     &:nth-child(2) {
@@ -1967,6 +2127,7 @@ body > .wrapper { // ?
 
   &__list {
     padding-bottom: 60px;
+
     @media (min-width: $breakpoint) {
       padding-bottom: 100px;
     }
@@ -1983,9 +2144,11 @@ body > .wrapper { // ?
     &-text {
       color: $color-black;
       font-size: 14px;
+
       @media (min-width: $breakpoint) {
         font-size: 16px;
       }
+
       line-height: 1.4;
     }
 
@@ -2009,6 +2172,7 @@ body > .wrapper { // ?
 
     &:nth-child(1) {
       margin-right: calc(#{$grid-gap-m});
+
       @media (min-width: $breakpoint) {
         margin-right: calc(#{$grid-gap-d});
       }
@@ -2019,14 +2183,17 @@ body > .wrapper { // ?
     font-weight: 700;
     color: $color-black;
     font-size: 16px;
+
     @media (min-width: $breakpoint) {
       font-size: 22px;
     }
+
     line-height: 0.8;
   }
 
   &__button {
     margin-top: 15px;
+
     @media (min-width: $breakpoint) {
       margin-top: 30px;
     }
@@ -2082,6 +2249,7 @@ body > .wrapper { // ?
 
 .product-card {
   display: flex;
+
   @media (min-width: $breakpoint) {
     justify-content: space-between;
   }
@@ -2090,12 +2258,14 @@ body > .wrapper { // ?
     flex-direction: column;
     align-items: center;
   }
-  
+
   &__col {
     flex-shrink: 0;
     display: flex;
+
     &:nth-child(1) {
       width: 100%;
+
       @media (min-width: $breakpoint) {
         width: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
         flex-direction: column;
@@ -2112,11 +2282,12 @@ body > .wrapper { // ?
 
     &:nth-child(2) {
       width: 345px;
+
       @media (min-width: $breakpoint) {
         margin-left: calc(#{$grid-gap-d});
 
         width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
-      } 
+      }
 
       @media (max-width: $breakpoint) {
         margin-top: 30px;
@@ -2125,7 +2296,7 @@ body > .wrapper { // ?
       }
     }
   }
-  
+
   &__list {
     display: flex;
   }
@@ -2137,6 +2308,7 @@ body > .wrapper { // ?
 
     &:not(:first-child) {
       margin-left: 15px;
+
       @media (min-width: $breakpoint) {
         margin-left: calc(#{$grid-gap-d});
       }
@@ -2161,10 +2333,12 @@ body > .wrapper { // ?
     &-thumb {
       width: 51px;
       height: 51px;
+
       @media (min-width: $breakpoint) {
         width: 68px;
         height: 68px;
       }
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2206,6 +2380,7 @@ body > .wrapper { // ?
       margin-bottom: 30px;
 
       display: flex;
+
       @media (min-width: $breakpoint) {
         display: none;
       }
@@ -2218,6 +2393,7 @@ body > .wrapper { // ?
       color: $color-black;
       font-weight: 700;
       font-size: 14px;
+
       @media(min-width: $breakpoint) {
         margin: 0 auto;
 
@@ -2226,6 +2402,7 @@ body > .wrapper { // ?
 
         font-size: 16px;
       }
+
       line-height: 1;
     }
 
@@ -2233,9 +2410,10 @@ body > .wrapper { // ?
       margin-left: calc(#{$grid-col-m});
 
       padding: 12px 0;
+
       @media (min-width: $breakpoint) {
         padding: 18px 0;
-        margin-left: 0;        
+        margin-left: 0;
         margin-top: 20px;
 
         width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d});
@@ -2251,30 +2429,6 @@ body > .wrapper { // ?
       cursor: pointer;
       border-radius: 15px;
       border: 1px solid $color-green;
-    }
-
-    &-button {
-      padding: 13px;
-      @media (min-width: $breakpoint) {
-        padding: 18px;
-
-        border-radius: 18px;
-      }
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background-color: $color-green;
-      border-radius: 13px;
-    }
-
-    &-icon {
-      width: 8px;
-      height: 7px;
-      @media (min-width: $breakpoint) {
-        width: 15px;
-        height: 15px;
-      }
     }
   }
 
@@ -2297,8 +2451,36 @@ body > .wrapper { // ?
   }
 }
 
+.video-button {
+  padding: 13px;
+
+  @media (min-width: $breakpoint) {
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $color-green;
+  border-radius: 13px;
+
+  &__icon {
+    width: 8px;
+    height: 7px;
+
+    @media (min-width: $breakpoint) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
 .product {
   margin-top: 30px;
+
   @media (min-width: $breakpoint) {
     margin-top: 45px;
   }
@@ -2307,14 +2489,17 @@ body > .wrapper { // ?
     font-weight: 900;
     color: $color-black;
     font-size: 18px;
+
     @media (min-width: $breakpoint) {
       font-size: 40px;
     }
+
     line-height: 1.4;
   }
 
   &__wrapper {
     margin: 30px 0;
+
     @media (min-width: $breakpoint) {
       margin: 60px 0;
     }
@@ -2322,6 +2507,7 @@ body > .wrapper { // ?
 
   &__row {
     display: none;
+
     @media (min-width: $breakpoint) {
       display: flex;
     }
@@ -2350,7 +2536,7 @@ body > .wrapper { // ?
       }
     }
   }
-  
+
   &__info {
     @media (min-width: $breakpoint) {
       margin-bottom: 40px;
@@ -2367,9 +2553,11 @@ body > .wrapper { // ?
   &__text {
     color: $color-black;
     font-size: 14px;
+
     @media (min-width: $breakpoint) {
       font-size: 16px;
     }
+
     line-height: 1;
 
     &--bold {
@@ -2396,9 +2584,11 @@ body > .wrapper { // ?
       color: $color-black;
       font-weight: 700;
       font-size: 16px;
+
       @media (min-width: $breakpoint) {
         font-size: 18px;
       }
+
       line-height: 0.8;
     }
 
@@ -2410,6 +2600,7 @@ body > .wrapper { // ?
   &__price {
     display: flex;
     align-items: flex-start;
+
     @media (max-width: $breakpoint - 1px) {
       width: 50%;
       flex-shrink: 0;
@@ -2419,9 +2610,11 @@ body > .wrapper { // ?
       color: $color-light-grey;
       font-weight: 700;
       font-size: 18px;
+
       @media (min-width: $breakpoint) {
         font-size: 24px;
       }
+
       line-height: 1.2;
       text-decoration: line-through;
     }
@@ -2432,9 +2625,11 @@ body > .wrapper { // ?
       color: $color-black;
       font-weight: 700;
       font-size: 30px;
+
       @media (min-width: $breakpoint) {
         font-size: 40px;
       }
+
       line-height: 1.2;
     }
   }
@@ -2448,6 +2643,7 @@ body > .wrapper { // ?
 
   &__inner {
     padding-top: 60px;
+
     @media (min-width: $breakpoint) {
       padding-top: 100px;
     }
@@ -2455,6 +2651,7 @@ body > .wrapper { // ?
 
   &__description {
     width: 100%;
+
     @media (min-width: $breakpoint) {
       margin: 0 auto;
 
@@ -2463,6 +2660,7 @@ body > .wrapper { // ?
 
     &-container {
       padding: 30px 15px;
+
       @media (min-width: $breakpoint) {
         padding: 60px 88px;
 
@@ -2477,13 +2675,16 @@ body > .wrapper { // ?
       font-style: italic;
       font-weight: 400;
       font-size: 16px;
+
       @media (min-width: $breakpoint) {
         font-size: 22px;
       }
+
       line-height: 1.4;
 
       &:nth-child(1) {
         text-indent: 30px;
+
         @media (min-width: $breakpoint) {
           text-indent: 60px;
         }
@@ -2493,6 +2694,7 @@ body > .wrapper { // ?
 
   &__structure {
     width: 100%;
+
     @media (min-width: $breakpoint) {
       margin: 0 auto;
 
@@ -2504,14 +2706,17 @@ body > .wrapper { // ?
     color: $color-black;
     font-weight: 900;
     font-size: 18px;
+
     @media (min-width: $breakpoint) {
       font-size: 25px;
     }
+
     line-height: 0.8;
   }
 
   &__wrapper {
     margin-top: 15px;
+
     @media (min-width: $breakpoint) {
       margin-top: 30px;
     }
@@ -2520,9 +2725,11 @@ body > .wrapper { // ?
   &__text {
     color: $color-black;
     font-size: 14px;
+
     @media (min-width: $breakpoint) {
       font-size: 18px;
     }
+
     line-height: 1.4;
   }
 }
@@ -2534,12 +2741,13 @@ body > .wrapper { // ?
     @media (min-width: $breakpoint) {
       display: flex;
       justify-content: space-between;
-    } 
+    }
   }
 
   &__col {
     flex-shrink: 0;
     width: 100%;
+
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
     }
@@ -2555,6 +2763,7 @@ body > .wrapper { // ?
     @media (min-width: $breakpoint) {
       height: 320px;
     }
+
     border-radius: 25px;
 
     &--yellow {
@@ -2568,6 +2777,7 @@ body > .wrapper { // ?
 
   &__container {
     padding: 15px 15px 20px;
+
     @media (min-width: $breakpoint) {
       padding: 60px calc(#{$grid-part-d});
     }
@@ -2579,6 +2789,7 @@ body > .wrapper { // ?
 
     &--alt {
       border: 1px solid #BEAF34;
+
       @media (min-width: $breakpoint) {
         border: none;
       }
@@ -2588,9 +2799,11 @@ body > .wrapper { // ?
       font-weight: 900;
       color: $color-black;
       font-size: 14px;
+
       @media (min-width: $breakpoint) {
         font-size: 25px;
       }
+
       line-height: 1.2;
 
       @media (max-width: $breakpoint - 1px) {
@@ -2607,6 +2820,7 @@ body > .wrapper { // ?
 
     &--alt {
       flex-wrap: wrap;
+
       @media (min-width: $breakpoint) {
         flex-wrap: no-wrap;
 
@@ -2614,7 +2828,7 @@ body > .wrapper { // ?
         border: 1px solid #BEB034;
         border-radius: 20px;
       }
-      
+
       border-top: 1px solid #BEB034;
 
       #{$comp}__item {
@@ -2627,17 +2841,20 @@ body > .wrapper { // ?
         }
 
         &:not(:first-child) {
-            border-left: 1px solid #BEB034;
+          border-left: 1px solid #BEB034;
         }
 
         &:nth-child(4) {
           width: 100%;
 
           border-top: 1px solid #BEB034;
+
           @media (min-width: $breakpoint) {
             border-top: none;
           }
+
           border-left: none;
+
           @media (min-width: $breakpoint) {
             width: calc(100% / 4);
 
@@ -2648,6 +2865,7 @@ body > .wrapper { // ?
 
       #{$comp}__item-num {
         margin-top: 15px;
+
         @media (min-width: $breakpoint) {
           margin-top: 62px;
         }
@@ -2673,19 +2891,23 @@ body > .wrapper { // ?
       font-weight: 900;
       color: $color-black;
       font-size: 14px;
+
       @media (min-width: $breakpoint) {
         font-size: 16px;
       }
+
       line-height: 0.8;
     }
 
     &-num {
       margin-top: 15px;
+
       @media (min-width: $breakpoint) {
         margin-top: 23px;
 
         font-size: 24px;
       }
+
       font-weight: 700;
       color: $color-black;
       font-size: 20px;
@@ -2706,7 +2928,7 @@ body > .wrapper { // ?
 
     width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
   }
-  
+
   &__row {
     @media (min-width: $breakpoint) {
       display: flex;
@@ -2722,9 +2944,11 @@ body > .wrapper { // ?
 
     &:nth-child(2) {
       display: flex;
+
       @media (min-width: $breakpoint) {
         width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
       }
+
       @media (max-width: $breakpoint - 1px) {
         margin-top: 30px;
       }
@@ -2735,14 +2959,17 @@ body > .wrapper { // ?
     font-weight: 900;
     color: $color-black;
     font-size: 18px;
+
     @media (min-width: $breakpoint) {
       font-size: 25px;
     }
+
     line-height: 0.8;
   }
 
   &__day {
     width: 50%;
+
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 3);
     }
@@ -2750,6 +2977,7 @@ body > .wrapper { // ?
 
   &__temp {
     width: 50%;
+
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d});
     }
@@ -2772,7 +3000,7 @@ body > .wrapper { // ?
 }
 
 .store-buttons {
-  
+
   &__row {
     @media (min-width: $breakpoint) {
       display: flex;
@@ -2782,9 +3010,11 @@ body > .wrapper { // ?
 
   &__col {
     width: 100%;
+
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
     }
+
     flex-shrink: 0;
 
     &:nth-child(2) {
@@ -2806,6 +3036,7 @@ body > .wrapper { // ?
   &__col {
     &:nth-child(2) {
       width: calc(#{$grid-part-d} * 2 - #{$grid-gap-d});
+
       @media (max-width: $breakpoint) {
         display: none;
       }
@@ -2816,14 +3047,15 @@ body > .wrapper { // ?
     font-weight: 900;
     color: $color-black;
     font-size: 24px;
+
     @media (min-width: $breakpoint) {
       font-size: 50px;
     }
+
     line-height: 0.8;
   }
 }
 
-// nav-modal
 .nav-modal {
   position: fixed;
   z-index: 1;
@@ -2889,7 +3121,7 @@ body > .wrapper { // ?
         }
       }
     }
-
+  
     &__phone {
       @include fsl(42px, 120%);
       @media (max-width: $breakpoint - 1px) {
@@ -2905,3 +3137,184 @@ body > .wrapper { // ?
   }
 }
 
+.about-card {
+
+  &__inner {
+    padding-bottom: 100px;
+  }
+
+  &__row {
+    
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+    width: 100%;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+    }
+  }
+
+  &__item {
+    margin-top: 15px;
+    @media (min-width: $breakpoint) {
+      margin-top: 20px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &--hidden {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.about-info {
+
+  &__inner {
+    padding-top: 60px;
+    padding-bottom: 155px;
+    @media (min-width: $breakpoint) {
+      padding-top: 150px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+      padding-left: calc(#{$grid-part-d} * 3);
+      
+    }
+  }
+
+  &__title {
+    @include f-alt();
+    @include fsl(20px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(45px, 120%);
+      width: calc(#{$grid-part-d} * 11 - #{$grid-gap-d});
+    }
+  }
+
+  &__description {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$grid-part-d} * 6);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    @include fsl(16px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 140%);
+
+      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+    } 
+  }
+}
+
+.about {
+
+  &__inner {
+    padding-top: 60px;
+    padding-bottom: 100px; // Временно
+    @media (min-width: $breakpoint) {
+      padding-top: 150px;
+      padding-bottom: 300px;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__indent {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$grid-part-d} * 3);
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    @include f-alt();
+    @include fsl(30px, 110%);
+    @media (min-width: $breakpoint) {
+      @include fsl(60px, 110%);
+
+      width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
+    }
+
+    &-span {
+      color: $color-yellow;
+    }
+  }
+
+  &__subtitle {
+    color: $color-white;
+    font-style: italic;
+    @include fsl(22px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(34px, 120%);
+
+      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+    }
+  }
+
+  &__list {
+    padding-top: 30px;
+    @media (min-width: $breakpoint) {
+      padding-top: 40px;
+    }
+  }
+}
+
+.shops-format {
+
+  &__inner {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 50px;
+      padding-top: 0;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 40px;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    @include f-alt();
+    @include fsl(24px, 110%);
+    @media (min-width: $breakpoint) {
+      @include fsl(60px, 110%);
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+  
+  &__col {
+    &:nth-child(1) {
+      margin-right: 10px;
+    }
+  }
+}
