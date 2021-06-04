@@ -753,31 +753,34 @@ body>.wrapper {
   @media (min-width: $breakpoint) {
     padding: 28px 40px;
 
-    font-size: 18px;
+    @include fsl(18px, 80%);
     border-radius: 25px;
   }
 
-  color: $color-black;
   background-color: $color-yellow;
-  font-weight: 700;
-  font-size: 16px;
+  @include fsl(16px, 80%);
   line-height: 0.8;
   border-radius: 15px;
   text-decoration: none;
   cursor: pointer;
 
+  &--l {
+
+  }
+
+  &--l-transparent {
+    
+  }
+
   &--s {
     padding: 18px 30px;
 
-    color: $color-black;
-    font-size: 14px;
-
+    @include fsl(14px, 80%);
     @media (min-width: $breakpoint) {
-      font-size: 16px;
+      @include fsl(16px, 80%);
       border-radius: 20px;
     }
 
-    line-height: 0.8;
     border: 1px solid $color-light-grey;
     border-radius: 15px;
     cursor: pointer;
@@ -3001,6 +3004,42 @@ body>.wrapper {
     padding-top: 30px;
     @media (min-width: $breakpoint) {
       padding-top: 40px;
+    }
+  }
+}
+
+.shops-format {
+
+  &__inner {
+    padding-top: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 0;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 40px;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    @include f-alt();
+    @include fsl(24px, 110%);
+    @media (min-width: $breakpoint) {
+      @include fsl(60px, 110%);
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+  
+  &__col {
+    &:nth-child(1) {
+      margin-right: 10px;
     }
   }
 }
