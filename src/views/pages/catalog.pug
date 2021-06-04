@@ -16,7 +16,6 @@ block content
                 img.banner__image(src="assets/images/banner.png", alt="")
                 .banner__discont 
                   |-25%
-
   .section--grey
     .container 
       .block
@@ -38,7 +37,6 @@ block content
                     +leaflet-svg 
                   p.block-list__item-text.block-list__item-text--active
                     |Мясная гастрономия
-            
   .section--grey.section--catalog
     .container 
       .category 
@@ -76,8 +74,6 @@ block content
               |-25%
             li.category__item
               |-30%
-
-
   .section--grey.section--catalog
     .container 
       .section__inner
@@ -103,10 +99,10 @@ block content
           .wrapper 
             .button--s
               |Показать еще
-  
 
-  .grid-test
-    .container
-      .grid-test__row
-        - for (let i=0; i<18; i++)
-          .grid-test__col
+
+
+block footer
+  +footer({
+    mod: 'catalog-grey',
+  })

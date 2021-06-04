@@ -39,7 +39,6 @@ mixin header()
                 -
                   var data = [
                     'Где купить',
-                    'Акционный каталог',
                     'Поставщикам',
                     'Арендодателям',
                     'О компании',
@@ -50,7 +49,10 @@ mixin header()
                   ];
                 li.nav-modal__item
                   a.nav-modal__link(href="action-catalog.html")
-                    |#{item}
+                    |Акционный каталог
+                li.nav-modal__item
+                  a.nav-modal__link(href="catalog.html")
+                    |Каталог
                 each item in data
                   li.nav-modal__item
                     a.nav-modal__link(href="#")
