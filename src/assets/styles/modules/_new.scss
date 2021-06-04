@@ -2235,33 +2235,6 @@ body>.wrapper {
       border-radius: 15px;
       border: 1px solid $color-green;
     }
-
-    &-button {
-      padding: 13px;
-
-      @media (min-width: $breakpoint) {
-        padding: 18px;
-
-        border-radius: 18px;
-      }
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background-color: $color-green;
-      border-radius: 13px;
-    }
-
-    &-icon {
-      width: 8px;
-      height: 7px;
-
-      @media (min-width: $breakpoint) {
-        width: 15px;
-        height: 15px;
-      }
-    }
   }
 
   &__slide {
@@ -2280,6 +2253,33 @@ body>.wrapper {
 
   &__image {
     transform: scale(0.7);
+  }
+}
+
+.video-button {
+  padding: 13px;
+
+  @media (min-width: $breakpoint) {
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $color-green;
+  border-radius: 13px;
+
+  &__icon {
+    width: 8px;
+    height: 7px;
+
+    @media (min-width: $breakpoint) {
+      width: 15px;
+      height: 15px;
+    }
   }
 }
 
