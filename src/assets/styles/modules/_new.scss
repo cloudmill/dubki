@@ -862,6 +862,9 @@ body>.wrapper {
     @include fsl(18px, 80%);
     border-radius: 15px;
   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background-color: $color-yellow;
   @include fsl(16px, 80%);
@@ -3554,5 +3557,131 @@ body>.wrapper {
         fill: $color-black;
       }
     }
+  }
+}
+
+.contact { 
+
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 50px;
+      padding-left: calc(#{$grid-part-d} * 3);
+    }
+  }
+
+  &__title {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
+
+      @include fsl(60px, 110%);
+    }
+    @include fsl(30px, 110%);
+    @include f-alt();
+  }
+
+  &__inner {
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+    }
+  }
+
+  &-list {
+    @media (min-width: $breakpoint) {
+      margin-left: calc(#{$grid-part-d} * 7);
+
+      width: calc(#{$grid-part-d} * 5);
+    }
+    
+    &__item {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    &__icon {
+      margin-right: 30px;
+    }
+
+    &__text {
+      font-weight: 400;
+      @include fsl(14px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(16px, 140%);
+      }
+    }
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      margin: 0 auto;
+
+      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
+    }
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__col {
+    &:nth-child(1) {
+      width: 50%;
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 4);
+      }
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+      }
+    }
+
+    &:nth-child(3) {
+      width: 100%;
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 4);
+      }
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__text {
+    @include fsl(18px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 120%);
+    }
+  }
+
+  &__link {
+    margin-top: 10px;
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+  }
+
+  &__phone {
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 120%);
+    }
+    @include fsl(16px, 120%);
+    color: $color-green;
+  }
+
+  &__button {
+    margin-top: 15px;
+    @media (min-width: $breakpoint) {
+      margin-top: 30px;
+    }
+
+    display: flex;
   }
 }
