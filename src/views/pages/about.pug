@@ -323,4 +323,22 @@ block content
                                 .progress__stat-text 
                                     |регионов России
 
-
+    .section--grey 
+        .container 
+            .section__inner 
+                .partners 
+                    .partners__wrapper 
+                        h3.partners__title 
+                            |Партнеры
+                    .partners__row 
+                        - for (i = 0; i < 7; i++)
+                            .partners__item 
+                                a.partners-card(href="#") 
+                                    .partners-card__container 
+                                        .partners-card__image 
+                                            img.partners-card__img(src="assets/images/partners-card-1.jpg", alt="")
+                                        .partners-card__content
+                                            h4.partners-card__title 
+                                                |Комбинат «Дубки»
+                                            p.partners-card__text 
+                                                |Крупнейшем в России производитель мясо-колбасной, молочной и кондитерской продукцией
