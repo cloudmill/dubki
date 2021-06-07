@@ -1535,12 +1535,40 @@ body>.wrapper {
 }
 
 .banner {
+  $comp: &;
+
   @media (max-width: $breakpoint - 1px) {
-    display: none;
+    // display: none;
   }
 
   background-color: $color-banner-yellow;
   border-radius: 50px;
+
+  &--second {
+    height: 350px;
+
+    background-color: $color-yellow;
+
+    #{$comp}__frame {
+      background: url("assets/images/banner-bg.jpg");
+    }
+
+    #{$comp}__col {
+
+      &:nth-child(2) {
+        padding-right: calc(#{$grid-part-d});
+      }
+    }
+
+    #{$comp}__title {
+      color: $color-black;
+    }
+  }
+
+  &__frame {
+    height: 100%;
+    width: 100%;
+  }
 
   &__row {
     padding: 72px 0;
@@ -1548,6 +1576,8 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
+    width: 100%;
   }
 
   &__col {
