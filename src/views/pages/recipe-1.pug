@@ -1,4 +1,145 @@
 extends ../layouts/master.pug
 
-block content 
-  
+block content
+  .section--grey 
+    .section__frame--clear
+      .section__image.section__image--recipe
+      .section__row
+        .container 
+          .block.block--white
+            h3.block__title.block__title--small
+              |Пицца с колбасой, сыром и помидорами
+            .block__list
+              ul.block-list.block-list--white
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text 
+                    |Акционный каталог
+                li.block-list__item
+                  .block-list__item-icon 
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list__item-text--active
+                    |Мясная гастрономия
+            .block__data.block__data--second
+              .block__data-wrapper 
+                .slider
+                  .slider__row
+                    .slider__time.slider__time--green
+                      .slider__icon
+                        +clock-svg
+                      |30 мин
+                    .slider__time
+                      |Завтрак
+
+  .section--grey                
+    .container 
+      .section__inner 
+        .recipe 
+          .recipe__inner 
+            .recipe__row 
+              .recipe__col
+                p.recipe__text.recipe__text--desktop
+                  |Предлагаю приготовить пиццу с колбасой, сыром и помидорами. Это самый вкусный и сытный перекус для всей семьи. Тесто для пиццы можно приготовить дрожжевое или слоёное. Колбасу можете взять варёную или копчёную, на ваше усмотрение. Для приготовления пиццы с колбасой, сыром и помидорами возьмите такие продукты.
+                .recipe__wrapper 
+                  h3.recipe__title 
+                    |Пошаговое руководство
+                ul.recipe-list
+                  li.recipe-list__item 
+                    .recipe-list__container 
+                      h4.recipe-list__title 
+                        |Шаг 1. Подготовка ингридиентов
+                      .recipe-list__wrapper 
+                        p.recipe-list__text 
+                          |В тёплой воде растворите сахар. Насыпьте дрожжи сухие, перемешайте, укройте полотенцем и оставьте в тёплом месте на 10-15 минут для активации.
+                      .recipe-list__frame 
+                        img.recipe-list__image(src="assets/images/recipe-list-1.jpg", alt="")
+                  li.recipe-list__item 
+                    .recipe-list__container 
+                      h4.recipe-list__title 
+                        |Шаг 2. Подготовка ингридиентов
+                      .recipe-list__wrapper 
+                        p.recipe-list__text 
+                          |Добавьте соль и небольшими порциями пшеничную муку.
+                      .recipe-list__inner
+                        .recipe-list__frame 
+                          img.recipe-list__image(src="assets/images/recipe-list-1.jpg", alt="")
+                      .recipe-list__frame 
+                        img.recipe-list__image(src="assets/images/recipe-list-1.jpg", alt="")
+                  li.recipe-list__item 
+                    .recipe-list__container 
+                      h4.recipe-list__title 
+                        |Шаг 3. Подготовка ингридиентов
+                      .recipe-list__wrapper 
+                        p.recipe-list__text 
+                          |После расстойки обомните на подпыленной доске. Раскатайте в пласт по размеру используемой формы для выпекания. Смажьте томатной пастой или соусом.
+                      .recipe-list__frame 
+                        img.recipe-list__image(src="assets/images/recipe-list-1.jpg", alt="")
+                  li.recipe-list__item 
+                    .recipe-list__container 
+                      h4.recipe-list__title 
+                        |Шаг 3. Подготовка ингридиентов
+                      .recipe-list__wrapper 
+                        p.recipe-list__text 
+                          |После расстойки обомните на подпыленной доске. Раскатайте в пласт по размеру используемой формы для выпекания. Смажьте томатной пастой или соусом.
+                      .recipe-list__frame 
+                        img.recipe-list__image(src="assets/images/recipe-list-1.jpg", alt="")
+
+              .recipe__col
+                p.recipe__text.recipe__text--mobile
+                  |Предлагаю приготовить пиццу с колбасой, сыром и помидорами. Это самый вкусный и сытный перекус для всей семьи. Тесто для пиццы можно приготовить дрожжевое или слоёное. Колбасу можете взять варёную или копчёную, на ваше усмотрение. Для приготовления пиццы с колбасой, сыром и помидорами возьмите такие продукты.
+                .recipe__ingredients
+                  .recipe__ingredients-container
+                    .recipe__ingredients-content
+                      h4.recipe__ingredients-title 
+                        |Ингридиенты
+                      .recipe__ingredients-list
+                        ul.block-list--straight
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Вода – 150 мл
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Сахар – 1 ч. л.
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Соль – 1 ч. л.
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Колбаса копчёная – 200 г
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Дрожжи сухие – 1 ч.л.
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Мука пшеничная – 250 г
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Сыр твёрдый – 100 г
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Помидоры – 250 г
+                          li.block-list__item
+                              .block-list__item-icon 
+                                  +leaflet-svg 
+                              p.block-list__item-text
+                                  |Томатная паста – 90 г

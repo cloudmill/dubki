@@ -719,9 +719,6 @@ body>.wrapper {
   }
 
   &__image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     position: absolute;
     top: 0;
@@ -729,10 +726,15 @@ body>.wrapper {
     left: 0;
     bottom: 0;
 
-    background: url(assets/images/news-bg-1.jpg) center no-repeat;
+    background: url("assets/images/news-bg-1.jpg") center no-repeat;
     background-size: cover;
 
     filter: blur(10px);
+
+    &--recipe {
+      background: url("assets/images/recipe-bg.jpg") center no-repeat;
+      background-size: cover;
+    }
   }
 
   &__content {
@@ -800,6 +802,7 @@ body>.wrapper {
     position: relative;
     display: flex;
     align-items: flex-end;
+    width: 100%;
   }
 }
 
@@ -1090,6 +1093,10 @@ body>.wrapper {
 
 .slider {
 
+  &__row {
+    display: flex;
+  }
+
   &__inner {
     display: flex;
   }
@@ -1177,6 +1184,7 @@ body>.wrapper {
     color: $color-black;
     background-color: $color-white;
     border-radius: 15px;
+    cursor: pointer;
 
     &--green {
       padding: 8px 15px;
@@ -1673,6 +1681,12 @@ body>.wrapper {
     }
 
     line-height: 0.8;
+
+    &--small {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 9);
+      }
+    }
   }
 
   &__list {
@@ -1689,6 +1703,13 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &--second {
+      margin-top: 115px;
+      @media (min-width: $breakpoint) {
+        margin-top: 90px;
+      }
+    }
 
     &-wrapper {
       margin-bottom: 20px;
@@ -3964,3 +3985,173 @@ body>.wrapper {
   }
 }
 
+.recipe {
+
+  &__inner {
+    padding-top: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 100px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
+      }
+
+      @media (max-width: $breakpoint - 1px) {
+        order: 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+      }
+
+      @media (max-width: $breakpoint - 1px) {
+        order: 1;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    @include fsl(16px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 140%);
+    }
+
+    &--desktop {
+      @media (max-width: $breakpoint - 1px) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      padding-bottom: 40px;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__title {
+    @include f-alt();
+    @include fsl(21px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(30px, 80%);
+    }
+  }
+
+  &-list {
+
+    &__item {
+      &:not(:first-child) {
+        margin-top: 60px;
+        @media (min-width: $breakpoint) {
+          margin-top: 80px;
+        }
+      }
+    }
+
+    &__title {
+      @include f-alt();
+      @include fsl(16px, 80%);
+      @media (min-width: $breakpoint) {
+        @include fsl(25px, 80%);
+      }
+    }
+
+    &__wrapper {
+      padding-top: 15px;
+      padding-bottom: 30px;
+      @media (min-width: $breakpoint) {
+        padding-top: 30px;
+        padding-bottom: 60px;
+      }
+    }
+
+    &__text {
+      font-weight: 400;
+      @include fsl(14px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 140%);
+      }
+    }
+
+    &__inner {
+      margin-bottom: 30px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 60px;
+      }
+    }
+
+    &__frame {
+      overflow: hidden;
+      border-radius: 20px;
+    }
+  }
+
+  &__ingredients {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+    }
+
+    background-color: $color-white;
+    border-radius: 20px;
+    
+    &-container {
+      padding: 30px 0;
+      @media (min-width: $breakpoint) {
+        padding: 50px 0;
+
+      }
+    }
+
+    &-content {
+      padding-left: 30px;
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$grid-part-d});
+      }
+    }
+
+    &-title {
+      @include f-alt();
+      @include fsl(20px, 80%);
+      @media (min-width: $breakpoint) {
+        @include fsl(30px, 80%);
+      }
+    }
+
+    &-list {
+      padding-top: 30px;
+      @media (min-width: $breakpoint) {
+        padding-top: 50px;
+      }
+    }
+  }
+}
