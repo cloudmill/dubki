@@ -603,6 +603,11 @@ body>.wrapper {
     }
   }
 
+  &--positioned {
+    position: relative;
+    z-index: 1;
+  }
+
   &__inner {
     padding-bottom: 60px;
 
@@ -893,7 +898,7 @@ body>.wrapper {
     }
 
     background-color: inherit;
-    border: 1px solid $color-green;
+    border: 1px solid $color-light-green;
   }
 
   &--s {
@@ -1550,7 +1555,8 @@ body>.wrapper {
     background-color: $color-yellow;
 
     #{$comp}__frame {
-      background: url("assets/images/banner-bg.jpg");
+      background: url("assets/images/banner-bg.png") center no-repeat;
+      background-size: cover;
     }
 
     #{$comp}__col {
@@ -2351,16 +2357,6 @@ body>.wrapper {
       }
     }
 
-    &--black {
-      #{$comp}-thumb {
-        border: 1px solid $color-black;
-      }
-
-      #{$comp}-icon--revers {
-        transform: rotate(-135deg);
-      }
-    }
-
     &--button {
       @media (max-width: $breakpoint - 1px) {
         display: none;
@@ -2368,8 +2364,8 @@ body>.wrapper {
     }
 
     &-thumb {
-      width: 51px;
-      height: 51px;
+      width: 44px;
+      height: 44px;
 
       @media (min-width: $breakpoint) {
         width: 68px;
@@ -2383,6 +2379,10 @@ body>.wrapper {
       border: 1px solid #e9e9e9;
       border-radius: 50%;
       cursor: pointer;
+
+      &--black {
+        border: 2px solid $color-black;
+      }
     }
 
     &-img {
@@ -2397,9 +2397,19 @@ body>.wrapper {
 
     &-icon {
       transform: rotate(45deg);
+      width: 18px;
+      height: 18px;
+      @media (min-width: $breakpoint) {
+        width: 27px;
+        height: 27px;
+      }
 
       path {
         stroke: $color-black;
+      }
+
+      &--revers {
+        transform: rotate(-135deg);
       }
     }
   }
@@ -3445,25 +3455,25 @@ body>.wrapper {
     &__frame {
       position: relative;
       overflow: hidden;
+      height: 210px;
       @media (min-width: $breakpoint) {
         height: 520px;
-      }
-    }
-  
-    &__image {
-      @media (min-width: $breakpoint) {
-        position: absolute;
-        z-index: 0;
-        top: 51px;
-        left: 85px;
-        transform: scale(1.2);
-
-        min-width: 100%;
 
         border-radius: 210px 0px 0px 0px;
       }
       border-radius: 70px 0px 0px 0px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
     }
+  
+    // &__image {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    //   min-width: 100%;
+    // }
 
     &__buttons {
       padding: 13px;
@@ -3486,6 +3496,13 @@ body>.wrapper {
 
       background-color: $color-white;
       border-radius: 20px;
+    }
+
+    &__item {
+      margin-left: 6px;
+      @media (min-width: $breakpoint) {
+        margin-left: 10px;
+      }
     }
   }
 }
@@ -3568,6 +3585,13 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       flex-shrink: 0;
       width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
+    }
+  }
+
+  &__img {
+    border-radius: 20px;
+    @media (min-width: $breakpoint) {
+      border-radius: 50px;
     }
   }
 
@@ -3788,6 +3812,29 @@ body>.wrapper {
   @media (min-width: $breakpoint) {
     border-radius: 170px;
   }
+
+  &--green {
+    background-color: $color-light-green;
+    border-radius: 70px 70px 0 0;
+    @media (min-width: $breakpoint) {
+      border-radius: 170px 170px 0 0;
+    }
+  }
+
+  &-about {
+    background-color: $color-green;
+    border-radius: 70px 70px 0 0;
+    @media (min-width: $breakpoint) {
+      border-radius: 0 210px 0 0;
+    }
+
+    &--second {
+      border-radius: 0 0 70px 70px;
+      @media (min-width: $breakpoint) {
+        border-radius: 0 0 100px 100px;
+      }
+    }
+  }
 }
 
 .partners {
@@ -3810,6 +3857,10 @@ body>.wrapper {
   &__row {
     display: flex;
     flex-wrap: wrap;
+    @media (min-width: $breakpoint) {
+      margin-top: -20px;
+      margin-left: -20px;
+    }
   }
 
   &__item {
@@ -3817,17 +3868,13 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       margin-top: 20px;
       margin-left: 20px;
-
-      &:nth-child(4n + 1) {
-        margin-left: 0;
-      }
-
-      &:nth-child(-n + 4) {
-        margin-top: 0;
-      }
     }
     @media (max-width: $breakpoint - 1px) {
       width: 100%;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 
@@ -3881,5 +3928,38 @@ body>.wrapper {
       @include fsl(13px, 120%);
       font-weight: 400;
     }
+  }
+}
+
+.question {
+  margin-left: 5px;
+
+  position: relative;
+
+  &__mark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.intro {
+
+  &__bg {
+    margin-top: -49px;
+    @media (min-width: $breakpoint) {
+      margin-top: -172px;
+
+      height: 810px;
+
+      border-radius: 0 0 170px 170px;
+    }
+    height: 370px;
+
+    overflow: hidden;
+    border-radius: 0 0 50px 50px;
+    
+    background: url("assets/images/about-bg.jpg") center no-repeat;
+    background-size: cover;
   }
 }
