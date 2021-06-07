@@ -2465,12 +2465,20 @@ body>.wrapper {
     border-radius: 18px;
   }
 
+  &--big {
+    padding: 36px;
+
+    background-color: $color-yellow;
+    border-radius: 35px;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   background-color: $color-green;
   border-radius: 13px;
+  cursor: pointer;
 
   &__icon {
     width: 8px;
@@ -3446,6 +3454,105 @@ body>.wrapper {
 
       background-color: $color-white;
       border-radius: 20px;
+    }
+  }
+}
+
+.gifts {
+
+  &__inner {
+    padding-top: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 200px;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 65px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 100px;
+
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 11 - #{$grid-col-d});
+      flex-shrink: 0;
+
+      @include fsl(150px, 80%);
+    }
+    @include f-alt();
+    @include fsl(50px, 80%);
+    text-align: center;
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      margin: 0 auto;
+
+      display: flex;
+      justify-content: space-between;
+      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
+      flex-shrink: 0;
+    }
+  }
+
+  &__col {
+    @media (min-width: $breakpoint) {
+      width: 290px;
+    }
+  }
+
+  &__img {
+    margin-bottom: 15px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    @include fsl(14px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 140%);
+    }
+  }
+}
+
+.video {
+
+  &__wrapper {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__container {
+    position: relative;
+    @media (min-width: $breakpoint) {
+      flex-shrink: 0;
+      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
+    }
+  }
+
+  &__button {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &-icon {
+      width: 31px;
+      height: 31px;
+      path {
+        fill: $color-black;
+      }
     }
   }
 }

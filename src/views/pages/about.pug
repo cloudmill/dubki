@@ -33,7 +33,7 @@ block content
                             |Помимо продуктов питания, наша сеть радует клиентов вкусными готовыми блюдами. В магазинах новой концепции мы готовим:
 
 
-    .section--grey
+    .section--greys
         .container 
             .about-card
                 .about-card__inner
@@ -215,3 +215,45 @@ block content
                                                 .product-card__item-thumb 
                                                     .product-card__item-button 
                                                         +cursor-svg('product-card__item-icon')
+
+    .section--grey 
+        .container 
+            .section__inner
+                .gifts 
+                    .gifts__inner 
+                        .gifts__wrapper 
+                            h3.gifts__title 
+                                |Скидки и подарки
+                        .gifts__row 
+                            .gifts__col
+                                .gifts__item 
+                                    .gifts__img 
+                                        +smile-svg
+                                    p.gifts__text 
+                                        |Eженедельно на продукты первой необходимости предоставляется скидка до 40%
+                            .gifts__col
+                                .gifts__item 
+                                    .gifts__img 
+                                        +smile-svg
+                                    p.gifts__text 
+                                        |В праздничные дни сеть дарит своим клиентам подарочные купоны 
+                                        span 
+                                            +quest-svg
+                            .gifts__col
+                                .gifts__item
+                                    .gifts__img 
+                                        +smile-svg
+                                    p.gifts__text 
+                                        |Часто проходят дегустации новинок и продуктов «хитов»
+
+    .section--grey 
+        .container 
+            .section__inner 
+                .video 
+                    .video__wrapper 
+                        .video__container 
+                            .video__bg
+                                img.video__img(src="assets/images/video-bg.jpg", alt="")
+                            .video__button 
+                                .video-button.video-button--big
+                                    +play-svg('video__button-icon')
