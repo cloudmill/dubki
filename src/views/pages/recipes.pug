@@ -33,22 +33,23 @@ block content
                 |Время готовки
           .section--catalog 
             .recipes__wrapper 
-              ul.recipes__list 
-                - for (i = 0; i < 9; i++)
-                  li.recipes__item
-                    a.slider__item(href='#')
-                      .slider__container
-                        .slider__frame
-                          img.slider__photo(src="assets/images/slider-1.jpg", alt="")
-                        .slider__info 
-                          .slider__time.slider__time--green
-                            .slider__icon
-                              +clock-svg
-                            |30 мин
-                          .slider__time
-                            |Завтрак
-                      h3.slider__title.slider__title--black
-                        |Пицца с грибами и колбасой
+              .slider
+                ul.recipes__list 
+                  - for (i = 0; i < 9; i++)
+                    li.recipes__item
+                      a.slider__item(href='#')
+                        .slider__container
+                          .slider__frame
+                            img.slider__photo(src="assets/images/slider-1.jpg", alt="")
+                          .slider__info 
+                            .slider__time.slider__time--green
+                              .slider__icon
+                                +clock-svg
+                              |30 мин
+                            .slider__time
+                              |Завтрак
+                        h3.slider__title.slider__title--black
+                          |Пицца с грибами и колбасой
               .wrapper 
                 .button--s
                   |Показать еще
