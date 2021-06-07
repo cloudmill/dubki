@@ -3751,3 +3751,11 @@ body>.wrapper {
     }
   }
 }
+
+.frame {
+  background-color: $color-white;
+  border-radius: 70px;
+  @media (min-width: $breakpoint) {
+    border-radius: 170px;
+  }
+}
