@@ -1,4 +1,57 @@
 extends ../layouts/master.pug
 
 block content 
+  .section--light-green
+    .section__frame.section__frame--white
+      .container 
+        .block
+          .block__wrapper
+            h3.block__title 
+              |Арендодателям
+            .block__list
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list_item-text--active
+                    |Арендодателям
   
+  .section--grey 
+    .section__inner
+      .rent-frame 
+        .container 
+          .rent 
+            .rent__inner 
+              .rent__row 
+                .rent__col
+                  .rent__content 
+                    .rent__wrapper
+                      h3.rent__title 
+                        |Сеть магазинов «Дубки. Продукты от производителей» стремительно растет и развивается, чтобы быть ближе к своему потребителю.
+                    p.rent__text 
+                      |Мы находимся в постоянном поиске свободных торговых площадей.
+                .rent__col
+
+  .section--grey 
+    .section__inner 
+      .container 
+        .offers 
+          .offers__row 
+            .offers__col
+              .offers__wrapper 
+                h3.offers__title 
+                  |Мы будем рады, если вы предложите нам помещение, подходящее под следующие критерии:
+              ul.offers-list 
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-icon 
+                        
+                      .offers-list__point-num
+                        |1
+                  .offers-list__col
+                    p.offers-list__text
+            .offers__col
