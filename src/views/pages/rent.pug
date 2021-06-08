@@ -48,10 +48,92 @@ block content
                 li.offers-list__item 
                   .offers-list__col
                     .offers-list__point 
-                      .offers-list__point-icon 
-                        
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
                       .offers-list__point-num
                         |1
                   .offers-list__col
                     p.offers-list__text
+                      |Наличие подъездных путей к зоне разгрузки
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
+                      .offers-list__point-num
+                        |2
+                  .offers-list__col
+                    p.offers-list__text
+                      |Свободный доступ пешеходов и автолюбителей, наличие пешеходного и авто-трафика, наличие парковки
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
+                      .offers-list__point-num
+                        |3
+                  .offers-list__col
+                    p.offers-list__text
+                      |Минимальная площадь — от 30 кв. м. Максимальная площадь — 180 кв. м., желательно свободной планировки
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
+                      .offers-list__point-num
+                        |4
+                  .offers-list__col
+                    p.offers-list__text
+                      |Высота потолка не менее 3 метров
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
+                      .offers-list__point-num
+                        |5
+                  .offers-list__col
+                    p.offers-list__text
+                      |Наличие водоснабжения, канализации и отопления
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
+                      .offers-list__point-num
+                        |6
+                  .offers-list__col
+                    p.offers-list__text
+                      |Электроэнергия минимум 15 квт
+                li.offers-list__item 
+                  .offers-list__col
+                    .offers-list__point 
+                      .offers-list__point-img 
+                        +top-icon-svg('offers-list__point-icon')
+                      .offers-list__point-num
+                        |7
+                  .offers-list__col
+                    p.offers-list__text
+                      |Возможность размещения вывесок на фасаде и или торце помещения
             .offers__col
+              form.form(action="/") 
+                .form__item 
+                  input.form__input(type="text" name="name" placeholder="Имя")
+                .form__item 
+                  input.form__input(type="text" name="phone" placeholder="Телефон")
+                .form__item 
+                  input.form__input(type="text" name="email" placeholder="E-mail")
+                .form__item 
+                  input.form__input(type="text" name="addres" placeholder="Адрес помещения")
+                .form__item 
+                  input.form__input(type="text" name="area" placeholder="Площадь")
+                .form__item 
+                  input.form__input(type="text" name="rent" placeholder="Арендная ставка")
+                .form__item 
+                  input.form__input(type="text" name="energy" placeholder="Электроэнергия")
+                .form__wrapper 
+                  .form__row 
+                    button.form__button 
+                      |Прикрепить файлы
+                    .form__text  
+                      |

@@ -4259,3 +4259,80 @@ body>.wrapper {
     }
   }
 }
+
+.offers {
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__col {
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 30px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 60px;
+    }
+  }
+
+  &__title {
+    @include f-alt();
+    @include fsl(20px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(35px, 120%);
+    }
+  }
+
+  &-list {
+
+    width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
+
+    &__item {
+      display: flex;
+      align-items: center;
+    }
+
+    &__point {
+      margin-right: 15px;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-icon {
+        width: 44px;
+        height: 63px;
+        @media (min-width: $breakpoint) {
+          width: 47px;
+          height: 60px;
+        }
+      }
+
+      &-num {
+        position: absolute;
+
+        @include f-alt();
+        @include fsl(28px, 80%);
+      }
+    }
+
+    &__text {
+      font-weight: 400;
+      @include fsl(14px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(16px, 140%);
+      }
+    }
+  }
+}
