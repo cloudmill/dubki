@@ -873,7 +873,7 @@ body>.wrapper {
     padding: 28px 40px;
 
     @include fsl(18px, 80%);
-    border-radius: 15px;
+    border-radius: 25px;
   }
   display: flex;
   align-items: center;
@@ -4270,10 +4270,20 @@ body>.wrapper {
   }
 
   &__col {
+    flex-shrink: 0;
     &:nth-child(1) {
       @media (min-width: $breakpoint) {
         width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
-        flex-shrink: 0;
+      }
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-bottom: 60px;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
       }
     }
   }
@@ -4334,5 +4344,134 @@ body>.wrapper {
         @include fsl(16px, 140%);
       }
     }
+  }
+}
+
+.form {
+  width: 100%;
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 15px;
+      @media (min-width: $breakpoint) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__input {
+    padding: 24px 35px;
+
+    width: 100%;
+
+    background-color: $color-white;
+    border: none;
+    border-radius: 20px;
+    @include f-main(400);
+    @include fsl(16px, 80%);
+    &::placeholder {
+      @include fsl(16px, 80%);
+      @include f-main(400);
+      color: $color-black;
+    }
+  }
+
+  &__wrapper {
+    padding: 30px 0;
+    @media (min-width: $breakpoint) {
+      padding: 40px 0;
+    }
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      align-items: center;
+    }
+
+    &-wrapper {
+      margin-bottom: 15px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 0;
+        margin-right: 60px;
+      }
+    }
+  }
+
+  &__button {
+    padding: 18px 30px;
+
+    @include fsl(16px, 80%);
+    @include f-main(400);
+    background-color: inherit;
+    border: 1px solid $color-light-green;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  &__text {
+    font-weight: 400;
+    color: #768671;
+    @include fsl(14px, 80%);
+  }
+
+  &__inner {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.checkbox {
+
+  &__label {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    cursor: pointer;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+
+    &:checked ~ .checkbox__box {
+      background-color: $color-green;
+    }
+
+    &:checked ~ .checkbox__box .checkbox__icon {
+      opacity: 1;
+    }
+  }
+
+  &__box {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 8px;
+    border: 1px solid $color-green;
+  }
+
+  &__icon {
+    opacity: 0;
+  }
+
+  &__text {
+    margin-left: 20px;
+
+    font-weight: 400;
+    @include fsl(12px, 80%);
+  }
+
+  &__link {
+    color: $color-light-green;
   }
 }

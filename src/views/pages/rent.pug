@@ -133,7 +133,20 @@ block content
                   input.form__input(type="text" name="energy" placeholder="Электроэнергия")
                 .form__wrapper 
                   .form__row 
-                    button.form__button 
-                      |Прикрепить файлы
+                    .form__row-wrapper
+                      button.form__button 
+                        |Прикрепить файлы
                     .form__text  
-                      |
+                      |Например, фотографии, план
+                .checkbox 
+                  label.checkbox__label 
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__box 
+                      +check-svg('checkbox__icon')
+                    .checkbox__text 
+                      |Даю согласание на обработку 
+                      a.checkbox__link(href="#") 
+                        |персональных данных
+                .form__inner 
+                  .button 
+                    |Отправить
