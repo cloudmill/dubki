@@ -176,92 +176,96 @@ block content
                   |Город
             .vacancies__col
               ul.vacancies-list 
-                li.vacancies-list__item 
-                  .vacancies-list__container
-                    .vacancies-list__row 
-                      .vacancies-list__col
-                        h4.vacancies-list__title 
-                          |Продавец
-                      .vacancies-list__col
-                        .vacancies-list__city
-                          |Саратов
-                      .vacancies-list__col
-                        .vacancies-list__button
-                          +plus-svg
-                    .vacancies-list__content 
-                      ul.vacancies-list__content-list 
-                        li.vacancies-list__content-item 
-                          .vacancies-list__content-wrapper 
-                            .vacancies-list__content-title 
-                              |Условия
-                          .news-page
-                            ul.news-page__list 
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Достойная оплата
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |График 3/3, 5/2
-                        li.vacancies-list__content-item 
-                          .vacancies-list__content-wrapper 
-                            .vacancies-list__content-title 
-                              |Обязанности
-                          .news-page
-                            ul.news-page__list 
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Обслуживание покупателей на кассе (наличный и безналичный расчет)
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Выкладка товара в зале
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Отслеживание сроков годности товара
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Проверка наличия ценников
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Консультация покупателей в зале
+                - for (i = 0; i < 5; i++)
+                  li.vacancies-list__item 
+                    .vacancies-list__container
+                      .vacancies-list__row 
+                        .vacancies-list__col
+                          h4.vacancies-list__title 
+                            |Продавец
+                          .vacancies-list__city.vacancies-list__city--mobile
+                            |Саратов
+                        .vacancies-list__col
+                          .vacancies-list__city.vacancies-list__city--desctop
+                            |Саратов
+                        .vacancies-list__col
+                          .vacancies-list__button
+                            +plus-svg
+                      .vacncies-list__dropdown
+                        .vacancies-list__content 
+                          ul.vacancies-list__content-list 
+                            li.vacancies-list__content-item 
+                              .vacancies-list__content-wrapper 
+                                .vacancies-list__content-title 
+                                  |Условия
+                              .news-page
+                                ul.news-page__list 
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Достойная оплата
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |График 3/3, 5/2
+                            li.vacancies-list__content-item 
+                              .vacancies-list__content-wrapper 
+                                .vacancies-list__content-title 
+                                  |Обязанности
+                              .news-page
+                                ul.news-page__list 
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Обслуживание покупателей на кассе (наличный и безналичный расчет)
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Выкладка товара в зале
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Отслеживание сроков годности товара
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Проверка наличия ценников
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Консультация покупателей в зале
 
-                        li.vacancies-list__content-item 
-                          .vacancies-list__content-wrapper 
-                            .vacancies-list__content-title 
-                              |Требования
-                          .news-page
-                            ul.news-page__list 
-                              li.news-page__item.news-page__item--second 
-                                .news-page__item-icon
-                                  +ball-svg
-                                p.news-page__item-text
-                                  |Ответственность, дисциплинированность, внимательность.
-                    .vacancies-list__contact 
-                      .vacancies-list__contact-container 
-                        .vacancies-list__contact-row
-                          .vacancies-list__contact-col
-                            .vacancies-list__contact-contacts
-                              .vacancies-list__contact-img 
-                                +mail-svg
-                              .vacancies-list__contact-content 
-                                .vacancies-list__contact-text 
-                                  |Почта для связи
-                                a.vacancies-list__contact-link(href="#")
-                                  |vakansii@dubki-producty.ru
-                          .vacancies-list__contact-col
-                            .vacancies-list__contact-button
-                              .button
-                                |Откликнуться
+                            li.vacancies-list__content-item 
+                              .vacancies-list__content-wrapper 
+                                .vacancies-list__content-title 
+                                  |Требования
+                              .news-page
+                                ul.news-page__list 
+                                  li.news-page__item.news-page__item--second 
+                                    .news-page__item-icon
+                                      +ball-svg
+                                    p.news-page__item-text
+                                      |Ответственность, дисциплинированность, внимательность.
+                        .vacancies-list__contact 
+                          .vacancies-list__contact-container 
+                            .vacancies-list__contact-row
+                              .vacancies-list__contact-col
+                                .vacancies-list__contact-contacts
+                                  .vacancies-list__contact-img 
+                                    +mail-svg
+                                  .vacancies-list__contact-content 
+                                    .vacancies-list__contact-text 
+                                      |Почта для связи
+                                    a.vacancies-list__contact-link(href="#")
+                                      |vakansii@dubki-producty.ru
+                              .vacancies-list__contact-col
+                                .vacancies-list__contact-button
+                                  .button
+                                  |Откликнуться

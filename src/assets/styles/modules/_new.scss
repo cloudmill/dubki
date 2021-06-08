@@ -4907,9 +4907,9 @@ body>.wrapper {
       }
 
       &:not(:first-child) {
-        margin-bottom: 15px;
+        margin-top: 15px;
         @media (min-width: $breakpoint) {
-          margin-bottom: 20px;
+          margin-top: 20px;
         }
       }
     }
@@ -4927,6 +4927,10 @@ body>.wrapper {
       @media (max-width: $breakpoint - 1px) {
         justify-content: space-between;
       }
+    }
+
+    &__dropdown {
+      display: none;
     }
 
     &__col {
@@ -4960,6 +4964,22 @@ body>.wrapper {
       @include fsl(14px, 120%);
       @media (min-width: $breakpoint) {
         @include fsl(16px, 120%);
+      }
+
+      &--desctop {
+        display: none; 
+        @media (min-width: $breakpoint) {
+          display: block;
+        }
+      }
+
+      &--mobile {
+        margin-top: 5px;
+
+        display: block; 
+        @media (min-width: $breakpoint) {
+          display: none;
+        }
       }
     }
 
