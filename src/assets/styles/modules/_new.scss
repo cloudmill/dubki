@@ -608,6 +608,12 @@ body>.wrapper {
     z-index: 1;
   }
 
+  &--hidden {
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+  }
+
   &__inner {
     padding-bottom: 60px;
 
