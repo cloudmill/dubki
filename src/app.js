@@ -49,6 +49,51 @@ import Swiper from "swiper/bundle";
   });
 }
 
+// slider recipes
+{
+  $(() => {
+    const recipeSlider = $('.slider-recipe');
+
+    if (recipeSlider.length !== 0) {
+      const swiper = new Swiper(recipeSlider[0], {
+        slidesPerView: 'auto',
+
+        spaceBetween: 20,
+      });
+    }
+  })
+}
+
+// recipe list
+{
+  $(() => {
+    const recipe = $('.recipe__row');
+
+    if (recipe.length !== 0) {
+      const recipePos = recipe.offset().top;
+      const recipeHeight = recipe.innerHeight();
+      const recipeList = $('.recipe__ingredients');
+
+      console.log(recipeHeight)
+
+      $(window).on('scroll', function() {
+        const scrollPos = $(this).scrollTop();
+
+        if (recipeHeight < scrollPos) {
+          recipeList.removeClass('recipe__ingredients--fixed');
+        } else if (recipePos < scrollPos) {
+          recipeList.addClass('recipe__ingredients--fixed');
+        } else {
+          recipeList.removeClass('recipe__ingredients--fixed');
+        }
+      });
+
+      
+    }
+  });
+}
+
+
 // nav-modal
 {
   $(() => {

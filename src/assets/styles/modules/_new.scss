@@ -4124,6 +4124,13 @@ body>.wrapper {
     background-color: $color-white;
     border-radius: 20px;
     
+    &--fixed {
+      @media (min-width: $breakpoint) {
+        position: fixed;
+        top: 120px;
+      }
+    }
+
     &-container {
       padding: 30px 0;
       @media (min-width: $breakpoint) {
@@ -4152,6 +4159,42 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         padding-top: 50px;
       }
+    }
+  }
+
+  &-description {
+
+    &__wrapper {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      @media (min-width: $breakpoint) {
+        padding-top: 80px;
+        padding-bottom: 160px;
+      }
+    }
+
+    &__text {
+      font-weight: 400;
+      @include fsl(16px, 140%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 140%);
+      }
+
+      &--bold {
+        padding: 25px 0;
+
+        font-weight: 700;
+      }
+
+      &--green {
+        color: $color-green;
+      }
+    }
+  }
+
+  &__button {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 9 - #{$grid-gap-d});
     }
   }
 }
