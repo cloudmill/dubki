@@ -4686,3 +4686,66 @@ body>.wrapper {
     }
   }
 }
+
+.jobs {
+
+  &-intro {
+
+    &__inner {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      @media (min-width: $breakpoint) {
+        padding-top: 50px;
+        padding-bottom: 100px;
+      }
+    }
+
+    &__row {
+      @media (min-width: $breakpoint) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &__col {
+      flex-shrink: 0;
+
+      &:nth-child(2) {
+        @media (min-width: $breakpoint) {
+          width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+        }
+      }
+    }
+
+    &__item {
+      &:not(:first-child) {
+        margin-top: 30px;
+        @media (min-width: $breakpoint) {
+          margin-top: 50px;
+        }
+      }
+    }
+
+    &__title {
+      margin-bottom: 15px;
+
+      @include f-alt();
+      color: $color-white;
+      @include fsl(20px, 120%);
+      @media (min-width: $breakpoint) {
+        @include fsl(30px, 120%);
+      }
+    }
+
+    &__text {
+      font-weight: 400;
+      color: $color-white;
+      @include fsl(16px, 120%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 120%);
+
+        width: 371px;
+      }
+    }
+  }
+}
