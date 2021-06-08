@@ -4575,3 +4575,114 @@ body>.wrapper {
     border-radius: 20px;
   }
 }
+
+.provider {
+
+  &__inner {
+    padding-top: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 100px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0; 
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$grid-part-d});
+
+        width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+      }
+
+      @media (max-width: $breakpoint - 1px) {
+        order: 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        margin-left: calc(#{$grid-part-d} * 2 - #{$grid-col-d});
+
+        width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+      }
+
+      @media (max-width: $breakpoint - 1px) {
+        margin-bottom: 60px;
+
+        order: 1;
+      }
+    }
+  }
+
+  &-list {
+
+    &__item {
+      
+      &:not(:first-child) {
+        margin-top: 30px;
+        @media (min-width: $breakpoint) {
+          margin-top: 60px;
+        }
+      }
+    }
+
+    &__wrapper {
+      padding-bottom: 15px;
+      @media (min-width: $breakpoint) {
+        padding-bottom: 30px;
+      }
+    }
+    
+    &__text {
+      @include fsl(16px, 120%);
+      @media (min-width: $breakpoint) {
+        @include fsl(22px, 120%);
+      }
+    }
+
+    &__checkbox {
+      display: flex;
+
+      &-item {
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+
+      &-label {
+        display: flex;
+        position: relative;
+      }
+
+      &-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        &:checked ~ .provider-list__checkbox-button {
+          background-color: $color-light-green;
+          color: $color-white;
+        }
+      }
+
+      &-button {
+        padding: 18px 30px;
+
+        font-weight: 400;
+        @include fsl(16px, 80%);
+        border: 1px solid $color-light-green;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}

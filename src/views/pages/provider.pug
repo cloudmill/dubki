@@ -40,4 +40,95 @@ block content
                       .provider-intro__button
                         +download-svg
               .provider-intro__col
-                
+
+  .section--grey 
+    .container 
+      .section__inner 
+        .provider 
+          .provider__inner 
+            .provider__row 
+              .provider__col
+                form.form(action="/") 
+                  .form__item 
+                    input.form__input(type="text" name="name" placeholder="Имя")
+                  .form__item 
+                    input.form__input(type="text" name="phone" placeholder="Телефон")
+                  .form__item 
+                    input.form__input(type="text" name="email" placeholder="E-mail")
+                  .form__item 
+                    input.form__input(type="text" name="addres" placeholder="Адрес помещения")
+                  .form__item 
+                    input.form__input(type="text" name="area" placeholder="Площадь")
+                  .form__item 
+                    input.form__input(type="text" name="rent" placeholder="Арендная ставка")
+                  .form__item 
+                    input.form__input(type="text" name="energy" placeholder="Электроэнергия")
+                  .form__wrapper 
+                    .form__row 
+                      .form__row-wrapper
+                        button.form__button 
+                          |Прикрепить файлы
+                      .form__text  
+                        |Например, фотографии, план
+                  .checkbox 
+                    label.checkbox__label 
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box 
+                        +check-svg('checkbox__icon')
+                      .checkbox__text 
+                        |Даю согласание на обработку 
+                        a.checkbox__link(href="#") 
+                          |персональных данных
+                  .form__inner 
+                    .button 
+                      |Отправить
+              .provider__col
+                ul.provider-list 
+                  li.provider-list__item 
+                    .provider-list__test
+                      .provider-list__wrapper
+                        p.provider-list__text
+                          |Направлялось ли Вами ранее коммерческое предложение?
+                      .provider-list__checkbox 
+                        .provider-list__checkbox-item 
+                          label.provider-list__checkbox-label 
+                            input.provider-list__checkbox-input(type="checkbox")
+                            .provider-list__checkbox-button
+                              |Да
+                        .provider-list__checkbox-item 
+                          label.provider-list__checkbox-label 
+                            input.provider-list__checkbox-input(type="checkbox")
+                            .provider-list__checkbox-button
+                              |Нет
+                  li.provider-list__item 
+                    .provider-list__test
+                      .provider-list__wrapper
+                        p.provider-list__text
+                          |Вы являетесь производителем?
+                      .provider-list__checkbox 
+                        .provider-list__checkbox-item 
+                          label.provider-list__checkbox-label 
+                            input.provider-list__checkbox-input(type="checkbox")
+                            .provider-list__checkbox-button
+                              |Да
+                        .provider-list__checkbox-item 
+                          label.provider-list__checkbox-label 
+                            input.provider-list__checkbox-input(type="checkbox")
+                            .provider-list__checkbox-button
+                              |Нет
+                  li.provider-list__item 
+                    .provider-list__test
+                      .provider-list__wrapper
+                        p.provider-list__text
+                          |Организационно-правовая форма
+                      .provider-list__checkbox 
+                        .provider-list__checkbox-item 
+                          label.provider-list__checkbox-label 
+                            input.provider-list__checkbox-input(type="checkbox")
+                            .provider-list__checkbox-button
+                              |ИП
+                        .provider-list__checkbox-item 
+                          label.provider-list__checkbox-label 
+                            input.provider-list__checkbox-input(type="checkbox")
+                            .provider-list__checkbox-button
+                              |ООО
