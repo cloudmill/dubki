@@ -1,4 +1,43 @@
 extends ../layouts/master.pug
 
 block content 
-  
+  .section--light-green
+    .section__frame.section__frame--white
+      .container 
+        .block
+          .block__wrapper
+            h3.block__title 
+              |Арендодателям
+            .block__list
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list_item-text--active
+                    |Арендодателям
+
+  .section--grey 
+    .rent-frame 
+      .container
+        .provider-intro 
+          .provider-intro__inner
+            .provider-intro__row 
+              .provider-intro__col
+                h3.provider-intro__title 
+                  |Уважаемые представители компаний!
+                .provider-intro__wrapper 
+                  p.provider-intro__text 
+                    |Вы хотите увеличить свою прибыль? Иметь гарантированный объем продаж? Расширить географию своих поставок? Познакомить покупателя со своим брендом?
+                .provider-intro__download 
+                  .provider-intro__download-row
+                    .provider-intro__download-col
+                      .provider-intro__download-text 
+                        |Типовая форма договора
+                    .provider-intro__download-col
+                      .provider-intro__button
+                        +download-svg
+              .provider-intro__col
+                

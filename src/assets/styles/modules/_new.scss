@@ -4475,3 +4475,103 @@ body>.wrapper {
     color: $color-light-green;
   }
 }
+
+.provider-intro {
+
+  &__inner {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 80px;
+      padding-bottom: 85px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        padding-left: calc(#{$grid-part-d});
+
+        width: calc(#{$grid-part-d} * 7);
+      }
+    }
+  }
+
+  &__title {
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
+
+      @include fsl(50px, 120%);
+    }
+    @include fsl(20px, 120%);
+    @include f-alt();
+    color: $color-white;
+  }
+
+  &__wrapper {
+    margin: 15px 0;
+    @media (min-width: $breakpoint) {
+      margin: 40px 0;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    color: $color-white;
+    @include fsl(16px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 140%);
+    }
+  }
+
+  &__download {
+    display: flex;
+
+    &-row {
+      padding: 10px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 3);
+      }
+
+      border-radius: 25px;
+      border: 1px solid $color-yellow;
+    }
+
+    &-col {
+      &:nth-child(1) {
+        padding-left: 30px;
+      }
+
+      &:nth-child(2) {
+        padding-right: 10px;
+      }
+    }
+
+    &-text {
+      color: $color-white;
+      font-weight: 400;
+      @include fsl(16px, 140%);
+    }
+  }
+
+  &__button {
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $color-yellow;
+    border-radius: 20px;
+  }
+}
