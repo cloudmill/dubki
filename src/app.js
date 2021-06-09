@@ -156,11 +156,35 @@ import 'select2';
 
 		if (mapContainer.length !== 0) {
         const map = new ymaps.Map('map', {
-          center: [55.76, 37.64],
-          zoom: 10,
+          center: [51.518328, 45.996784],
+          zoom: 12,
           controls: [],
         });
-    }
+
+        const placemarks = new ymaps.GeoObjectCollection();
+        $('.placemarks__item').each(function() {
+          // данные
+          const latitude = $(this).find('.placemarks__latitude').text().trim();
+          const longitude = $(this).find('.placemarks__longitude').text().trim();
+
+          // placemarks
+          const coordinates = [latitude, longitude];
+          const placemark = new ymaps.Placemark(coordinates, {}, 
+          {
+            iconLayout: 'default#image',
+            iconImageHref: 'assets/images/placemark.svg',
+            // iconImageSize: [markWidth, markHeight],
+            // iconImageOffset: [-markWidth / 2, -markHeight],
+            // balloonLayout: layout,
+            // balloonPanelMaxMapArea: 0,
+            hideIconOnBalloonOpen: false,
+          });
+
+          placemarks.add(placemark);
+        });
+
+        map.geoObjects.add(placemarks);
+        }
   });
 }
 
