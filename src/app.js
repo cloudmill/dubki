@@ -2,6 +2,7 @@ import "Styles/_app.scss";
 
 import Swiper from "swiper/bundle";
 
+import 'select2';
 
 // slider
 {
@@ -165,5 +166,9 @@ import Swiper from "swiper/bundle";
 
 // select
 {
-  
+  $(() => {
+    const select = $('.select__select');
+
+    select.select2();
+  });
 }
