@@ -1,0 +1,23 @@
+extends ../layouts/master.pug
+
+
+block content
+  .section--grey
+    .section__frame.section__frame--white
+      .container 
+        .block
+          .block__wrapper
+            h3.block__title 
+              |Контакты
+            .block__list
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list__item-text--active
+                    |Контакты
+              
+  
