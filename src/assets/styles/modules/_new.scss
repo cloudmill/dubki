@@ -5326,6 +5326,21 @@ body>.wrapper {
     }
   }
 
+  &__wrapper {
+    padding-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 60px;
+    }
+  }
+
+  &__result {
+    font-weight: 400;
+    @include fsl(16px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 80%);
+    }
+  }
+
   &-form {
 
     &__row {
