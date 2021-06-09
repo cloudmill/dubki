@@ -18,3 +18,21 @@ block content
                     +leaflet-svg 
                   p.block-list__item-text.block-list__item-text--active
                     |Результат по­иска
+
+  .section--grey 
+    .section__inner 
+      .container 
+        .search 
+          .search__inner 
+            form.search-form(action="/")  
+              .search-form__row 
+                .search-form__col 
+                  input.search-form__input(type="text" name="search" placeholder="Что вы хотите найти?")
+                .search-form__col   
+                  .button.search-form__button
+                    |Поиск
+          .search__wrapper 
+            .search__result
+              |Найдено 268 товаров
+          ul.search__list 
+            li.search__item
