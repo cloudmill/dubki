@@ -5397,3 +5397,63 @@ body>.wrapper {
     }
   }
 }
+
+.page {
+
+  &__inner {
+    padding-top: 115px;
+    padding-bottom: 60px;
+    @media (min-width: $breakpoint) {
+      padding-top: 251px;
+      padding-bottom: 150px;
+    }
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 25px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 60px;
+    }
+  }
+
+  &__title {
+    @include f-alt();
+    @include fsl(24px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(35px, 120%);
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 23px;
+
+      @include fsl(16px, 140%);
+    }
+    font-weight: 400;
+    @include fsl(14px, 140%);
+    white-space: pre; //?
+  }
+
+  &__buttons {
+    display: flex;
+
+    &-wrapper {
+      &:not(:first-child) {
+        margin-left: 15px;
+        @media (min-width: $breakpoint) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
