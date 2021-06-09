@@ -5483,13 +5483,22 @@ body>.wrapper {
   }
 
   &-tabs {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1;
+    @media (min-width: $breakpoint) {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+    }
+    
+    &__wrapper {
+      margin-bottom: 15px;
+      @media (min-width: $breakpoint) {
+        margin-bottom: 0;
+      }
+    }
 
     &__container {
-      padding: 20px 0;
+      padding: 20px 40px;
       @media (min-width: $breakpoint) {
         padding: 20px;
 
@@ -5529,13 +5538,18 @@ body>.wrapper {
   }
 
   &__list {
-    padding-bottom: 20px;
+    margin-bottom: 15px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 0;
+      padding-bottom: 20px;
 
-    width: 331px;
-    position: absolute;
-    z-index: 1;
-    top: 20px;
-    left: 20px;
+
+      width: 331px;
+      position: absolute;
+      z-index: 1;
+      top: 20px;
+      left: 20px;
+    } 
 
     background-color: #f5f5f5;
     border-radius: 30px;
@@ -5574,9 +5588,11 @@ body>.wrapper {
   }
 
   &-list {
-    height: 531px;
     overflow-y: auto;
-    
+    height: 531px;
+    @media (min-width: $breakpoint) {
+      height: 290px;
+    }
 
     &__item {
       &:not(:first-child) {
