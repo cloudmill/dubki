@@ -4897,6 +4897,7 @@ body>.wrapper {
   }
 
   &-list {
+    $comp: &;
 
     &__item {
 
@@ -4912,6 +4913,25 @@ body>.wrapper {
           margin-top: 20px;
         }
       }
+
+
+      &--active {
+        #{$comp}__title {
+          color: $color-green;
+        }
+
+        #{$comp}__city {
+          color: $color-green;
+        }
+
+        #{$comp}__button-item {
+          background-color: $color-green;
+
+          &:nth-child(2) {
+            transform: rotate(0);
+          }
+        }
+      } 
     }
 
     &__container {
@@ -4984,7 +5004,26 @@ body>.wrapper {
     }
 
     &__button {
+      padding: 10px;
+
       cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-item {
+        position: absolute;
+
+        width: 20px;
+        height: 2px;
+
+        background-color: $color-black;
+
+        &:nth-child(2) {
+          transform: rotate(90deg);
+        }
+      }
     }
 
     &__content {

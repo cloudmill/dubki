@@ -129,3 +129,21 @@ import Swiper from "swiper/bundle";
     }
   });
 }
+
+
+// vacancies dropdown
+{
+  const vacanciesItem = $('.vacancies-list__item');
+
+  vacanciesItem.each(function () {
+    const vacancies = $(this);
+    const vacanciesButton = vacancies.find('.vacancies-list__button');
+    const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
+
+    console.log(vacancies);
+    vacanciesButton.on('click', function() {
+      vacancies.toggleClass('vacancies-list__item--active');
+      vacanciesDrop.slideToggle();
+    });
+  });
+}
