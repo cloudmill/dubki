@@ -28,10 +28,10 @@ block content
                 .map-tabs__container 
                   .map-tabs__row
                     .map-tabs__item 
-                      .map-tabs__button.map-tabs__button--active
+                      .map-tabs__button.map-tabs__button--active(data-tab='map')
                         |На карте
                     .map-tabs__item 
-                      .map-tabs__button
+                      .map-tabs__button(data-tab='list')
                         |Списком
             ul.placemarks  
               li.placemarks__item 
@@ -94,4 +94,49 @@ block content
                           .map-list__text  
                             |пнд—вс  |  9—18
             #map
-            
+            .addres#list 
+              .section__inner
+                .addres__inner 
+                  ul.addres__list 
+                    - for (i = 0; i < 3; i++)
+                      li.addres__item
+                        .addres__container 
+                          .addres__row 
+                            .addres__col
+                              .addres__name 
+                                .addres__store 
+                                  |В магазине самообслуживание
+                                h3.addres__title 
+                                  |р.п. Мокроус, ул. Победы, д. 8 СО
+                            .addres__col
+                              ul.addres-list
+                                li.addres-list__item
+                                  .addres__addres 
+                                    .addres__icon 
+                                      +clock-svg
+                                    .addres__text 
+                                      |пнд—вс  |  9—18
+                      li.addres__item
+                        .addres__container 
+                          .addres__row 
+                            .addres__col
+                              .addres__name 
+                                h3.addres__title 
+                                  |р.п. Мокроус, ул. Победы, д. 8 СО
+                            .addres__col
+                              ul.addres-list
+                                li.addres-list__item
+                                  .addres__addres 
+                                    .addres__icon 
+                                      +clock-svg
+                                    .addres__text 
+                                      |пнд—вс  |  9—18
+                                li.addres-list__item
+                                  .addres__addres 
+                                    .addres__icon 
+                                      +clock-svg
+                                    .addres__text 
+                                      |пнд—вс  |  9—18
+                  .wrapper 
+                    .button--s
+                      |Показать еще
