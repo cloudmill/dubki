@@ -20,3 +20,97 @@ block content
                   p.block-list__item-text.block-list__item-text--active
                     |Контакты
               
+  .section--grey 
+    .section__inner 
+      .container 
+        .contacts 
+          .contacts__inner 
+            .contacts__row 
+              .contacts__col
+                .contacts__media 
+                  .contacts__question 
+                    |По вопросам качества продукции
+                  .contacts__phone 
+                    |8 800 333-82-54
+                  .contacts__mail 
+                    |info@dubki-producty.ru
+                .social.social--second
+                  ul.social__list
+                    li.social__item
+                      a.social__row(href='#')
+                        .social__col
+                          .social__img
+                            +instagram-svg('contacts__icon')
+                        .social__col
+                          .social__link
+                            |Instagram
+                    li.social__item
+                      a.social__row(href='#')
+                        .social__col
+                          .social__img(href="#") 
+                            +vk-svg('contacts__icon')
+                        .social__col
+                          .social__link(href="#")
+                            |Вконтакте
+                  ul.social__list
+                    li.social__item
+                      a.social__row(href='#')
+                        .social__col
+                          .social__img
+                            +facebook-svg('contacts__icon')
+                        .social__col
+                          .social__link
+                            |Facebook
+                    li.social__item
+                      a.social__row(href='#')
+                        .social__col
+                          .social__img(href="#") 
+                            +classmates-svg('contacts__icon')
+                        .social__col
+                          .social__link(href="#")
+                            |Одноклассники
+                .contacts__property.contacts__property--desctop
+                  .contacts__property-wrapper 
+                    h4.contacts__title 
+                      |Реквезиты
+                  .contacts__docs 
+                    |ИП Кондратьев Юрий Алексеевич ИНН 645204971442 ОГРНИП 308645314200049 р/с 40802810456390000269 Поволжский Банк ПАО Сбербанк г. Самара к/с 30101810200000000607 БИК 043601607
+                    
+              .contacts__col
+                .contacts__wrapper
+                  h4.contacts__title 
+                    |Задать вопрос или оставить пожелание
+                form.form(action="/") 
+                  .form__item 
+                    input.form__input(type="text" name="name" placeholder="Имя")
+                  .form__item 
+                    input.form__input(type="text" name="phone" placeholder="Телефон")
+                  .form__item 
+                    input.form__input(type="text" name="email" placeholder="E-mail")
+                  .form__item 
+                    input.form__input(type="text" name="addres" placeholder="Адрес помещения")
+                  .form__wrapper 
+                    .form__row 
+                      .form__row-wrapper
+                        button.form__button 
+                          |Прикрепить файлы
+                      .form__text  
+                        |Например, фотографии, план
+                  .checkbox 
+                    label.checkbox__label 
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box 
+                        +check-svg('checkbox__icon')
+                      .checkbox__text 
+                        |Даю согласание на обработку 
+                        a.checkbox__link(href="#") 
+                          |персональных данных
+                  .form__inner 
+                    .button 
+                      |Отправить
+                .contacts__property.contacts__property--mobile 
+                  .contacts__property-wrapper 
+                    h4.contacts__title 
+                      |Реквезиты
+                  .contacts__docs 
+                    |ИП Кондратьев Юрий Алексеевич ИНН 645204971442 ОГРНИП 308645314200049 р/с 40802810456390000269 Поволжский Банк ПАО Сбербанк г. Самара к/с 30101810200000000607 БИК 043601607
