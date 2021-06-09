@@ -147,3 +147,23 @@ import Swiper from "swiper/bundle";
     });
   });
 }
+
+// map
+{
+  ymaps.ready(() => {
+    const mapContainer = $('#map');
+
+		if (mapContainer.length !== 0) {
+        const map = new ymaps.Map('map', {
+          center: [55.76, 37.64],
+          zoom: 10,
+          controls: [],
+        });
+    }
+  });
+}
+
+// select
+{
+  
+}

@@ -5457,3 +5457,74 @@ body>.wrapper {
     }
   }
 }
+
+.map {
+  
+  &__inner {
+    padding-top: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 60px;
+    }
+    padding-bottom: 60px;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &-tabs {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+
+    &__container {
+      padding: 20px 0;
+      @media (min-width: $breakpoint) {
+        padding: 20px;
+
+        width: 306px;
+
+        border-radius: 30px;
+      }
+      border-radius: 20px;
+      background-color: $color-white;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__item {
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+
+    &__button {
+      padding: 18px 29px;
+
+      font-weight: 400;
+      @include fsl(16px, 80%);
+      border: 1px solid $color-light-green;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &--active {
+        background-color: $color-light-green;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+#map {
+  height: 400px;
+  @media (min-width: $breakpoint) {
+    height: 700px;
+
+    // border-radius: 50px;
+    // overflow: hidden;
+  }
+}
