@@ -1992,83 +1992,56 @@ body>.wrapper {
   }
 
   &__list {
-    width: 100%;
-    @media (max-width: $breakpoint - 1px) {
-      width: calc(#{$col-part-m} * 4 - #{$col-gap-m});
-    }
-
+    flex-shrink: 0;
     @media (min-width: $breakpoint) {
-      margin-left: 20px;
-
-      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
-      flex-shrink: 0;
+      margin-top: -20px;
+      margin-left: -20px;
+      width: calc(100% + 20px);
     }
 
-    @media (max-width: $breakpoint -1px) {
+    @media (max-width: $breakpoint - 1px) {
+      margin-left: -15px;
+      width: calc(100% + 15px);
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+      margin-left: 0;
       width: 100%;
     }
 
     display: flex;
     flex-wrap: wrap;
-
-    &--wide {
-      margin-left: 0;
-      width: calc(#{$col-part-d} * #{$col-count-d} - #{$col-gap-d});
-      @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-part-m} * 4 - #{$col-gap-m});
-      }
-    }
+    align-items: stretch;
   }
 
   &__card {
     padding: 20px;
     @media (max-width: $breakpoint - 1px) {
+      margin-left: 15px;
+
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
     }
     @media (max-width: $breakpoint-m - 1px) {
+      margin-left: 0;
+
       width: 100%;
     }
 
-    &:nth-child(even) {
-      @media (max-width: $breakpoint - 1px) {
-        margin-left: $col-gap-m;
-      }
-      @media (max-width: $breakpoint-m - 1px) {
-        margin-left: 0;
-      }
-    }
-
     @media (min-width: $breakpoint) {
+      margin-top: 20px;
+      margin-left: calc(#{$grid-gap-d});
       padding: 30px;
 
       width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
-      height: 250px;
-
-      &--primary {
-        margin-top: 20px;
-        margin-left: calc(#{$grid-gap-d});
-
-        &:nth-child(-n + 2) {
-          margin-top: 0;
-        }
-
-        &:nth-child(2n + 1) {
-          margin-left: 0;
-        }
-      }
-
-      &--secondary {
-        margin-top: 20px;
-        margin-left: calc(#{$grid-gap-d});
-
-        &:nth-child(3n + 1) {
-          margin-left: 0;
-        }
-      }
+      min-height: 250px;
     }
 
     width: 100%;
-    height: 159px;
+    min-height: 159px;
 
     flex-shrink: 0;
     display: flex;
@@ -2079,10 +2052,10 @@ body>.wrapper {
     border-radius: 20px;
 
     &--big {
-      margin-top: 0;
 
       height: 397px;
       @media (max-width: $breakpoint - 1px) {
+
         width: 100%;
       }
       @media (min-width: $breakpoint) {
@@ -2163,27 +2136,35 @@ body>.wrapper {
 
       @media (min-width: $breakpoint) {
         margin-top: 30px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 130px
       }
     }
 
     &-item {
-      display: block;
-
-      color: $color-black;
-      font-size: 13px;
-
+      
       @media (min-width: $breakpoint) {
+        margin-top: 10px;
+
+        width: calc(#{$grid-part-d} * 3 - 30px);
+
         font-size: 15px;
 
-        :not(:first-child) {
-          margin-top: 15px;
+        &:nth-child(5n + 1) {
+          margin-top: 0;
         }
       }
-
+      font-weight: 400;
+      font-size: 13px;
       line-height: 1.2;
 
-      &:not(:first-child) {
-        margin-top: 10px;
+      @media (max-width: $breakpoint - 1px) {
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
       }
     }
   }
