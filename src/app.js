@@ -178,7 +178,7 @@ import 'select2';
           '{{properties.balloonAddres}}',
           '</div>',
           '<div class="map-balloon__time">',
-          '<div class="map--ballon__text">',
+          '<div class="map-balloon__text">',
           '{{properties.balloonText}}',
           '</div>',
           '</div>',
@@ -241,7 +241,7 @@ import 'select2';
 			const placemarks = new ymaps.GeoObjectCollection();
 			$('.placemarks__item').each(function () {
 				// данные
-				const balloon = $(this).find('.placemarks__balloon').text().trim();
+				const balloon = $(this).find('.placemarks__balloon');
         const balloonStore = $(this).find('.map-balloon__store').text().trim();
         const balloonAddres = $(this).find('.map-balloon__addres').text().trim();
         const balloonText = $(this).find('.map-balloon__text').text().trim();
