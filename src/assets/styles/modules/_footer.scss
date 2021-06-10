@@ -112,6 +112,12 @@
     }
   }
 
+  &__social {
+    @media (min-width: $breakpoint) {
+      margin-left: 20px;
+    }
+  }
+
   &__bottom {
     margin-top: 40px;
     @media (min-width: $breakpoint) {

@@ -2,6 +2,7 @@ import "Styles/_app.scss";
 
 import Swiper from "swiper/bundle";
 
+import 'select2';
 
 // slider
 {
@@ -127,5 +128,71 @@ import Swiper from "swiper/bundle";
         }
       });
     }
+  });
+}
+
+
+// vacancies dropdown
+{
+  const vacanciesItem = $('.vacancies-list__item');
+
+  vacanciesItem.each(function () {
+    const vacancies = $(this);
+    const vacanciesButton = vacancies.find('.vacancies-list__button');
+    const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
+
+    console.log(vacancies);
+    vacanciesButton.on('click', function() {
+      vacancies.toggleClass('vacancies-list__item--active');
+      vacanciesDrop.slideToggle();
+    });
+  });
+}
+
+// map
+{
+  ymaps.ready(() => {
+    const mapContainer = $('#map');
+
+		if (mapContainer.length !== 0) {
+        const map = new ymaps.Map('map', {
+          center: [51.518328, 45.996784],
+          zoom: 12,
+          controls: [],
+        });
+
+        const placemarks = new ymaps.GeoObjectCollection();
+        $('.placemarks__item').each(function() {
+          // данные
+          const latitude = $(this).find('.placemarks__latitude').text().trim();
+          const longitude = $(this).find('.placemarks__longitude').text().trim();
+
+          // placemarks
+          const coordinates = [latitude, longitude];
+          const placemark = new ymaps.Placemark(coordinates, {}, 
+          {
+            iconLayout: 'default#image',
+            iconImageHref: 'assets/images/placemark.svg',
+            // iconImageSize: [markWidth, markHeight],
+            // iconImageOffset: [-markWidth / 2, -markHeight],
+            // balloonLayout: layout,
+            // balloonPanelMaxMapArea: 0,
+            hideIconOnBalloonOpen: false,
+          });
+
+          placemarks.add(placemark);
+        });
+
+        map.geoObjects.add(placemarks);
+        }
+  });
+}
+
+// select
+{
+  $(() => {
+    const select = $('.select__select');
+
+    select.select2();
   });
 }

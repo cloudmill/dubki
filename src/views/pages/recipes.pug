@@ -20,6 +20,7 @@ block content
                     +leaflet-svg 
                   p.block-list__item-text.block-list_item-text--active
                     |Рецепты
+  
   .section--grey.section--catalog 
     .container 
       .section__inner 
@@ -28,9 +29,31 @@ block content
             .recipes__col
               .recipes__text 
                 |Тип блюда
+              .recipes__select 
+                .select 
+                  select.select__select(name="type")(style="width: 147px")
+                    option(value="all", selected) 
+                      |Все
+                    option(value="breakfast") 
+                      |Завтрак
+                    option(value="lunch") 
+                      |Обед
+                    option(value="dinner") 
+                      |Ужин
             .recipes__col
               .recipes__text 
                 |Время готовки
+              .recipes__select 
+                .select 
+                  select.select__select(name="type")(style="width: 100%")
+                    option(value="all", selected) 
+                      |Все
+                    option(value="breakfast") 
+                      |Завтрак
+                    option(value="lunch") 
+                      |Обед
+                    option(value="dinner") 
+                      |Ужин
           .section--catalog 
             .recipes__wrapper 
               .slider

@@ -1,0 +1,142 @@
+extends ../layouts/master.pug
+
+block content 
+  .section--grey
+    .section__frame.section__frame--white
+      .container 
+        .block
+          .block__wrapper
+            h3.block__title 
+              |Где купить
+            .block__list
+              ul.block-list
+                li.block-list__item 
+                  p.block-list__item-text 
+                    |Главная
+                li.block-list__item
+                  .block-list__item-icon
+                    +leaflet-svg 
+                  p.block-list__item-text.block-list__item-text--active
+                    |Где купить
+  .section--grey 
+    .container 
+      .map 
+        .map__inner 
+          .map__container
+            .map-tabs 
+              .map-tabs__wrapper
+                .map-tabs__container 
+                  .map-tabs__row
+                    .map-tabs__item 
+                      .map-tabs__button.map-tabs__button--active(data-tab='map')
+                        |На карте
+                    .map-tabs__item 
+                      .map-tabs__button(data-tab='list')
+                        |Списком
+            ul.placemarks  
+              li.placemarks__item 
+                .placemarks__coordinates 
+                  .placemarks__latitude
+                    |51.596075
+                  .placemarks__longitude
+                    |46.029688
+              li.placemarks__item 
+                .placemarks__coordinates 
+                  .placemarks__latitude
+                    |51.492406
+                  .placemarks__longitude
+                    |46.108394
+              li.placemarks__item 
+                .placemarks__coordinates 
+                  .placemarks__latitude
+                    |51.527775
+                  .placemarks__longitude
+                    |45.995724
+              li.placemarks__item 
+                .placemarks__coordinates 
+                  .placemarks__latitude
+                    |51.540679
+                  .placemarks__longitude
+                    |45.994837
+            .map__list 
+              .map-select 
+                .map-select__inner
+                  .map-select__container 
+                    .map-select__row 
+                      .map-select__col
+                        .map-select__text 
+                          |Город
+                      .map-select__col
+                        .select 
+                          select.select__select(name="city")(style="width: 100%")
+                            option(value="saratov", selected) 
+                              |Саратов
+                            option(value="moscov") 
+                              |Москва
+                            option(value="spb") 
+                              |Санкт-Питербург
+                            option(value="voronezh") 
+                              |Воронеж
+              ul.map-list
+                - for (i = 0; i < 6; i++)
+                  li.map-list__item
+                    .map-list__wrapper
+                      .map-list__container 
+                        .map-list__store  
+                          |В магазине самообслуживание
+                        .map-list__addres 
+                          |г. Саратов, ул. 
+                          br
+                          |Красноармейская, д. 13 а
+                        .map-list__time 
+                          .map-list__icon 
+                            +clock-svg
+                          .map-list__text  
+                            |пнд—вс  |  9—18
+            #map
+            .addres#list 
+              .section__inner
+                .addres__inner 
+                  ul.addres__list 
+                    - for (i = 0; i < 3; i++)
+                      li.addres__item
+                        .addres__container 
+                          .addres__row 
+                            .addres__col
+                              .addres__name 
+                                .addres__store 
+                                  |В магазине самообслуживание
+                                h3.addres__title 
+                                  |р.п. Мокроус, ул. Победы, д. 8 СО
+                            .addres__col
+                              ul.addres-list
+                                li.addres-list__item
+                                  .addres__addres 
+                                    .addres__icon 
+                                      +clock-svg
+                                    .addres__text 
+                                      |пнд—вс  |  9—18
+                      li.addres__item
+                        .addres__container 
+                          .addres__row 
+                            .addres__col
+                              .addres__name 
+                                h3.addres__title 
+                                  |р.п. Мокроус, ул. Победы, д. 8 СО
+                            .addres__col
+                              ul.addres-list
+                                li.addres-list__item
+                                  .addres__addres 
+                                    .addres__icon 
+                                      +clock-svg
+                                    .addres__text 
+                                      |пнд—вс  |  9—18
+                                li.addres-list__item
+                                  .addres__addres 
+                                    .addres__icon 
+                                      +clock-svg
+                                    .addres__text 
+                                      |пнд—вс  |  9—18
+                  .wrapper 
+                    .button--s
+                      |Показать еще
