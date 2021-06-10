@@ -1,8 +1,22 @@
+// imports
 import "Styles/_app.scss";
 
 import Swiper from "swiper/bundle";
-
 import 'select2';
+
+// vars
+const BREAKPOINT = 1280
+
+// functions
+function toggleDataAttr($element, attr, value='') {
+  const element = $element[0]
+
+  if (attr in element.dataset) {
+    delete element.dataset[attr]
+  } else {
+    element.dataset[attr] = value
+  }
+}
 
 // slider
 {
@@ -96,17 +110,17 @@ import 'select2';
 
 
 // nav-modal
+// notifi-modal
 {
   $(() => {
     const header = $('.header');
 
     if (header.length !== 0) {
       const navModalButton = header.find('.header__button-button');
+      const searchModalButton = header.find('.header__search-button');
 
       // button
       navModalButton.on('click', function () {
-        console.log(123);
-
         if (header.hasClass('header--nav-modal')) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('header__button-button--active');
@@ -115,9 +129,19 @@ import 'select2';
           navModalButton.addClass('header__button-button--active');
         }
       });
+      searchModalButton.on('click', function () {
+        if (header.hasClass('header--search-modal')) {
+          header.removeClass('header--search-modal');
+          navModalButton.removeClass('header__search-button--active');
+        } else {
+          header.addClass('header--search-modal');
+          navModalButton.addClass('header__search-button--active');
+        }
+      });
 
       // click close
       $(window).on('click', event => {
+        // .nav-modal
         if (
           header.hasClass('header--nav-modal') &&
           event.target !== navModalButton[0] &&
@@ -125,6 +149,18 @@ import 'select2';
         ) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('header__button-button--active');
+        }
+        // .search-modal
+        if (
+          (
+            header.hasClass('header--search-modal') &&
+            event.target !== searchModalButton[0] &&
+            $(event.target).closest('.search-modal__container').length === 0
+          ) ||
+          $(event.target).closest('.search-modal__close').length !== 0
+        ) {
+          header.removeClass('header--search-modal');
+          navModalButton.removeClass('header__search-button--active');
         }
       });
     }
@@ -195,4 +231,42 @@ import 'select2';
 
     select.select2();
   });
+}
+
+// header's modals
+{
+  $(() => {
+    const headers = $('.header')
+
+    headers.each(function () {
+      const header = $(this)
+
+      const buttons = header.find('[data-modal-button]')
+      
+      buttons.each(function () {
+        const button = $(this)
+        console.log(button);
+
+        button.on('click', function () {
+          toggleDataAttr(button, 'modalActive')
+
+          const buttonID = button.data('modal-button')
+          switch (buttonID) {
+            case 'catalog-toggle':
+              break;
+            case 'location-toggle':
+              break;
+            case 'search-toggle':
+              break;
+            case 'menu-toggle':
+              break;
+            case 'location-close':
+              break;
+            case 'search-close':
+              break;
+          }
+        })
+      })
+    })
+  })
 }

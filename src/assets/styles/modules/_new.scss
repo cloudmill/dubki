@@ -72,13 +72,23 @@ body>.wrapper {
     transition: $transition;
   }
 
+  // modals state
   &--nav-modal {
     &::before {
       opacity: 1;
     }
 
     .nav-modal {
-      transform: translateX(0);
+      transform: translateX(-100%);
+    }
+  }
+  &--search-modal {
+    &::before {
+      opacity: 1;
+    }
+
+    .search-modal {
+      transform: translateY(0);
     }
   }
 
@@ -266,6 +276,7 @@ body>.wrapper {
     &-icon {
       max-width: 14px;
       max-height: 14px;
+      pointer-events: none;
 
       @media (min-width: $breakpoint) {
         max-width: 22px;
@@ -5866,5 +5877,75 @@ body>.wrapper {
     font-weight: 400;
     @include fsl(14px, 120%);
     text-transform: uppercase;
+  }
+}
+
+.search-modal {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+
+  transition: $transition;
+
+  // верт отступ
+  &__inner {
+    padding-top: 20px;
+    @media (min-width: $breakpoint) {
+      padding-top: 30px;
+    }
+  }
+
+  &__container {
+    height: 170px;
+    display: flex;
+    justify-content: flex-end;
+
+    background-color: white;
+  }
+
+  &__close {
+    width: 50px;
+    height: 50px;
+
+    background-color: black;
+  }
+}
+
+// header, модальные окна
+.header {
+  // z order:
+  // .header
+  // .header::before (blackout)
+  // .left-modal, .right-modal (catalog, menu)
+  // .up-modal (location, search)
+
+  // описание:
+  // .header - шапка
+  // содержит кнопки вызова модальных окон (меню, поиск)
+  // содержит сами модальные окна (отдельные блоки)
+  // имеет модификаторы вида .header--<мод. окно>
+
+  // z-index структура (по возрастанию):
+  // .header
+  // .header::before (blackout)
+  // .left-modal, .right-modal (catalog, menu)
+  // .up-modal (location, search)
+
+  &--blackout {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  @each $modal in (left-modal, right-modal, up-modal) {
+    &--#{$modal} {
+      .#{$modal} {
+        // модальное окно "выезжает"
+        transform: none;
+      }
+    }
   }
 }

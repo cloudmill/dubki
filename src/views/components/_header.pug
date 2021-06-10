@@ -3,7 +3,7 @@ mixin header()
     .container
       .header__row
         .header__catalog
-          .header__catalog-button
+          .header__catalog-button(data-modal-button='catalog-toggle')
             .header__catalog-text
               |Акционный каталог
             .header__catalog-icon
@@ -18,7 +18,7 @@ mixin header()
           a.header__logo-link(href="#")
             +logo-svg
         .header__city
-          .header__city-button
+          .header__city-button(data-modal-button='location-toggle')
             .header__city-text 
               |Саратов
             .header__city-icon
@@ -27,12 +27,12 @@ mixin header()
           a.header__nav-link(href="#") 
             |Где купить
         .header__search
-          .header__search-button 
+          .header__search-button(data-modal-button='search-toggle')
             +search-svg('header__search-icon')
         .header__button
-          .header__button-button(data-modal-button='3')
+          .header__button-button(data-modal-button='menu-toggle')
             .header__button-image
-        .nav-modal
+        //- .nav-modal
           .nav-modal__content
             .nav-modal__top
               ul.nav-modal__list
@@ -82,3 +82,9 @@ mixin header()
                 .footer__media-item
                   a.footer__mail(href="#") 
                     |info@dubki-producty.ru
+        .menu-modal
+        .catalog-modal
+        .search-modal
+          button(data-modal-button='search-close')
+        .location-modal
+          button(data-modal-button='location-close')
