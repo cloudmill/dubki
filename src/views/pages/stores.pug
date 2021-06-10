@@ -28,31 +28,79 @@ block content
                 .map-tabs__container 
                   .map-tabs__row
                     .map-tabs__item 
-                      .map-tabs__button.map-tabs__button--active(data-tab='map')
+                      .map-tabs__button.map-tabs__button--active
                         |На карте
                     .map-tabs__item 
-                      .map-tabs__button(data-tab='list')
+                      .map-tabs__button
                         |Списком
             ul.placemarks  
               li.placemarks__item 
+                .placemarks__ballon 
+                  .map-balloon--alt
+                    .map-balloon__container 
+                      .map-balloon__store  
+                        |В магазине самообслуживание
+                      .map-balloon__addres 
+                        |г. Саратов, ул. 
+                        br
+                        |Красноармейская, д. 13 а
+                      .map-balloon__time
+                        .map-balloon__text  
+                          |пнд—вс  |  9—18
                 .placemarks__coordinates 
                   .placemarks__latitude
                     |51.596075
                   .placemarks__longitude
                     |46.029688
               li.placemarks__item 
+                .placemarks__ballon
+                  .map-balloon--alt
+                    .map-balloon__container 
+                      .map-balloon__store  
+                        |В магазине самообслуживание
+                      .map-balloon__addres 
+                        |г. Саратов, ул. 
+                        br
+                        |Красноармейская, д. 13 а
+                      .map-balloon__time
+                        .map-balloon__text  
+                          |пнд—вс  |  9—18
                 .placemarks__coordinates 
                   .placemarks__latitude
                     |51.492406
                   .placemarks__longitude
                     |46.108394
               li.placemarks__item 
+                .placemarks__ballon 
+                  .map-balloon.map-balloon.map-balloon--alt
+                    .map-balloon__container 
+                      .map-balloon__store  
+                        |В магазине самообслуживание
+                      .map-balloon__addres 
+                        |г. Саратов, ул. 
+                        br
+                        |Красноармейская, д. 13 а
+                      .map-balloon__time
+                        .map-balloon__text  
+                          |пнд—вс  |  9—18
                 .placemarks__coordinates 
                   .placemarks__latitude
                     |51.527775
                   .placemarks__longitude
                     |45.995724
               li.placemarks__item 
+                .placemarks__ballon 
+                  .map-balloon--alt
+                    .map-balloon__container 
+                      .map-balloon__store  
+                        |В магазине самообслуживание
+                      .map-balloon__addres 
+                        |г. Саратов, ул. 
+                        br
+                        |Красноармейская, д. 13 а
+                      .map-balloon__time
+                        .map-balloon__text  
+                          |пнд—вс  |  9—18
                 .placemarks__coordinates 
                   .placemarks__latitude
                     |51.540679
@@ -81,20 +129,19 @@ block content
                 - for (i = 0; i < 6; i++)
                   li.map-list__item
                     .map-list__wrapper
-                      .map-list__container 
-                        .map-list__store  
-                          |В магазине самообслуживание
-                        .map-list__addres 
-                          |г. Саратов, ул. 
-                          br
-                          |Красноармейская, д. 13 а
-                        .map-list__time 
-                          .map-list__icon 
-                            +clock-svg
-                          .map-list__text  
-                            |пнд—вс  |  9—18
+                      .map-balloon
+                        .map-balloon__container 
+                          .map-balloon__store  
+                            |В магазине самообслуживание
+                          .map-balloon__addres 
+                            |г. Саратов, ул. 
+                            br
+                            |Красноармейская, д. 13 а
+                          .map-balloon__time
+                            .map-balloon__text  
+                              |пнд—вс  |  9—18
             #map
-            .addres#list 
+            .addres 
               .section__inner
                 .addres__inner 
                   ul.addres__list 

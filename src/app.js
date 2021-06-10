@@ -151,43 +151,131 @@ import 'select2';
 
 // map
 {
-  ymaps.ready(() => {
-    const mapContainer = $('#map');
+	ymaps.ready(() => {
+		const mapContainer = $('#map');
 
 		if (mapContainer.length !== 0) {
-        const map = new ymaps.Map('map', {
-          center: [51.518328, 45.996784],
-          zoom: 12,
-          controls: [],
-        });
+			// vars
+			const markWidth = 53;
+      const markHeight = 56;
 
-        const placemarks = new ymaps.GeoObjectCollection();
-        $('.placemarks__item').each(function() {
-          // данные
-          const latitude = $(this).find('.placemarks__latitude').text().trim();
-          const longitude = $(this).find('.placemarks__longitude').text().trim();
+			// init
+			const map = new ymaps.Map('map', {
+        center: [51.518328, 45.996784],
+        zoom: 12,
+        controls: [],
+      });
 
-          // placemarks
-          const coordinates = [latitude, longitude];
-          const placemark = new ymaps.Placemark(coordinates, {}, 
-          {
-            iconLayout: 'default#image',
-            iconImageHref: 'assets/images/placemark.svg',
-            // iconImageSize: [markWidth, markHeight],
-            // iconImageOffset: [-markWidth / 2, -markHeight],
-            // balloonLayout: layout,
-            // balloonPanelMaxMapArea: 0,
-            hideIconOnBalloonOpen: false,
-          });
+			// balloon layout
+			const layout = ymaps.templateLayoutFactory.createClass(
+				[
+					'<div class="map-balloon--alt">',
+					'<div class="map-balloon__container">',
+					'<div class="map-balloon__store">',
+					'{{properties.balloonStore}}',
+					'</div>',
+          '<div class="map-balloon__addres">',
+          '{{properties.balloonAddres}}',
+          '</div>',
+          '<div class="map-balloon__time">',
+          '<div class="map--ballon__text">',
+          '{{properties.balloonText}}',
+          '</div>',
+          '</div>',
+					'</div>',
+					'</div>',
+				].join(''),
+				{
+					build: function () {
+						this.constructor.superclass.build.call(this);
 
-          placemarks.add(placemark);
-        });
+						this._$element = $('.map-balloon--alt', this.getParentElement());
 
-        map.geoObjects.add(placemarks);
-        }
-  });
+						this.applyElementOffset();
+					},
+					onSublayoutSizeChange: function () {
+						layout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+						if (!this._isElement(this._$element)) {
+							return;
+						}
+
+						this.applyElementOffset();
+
+						this.events.fire('shapechange');
+					},
+					applyElementOffset: function () {
+						this._$element.css({
+							left: -(this._$element[0].offsetWidth / 2),
+							top: -(this._$element[0].offsetHeight + markHeight / 2),
+						});
+					},
+					getShape: function () {
+						if (!this._isElement(this._$element)) {
+							return layout.superclass.getShape.call(this);
+						}
+
+						var position = this._$element.position();
+
+						return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+							[position.left, position.top], [
+								position.left + this._$element[0].offsetWidth,
+								position.top + this._$element[0].offsetHeight,
+							]
+						]));
+					},
+					_isElement: function (element) {
+						return element && element[0];
+					}
+				}
+			);
+
+			// balloon close
+			map.events.add('click', () => {
+				if (map.balloon.isOpen()) {
+					map.balloon.close();
+				}
+			});
+
+			// добавление точек
+			const placemarks = new ymaps.GeoObjectCollection();
+			$('.placemarks__item').each(function () {
+				// данные
+				const balloon = $(this).find('.placemarks__balloon').text().trim();
+        const balloonStore = $(this).find('.map-balloon__store').text().trim();
+        const balloonAddres = $(this).find('.map-balloon__addres').text().trim();
+        const balloonText = $(this).find('.map-balloon__text').text().trim();
+				const latitude = $(this).find('.placemarks__latitude').text().trim();
+				const longitude = $(this).find('.placemarks__longitude').text().trim();
+
+				// placemark
+				const coordinates = [latitude, longitude];
+				const placemark = new ymaps.Placemark(coordinates, {
+					balloon, balloonStore, balloonAddres, balloonText,
+				}, {
+					iconLayout: 'default#image',
+					iconImageHref: 'assets/images/placemark.svg',
+					iconImageSize: [markWidth, markHeight],
+					iconImageOffset: [-markWidth / 2, -markHeight],
+
+					balloonLayout: layout,
+					balloonPanelMaxMapArea: 0,
+					hideIconOnBalloonOpen: false,
+				});
+
+				placemarks.add(placemark);
+			});
+
+			// добавление на карту
+			map.geoObjects.add(placemarks);
+
+			// позиционирование на точках
+			map.setBounds(placemarks.getBounds(), {
+				zoomMargin: Math.max(markWidth, markHeight),
+			});
+		}
+	});
 }
-
 // select
 {
   $(() => {

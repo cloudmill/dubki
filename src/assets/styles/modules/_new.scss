@@ -5603,6 +5603,14 @@ body>.wrapper {
     &__wrapper {
       padding: 0 20px;
     }
+  }
+
+  &-balloon {
+    cursor: pointer;
+
+    &--alt {
+      position: absolute;
+    }
 
     &__container {
       padding: 20px;
@@ -5626,18 +5634,39 @@ body>.wrapper {
     }
 
     &__time {
-      display: flex;
-      align-items: center;
-    }
-
-    &__icon {
-      margin-right: 12px;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
     }
 
     &__text {
+      margin-top: 10px;
+      padding-left: 27px;
+
+      position: relative;
+
       font-weight: 400;
       text-transform: uppercase;
       @include fsl(14px, 120%);
+
+      &:before {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        background: url("assets/images/clock.svg") center no-repeat;
+        background-size: contain;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -5868,3 +5897,7 @@ body>.wrapper {
     text-transform: uppercase;
   }
 }
+
+
+
+        
