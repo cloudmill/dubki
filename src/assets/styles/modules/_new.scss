@@ -5489,6 +5489,10 @@ body>.wrapper {
       right: 20px;
       z-index: 1;
     }
+
+    &--default {
+
+    }
     
     &__wrapper {
       margin-bottom: 15px;
@@ -5787,12 +5791,11 @@ body>.wrapper {
 }
 
 .addres {
-  display: none;
 
   &__inner {
     padding-top: 15px;
     @media (min-width: $breakpoint) {
-      padding-top: 170px;
+      padding-top: 80px;
     }
   }
 
@@ -5896,8 +5899,60 @@ body>.wrapper {
     @include fsl(14px, 120%);
     text-transform: uppercase;
   }
+
+  &__clock {
+    path {
+      stroke: $color-black;
+    }
+  }
 }
 
+.stores-list {
+
+  &__inner {
+    padding-top: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 80px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+  
+  &__col {
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        margin-left: 20px;
+        width: 331px;
+      }
+
+      @media (max-width: $breakpoint) {
+        order: 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        margin-right: 20px;
+
+      }
+
+      @media (max-width: $breakpoint) {
+        order: 1;
+      }
+    }
+    
+  }
+}
 
 
         
