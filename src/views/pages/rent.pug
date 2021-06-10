@@ -116,37 +116,50 @@ block content
                     p.offers-list__text
                       |Возможность размещения вывесок на фасаде и или торце помещения
             .offers__col
-              form.form(action="/") 
-                .form__item 
-                  input.form__input(type="text" name="name" placeholder="Имя")
-                .form__item 
-                  input.form__input(type="text" name="phone" placeholder="Телефон")
-                .form__item 
-                  input.form__input(type="text" name="email" placeholder="E-mail")
-                .form__item 
-                  input.form__input(type="text" name="addres" placeholder="Адрес помещения")
-                .form__item 
-                  input.form__input(type="text" name="area" placeholder="Площадь")
-                .form__item 
-                  input.form__input(type="text" name="rent" placeholder="Арендная ставка")
-                .form__item 
-                  input.form__input(type="text" name="energy" placeholder="Электроэнергия")
-                .form__wrapper 
-                  .form__row 
-                    .form__row-wrapper
-                      button.form__button 
-                        |Прикрепить файлы
-                    .form__text  
-                      |Например, фотографии, план
-                .checkbox 
-                  label.checkbox__label 
-                    input.checkbox__input(type="checkbox")
-                    .checkbox__box 
-                      +check-svg('checkbox__icon')
-                    .checkbox__text 
-                      |Даю согласание на обработку 
-                      a.checkbox__link(href="#") 
-                        |персональных данных
-                .form__inner 
-                  .button 
-                    |Отправить
+              .offers__container
+                form.form(action="/") 
+                  .form__item 
+                    input.form__input(type="text" name="name" placeholder="Имя")
+                  .form__item 
+                    input.form__input(type="text" name="phone" placeholder="Телефон")
+                  .form__item 
+                    input.form__input(type="text" name="email" placeholder="E-mail")
+                  .form__item 
+                    input.form__input(type="text" name="addres" placeholder="Адрес помещения")
+                  .form__item 
+                    input.form__input(type="text" name="area" placeholder="Площадь")
+                  .form__item 
+                    input.form__input(type="text" name="rent" placeholder="Арендная ставка")
+                  .form__item 
+                    input.form__input(type="text" name="energy" placeholder="Электроэнергия")
+                  .form__wrapper 
+                    .form__row 
+                      .form__row-wrapper
+                        button.form__button
+                          |Прикрепить файлы
+                      .form__text  
+                        |Например, фотографии, план
+                  .checkbox 
+                    label.checkbox__label 
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box 
+                        +check-svg('checkbox__icon')
+                      .checkbox__text 
+                        |Даю согласание на обработку 
+                        a.checkbox__link(href="#") 
+                          |персональных данных
+                  .form__inner 
+                    .button.form__btn
+                      |Отправить
+                .response
+                  .response__container 
+                    .response__row 
+                      .response__col
+                        h3.response__title
+                          |Отправлено
+                        p.response__text
+                          |Спасибо за обращение. Мы ответим на него в ближайшее время.
+                      .response__col
+                        .response__wrapper 
+                          .button.response__btn
+                            |Отправить еще

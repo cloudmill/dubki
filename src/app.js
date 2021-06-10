@@ -284,3 +284,26 @@ import 'select2';
     select.select2();
   });
 }
+
+// response
+{
+  $(() => {
+    const form = $('.form');
+
+    if (form.length !== 0) {
+      const response = $('.response');
+      const responseButton = $('.response__btn');
+      const formButton = $('.form__btn');
+
+      formButton.on('click', function() {
+        form.addClass('form--hidden');
+        response.addClass('response--active');
+      });
+
+      responseButton.on('click', function() {
+        form.removeClass('form--hidden');
+        response.removeClass('response--active');
+      });
+    }
+  });
+}

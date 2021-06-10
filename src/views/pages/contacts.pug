@@ -80,34 +80,39 @@ block content
                 .contacts__wrapper
                   h4.contacts__title 
                     |Задать вопрос или оставить пожелание
-                form.form(action="/") 
-                  .form__item 
-                    input.form__input(type="text" name="name" placeholder="Имя")
-                  .form__item 
-                    input.form__input(type="text" name="phone" placeholder="Телефон")
-                  .form__item 
-                    input.form__input(type="text" name="email" placeholder="E-mail")
-                  .form__item 
-                    input.form__input(type="text" name="addres" placeholder="Адрес помещения")
-                  .form__wrapper 
-                    .form__row 
-                      .form__row-wrapper
-                        button.form__button 
-                          |Прикрепить файлы
-                      .form__text  
-                        |Например, фотографии, план
-                  .checkbox 
-                    label.checkbox__label 
-                      input.checkbox__input(type="checkbox")
-                      .checkbox__box 
-                        +check-svg('checkbox__icon')
-                      .checkbox__text 
-                        |Даю согласание на обработку 
-                        a.checkbox__link(href="#") 
-                          |персональных данных
-                  .form__inner 
-                    .button 
-                      |Отправить
+                .contacts__container
+                  form.form(action="/") 
+                    .form__item 
+                      input.form__input(type="text" name="name" placeholder="Имя")
+                    .form__item 
+                      input.form__input(type="text" name="phone" placeholder="Телефон")
+                    .form__item 
+                      input.form__input(type="text" name="email" placeholder="E-mail")
+                    .form__item 
+                      textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание")
+                    .form__wrapper--alt
+                      .checkbox 
+                        label.checkbox__label 
+                          input.checkbox__input(type="checkbox")
+                          .checkbox__box 
+                            +check-svg('checkbox__icon')
+                          .checkbox__text 
+                            |Даю согласание на обработку 
+                            a.checkbox__link(href="#") 
+                              |персональных данных
+                    .form__inner 
+                      .button.form__btn 
+                        |Отправить
+                  .response
+                    .response__container 
+                      .response__row 
+                        .response__col
+                          h3.response__title
+                            |Спасибо. Мы получили ваше сообщение и ответимна него в ближайшее время.
+                        .response__col
+                          .response__wrapper 
+                            .button.response__btn
+                              |Отправить еще
                 .contacts__property.contacts__property--mobile 
                   .contacts__property-wrapper 
                     h4.contacts__title 
