@@ -1,10 +1,11 @@
 import "Styles/_app.scss";
 
 import Swiper from "swiper/bundle";
-
 import 'select2';
 import AOS from 'aos';
+import '@fancyapps/fancybox';
 
+// AOS
 {
   AOS.init({
     // Global settings:
@@ -165,7 +166,6 @@ import AOS from 'aos';
     const vacanciesButton = vacancies.find('.vacancies-list__button');
     const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
 
-    console.log(vacancies);
     vacanciesButton.on('click', function() {
       vacancies.toggleClass('vacancies-list__item--active');
       vacanciesDrop.slideToggle();
@@ -332,3 +332,18 @@ import AOS from 'aos';
   });
 }
 
+// fancybox
+{
+  $(() => {
+    $.fancybox.defaults.closeExisting = true;
+
+    $('[data-fancy-button]').on('click', function (event) {
+			event.preventDefault();
+		
+			const id = $(this).data('fancy-button');
+			const modal = $(`[data-fancy-modal="${id}"]`);
+
+			$.fancybox.open(modal);
+		});
+  });
+}
