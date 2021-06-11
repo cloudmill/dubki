@@ -322,11 +322,13 @@ import '@fancyapps/fancybox';
       formButton.on('click', function() {
         form.addClass('form--hidden');
         response.addClass('response--active');
+        $('.provider__row').addClass('provider__row--active');
       });
 
       responseButton.on('click', function() {
         form.removeClass('form--hidden');
         response.removeClass('response--active');
+        $('.provider__row').removeClass('provider__row--active');
       });
     }
   });
