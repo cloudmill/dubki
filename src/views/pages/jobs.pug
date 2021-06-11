@@ -1,6 +1,9 @@
 extends ../layouts/master.pug
 
 block content
+  
+  
+
   .section--light-green
     .section__frame.section__frame--white
       .container 
@@ -268,5 +271,60 @@ block content
                                       |vakansii@dubki-producty.ru
                               .vacancies-list__contact-col
                                 .vacancies-list__contact-button
-                                  .button
+                                  .button(data-fancy-button='1')
                                     |Откликнуться
+
+
+  .modals 
+    .modal(data-fancy-modal='1')
+      .modal__container
+        .modal__inner
+          .modal__wrapper 
+            h3.modal__title 
+              |Откликнуться
+          .modal__form
+            form.form(action="/") 
+              .form__item 
+                input.form__input(type="text" name="name" placeholder="Имя")
+              .form__item 
+                input.form__input(type="text" name="phone" placeholder="Телефон")
+              .form__item.form__item--select
+                .select 
+                  select.select__select(name="city")(style="width: 100%")
+                    option(value="saratov", selected) 
+                      |Саратов
+                    option(value="moscov") 
+                      |Москва
+                    option(value="spb") 
+                      |Санкт-Питербург
+                    option(value="voronezh") 
+                      |Воронеж
+              .form__item 
+                textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание")
+              .form__wrapper 
+                .form__row 
+                  .form__row-wrapper
+                    button.form__button
+                      |Прикрепить резюме
+              .checkbox 
+                label.checkbox__label 
+                  input.checkbox__input(type="checkbox")
+                  .checkbox__box 
+                    +check-svg('checkbox__icon')
+                  .checkbox__text 
+                    |Даю согласание на обработку 
+                    a.checkbox__link(href="#") 
+                      |персональных данных
+              .form__inner 
+                .button.form__btn
+                  |Отправить
+      .response 
+        .response__container 
+          .response__inner
+            h3.response__title.response__title--second
+              |Запрос отправлен
+            p.response__text 
+              |Мы свяжемся с вами в ближайшее время.
+        .modal__btn 
+          .button-modal.button-modal--active.modal__button(data-fancybox-close='1')
+            .button-modal__image

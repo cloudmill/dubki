@@ -288,49 +288,52 @@ body>.wrapper {
       order: 3;
     }
   }
-  &__button-button {
-    $size: 70px;
+}
+
+.button-modal {
+  $comp: &;
+  $size: 70px;
+  width: $size;
+  height: $size;
+  @media (max-width: $breakpoint - 1px) {
+    $size: 40px;
     width: $size;
     height: $size;
-    @media (max-width: $breakpoint - 1px) {
-      $size: 40px;
+  }
+  display: flex;
+
+  background-color: $color-yellow;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $transition;
+
+  &--active {
+    background-color: $color-black;
+
+    #{$comp}__image {
+      $size: 23px;
       width: $size;
       height: $size;
-    }
-    display: flex;
-
-    background-color: $color-yellow;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: $transition;
-
-    &--active {
-      background-color: $color-black;
-
-      #{$comp}__button-image {
-        $size: 23px;
+      @media (max-width: $breakpoint - 1px) {
+        $size: 13px;
         width: $size;
         height: $size;
-        @media (max-width: $breakpoint - 1px) {
-          $size: 13px;
-          width: $size;
-          height: $size;
-        }
+      }
 
-        &::before,
-        &::after {
-          background-color: $color-white;
-        }
-        &::before {
-          transform: rotate(-45deg);
-        }
-        &::after {
-          transform: rotate(45deg);
-        }
+      &::before,
+      &::after {
+        background-color: $color-white;
+      }
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
       }
     }
   }
-  &__button-image {
+
+  &__image {
     position: relative;
     z-index: 0;
 
@@ -490,6 +493,7 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
     border: 1px solid $color-border-white;
     border-radius: 50%;
@@ -4421,6 +4425,20 @@ body>.wrapper {
         margin-top: 20px;
       }
     }
+
+    &--select {
+
+      .select2-container--default .select2-selection--single {
+        padding: 24px 35px;
+
+        border: none;
+        background-color: $color-white;
+      }
+
+      .select2-selection__rendered {
+        font-weight: 400;
+      }
+    }
   }
 
   &__input {
@@ -5053,6 +5071,8 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(30px, 120%);
       }
+
+      transition: $transition;
     }
 
     &__city {
@@ -5060,6 +5080,7 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(16px, 120%);
       }
+      transition: $transition;
 
       &--desctop {
         display: none; 
@@ -5094,6 +5115,8 @@ body>.wrapper {
         height: 2px;
 
         background-color: $color-black;
+        transition: $transition;
+
 
         &:nth-child(2) {
           transform: rotate(90deg);
@@ -5355,9 +5378,9 @@ body>.wrapper {
 }
 
 .response {
+  position: absolute;
   
   @media (min-width: $breakpoint) {
-    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -5375,6 +5398,9 @@ body>.wrapper {
   &--active {
     opacity: 1;
     visibility: visible;
+    @media (max-width: $breakpoint - 1px) {
+      position: static;
+    }
   }
 
   &__container {
@@ -5410,23 +5436,43 @@ body>.wrapper {
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 20px;
 
+      @include fsl(24px, 120%);
+    }
     @include f-alt();
     @include fsl(18px, 120%);
-    @media (min-width: $breakpoint) {
-      @include fsl(24px, 120%);
+
+    &--second {
+      @include f-main();
+      @include fsl(20px, 120%);
+      @media (min-width: $breakpoint) {
+        @include fsl(32px, 120%);
+      }
     }
   }
 
   &__text {
     font-weight: 400;
-    @include fsl(18px, 120%);
+    @include fsl(16px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 120%);
+    }
   }
 
   &__wrapper {
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 }
 
@@ -6087,4 +6133,75 @@ body>.wrapper {
   }
 }
 
+.modal {
+  padding: 0;
 
+  display: none;
+  position: relative;
+
+  background: #F5F5F5;
+  border-radius: 20px;
+  @media (min-width: $breakpoint) {
+    width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+    flex-shrink: 0;
+  }
+
+  &__inner {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__container {
+    padding: 0 20px;
+    @media (min-width: $breakpoint) {
+      padding: 0 calc(#{$grid-part-d});
+    }
+    width: 100%;
+    position: relative;
+  }
+
+  &__wrapper {
+    padding-bottom: 40px;
+  }
+
+  
+
+  &__title {
+    text-align: center;
+    @include fsl(20px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(32px, 120%);
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    @media (min-width: $breakpoint) {
+      top: 10px;
+      right: 10px;
+    }
+    z-index: 2;
+  }
+
+  &__button {
+    background-color: rgba($color-black, 0.4);
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-black;
+    }
+  }
+}
+
+.fancybox {
+
+  &-button {
+    display: none;
+  }
+}
