@@ -36,27 +36,81 @@ mixin header()
           .nav-modal__content
             .nav-modal__top
               ul.nav-modal__list
-                li.nav-modal__item
-                  a.nav-modal__link(href="action-catalog.html")
-                    |Акционный каталог
-                li.nav-modal__item
-                  a.nav-modal__link(href="catalog.html")
-                    |Каталог
-                li.nav-modal__item
-                  a.nav-modal__link(href="recipes.html")
-                    |Рецепты
-                li.nav-modal__item
-                  a.nav-modal__link(href="news.html")
-                    |Новости
-                li.nav-modal__item
-                  a.nav-modal__link(href="news-1.html")
-                    |Новость
-                li.nav-modal__item
-                  a.nav-modal__link(href="product.html")
-                    |Карточка товара
-                li.nav-modal__item
-                  a.nav-modal__link(href="about.html")
-                    |О компании
+                -
+                  var data = [
+                    {
+                      title: 'Главная',
+                      href: 'index.html',
+                    },
+                    {
+                      title: 'Акционный каталог',
+                      href: 'action-catalog.html',
+                    },
+                    {
+                      title: 'Каталог',
+                      href: 'catalog.html',
+                    },
+                    {
+                      title: 'Карточка товара',
+                      href: 'product.html',
+                    },
+                    {
+                      title: 'О компании',
+                      href: 'about.html',
+                    },
+                    {
+                      title: 'Где купить (карта)',
+                      href: 'stores.html',
+                    },
+                    {
+                      title: 'Где купить (список)',
+                      href: 'stores-list.html',
+                    },
+                    {
+                      title: 'Новости',
+                      href: 'news.html',
+                    },
+                    {
+                      title: 'Новость',
+                      href: 'news-1.html',
+                    },
+                    {
+                      title: 'Рецепты',
+                      href: 'recipes.html',
+                    },
+                    {
+                      title: 'Рецепт',
+                      href: 'recipe-1.html',
+                    },
+                    {
+                      title: 'Арендодателям',
+                      href: 'rent.html',
+                    },
+                    {
+                      title: 'Поставщикам',
+                      href: 'provider.html',
+                    },
+                    {
+                      title: 'Вакансии',
+                      href: 'jobs.html',
+                    },
+                    {
+                      title: 'Контакты',
+                      href: 'contacts.html',
+                    },
+                    {
+                      title: 'Результат по­иска',
+                      href: 'search.html',
+                    },
+                    {
+                      title: '404',
+                      href: 'page404.html',
+                    },
+                  ]
+                each page in data
+                  li.nav-modal__item
+                    a.nav-modal__link(href=page.href)
+                      |#{page.title}
             .nav-modal__bottom
               .footer__text 
                 |По вопросам качества продукции
