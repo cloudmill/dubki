@@ -765,7 +765,18 @@ body>.wrapper {
       z-index: 1;
       overflow: hidden;
 
-      background: rgba(0, 0, 0, 0.3);
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+
+        background-color: rgba(#000, 0.3);
+      }
     }
   }
 
@@ -851,6 +862,7 @@ body>.wrapper {
 
   &__row {
     position: relative;
+    z-index: 2;
     display: flex;
     align-items: flex-end;
     width: 100%;
@@ -3632,6 +3644,12 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       width: 290px;
     }
+
+    @media (max-width: $breakpoint - 1px) {
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+    }
   }
 
   &__img {
@@ -3866,6 +3884,9 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       margin-top: 0;
       margin-left: calc(#{$grid-part-d} * 12);
+    }
+    @media (max-width: $breakpoint - 1px) {
+      margin-left: calc(#{$col-part-m} * 2 - #{$col-gap-d});
     }
 
     &-num {
@@ -4185,7 +4206,7 @@ body>.wrapper {
     &--fixed {
       @media (min-width: $breakpoint) {
         position: fixed;
-        top: 120px;
+        top: 240px;
       }
     }
 
@@ -4276,6 +4297,41 @@ body>.wrapper {
     }
   }
 
+  &__row {
+    display: flex;
+    @media (min-width: $breakpoint) {
+
+    }
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 35px;
+
+        order: 2;
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-right: 45px;
+
+        width: calc(#{$grid-part-d} * 10);
+      }
+      @media (max-width: $breakpoint - 1px) {
+        order: 1;
+      }
+    }
+  }
+
   &__content {
     @media (min-width: $breakpoint) {
       padding-left: calc(#{$grid-part-d});
@@ -4309,6 +4365,10 @@ body>.wrapper {
 
       width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
     }
+  }
+
+  &__img {
+    display: block;
   }
 }
 
@@ -4357,7 +4417,9 @@ body>.wrapper {
 
   &-list {
 
-    width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
+    }
 
     &__item {
       display: flex;
@@ -5898,9 +5960,10 @@ body>.wrapper {
   @media (min-width: $breakpoint) {
     height: 700px;
 
-    // border-radius: 50px;
-    // overflow: hidden;
+    border-radius: 50px;
   }
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .select2 {
@@ -6209,7 +6272,7 @@ body>.wrapper {
     position: relative;
 
     @media (max-width: $breakpoint - 1px) {
-      min-width: 345px;
+      width: 345px;
       min-height: 700px;
     }
   }
