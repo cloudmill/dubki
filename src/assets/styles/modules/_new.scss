@@ -4648,26 +4648,44 @@ body>.wrapper {
 
   &__row {
     display: flex;
-    justify-content: space-between;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
   }
 
   &__col {
+    flex-shrink: 0;
     &:nth-child(1) {
-      width: 100%;
       @media (min-width: $breakpoint) {
         padding-left: calc(#{$grid-part-d});
 
         width: calc(#{$grid-part-d} * 7);
       }
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 35px;
 
-      
+        order: 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-right: calc(#{$grid-part-d});
+
+        width: calc(#{$grid-part-d} * 11 - #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        order: 1;
+      }
     }
   }
 
   &__title {
     @media (min-width: $breakpoint) {
-      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
-
       @include fsl(50px, 120%);
     }
     @include fsl(20px, 120%);
