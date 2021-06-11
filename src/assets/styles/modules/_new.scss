@@ -5733,8 +5733,27 @@ body>.wrapper {
   &__row {
     @media (min-width: $breakpoint) {
       display: flex;
-      align-items: center;
+      // align-items: center;
       justify-content: space-between;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        padding-top: 50px;
+
+        width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-right: calc(#{$grid-part-d} - #{$grid-gap-d});
+
+        width: calc(#{$grid-part-d} * 10);
+      }
     }
   }
 
@@ -5758,11 +5777,12 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       margin-top: 23px;
 
+      width: 380px;
+
       @include fsl(16px, 140%);
     }
     font-weight: 400;
     @include fsl(14px, 140%);
-    white-space: pre; //?
   }
 
   &__buttons {
