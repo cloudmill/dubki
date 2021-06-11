@@ -4757,6 +4757,10 @@ body>.wrapper {
     background-color: $color-yellow;
     border-radius: 20px;
   }
+
+  &__img {
+    display: block;
+  }
 }
 
 .provider {
@@ -4914,17 +4918,31 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         display: flex;
         justify-content: space-between;
+        align-items: center;
       }
     }
 
     &__col {
       flex-shrink: 0;
+      &:nth-child(1) {
+        @media (min-width: $breakpoint) {
+          width: calc(#{$grid-part-d} * 11);
+        }
+
+        @media (max-width: $breakpoint - 1px) {
+          margin-bottom: 40px;
+        }
+      }
 
       &:nth-child(2) {
         @media (min-width: $breakpoint) {
           width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
         }
       }
+    }
+
+    &__img {
+      display: block;
     }
 
     &__item {
@@ -5049,6 +5067,7 @@ body>.wrapper {
       width: calc(#{$grid-part-d} * 4);
     }
   }
+
 }
 
 .vacancies {
