@@ -278,7 +278,7 @@ import AOS from 'aos';
 					balloon, balloonStore, balloonAddres, balloonText,
 				}, {
 					iconLayout: 'default#image',
-					iconImageHref: 'assets/images/placemark.svg',
+					iconImageHref: 'assets/images/svg/placemark.svg',
 					iconImageSize: [markWidth, markHeight],
 					iconImageOffset: [-markWidth / 2, -markHeight],
 
