@@ -6,10 +6,10 @@ block content
       .container 
         .block
           .block__wrapper
-            h3.block__title 
+            h3.block__title(data-aos="fade-up")  
               |Где купить
             .block__list
-              ul.block-list
+              ul.block-list(data-aos="fade-up") 
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -23,10 +23,10 @@ block content
       .map 
         .map__inner 
           .map__container
-            .map-tabs 
+            .map-tabs
               .map-tabs__wrapper
                 .map-tabs__container 
-                  .map-tabs__row
+                  .map-tabs__row(data-aos="fade-up")  
                     .map-tabs__item 
                       .map-tabs__button.map-tabs__button--active
                         |На карте
@@ -108,16 +108,16 @@ block content
                     |51.540679
                   .placemarks__longitude
                     |45.994837
-            .map__list 
+            .map__list
               .map-select 
                 .map-select__inner
                   .map-select__container 
-                    .map-select__row 
+                    .map-select__row(data-aos="fade-up") 
                       .map-select__col
-                        .map-select__text 
+                        .map-select__text
                           |Город
                       .map-select__col
-                        .select 
+                        .select
                           select.select__select(name="city")(style="width: 100%")
                             option(value="saratov", selected) 
                               |Саратов
@@ -127,7 +127,7 @@ block content
                               |Санкт-Питербург
                             option(value="voronezh") 
                               |Воронеж
-              ul.map-list
+              ul.map-list(data-aos="fade-up") 
                 - for (i = 0; i < 6; i++)
                   li.map-list__item
                     .map-list__wrapper
@@ -142,4 +142,4 @@ block content
                           .map-balloon__time
                             .map-balloon__text  
                               |пнд—вс  |  9—18
-            #map
+            #map(data-aos="fade-up") 

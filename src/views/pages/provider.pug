@@ -6,10 +6,10 @@ block content
       .container 
         .block
           .block__wrapper
-            h3.block__title 
-              |Арендодателям
+            h3.block__title(data-aos="fade-up") 
+              |Поставщикам
             .block__list
-              ul.block-list
+              ul.block-list(data-aos="fade-up")
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -17,7 +17,7 @@ block content
                   .block-list__item-icon
                     +leaflet-svg 
                   p.block-list__item-text.block-list_item-text--active
-                    |Арендодателям
+                    |Поставщикам
 
   .section--grey 
     .rent-frame 
@@ -26,15 +26,15 @@ block content
           .provider-intro__inner
             .provider-intro__row 
               .provider-intro__col
-                h3.provider-intro__title 
+                h3.provider-intro__title(data-aos="fade-up")
                   |Уважаемые представители компаний!
                 .provider-intro__wrapper 
-                  p.provider-intro__text 
+                  p.provider-intro__text(data-aos="fade-up")
                     |Вы хотите увеличить свою прибыль? Иметь гарантированный объем продаж? Расширить географию своих поставок? Познакомить покупателя со своим брендом?
-                .provider-intro__download 
+                .provider-intro__download(data-aos="fade-up")
                   .provider-intro__download-row
                     .provider-intro__download-col
-                      .provider-intro__download-text 
+                      .provider-intro__download-text
                         |Типовая форма договора
                     .provider-intro__download-col
                       .provider-intro__button
@@ -50,28 +50,30 @@ block content
               .provider__col
                 .provider__form
                   form.form(action="/") 
-                    .form__item 
-                      input.form__input(type="text" name="name" placeholder="Имя")
-                    .form__item 
-                      input.form__input(type="text" name="phone" placeholder="Телефон")
-                    .form__item 
+                    .form__item(data-aos="fade-up")
+                      input.form__input(type="text" name="company" placeholder="Наименование компании")
+                    .form__item(data-aos="fade-up") 
+                      input.form__input(type="text" name="index" placeholder="ИНН")
+                    .form__item(data-aos="fade-up")
+                      input.form__input(type="text" name="website" placeholder="Сайт")
+                    .form__item(data-aos="fade-up")
+                      input.form__input(type="text" name="sort" placeholder="Ассортимент")
+                    .form__item(data-aos="fade-up")
+                      input.form__input(type="text" name="contact" placeholder="Контактное лицо")
+                    .form__item(data-aos="fade-up")
+                      input.form__input(type="text" name="post" placeholder="Должность")
+                    .form__item(data-aos="fade-up")
                       input.form__input(type="text" name="email" placeholder="E-mail")
-                    .form__item 
-                      input.form__input(type="text" name="addres" placeholder="Адрес помещения")
-                    .form__item 
-                      input.form__input(type="text" name="area" placeholder="Площадь")
-                    .form__item 
-                      input.form__input(type="text" name="rent" placeholder="Арендная ставка")
-                    .form__item 
-                      input.form__input(type="text" name="energy" placeholder="Электроэнергия")
+                    .form__item(data-aos="fade-up")
+                      input.form__input(type="text" name="phone" placeholder="Телефон")
                     .form__wrapper 
-                      .form__row 
+                      .form__row(data-aos="fade-up")
                         .form__row-wrapper
                           button.form__button 
                             |Прикрепить файлы
                         .form__text  
                           |Например, фотографии, план
-                    .checkbox 
+                    .checkbox(data-aos="fade-up")
                       label.checkbox__label 
                         input.checkbox__input(type="checkbox")
                         .checkbox__box 
@@ -81,7 +83,7 @@ block content
                           a.checkbox__link(href="#") 
                             |персональных данных
                     .form__inner 
-                      .button.form__btn
+                      .button.form__btn(data-aos="fade-up")
                         |Отправить
                   .response
                     .response__container 
@@ -100,9 +102,9 @@ block content
                   li.provider-list__item 
                     .provider-list__test
                       .provider-list__wrapper
-                        p.provider-list__text
+                        p.provider-list__text(data-aos="fade-up")
                           |Направлялось ли Вами ранее коммерческое предложение?
-                      .provider-list__checkbox 
+                      .provider-list__checkbox(data-aos="fade-up")
                         .provider-list__checkbox-item 
                           label.provider-list__checkbox-label 
                             input.provider-list__checkbox-input(type="checkbox")
@@ -116,9 +118,9 @@ block content
                   li.provider-list__item 
                     .provider-list__test
                       .provider-list__wrapper
-                        p.provider-list__text
+                        p.provider-list__text(data-aos="fade-up")
                           |Вы являетесь производителем?
-                      .provider-list__checkbox 
+                      .provider-list__checkbox(data-aos="fade-up") 
                         .provider-list__checkbox-item 
                           label.provider-list__checkbox-label 
                             input.provider-list__checkbox-input(type="checkbox")
@@ -132,9 +134,9 @@ block content
                   li.provider-list__item 
                     .provider-list__test
                       .provider-list__wrapper
-                        p.provider-list__text
+                        p.provider-list__text(data-aos="fade-up")
                           |Организационно-правовая форма
-                      .provider-list__checkbox 
+                      .provider-list__checkbox(data-aos="fade-up")
                         .provider-list__checkbox-item 
                           label.provider-list__checkbox-label 
                             input.provider-list__checkbox-input(type="checkbox")

@@ -8,7 +8,7 @@ block content
       .section__layout 
       .container 
         .section__wrapper
-          ul.block-list.block-list--mobile
+          ul.block-list.block-list--mobile(data-aos="fade-up")
             li.block-list__item 
               p.block-list__item-text 
                 |Главная
@@ -32,7 +32,7 @@ block content
               .product-card 
                 .product-card__col 
                   .product-card__thumbs 
-                    ul.product-card__list 
+                    ul.product-card__list(data-aos="fade-up") 
                       li.product-card__item 
                         .product-card__item-thumb 
                           img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
@@ -47,14 +47,14 @@ block content
                           .product-card__item-button 
                             +cursor-svg('product-card__item-icon')
 
-                  .product-card__video 
-                    .product-card__video-text 
+                  .product-card__video(data-aos="fade-up") 
+                    .product-card__video-text
                       |Видео-обзор продукта
-                    .product-card__video-wrapper 
-                      .video-button 
+                    .product-card__video-wrapper
+                      .video-button
                         +play-svg('video-button__icon')
                 .product-card__col
-                  .top-slide.top-slide--product
+                  .top-slide.top-slide--product(data-aos="fade-up") 
                     .top-slide__discont
                       .top-slide__discont-icon
                         +top-icon-svg
@@ -62,7 +62,7 @@ block content
                         |-30%
                     img.top-slide__image--product(src="assets/images/top-slide-1.jpg", alt="")
             .row__col
-              ul.block-list.block-list--hidden
+              ul.block-list.block-list--hidden(data-aos="fade-up") 
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -82,17 +82,17 @@ block content
                   p.block-list__item-text.block-list__item-text--active
                     |Мясная гастрономия
               .product 
-                h3.product__title 
+                h3.product__title(data-aos="fade-up") 
                   |Колбаса Прованс с крупным шпиком ТМ Дубки, 1 кг
                 .product__wrapper 
                   .product__row 
                     .product__col
-                      .product__info
+                      .product__info(data-aos="fade-up") 
                         .product__text 
                           |Артикул
                         .product__text.product__text--bold
                           |10345
-                      .product__city
+                      .product__city(data-aos="fade-up") 
                         .product__text 
                           |Цена для города
                         .product__city-item
@@ -101,30 +101,30 @@ block content
                           .product__city-img 
                             +arrow-svg
                     .product__col
-                      .product__info
+                      .product__info(data-aos="fade-up") 
                         .product__text 
                           |Производитель
                         .product__text.product__text--bold
                           |ТМ Дубки
-                      .product__price 
+                      .product__price(data-aos="fade-up")  
                         .product__price-old
                           |760 ₽
                         .product__price-new
                           |610 ₽
                   .product__row--mobile 
                     .product__col--mobile
-                      .product__info
+                      .product__info(data-aos="fade-up") 
                         .product__text 
                           |Артикул
                         .product__text.product__text--bold
                           |10345
-                      .product__info
+                      .product__info(data-aos="fade-up") 
                         .product__text 
                           |Производитель
                         .product__text.product__text--bold
                           |ТМ Дубки
                     .product__col--mobile
-                      .product__city
+                      .product__city(data-aos="fade-up") 
                         .product__text 
                           |Цена для города
                         .product__city-item
@@ -132,19 +132,19 @@ block content
                             |Саратов
                           .product__city-img 
                             +arrow-svg
-                      .product__price 
+                      .product__price(data-aos="fade-up")  
                         .product__price-old
                           |760 ₽
                         .product__price-new
                           |610 ₽
-                .product-card__video--mobile
+                .product-card__video--mobile(data-aos="fade-up") 
                   .product-card__video-text 
                     |Видео-обзор продукта
                   .product-card__video-wrapper 
                     .video-button
                       +play-svg('video-button__icon')
                 .product__link 
-                  a.button(href="#") 
+                  a.button(href="#")(data-aos="fade-up") 
                     |Купить в интернет-магазине
   .section--grey 
     .container 
@@ -153,21 +153,21 @@ block content
           .info__inner 
             .info__description
               .info__description-container 
-                p.info__description-text 
+                p.info__description-text(data-aos="fade-up") 
                   |Сырокопченая колбаса из свинины с добавлением филе куриных грудок. Букет специй: красная паприка, перец, свежий чеснок и любисток. Идеальное украшение для праздничного стола.
                 
           .info__inner 
             .info__structure
-              h3.info__title 
+              h3.info__title(data-aos="fade-up") 
                 |Состав
               .info__wrapper
-                p.info__text 
+                p.info__text(data-aos="fade-up") 
                   |Молоко нормализованное, закваска для творога. Количество молочнокислых микроорганизмов КОЕ в 1 г продукта в течение срока годности - не менее 106   
           .info__inner 
             .info-card 
               .info-card__row 
                 .info-card__col
-                  .info-card__card.info-card__card--green
+                  .info-card__card.info-card__card--green(data-aos="fade-up") 
                     .info-card__frame 
                       .info-card__layot
                     .info-card__container
@@ -195,12 +195,12 @@ block content
                               |67
           
                 .info-card__col 
-                  .info-card__card.info-card__card--yellow
+                  .info-card__card.info-card__card--yellow(data-aos="fade-up") 
                     .info-card__frame 
                       .info-card__layot
                     .info-card__container
                       .info-card__content.info-card__content--alt
-                        h4.info-card__content-title 
+                        h4.info-card__content-title
                           |На 100 гр продукта % от суточной нормы КБЖУ
                         .info-card__wrapper 
                           ul.info-card__list.info-card__list--alt
@@ -229,15 +229,15 @@ block content
             .conditions 
               .conditions__row 
                 .conditions__col
-                  h4.conditions__title 
+                  h4.conditions__title(data-aos="fade-up")  
                     |Срок и условия хранения
                 .conditions__col
-                  .conditions__day 
+                  .conditions__day(data-aos="fade-up")  
                     p.conditions__text 
                       |Количество суток
                     .conditions__num 
                       |4
-                  .conditions__temp 
+                  .conditions__temp(data-aos="fade-up") 
                     p.conditions__text 
                       |Температура
                     .conditions__num 
@@ -248,13 +248,13 @@ block content
         .store-buttons
           .store-buttons__row 
             .store-buttons__col
-              .button--xl.button.button--m
+              .button--xl.button.button--m(data-aos="fade-up") 
                 .button__wrapper
                   +cursor-svg('button__wrapper-icon') 
                 .button__text
                   |Вернуться ко всем новостям
             .store-buttons__col
-              .button--xl.button.button--m-yellow
+              .button--xl.button.button--m-yellow(data-aos="fade-up") 
                 .button__text
                   |Вернуться ко всем новостям
                 .button__wrapper.button__wrapper--alt
@@ -264,10 +264,10 @@ block content
       .similar-products 
         .similar-products__row 
           .similar-products__col
-            h3.similar-products__title 
+            h3.similar-products__title(data-aos="fade-up")  
               |Похожие товары
           .similar-products__col
-            .product-card 
+            .product-card(data-aos="fade-up") 
               .product-card__item
                 .product-card__item-thumb.product-card__item-thumb--black
                   .product-card__item-button 
@@ -282,7 +282,7 @@ block content
         .swiper-container.product-slider
           .swiper-wrapper 
             - for (i = 0; i < 6; i++)
-              .swiper-slide.top-slide.top-slide--catalog
+              .swiper-slide.top-slide.top-slide--catalog(data-aos="fade-up") 
                 .top-slide__discont
                   .top-slide__discont-icon
                     +top-icon-svg('catalog__icon')

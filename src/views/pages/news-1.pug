@@ -1,7 +1,5 @@
 extends ../layouts/master.pug
 
-
-
 block content 
   .section--grey 
     .section__frame--clear
@@ -9,10 +7,10 @@ block content
       .section__row
         .container 
           .block.block--white
-            h3.block__title 
+            h3.block__title(data-aos="fade-up")  
               |Скидка на сырокопченую колбасу во всех фирменных магазинах!
             .block__list
-              ul.block-list.block-list--white
+              ul.block-list.block-list--white(data-aos="fade-up") 
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -26,7 +24,7 @@ block content
                     +leaflet-svg 
                   p.block-list__item-text.block-list__item-text--active
                     |Мясная гастрономия
-            .block__data 
+            .block__data(data-aos="fade-up")
               .block__data-wrapper 
                 .block__data-text 
                   |24 апреля 2021
@@ -36,21 +34,21 @@ block content
         .news-page 
           .news-page__inner
             .news-page__wrapper 
-              p.news-page__text 
+              p.news-page__text(data-aos="fade-up")
                 |Этот повод —  аппетитные ватрушки с творогом, которые теперь доступны в этом регионе! 
-              p.news-page__text 
+              p.news-page__text(data-aos="fade-up") 
                 |Наша сладкая выпечка уже полюбилась многим покупателям: ее вкус дарит радость и наслаждение, а кому-то напоминает детство. Оцените и вы ватрушку с творогом, порадуйте домашних лакомствами к чаю и выберите свой любимый вкус! С 1 февраля спрашивайте  в фирменных магазинах «Дубки.Продукты от производителя» по следующим адресам:
 
             .news-page__row
               ul.news-page__list 
                 - for (i = 0; i < 9; i++)
-                  li.news-page__item 
+                  li.news-page__item(data-aos="fade-up")
                     .news-page__item-icon
                       +ball-svg
                     p.news-page__item-text
                       |г. Волгоград, б-р Энгельса, д.19, пом. ХIII
             .news-page__button 
-              .button--xl.button
+              .button--xl.button(data-aos="fade-up")
                 .button__wrapper
                   +cursor-svg('button__wrapper-icon') 
                 .button__text
@@ -59,11 +57,11 @@ block content
     .container 
       .section__inner 
         .section__wrapper 
-          .section__title--m
+          .section__title--m(data-aos="fade-up")
             |Другие новости
         .news
           ul.news__list
-            li.news__item 
+            li.news__item(data-aos="fade-up") 
               .news__content 
                 p.news__data 
                   |24 апреля 2021
@@ -71,7 +69,7 @@ block content
                   |Скидка на сырокопченую колбасу во всех фирменных магазинах
               .news__container
                 img.news__photo(src="assets/images/news-1.jpg", alt="")
-            li.news__item 
+            li.news__item(data-aos="fade-up") 
               .news__content 
                 p.news__data 
                   |24 апреля 2021
@@ -79,7 +77,7 @@ block content
                   |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
               .news__container
                 img.news__photo(src="assets/images/news-2.jpg", alt="")
-            li.news__item 
+            li.news__item(data-aos="fade-up") 
               .news__content 
                 p.news__data 
                   |24 апреля 2021

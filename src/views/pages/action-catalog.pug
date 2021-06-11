@@ -8,10 +8,10 @@ block content
       .container 
         .block
           .block__wrapper
-            h3.block__title 
+            h3.block__title(data-aos="fade-up")  
               |Акционный каталог
             .block__list
-              ul.block-list
+              ul.block-list(data-aos="fade-up") 
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -26,7 +26,7 @@ block content
         .action-catalog
           ul.action-catalog__list
             - for (i = 0; i < 3; i++)
-                .action-catalog__card.action-catalog__card--big
+                .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
                   .action-catalog__frame 
                     img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
                   .action-catalog__discont 
@@ -54,7 +54,7 @@ block content
                         |Сардельки
                       a.action-catalog__content-item(href='#') 
                         |Сосиски  
-                a.action-catalog__card(href='#')
+                a.action-catalog__card(href='#')(data-aos="fade-up") 
                   .action-catalog__frame 
                     img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
                   .action-catalog__discont 
@@ -66,7 +66,7 @@ block content
                         |позиции по акции
                   h4.action-catalog__title
                     |Мясная гастрономия
-                a.action-catalog__card(href='#')
+                a.action-catalog__card(href='#')(data-aos="fade-up") 
                   .action-catalog__frame 
                     img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
                   .action-catalog__discont 
@@ -78,7 +78,7 @@ block content
                         |позиции по акции
                   h4.action-catalog__title
                     |Мясная гастрономия
-                  a.action-catalog__card(href='#')
+                  a.action-catalog__card(href='#')(data-aos="fade-up") 
                     .action-catalog__frame 
                       img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
                     .action-catalog__discont 
@@ -90,7 +90,7 @@ block content
                           |позиции по акции
                     h4.action-catalog__title
                       |Мясная гастрономия
-                  a.action-catalog__card(href='#')
+                  a.action-catalog__card(href='#')(data-aos="fade-up") 
                     .action-catalog__frame 
                       img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
                     .action-catalog__discont 

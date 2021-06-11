@@ -7,10 +7,10 @@ block content
       .container 
         .block
           .block__wrapper
-            h3.block__title 
+            h3.block__title(data-aos="fade-up")  
               |Где купить
             .block__list
-              ul.block-list
+              ul.block-list(data-aos="fade-up") 
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -29,7 +29,7 @@ block content
               .stores-list__col
                 .map-select 
                   .map-select__container 
-                    .map-select__row 
+                    .map-select__row(data-aos="fade-up") 
                       .map-select__col
                         .map-select__text 
                           |Город
@@ -48,7 +48,7 @@ block content
                 .map-tabs--default
                   .map-tabs__wrapper
                     .map-tabs__container 
-                      .map-tabs__row
+                      .map-tabs__row(data-aos="fade-up") 
                         .map-tabs__item 
                           .map-tabs__button.map-tabs__button--active
                             |На карте
@@ -59,7 +59,7 @@ block content
               .addres__inner 
                 ul.addres__list 
                   - for (i = 0; i < 3; i++)
-                    li.addres__item
+                    li.addres__item(data-aos="fade-up") 
                       .addres__container 
                         .addres__row 
                           .addres__col
@@ -76,7 +76,7 @@ block content
                                     +clock-svg('addres__clock')
                                   .addres__text 
                                     |пнд—вс  |  9—18
-                    li.addres__item
+                    li.addres__item(data-aos="fade-up") 
                       .addres__container 
                         .addres__row 
                           .addres__col
@@ -98,5 +98,5 @@ block content
                                   .addres__text 
                                     |пнд—вс  |  9—18
                 .wrapper 
-                  .button--s
+                  .button--s(data-aos="fade-up") 
                     |Показать еще

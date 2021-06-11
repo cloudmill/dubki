@@ -10,15 +10,15 @@ block content
         .container 
           .top
             .top__content 
-              .top__button 
+              .top__button(data-aos="fade-up")
                 +rotate-button-svg('top__button-icon')
-              h3.top__title
+              h3.top__title(data-aos="fade-up")
                 |Сейчас по акции
             .top__container.swiper-container
               .swiper-wrapper
                 - for (i = 0; i < 3; i++)
                   .swiper-slide
-                    a.top-slide.top-slide--big(href='#')
+                    a.top-slide.top-slide--big(href='#')(data-aos="fade-up")
                       .top-slide__discont
                         .top-slide__discont-icon
                           +top-icon-svg
@@ -33,7 +33,7 @@ block content
                             |760 ₽
                           |610 ₽
                   .swiper-slide
-                    a.top-slide(href='#')
+                    a.top-slide(href='#')(data-aos="fade-up")
                       .top-slide__discont
                         .top-slide__discont-icon
                           +top-icon-svg
@@ -48,7 +48,7 @@ block content
                             |760 ₽
                           |610 ₽
                   .swiper-slide
-                    a.top-slide(href='#')
+                    a.top-slide(href='#')(data-aos="fade-up")
                       .top-slide__discont
                         .top-slide__discont-icon
                           +top-icon-svg
@@ -68,7 +68,7 @@ block content
       .section__inner
         .row 
           .row__side 
-            .card
+            .card(data-aos="fade-up")
               .card__frame
                 .card__layout
                 .card__container
@@ -81,7 +81,7 @@ block content
                     .button
                       |Где купить
           .row__main
-            .card
+            .card(data-aos="fade-up")
               .card__frame.card__frame--alt
                 .card__layout
                 .card__container.card__container--alt
@@ -92,48 +92,50 @@ block content
                       |регионов России
   //- news            
   .section
-    .container 
-      .section__inner
-        .row 
-          .row__side 
-            .section__content 
-              h3.section__title 
-                |Новости
-              p.section__text 
-                |Актуальные акции, скидки и новости компании.
-            .section__button    
-              a.button(href="#")  
-                |Все новости
-          .row__main 
-            .news
-              ul.news__list
-                a.news__item(href='#')
-                  .news__content 
-                    p.news__data 
-                      |24 апреля 2021
-                    h3.news__text
-                      |Скидка на сырокопченую колбасу во всех фирменных магазинах
-                  .news__container
-                    img.news__photo(src="assets/images/news-1.jpg", alt="")
-                a.news__item(href='#')
-                  .news__content 
-                    p.news__data 
-                      |24 апреля 2021
-                    h3.news__text
-                      |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
-                  .news__container
-                    img.news__photo(src="assets/images/news-2.jpg", alt="")
-                a.news__item(href='#') 
-                  .news__content 
-                    p.news__data 
-                      |24 апреля 2021
-                    h3.news__text
-                      |Скидка на сырокопченую колбасу во всех фирменных магазинах
-                  .news__container
-                    img.news__photo(src="assets/images/news-3.jpg", alt="")
-            .news__button 
-              a.button(href="#") 
-                |Все новости
+    .section__container 
+      .section__layout
+        .container 
+          .section__inner
+            .row 
+              .row__side 
+                .section__content 
+                  h3.section__title(data-aos="fade-up")
+                    |Новости
+                  p.section__text(data-aos="fade-up") 
+                    |Актуальные акции, скидки и новости компании.
+                .section__button   
+                  a.button(href="#")(data-aos="fade-up")
+                    |Все новости
+              .row__main 
+                .news
+                  ul.news__list
+                    a.news__item(href='#')(data-aos="fade-up")
+                      .news__content 
+                        p.news__data 
+                          |24 апреля 2021
+                        h3.news__text
+                          |Скидка на сырокопченую колбасу во всех фирменных магазинах
+                      .news__container
+                        img.news__photo(src="assets/images/news-1.jpg", alt="")
+                    a.news__item(href='#')(data-aos="fade-up")
+                      .news__content 
+                        p.news__data 
+                          |24 апреля 2021
+                        h3.news__text
+                          |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
+                      .news__container
+                        img.news__photo(src="assets/images/news-2.jpg", alt="")
+                    a.news__item(href='#')(data-aos="fade-up") 
+                      .news__content 
+                        p.news__data 
+                          |24 апреля 2021
+                        h3.news__text
+                          |Скидка на сырокопченую колбасу во всех фирменных магазинах
+                      .news__container
+                        img.news__photo(src="assets/images/news-3.jpg", alt="")
+                .news__button 
+                  a.button(href="#")(data-aos="fade-up")
+                    |Все новости
   //- slider
   .section
     .section__frame 
@@ -143,18 +145,18 @@ block content
           .row 
             .row__side
               .section__content.section__content--white
-                h3.section__title 
+                h3.section__title(data-aos="fade-up") 
                   |Рецепты
-                p.section__text 
+                p.section__text(data-aos="fade-up") 
                   |Вкусные и простые рецепты с нашими продуктами. Каждый найдет что-то для себя.
               .section__button    
-                a.button(href="#") 
+                a.button(href="#")(data-aos="fade-up") 
                   |Все новости 
             .row__main
               .slider.swider-container 
                 .swiper-wrapper.slider__inner
                   - for ( i = 0; i < 3; i++ )
-                    a.slider__item.swiper-slide(href='#')
+                    a.slider__item.swiper-slide(href='#')(data-aos="fade-up")
                       .slider__container
                         .slider__frame
                           img.slider__photo(src="assets/images/slider-1.jpg", alt="")
@@ -165,9 +167,9 @@ block content
                             |30 мин
                           .slider__time
                             |Завтрак
-                      h3.slider__title 
+                      h3.slider__title(data-aos="fade-up") 
                         |Пицца с грибами и колбасой
-                    a.slider__item.slider__item--s.swiper-slide(href='#')
+                    a.slider__item.slider__item--s.swiper-slide(href='#')(data-aos="fade-up")
                       .slider__container
                         .slider__frame
                           img.slider__photo(src="assets/images/slider-2.jpg", alt="")
@@ -178,9 +180,9 @@ block content
                             |30 мин
                           .slider__time
                             |Завтрак
-                      h3.slider__title 
+                      h3.slider__title(data-aos="fade-up") 
                         |Пицца с грибами и колбасой
-                    a.slider__item.slider__item--m.swiper-slide(href='#')
+                    a.slider__item.slider__item--m.swiper-slide(href='#')(data-aos="fade-up")
                       .slider__container
                         .slider__frame
                           img.slider__photo(src="assets/images/slider-1.jpg", alt="")
@@ -191,8 +193,8 @@ block content
                             |30 мин
                           .slider__time
                             |Завтрак
-                      h3.slider__title 
+                      h3.slider__title(data-aos="fade-up")
                         |Пицца с грибами и колбасой
                 .slider__button 
-                  a.button(href="#") 
+                  a.button(href="#")(data-aos="fade-up") 
                     |Все новости
