@@ -9,10 +9,10 @@ block content
         .section__layout 
         .container 
           .top
-            .top__content 
-              .top__button(data-aos="fade-up")
+            .top__content(data-aos="fade-up")
+              .top__button
                 +rotate-button-svg('top__button-icon')
-              h3.top__title(data-aos="fade-up")
+              h3.top__title
                 |Сейчас по акции
             .top__container.swiper-container
               .swiper-wrapper
@@ -103,8 +103,8 @@ block content
                     |Новости
                   p.section__text(data-aos="fade-up") 
                     |Актуальные акции, скидки и новости компании.
-                .section__button   
-                  a.button(href="#")(data-aos="fade-up")
+                .section__button(data-aos="fade-up")  
+                  a.button(href="#")
                     |Все новости
               .row__main 
                 .news
@@ -133,8 +133,8 @@ block content
                           |Скидка на сырокопченую колбасу во всех фирменных магазинах
                       .news__container
                         img.news__photo(src="assets/images/news-3.jpg", alt="")
-                .news__button 
-                  a.button(href="#")(data-aos="fade-up")
+                .news__button(data-aos="fade-up")
+                  a.button(href="#")
                     |Все новости
   //- slider
   .section
@@ -149,8 +149,8 @@ block content
                   |Рецепты
                 p.section__text(data-aos="fade-up") 
                   |Вкусные и простые рецепты с нашими продуктами. Каждый найдет что-то для себя.
-              .section__button    
-                a.button(href="#")(data-aos="fade-up") 
+              .section__button(data-aos="fade-up")    
+                a.button(href="#")
                   |Все новости 
             .row__main
               .slider.swider-container 
@@ -195,6 +195,6 @@ block content
                             |Завтрак
                       h3.slider__title(data-aos="fade-up")
                         |Пицца с грибами и колбасой
-                .slider__button 
-                  a.button(href="#")(data-aos="fade-up") 
+                .slider__button(data-aos="fade-up") 
+                  a.button(href="#")
                     |Все новости

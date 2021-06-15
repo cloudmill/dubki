@@ -150,7 +150,7 @@ function toggleDataAttr($element, attr, value='') {
           navModalButton.removeClass('header__button-button--active'); // обновляем модификатор кнопки
         } else { // открывыем, аналогично (выше)
           header.addClass('header--nav-modal');
-          navModalButton.addClass('header__button-button--active');
+          navModalButton.addClass('button-modal--active');
         }
       });
       // м.о. каталог
@@ -174,7 +174,7 @@ function toggleDataAttr($element, attr, value='') {
           $(event.target).closest('.nav-modal').length === 0 // + клик не по модальному окну
         ) {
           header.removeClass('header--nav-modal');
-          navModalButton.removeClass('header__button-button--active');
+          navModalButton.removeClass('button-modal--active');
         }
         // обработка клика по окну в контексте catalog-modal
         if (
@@ -190,6 +190,42 @@ function toggleDataAttr($element, attr, value='') {
   });
 }
 
+// catalog dropdown 
+{
+  $(() => {
+    const navModal = $('.nav-modal');
+
+    if (navModal.length !== 0) {
+      const navModalButton = navModal.find('.header__catalog-button');
+      const navModalDropdown = navModal.find('.header-catalog__dropdown');
+
+      navModalButton.on('click', function() {
+        navModalButton.toggleClass('header__catalog-button--active');
+        navModalDropdown.slideToggle();
+      });
+
+      // section
+      const navModalSection = navModal.find('.header-catalog__section');
+      const navModalSectionButton = navModalSection.find('.header-catalog__section-button');
+
+      navModalSectionButton.on('click', function () {
+        const navModalSectionClicked = $(this).closest('.header-catalog__section');
+
+        if (navModalSectionClicked.hasClass('header-catalog__section--active')) {
+          navModalSectionClicked.find('.header-catalog__section-dropdown').slideUp(500);
+          navModalSectionClicked.removeClass('header-catalog__section--active')
+        } else {
+          $('.header-catalog__section--active').find('.header-catalog__section-dropdown').slideUp(650);
+          $('.header-catalog__section--active').removeClass('header-catalog__section--active');
+
+          navModalSectionClicked.find('.header-catalog__section-dropdown').slideDown(500);
+          navModalSectionClicked.addClass('header-catalog__section--active');
+        }
+      });
+    }
+  });
+}
+
 // city-search modal
 {
   $(() => {
@@ -198,6 +234,7 @@ function toggleDataAttr($element, attr, value='') {
     if (header.length !== 0) {
       const citySearchButton = header.find('.header__city-button');
       const cityModalButton = header.find('.modal-search__button');
+      console.log(citySearchButton)
 
       // button open
       citySearchButton.on('click', function() {
@@ -206,18 +243,18 @@ function toggleDataAttr($element, attr, value='') {
 
       // button close
       cityModalButton.on('click', function() {
-        if (header.hasClass('header--city-search')) {
-          header.removeClass('header--city-search');
-        }
+        header.removeClass('header--city-search');
       });
 
       //click close
       $(window).on('click', function(event) {
         const target = event.target.closest('.header__city-button');
+
         if (
           header.hasClass('header--city-search') &&
           target !== citySearchButton[0] &&
-          $(event.target).closest('.modal-search--city').length === 0
+          $(event.target).closest('.modal-search--city').length === 0 &&
+          $(target).closest('.nav-modal').length === 0 
         ) {
           header.removeClass('header--city-search');
         }
@@ -242,9 +279,7 @@ function toggleDataAttr($element, attr, value='') {
 
       // button close
       catalogModalButton.on('click', function() {
-        if (header.hasClass('header--catalog-search')) {
-          header.removeClass('header--catalog-search');
-        }
+        header.removeClass('header--catalog-search');
       });
 
       //click close
