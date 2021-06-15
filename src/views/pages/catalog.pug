@@ -20,10 +20,10 @@ block content
     .container 
       .block
         .block__inner
-          h3.block__title 
+          h3.block__title(data-aos="fade-up")
             |Мясная гастрономия
           .block__list
-            ul.block-list
+            ul.block-list(data-aos="fade-up")
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -40,7 +40,7 @@ block content
   .section--grey.section--catalog
     .container 
       .category 
-        .category__row
+        .category__row(data-aos="fade-up")
           p.category__section
             |По категории
           ul.category__list 
@@ -60,7 +60,7 @@ block content
               |Паштет
             li.category__item
               |Сардельки
-        .category__row
+        .category__row(data-aos="fade-up")
           p.category__section
             |По скидке
           ul.category__list 
@@ -80,7 +80,7 @@ block content
         .catalog 
           ul.catalog__list 
             - for (i = 0; i < 18; i++)
-              li.catalog__item
+              li.catalog__item(data-aos="fade-up")
                 .top-slide.top-slide--catalog
                   .top-slide__discont
                     .top-slide__discont-icon
@@ -97,7 +97,7 @@ block content
                         |760 ₽
                       |610 ₽
           .wrapper 
-            .button--s
+            .button--s(data-aos="fade-up")
               |Показать еще
 
 

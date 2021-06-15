@@ -82,6 +82,18 @@ body>.wrapper {
     }
   }
 
+  &--city-search {
+    .modal-search--city {
+      transform: translateY(0);
+    }
+  }
+
+  &--catalog-search {
+    .modal-search--catalog {
+      transform: translateY(0);
+    }
+  }
+
   &__row {
     display: flex;
     align-items: center;
@@ -289,49 +301,52 @@ body>.wrapper {
       order: 3;
     }
   }
-  &__button-button {
-    $size: 70px;
+}
+
+.button-modal {
+  $comp: &;
+  $size: 70px;
+  width: $size;
+  height: $size;
+  @media (max-width: $breakpoint - 1px) {
+    $size: 40px;
     width: $size;
     height: $size;
-    @media (max-width: $breakpoint - 1px) {
-      $size: 40px;
+  }
+  display: flex;
+
+  background-color: $color-yellow;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $transition;
+
+  &--active {
+    background-color: $color-black;
+
+    #{$comp}__image {
+      $size: 23px;
       width: $size;
       height: $size;
-    }
-    display: flex;
-
-    background-color: $color-yellow;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: $transition;
-
-    &--active {
-      background-color: $color-black;
-
-      #{$comp}__button-image {
-        $size: 23px;
+      @media (max-width: $breakpoint - 1px) {
+        $size: 13px;
         width: $size;
         height: $size;
-        @media (max-width: $breakpoint - 1px) {
-          $size: 13px;
-          width: $size;
-          height: $size;
-        }
+      }
 
-        &::before,
-        &::after {
-          background-color: $color-white;
-        }
-        &::before {
-          transform: rotate(-45deg);
-        }
-        &::after {
-          transform: rotate(45deg);
-        }
+      &::before,
+      &::after {
+        background-color: $color-white;
+      }
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
       }
     }
   }
-  &__button-image {
+
+  &__image {
     position: relative;
     z-index: 0;
 
@@ -491,6 +506,7 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
     border: 1px solid $color-border-white;
     border-radius: 50%;
@@ -762,7 +778,18 @@ body>.wrapper {
       z-index: 1;
       overflow: hidden;
 
-      background: rgba(0, 0, 0, 0.3);
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+
+        background-color: rgba(#000, 0.3);
+      }
     }
   }
 
@@ -848,6 +875,7 @@ body>.wrapper {
 
   &__row {
     position: relative;
+    z-index: 2;
     display: flex;
     align-items: flex-end;
     width: 100%;
@@ -1296,10 +1324,7 @@ body>.wrapper {
   &__content {
     display: flex;
     align-items: center;
-
-    @media (min-width: $breakpoint) {
-      margin-left: 491px;
-    }
+    justify-content: center;
   }
 
   &__button {
@@ -1309,6 +1334,7 @@ body>.wrapper {
       padding: 42px;
     }
     flex-shrink: 0;
+    display: flex;
 
     border: 2px solid $color-white;
     border-radius: 50%;
@@ -1792,17 +1818,6 @@ body>.wrapper {
     }
   }
 
-  &--straight {
-    #{$comp}__item {
-      &:not(:first-child) {
-        margin-left: 0;
-      }
-      &:not(:first-child) {
-        margin-top: 10px;
-      }
-    }
-  }
-
   &--hidden {
     @media (max-width: $breakpoint - 1px) {
       display: none;
@@ -1812,9 +1827,28 @@ body>.wrapper {
   &--mobile {
     display: flex;
     justify-content: center;
+    width: 100%;
+    overflow-x: auto;
 
     @media (min-width: $breakpoint) {
       display: none;
+    }
+  }
+
+  &--faded {
+    width: calc(100% + 60px);
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      height: 21px;
+      width: 170px;
+      position: absolute;
+      z-index: 1;
+      right: 0;
+
+
+      background: linear-gradient(270deg, #FFFFFF 0%, #FFFFFF 9.37%, rgba(255, 255, 255, 0.73) 34.37%, rgba(255, 255, 255, 0) 100%);
     }
   }
 
@@ -3629,6 +3663,12 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       width: 290px;
     }
+
+    @media (max-width: $breakpoint - 1px) {
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+    }
   }
 
   &__img {
@@ -3821,6 +3861,33 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       padding: 100px 0;
     }
+    position: relative;
+  }
+
+  &__layout {
+    padding-bottom: 100px;
+    @media (min-width: $breakpoint) {
+      padding: 100px calc(#{$grid-part-d} * 2);
+    }
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    
+  }
+
+  &__image {
+    height: 100%;
+
+    background: url('assets/images/progress-card.jpg') no-repeat;
+    background-position: center bottom;
+    @media (min-width: $breakpoint) {
+      background-position: center;
+    }
+    background-size: contain;
   }
 
   &__title {
@@ -3863,6 +3930,9 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       margin-top: 0;
       margin-left: calc(#{$grid-part-d} * 12);
+    }
+    @media (max-width: $breakpoint - 1px) {
+      margin-left: calc(#{$col-part-m} * 2 - #{$col-gap-d});
     }
 
     &-num {
@@ -4182,7 +4252,7 @@ body>.wrapper {
     &--fixed {
       @media (min-width: $breakpoint) {
         position: fixed;
-        top: 120px;
+        top: 240px;
       }
     }
 
@@ -4273,6 +4343,41 @@ body>.wrapper {
     }
   }
 
+  &__row {
+    display: flex;
+    @media (min-width: $breakpoint) {
+
+    }
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 35px;
+
+        order: 2;
+      }
+    }
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-right: 45px;
+
+        width: calc(#{$grid-part-d} * 10);
+      }
+      @media (max-width: $breakpoint - 1px) {
+        order: 1;
+      }
+    }
+  }
+
   &__content {
     @media (min-width: $breakpoint) {
       padding-left: calc(#{$grid-part-d});
@@ -4306,6 +4411,10 @@ body>.wrapper {
 
       width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
     }
+  }
+
+  &__img {
+    display: block;
   }
 }
 
@@ -4354,7 +4463,9 @@ body>.wrapper {
 
   &-list {
 
-    width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
+    }
 
     &__item {
       display: flex;
@@ -4420,6 +4531,20 @@ body>.wrapper {
       margin-top: 15px;
       @media (min-width: $breakpoint) {
         margin-top: 20px;
+      }
+    }
+
+    &--select {
+
+      .select2-container--default .select2-selection--single {
+        padding: 24px 35px;
+
+        border: none;
+        background-color: $color-white;
+      }
+
+      .select2-selection__rendered {
+        font-weight: 400;
       }
     }
   }
@@ -4569,23 +4694,44 @@ body>.wrapper {
 
   &__row {
     display: flex;
-    justify-content: space-between;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
+    }
   }
 
   &__col {
+    flex-shrink: 0;
     &:nth-child(1) {
       @media (min-width: $breakpoint) {
         padding-left: calc(#{$grid-part-d});
 
         width: calc(#{$grid-part-d} * 7);
       }
+      @media (max-width: $breakpoint - 1px) {
+        margin-top: 35px;
+
+        order: 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-right: calc(#{$grid-part-d});
+
+        width: calc(#{$grid-part-d} * 11 - #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        order: 1;
+      }
     }
   }
 
   &__title {
     @media (min-width: $breakpoint) {
-      width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
-
       @include fsl(50px, 120%);
     }
     @include fsl(20px, 120%);
@@ -4630,6 +4776,9 @@ body>.wrapper {
     &-col {
       &:nth-child(1) {
         padding-left: 30px;
+        @media (max-width: $breakpoint - 1px) {
+          width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+        }
       }
 
       &:nth-child(2) {
@@ -4654,9 +4803,14 @@ body>.wrapper {
     background-color: $color-yellow;
     border-radius: 20px;
   }
+
+  &__img {
+    display: block;
+  }
 }
 
 .provider {
+  $comp: &;
 
   &__inner {
     padding-top: 60px;
@@ -4669,6 +4823,28 @@ body>.wrapper {
     display: flex;
     @media (max-width: $breakpoint - 1px) {
       flex-direction: column;
+    }
+
+    &--active {
+
+      .form {
+        @media (min-width: $breakpoint) {
+          height: 350px;
+        }
+      }
+
+      #{$comp}__col {
+
+        &:nth-child(1) {
+          padding-right: calc(#{$grid-part-d});
+
+          width: 100%;
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -4699,6 +4875,10 @@ body>.wrapper {
         order: 1;
       }
     }
+  }
+
+  &__form {
+    position: relative;
   }
 
   &-list {
@@ -4784,17 +4964,31 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         display: flex;
         justify-content: space-between;
+        align-items: center;
       }
     }
 
     &__col {
       flex-shrink: 0;
+      &:nth-child(1) {
+        @media (min-width: $breakpoint) {
+          width: calc(#{$grid-part-d} * 11);
+        }
+
+        @media (max-width: $breakpoint - 1px) {
+          margin-bottom: 40px;
+        }
+      }
 
       &:nth-child(2) {
         @media (min-width: $breakpoint) {
           width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
         }
       }
+    }
+
+    &__img {
+      display: block;
     }
 
     &__item {
@@ -4919,6 +5113,7 @@ body>.wrapper {
       width: calc(#{$grid-part-d} * 4);
     }
   }
+
 }
 
 .vacancies {
@@ -5054,6 +5249,8 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(30px, 120%);
       }
+
+      transition: $transition;
     }
 
     &__city {
@@ -5061,6 +5258,7 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(16px, 120%);
       }
+      transition: $transition;
 
       &--desctop {
         display: none; 
@@ -5095,6 +5293,8 @@ body>.wrapper {
         height: 2px;
 
         background-color: $color-black;
+        transition: $transition;
+
 
         &:nth-child(2) {
           transform: rotate(90deg);
@@ -5356,9 +5556,8 @@ body>.wrapper {
 }
 
 .response {
-  
+  position: absolute;
   @media (min-width: $breakpoint) {
-    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -5373,9 +5572,21 @@ body>.wrapper {
   border-radius: 20px;
   transition: .5s;
 
+  &--big {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    bottom: 0;
+  }
+
   &--active {
     opacity: 1;
     visibility: visible;
+    @media (max-width: $breakpoint - 1px) {
+      position: static;
+    }
   }
 
   &__container {
@@ -5384,9 +5595,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       padding-top: 60px;
     }
-    @media (min-width: $breakpoint) {
-      height: 100%;
-    }
+    height: 100%;
   }
 
   &__row {
@@ -5411,23 +5620,43 @@ body>.wrapper {
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 20px;
 
+      @include fsl(24px, 120%);
+    }
     @include f-alt();
     @include fsl(18px, 120%);
-    @media (min-width: $breakpoint) {
-      @include fsl(24px, 120%);
+
+    &--second {
+      @include f-main();
+      @include fsl(20px, 120%);
+      @media (min-width: $breakpoint) {
+        @include fsl(32px, 120%);
+      }
     }
   }
 
   &__text {
     font-weight: 400;
-    @include fsl(18px, 120%);
+    @include fsl(16px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 120%);
+    }
   }
 
   &__wrapper {
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 }
 
@@ -5483,6 +5712,18 @@ body>.wrapper {
         }
 
       }
+
+      &--second {
+        flex-shrink: 0;
+        &:nth-child(1) {
+          padding-right: 20px;
+          width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+        }
+
+        &:nth-child(2) {
+          width: calc(#{$grid-part-d} * 2);
+        }
+      }
     }
 
     &__input {
@@ -5501,6 +5742,15 @@ body>.wrapper {
         color: $color-black;
         @include f-main(400);
         @include fsl(16px, 80%);
+      }
+
+      &--modal {
+        height: 70px;
+
+        transition: $transition;
+        &:focus {
+          border: 1px solid $color-green;
+        }
       }
     }
 
@@ -5550,8 +5800,27 @@ body>.wrapper {
   &__row {
     @media (min-width: $breakpoint) {
       display: flex;
-      align-items: center;
+      // align-items: center;
       justify-content: space-between;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        padding-top: 50px;
+
+        width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
+      }
+    }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        padding-right: calc(#{$grid-part-d} - #{$grid-gap-d});
+
+        width: calc(#{$grid-part-d} * 10);
+      }
     }
   }
 
@@ -5575,11 +5844,12 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       margin-top: 23px;
 
+      width: 380px;
+
       @include fsl(16px, 140%);
     }
     font-weight: 400;
     @include fsl(14px, 140%);
-    white-space: pre; //?
   }
 
   &__buttons {
@@ -5814,9 +6084,10 @@ body>.wrapper {
   @media (min-width: $breakpoint) {
     height: 700px;
 
-    // border-radius: 50px;
-    // overflow: hidden;
+    border-radius: 50px;
   }
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .select2 {
@@ -6088,3 +6359,86 @@ body>.wrapper {
   }
 }
 
+.modal {
+  padding: 0;
+
+  display: none;
+  position: relative;
+
+  background: #F5F5F5;
+  border-radius: 20px;
+  @media (min-width: $breakpoint) {
+    width: calc(#{$grid-part-d} * 8 - #{$grid-gap-d});
+    flex-shrink: 0;
+  }
+
+  .response {
+    @media (max-width: $breakpoint - 1px) {
+      position: absolute;
+    }
+  }
+
+  &__inner {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__container {
+    padding: 0 20px;
+    @media (min-width: $breakpoint) {
+      padding: 0 calc(#{$grid-part-d});
+    }
+    width: 100%;
+    position: relative;
+
+    @media (max-width: $breakpoint - 1px) {
+      width: 345px;
+      min-height: 700px;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 40px;
+  }
+
+  
+
+  &__title {
+    text-align: center;
+    @include fsl(20px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(32px, 120%);
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    @media (min-width: $breakpoint) {
+      top: 10px;
+      right: 10px;
+    }
+    z-index: 2;
+  }
+
+  &__button {
+    background-color: rgba($color-black, 0.4);
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-black;
+    }
+  }
+}
+
+.fancybox {
+
+  &-button {
+    display: none;
+  }
+}

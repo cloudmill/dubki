@@ -6,10 +6,10 @@ block content
       .container 
         .block
           .block__wrapper
-            h3.block__title 
+            h3.block__title(data-aos="fade-up") 
               |Новости
             .block__list
-              ul.block-list
+              ul.block-list(data-aos="fade-up") 
                 li.block-list__item 
                   p.block-list__item-text 
                     |Главная
@@ -24,7 +24,7 @@ block content
         .news
           ul.news__list
             - for (i = 0; i < 3; i++)
-              li.news__item 
+              li.news__item(data-aos="fade-up") 
                 .news__content 
                   p.news__data 
                     |24 апреля 2021
@@ -32,7 +32,7 @@ block content
                     |Скидка на сырокопченую колбасу во всех фирменных магазинах
                 .news__container
                   img.news__photo(src="assets/images/news-1.jpg", alt="")
-              li.news__item 
+              li.news__item(data-aos="fade-up") 
                 .news__content 
                   p.news__data 
                     |24 апреля 2021
@@ -40,7 +40,7 @@ block content
                     |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
                 .news__container
                   img.news__photo(src="assets/images/news-2.jpg", alt="")
-              li.news__item 
+              li.news__item(data-aos="fade-up") 
                 .news__content 
                   p.news__data 
                     |24 апреля 2021
@@ -49,7 +49,7 @@ block content
                 .news__container
                   img.news__photo(src="assets/images/news-3.jpg", alt="")
           .wrapper
-            .button--s
+            .button--s(data-aos="fade-up") 
               |Показать еще
 
 

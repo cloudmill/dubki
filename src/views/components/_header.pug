@@ -3,35 +3,35 @@ mixin header()
     .container
       .header__row
         .header__catalog
-          .header__catalog-button(data-modal-button='catalog-toggle')
+          .header__catalog-button(data-aos="fade-up")
             .header__catalog-text
               |Акционный каталог
             .header__catalog-icon
               +arrow-svg
         .header__store
-          a.header__store-button(href='#')
+          a.header__store-button(href='#')(data-aos="fade-up")
             .header__store-text 
               |Интернет-магазин
             .header__store-icon
               +cursor-svg
-        .header__logo
+        .header__logo(data-aos="fade-up")
           a.header__logo-link(href="#")
             +logo-svg
         .header__city
-          .header__city-button(data-modal-button='location-toggle')
-            .header__city-text 
+          .header__city-button(data-aos="fade-up")
+            .header__city-text
               |Саратов
             .header__city-icon
               +arrow-svg('header__arrow')
         .header__nav
-          a.header__nav-link(href="#") 
+          a.header__nav-link(href="#")(data-aos="fade-up") 
             |Где купить
-        .header__search
-          .header__search-button(data-modal-button='search-toggle')
+        .header__search(data-aos="fade-up")
+          .header__search-button 
             +search-svg('header__search-icon')
-        .header__button
-          .header__button-button(data-modal-button='menu-toggle')
-            .header__button-image
+        .header__button(data-aos="fade-up")
+          .button-modal(data-modal-button='3')
+            .button-modal__image
         .nav-modal
           .nav-modal__content
             .nav-modal__top
@@ -121,3 +121,38 @@ mixin header()
                 .footer__media-item
                   a.footer__mail(href="#") 
                     |info@dubki-producty.ru
+        .modal-search.modal-search--city
+          .container
+            .modal-search__container 
+              .modal-search__row 
+                .modal-search__col
+                  h4.modal-search__title 
+                    |Выбрать город
+                .modal-search__col
+                  form.search-form(action="/")  
+                    input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Саратов")
+                .modal-search__col
+                  .modal-search__button
+                    .button-modal.button-modal--active(data-fancybox-close='1')
+                      .button-modal__image
+        .modal-search.modal-search--catalog
+          .container
+            .modal-search__container 
+              .modal-search__row 
+                .modal-search__col
+                  h4.modal-search__title 
+                    |Поиск 
+                    br
+                    |по каталогу
+                .modal-search__col
+                  form.search-form(action="/") 
+                    .search-form__row
+                      .search-form__col--second
+                        input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Что вы хотите найти?")
+                      .search-form__col--second 
+                        .button
+                          |Поиск
+                .modal-search__col
+                  .modal-search__button-catalog
+                    .button-modal.button-modal--active(data-fancybox-close='1')
+                      .button-modal__image

@@ -4,7 +4,9 @@ import "Styles/_app.scss";
 import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
+import '@fancyapps/fancybox';
 
+// AOS
 {
   AOS.init({
     // Global settings:
@@ -113,7 +115,6 @@ function toggleDataAttr($element, attr, value='') {
       const recipeHeight = recipe.innerHeight();
       const recipeList = $('.recipe__ingredients');
 
-      console.log(recipeHeight)
 
       $(window).on('scroll', function() {
         const scrollPos = $(this).scrollTop();
@@ -131,7 +132,6 @@ function toggleDataAttr($element, attr, value='') {
     }
   });
 }
-
 
 // nav-modal
 // notifi-modal
@@ -191,6 +191,77 @@ function toggleDataAttr($element, attr, value='') {
   });
 }
 
+// city-search modal
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      const citySearchButton = header.find('.header__city-button');
+      const cityModalButton = header.find('.modal-search__button');
+
+      // button open
+      citySearchButton.on('click', function() {
+        header.addClass('header--city-search');
+      });
+
+      // button close
+      cityModalButton.on('click', function() {
+        if (header.hasClass('header--city-search')) {
+          header.removeClass('header--city-search');
+        }
+      });
+
+      //click close
+      $(window).on('click', function(event) {
+        const target = event.target.closest('.header__city-button');
+        if (
+          header.hasClass('header--city-search') &&
+          target !== citySearchButton[0] &&
+          $(event.target).closest('.modal-search--city').length === 0
+        ) {
+          header.removeClass('header--city-search');
+        }
+      });
+    }
+  })
+}
+
+// catalog-search modal
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      const catalogSearchButton = header.find('.header__search-button');
+      const catalogModalButton = header.find('.modal-search__button-catalog');
+
+      // button open
+      catalogSearchButton.on('click', function() {
+        header.addClass('header--catalog-search');
+      });
+
+      // button close
+      catalogModalButton.on('click', function() {
+        if (header.hasClass('header--catalog-search')) {
+          header.removeClass('header--catalog-search');
+        }
+      });
+
+      //click close
+      $(window).on('click', function(event) {
+        const target = event.target.closest('.header__search-button');
+        if (
+          header.hasClass('header--catalog-search') &&
+          target !== catalogSearchButton[0] &&
+          $(event.target).closest('.modal-search--catalog').length === 0
+        ) {
+          header.removeClass('header--catalog-search');
+        }
+      });
+    }
+  });
+}
 
 // vacancies dropdown
 {
@@ -201,7 +272,6 @@ function toggleDataAttr($element, attr, value='') {
     const vacanciesButton = vacancies.find('.vacancies-list__button');
     const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
 
-    console.log(vacancies);
     vacanciesButton.on('click', function() {
       vacancies.toggleClass('vacancies-list__item--active');
       vacanciesDrop.slideToggle();
@@ -341,7 +411,9 @@ function toggleDataAttr($element, attr, value='') {
   $(() => {
     const select = $('.select__select');
 
-    select.select2();
+    select.select2({
+      // dropdownParent: $('.modal'),
+    });
   });
 }
 
@@ -358,13 +430,30 @@ function toggleDataAttr($element, attr, value='') {
       formButton.on('click', function() {
         form.addClass('form--hidden');
         response.addClass('response--active');
+        $('.provider__row').addClass('provider__row--active');
       });
 
       responseButton.on('click', function() {
         form.removeClass('form--hidden');
         response.removeClass('response--active');
+        $('.provider__row').removeClass('provider__row--active');
       });
     }
   });
 }
 
+// fancybox
+{
+  $(() => {
+    $.fancybox.defaults.closeExisting = true;
+
+    $('[data-fancy-button]').on('click', function (event) {
+			event.preventDefault();
+		
+			const id = $(this).data('fancy-button');
+			const modal = $(`[data-fancy-modal="${id}"]`);
+
+			$.fancybox.open(modal);
+		});
+  });
+}

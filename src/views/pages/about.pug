@@ -103,8 +103,8 @@ block content
                                                 li.action-catalog__content-item 
                                                     |Сосиски
                         .about-card__col 
-                            .action-catalog(data-aos="fade-up")
-                                .about-card__item
+                            .action-catalog
+                                .about-card__item(data-aos="fade-up")
                                     .action-catalog__card.about-card__wrapper
                                         .action-catalog__frame 
                                             img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
@@ -118,7 +118,7 @@ block content
                                         h4.action-catalog__title
                                             |Мясная гастрономия
                                 
-                                .about-card__item
+                                .about-card__item(data-aos="fade-up")
                                     .action-catalog__card.about-card__wrapper
                                         .action-catalog__frame 
                                             img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
@@ -231,14 +231,14 @@ block content
                         .gifts__wrapper 
                             h3.gifts__title(data-aos="fade-up") 
                                 |Скидки и подарки
-                        .gifts__row(data-aos="fade-up")
-                            .gifts__col
+                        .gifts__row
+                            .gifts__col(data-aos="fade-up")
                                 .gifts__item 
                                     .gifts__img 
                                         +smile-svg
                                     p.gifts__text 
                                         |Eженедельно на продукты первой необходимости предоставляется скидка до 40%
-                            .gifts__col
+                            .gifts__col(data-aos="fade-up")
                                 .gifts__item 
                                     .gifts__img 
                                         +smile-svg
@@ -246,7 +246,7 @@ block content
                                         |В праздничные дни сеть дарит своим клиентам подарочные купоны 
                                         span.question
                                             +quest-svg('question__mark')
-                            .gifts__col
+                            .gifts__col(data-aos="fade-up")
                                 .gifts__item
                                     .gifts__img 
                                         +smile-svg
@@ -289,14 +289,14 @@ block content
                                     +ball-svg
                                 p.contact-list__text 
                                     |Радушная атмосфера, которая создается профессиональным трудом торгового отдела
-                    .contact__row(data-aos="fade-up")
-                        .contact__col
+                    .contact__row
+                        .contact__col(data-aos="fade-up")
                             p.contact__text 
                                 |Горячая линия
                             .contact__link
                                 a.contact__phone(href="#") 
                                     |8 800 333-82-54
-                        .contact__col
+                        .contact__col(data-aos="fade-up")
                             p.contact__text 
                                 |Instagram
                             .contact__button
@@ -306,7 +306,7 @@ block content
                                     .button__wrapper.button__wrapper--alt 
                                         .button__wrapper.button__wrapper--alt
                                             +cursor-svg('button__icon') 
-                        .contact__col
+                        .contact__col(data-aos="fade-up")
                             p.contact__text 
                                 |Книга отзывов и предложений в каждой точке продаж
                                 span.question
@@ -318,6 +318,8 @@ block content
                 .container 
                     .progress
                         .progress__container
+                            .progress__layout 
+                                .progress__image(data-aos="fade-up")
                             h3.progress__title(data-aos="fade-up")
                                 |К 2021 году сеть «Дубки. Продукты от производителя» выросла до 700 магазинов разных форматов.
                             .progress__wrapper 
@@ -339,9 +341,9 @@ block content
                     .partners__wrapper 
                         h3.partners__title(data-aos="fade-up") 
                             |Партнеры
-                    .partners__row(data-aos="fade-up") 
+                    .partners__row
                         - for (i = 0; i < 7; i++)
-                            .partners__item 
+                            .partners__item(data-aos="fade-up") 
                                 a.partners-card(href="#") 
                                     .partners-card__container 
                                         .partners-card__image 
