@@ -1323,10 +1323,7 @@ body>.wrapper {
   &__content {
     display: flex;
     align-items: center;
-
-    @media (min-width: $breakpoint) {
-      margin-left: 491px;
-    }
+    justify-content: center;
   }
 
   &__button {
@@ -1336,6 +1333,7 @@ body>.wrapper {
       padding: 42px;
     }
     flex-shrink: 0;
+    display: flex;
 
     border: 2px solid $color-white;
     border-radius: 50%;
