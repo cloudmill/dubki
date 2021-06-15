@@ -237,29 +237,27 @@ function toggleDataAttr($element, attr, value='') {
     if (header.length !== 0) {
       const citySearchButton = header.find('.header__city-button');
       const cityModalButton = header.find('.modal-search__button');
+      console.log(citySearchButton)
 
-      // console.log(citySearchButton)
       // button open
       citySearchButton.on('click', function() {
-        console.log(1)
         header.addClass('header--city-search');
       });
 
       // button close
       cityModalButton.on('click', function() {
-        // if (header.hasClass('header--city-search')) {
-          header.removeClass('header--city-search');
-        // }
+        header.removeClass('header--city-search');
       });
 
       //click close
       $(window).on('click', function(event) {
         const target = event.target.closest('.header__city-button');
+
         if (
           header.hasClass('header--city-search') &&
           target !== citySearchButton[0] &&
           $(event.target).closest('.modal-search--city').length === 0 &&
-          $(event.target).closest('.nav-modal').length === 0 
+          $(target).closest('.nav-modal').length === 0 
         ) {
           header.removeClass('header--city-search');
         }
@@ -284,9 +282,7 @@ function toggleDataAttr($element, attr, value='') {
 
       // button close
       catalogModalButton.on('click', function() {
-        if (header.hasClass('header--catalog-search')) {
-          header.removeClass('header--catalog-search');
-        }
+        header.removeClass('header--catalog-search');
       });
 
       //click close

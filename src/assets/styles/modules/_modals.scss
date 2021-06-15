@@ -102,4 +102,10 @@
       padding-left: calc(#{$grid-part-d});
     }
   }
+
+  &__line {
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    } 
+  }
 }

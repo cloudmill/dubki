@@ -2,19 +2,19 @@ mixin header()
   header.header
     .container
       .header__row
-        .header__catalog
-          .header__catalog-button(data-aos="fade-up")
+        .header__catalog(data-aos="fade-up")
+          .header__catalog-button.header__catalog-button--dark
             .header__catalog-text
               |Акционный каталог
             .header__catalog-icon
               +arrow-svg('header__catalog-arrow')
            
-        .header__store
-          a.header__store-button(href='#')(data-aos="fade-up")
+        .header__store(data-aos="fade-up")
+          a.header__store-button.header__store-button--dark(href='#')
             .header__store-text 
               |Интернет-магазин
             .header__store-icon
-              +cursor-svg
+              +cursor-svg('header__store-svg')
         .header__logo(data-aos="fade-up")
           a.header__logo-link(href="#")
             +logo-svg
@@ -553,7 +553,7 @@ mixin header()
                 .modal-search__col
                   h4.modal-search__title 
                     |Выбрать 
-                    br
+                    br.modal-search__line
                     |город
                   .modal-search__form
                     form.search-form(action="/")  
@@ -569,7 +569,7 @@ mixin header()
                 .modal-search__col
                   h4.modal-search__title 
                     |Поиск 
-                    br
+                    br.modal-search__line
                     |по каталогу
                   form.search-form(action="/") 
                     .search-form__row.search-form__row--modal
