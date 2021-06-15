@@ -181,13 +181,49 @@ import '@fancyapps/fancybox';
         if (
           header.hasClass('header--city-search') &&
           target !== citySearchButton[0] &&
-          $(event.target).closest('.modal-search').length === 0
+          $(event.target).closest('.modal-search--city').length === 0
         ) {
           header.removeClass('header--city-search');
         }
       });
     }
   })
+}
+
+// catalog-search modal
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      const catalogSearchButton = header.find('.header__search-button');
+      const catalogModalButton = header.find('.modal-search__button-catalog');
+
+      // button open
+      catalogSearchButton.on('click', function() {
+        header.addClass('header--catalog-search');
+      });
+
+      // button close
+      catalogModalButton.on('click', function() {
+        if (header.hasClass('header--catalog-search')) {
+          header.removeClass('header--catalog-search');
+        }
+      });
+
+      //click close
+      $(window).on('click', function(event) {
+        const target = event.target.closest('.header__search-button');
+        if (
+          header.hasClass('header--catalog-search') &&
+          target !== catalogSearchButton[0] &&
+          $(event.target).closest('.modal-search--catalog').length === 0
+        ) {
+          header.removeClass('header--catalog-search');
+        }
+      });
+    }
+  });
 }
 
 // vacancies dropdown

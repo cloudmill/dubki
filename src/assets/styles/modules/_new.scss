@@ -83,7 +83,13 @@ body>.wrapper {
   }
 
   &--city-search {
-    .modal-search {
+    .modal-search--city {
+      transform: translateY(0);
+    }
+  }
+
+  &--catalog-search {
+    .modal-search--catalog {
       transform: translateY(0);
     }
   }
@@ -5706,6 +5712,18 @@ body>.wrapper {
           width: calc(#{$grid-part-d} * 3);
         }
 
+      }
+
+      &--second {
+        flex-shrink: 0;
+        &:nth-child(1) {
+          padding-right: 20px;
+          width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+        }
+
+        &:nth-child(2) {
+          width: calc(#{$grid-part-d} * 2);
+        }
       }
     }
 
