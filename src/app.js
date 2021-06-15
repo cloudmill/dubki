@@ -140,11 +140,12 @@ function toggleDataAttr($element, attr, value='') {
     const header = $('.header');
 
     if (header.length !== 0) {
-      const navModalButton = header.find('.header__button-button');
+      const navModalButton = header.find('.header__button .button-modal');
       const searchModalButton = header.find('.header__search-button');
 
       // button
       navModalButton.on('click', function () {
+        console.log(123);
         if (header.hasClass('header--nav-modal')) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('header__button-button--active');
