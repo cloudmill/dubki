@@ -494,3 +494,29 @@ function toggleDataAttr($element, attr, value='') {
 		});
   });
 }
+
+
+// header 
+{
+  $(() => {
+    const header = $('.header');
+    
+    if (header.length !== 0) {
+      $(window).scroll(
+        {
+          previousTop: 0
+        }, 
+        function () {
+        const currentTop = $(window).scrollTop();
+        if (currentTop < this.previousTop) {
+            $(".sidebar em").text("Up"); 
+            $(".header").addClass('header--scroll');
+        } else {
+            $(".sidebar em").text("Down");
+            $(".header").removeClass('header--scroll');
+        }
+        this.previousTop = currentTop;
+    });
+    };
+  });
+}

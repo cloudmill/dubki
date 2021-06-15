@@ -41,7 +41,7 @@ body>.wrapper {
 .header {
   $comp: &;
 
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -70,6 +70,10 @@ body>.wrapper {
     background-color: rgba($color-black, 0.3);
     opacity: 0;
     transition: $transition;
+  }
+
+  &--scroll {
+    position: fixed;
   }
 
   &--nav-modal {
