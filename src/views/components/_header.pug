@@ -7,7 +7,8 @@ mixin header()
             .header__catalog-text
               |Акционный каталог
             .header__catalog-icon
-              +arrow-svg
+              +arrow-svg('header__catalog-arrow')
+           
         .header__store
           a.header__store-button(href='#')(data-aos="fade-up")
             .header__store-text 
@@ -33,6 +34,430 @@ mixin header()
           .button-modal(data-modal-button='3')
             .button-modal__image
         .nav-modal
+          .nav-modal__wrapper 
+            .header__city--mobile
+              .header__city-button(data-aos="fade-up")
+                .header__city-text
+                  |Саратов
+                .header__city-icon
+                  +arrow-svg('header__arrow')
+          .nav-modal__row 
+            .nav-modal__item
+              .header-catalog
+                .header__catalog--mobile
+                  .header__catalog-button
+                    .header__catalog-text
+                      |Акционный каталог
+                    .header__catalog-icon
+                      +arrow-svg('header__catalog-arrow')
+                  .header-catalog__dropdown   
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Бакалея
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          - for (i = 0; i < 5; i++)
+                            li.header-catalog__item 
+                              a.header-catalog__link(href="#")
+                                |Вафли
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Замороженные полуфабрикаты
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          - for (i = 0; i < 5; i++)
+                            li.header-catalog__item 
+                              a.header-catalog__link(href="#")
+                                |Вафли
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+                    .header-catalog__section
+                      .header-catalog__section-button
+                        .header-catalog__section-text
+                          |Кондитерские изделия
+                        +arrow-svg('header-catalog__section-icon')
+                      .header-catalog__section-dropdown
+                        ul.header-catalog__links 
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Вафли
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Зефир, мармелад, пастила
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты вес
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Конфеты наборы
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Крекер
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Печенье
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Пряник
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Торты, пирожное
+                          li.header-catalog__item 
+                            a.header-catalog__link(href="#")
+                              |Шоколад
+            .nav-modal__item
+              .header__store--mobile
+                a.header__store-button(href='#')(data-aos="fade-up")
+                  .header__store-text 
+                    |Интернет-магазин
+                  .header__store-icon
+                    +cursor-svg
+            .nav-modal__item
+              .header__nav--mobile
+                a.header__nav-link(href="#")(data-aos="fade-up") 
+                  |Где купить
           .nav-modal__content
             .nav-modal__top
               ul.nav-modal__list
@@ -146,10 +571,10 @@ mixin header()
                     |по каталогу
                 .modal-search__col
                   form.search-form(action="/") 
-                    .search-form__row
-                      .search-form__col--second
+                    .search-form__row.search-form__row--modal
+                      .search-form__col--modal
                         input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Что вы хотите найти?")
-                      .search-form__col--second 
+                      .search-form__col--modal 
                         .button
                           |Поиск
                 .modal-search__col

@@ -104,36 +104,140 @@ body>.wrapper {
   }
 
   &__catalog {
-    width: calc((#{$col-part-d}) * 4 - #{$col-gap-d});
+    $comp: &;
     flex-shrink: 0;
     display: none;
 
     @media (min-width: $breakpoint) {
       display: flex;
+      width: calc((#{$col-part-d}) * 4 - #{$col-gap-d});
+    }
+
+    &--mobile {
+      width: 100%;
     }
 
     &-button {
-      padding: 25px 30px;
-      width: calc(#{$col-part-d} * 3);
-      height: 70px;
+      padding: 15px 15px 15px 30px;
+      @media (min-width: $breakpoint) {
+        padding: 25px 30px;
+
+        width: calc(#{$col-part-d} * 3);
+        height: 70px;
+        justify-content: center;
+
+        border-radius: 25px;
+      }
 
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
 
       background-color: $color-yellow;
-      border-radius: 25px;
       cursor: pointer;
+
+      &--active {
+        #{$comp}-arrow {
+          transform: rotate(180deg);
+        }
+      }
     }
 
     &-text {
-      @include fsl(18px, 80%);
+      @include fsl(16px, 80%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 80%);
+      }
     }
 
     &-icon {
       margin-left: 10px;
       display: flex;
       align-items: center;
+    }
+
+    &-arrow {
+      width: 14px;
+      height: 5px;
+      @media (min-width: $breakpoint) {
+        width: 100%;
+        height: 100%;
+      }
+      transition: $transition;
+    }
+  }
+
+  &-catalog {
+    width: 100%;
+
+    &__dropdown {
+      display: none;
+    }
+    
+    &__section {
+      $comp: &;
+
+      border-bottom: 1px solid rgba($color-white, 0.2);
+      transition: $transition;
+
+      &--active {
+        background-color: $color-white;
+        
+        #{$comp}-text {
+          color: $color-green;
+        }
+
+        #{$comp}-icon {
+          transform: rotate(180deg);
+          path {
+            stroke: $color-green;
+          }
+        }
+      }
+
+      &-button {
+        padding: 14px 15px 14px 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+
+      &-text {
+        color: $color-white;
+        @include fsl(13px, 120%);
+        transition: $transition;
+      }
+
+      &-icon {
+        width: 14px;
+        height: 5px;
+
+        transition: $transition;
+        path {
+          stroke: $color-white;
+        }
+      }
+
+      &-dropdown {
+        display: none;
+      }
+    }
+
+    &__links {
+      padding: 0 15px 15px 30px;
+    }
+    
+    &__item {
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    &__link {
+      @include fsl(13px, 120%);
     }
   }
 
@@ -146,6 +250,10 @@ body>.wrapper {
       display: flex;
     }
 
+    &--mobile {
+      padding-left: 30px;
+    }
+
     &-button {
       display: flex;
       align-items: center;
@@ -154,7 +262,10 @@ body>.wrapper {
     }
 
     &-text {
-      @include fsl(18px, 80%);
+      @include fsl(16px, 80%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 80%);
+      }
       color: $color-white;
     }
 
@@ -213,7 +324,10 @@ body>.wrapper {
     }
 
     &-text {
-      @include fsl(18px, 80%);
+      @include fsl(16px, 80%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 80%);
+      }
       color: $color-white;
     }
 
@@ -221,6 +335,12 @@ body>.wrapper {
       margin-left: 10px;
       display: flex;
       align-items: center;
+      width: 14px;
+      height: 5px;
+      @media (min-width: $breakpoint) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
@@ -233,8 +353,15 @@ body>.wrapper {
       display: flex;
     }
 
+    &--mobile {
+      padding-left: 30px;
+    }
+
     &-link {
-      @include fsl(18px, 80%);
+      @include fsl(16px, 80%);
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 80%);
+      }
       color: $color-white;
     }
   }
@@ -3225,7 +3352,8 @@ body>.wrapper {
   padding: 160px $col-pad-d 60px calc(#{$col-width-d});
   width: calc(#{$col-part-d} * 6 - #{$col-gap-d} + #{$col-pad-d});
   @media (max-width: $breakpoint - 1px) {
-    padding: 70px $col-pad-m 30px 30px;
+    padding: 30px 0;
+
     width: calc(#{$col-part-m} * 3 - #{$col-gap-m} + #{$col-pad-m});
   }
   flex-shrink: 0;
@@ -3234,23 +3362,50 @@ body>.wrapper {
   background-color: $color-light-green;
   transition: $transition;
 
+  &__wrapper {
+    margin-bottom: 28px;
+    padding-left: 30px;
+
+    display: block;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  &__row {
+    padding-bottom: 30px;
+
+    display: block;
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
   &__content {
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: $breakpoint - 1px) {
+      padding-left: 30px;
+      padding-right: calc(#{$grid-gap-m});
+
+    }
   }
 
   &__top {
-
+    @media (max-width: $breakpoint - 1px) {
+      padding-top: 30px;
+      
+      border-top: 1px solid rgba($color-white, 0.2);
+    }
   }
+  
   &__bottom {
     margin-top: 60px;
   }
 
-  &__list {
-    
-  }
+  
   &__item {
     display: flex;
 
@@ -5692,6 +5847,14 @@ body>.wrapper {
         display: flex;
         align-items: center;
       }
+
+      &--modal {
+        @media (max-width: $breakpoint - 1px) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
     }
 
     &__col {
@@ -5713,15 +5876,25 @@ body>.wrapper {
 
       }
 
-      &--second {
+      &--modal {
         flex-shrink: 0;
         &:nth-child(1) {
-          padding-right: 20px;
-          width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+          padding-left: 15px;
+          width: calc(#{$grid-pard-m} * 3 - #{$grid-gap-m});
+          @media (min-width: $breakpoint) {
+            padding-left: 0;
+            padding-right: 20px;
+
+            width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+          }
         }
 
         &:nth-child(2) {
-          width: calc(#{$grid-part-d} * 2);
+          padding-left: calc(#{$grid-gap-m});
+          @media (min-width: $breakpoint) {
+            padding-left: 0;
+            width: calc(#{$grid-part-d} * 2);
+          }
         }
       }
     }
@@ -5745,7 +5918,10 @@ body>.wrapper {
       }
 
       &--modal {
-        height: 70px;
+        height: 50px;
+        @media (min-width: $breakpoint) {
+          height: 70px;
+        }
 
         transition: $transition;
         &:focus {

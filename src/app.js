@@ -148,10 +148,10 @@ function toggleDataAttr($element, attr, value='') {
         console.log(123);
         if (header.hasClass('header--nav-modal')) {
           header.removeClass('header--nav-modal');
-          navModalButton.removeClass('header__button-button--active');
+          navModalButton.removeClass('button-modal--active');
         } else {
           header.addClass('header--nav-modal');
-          navModalButton.addClass('header__button-button--active');
+          navModalButton.addClass('button-modal--active');
         }
       });
       searchModalButton.on('click', function () {
@@ -173,7 +173,7 @@ function toggleDataAttr($element, attr, value='') {
           $(event.target).closest('.nav-modal').length === 0
         ) {
           header.removeClass('header--nav-modal');
-          navModalButton.removeClass('header__button-button--active');
+          navModalButton.removeClass('button-modal--active');
         }
         // .search-modal
         if (
@@ -186,6 +186,42 @@ function toggleDataAttr($element, attr, value='') {
         ) {
           header.removeClass('header--search-modal');
           navModalButton.removeClass('header__search-button--active');
+        }
+      });
+    }
+  });
+}
+
+// catalog dropdown 
+{
+  $(() => {
+    const navModal = $('.nav-modal');
+
+    if (navModal.length !== 0) {
+      const navModalButton = navModal.find('.header__catalog-button');
+      const navModalDropdown = navModal.find('.header-catalog__dropdown');
+
+      navModalButton.on('click', function() {
+        navModalButton.toggleClass('header__catalog-button--active');
+        navModalDropdown.slideToggle();
+      });
+
+      // section
+      const navModalSection = navModal.find('.header-catalog__section');
+      const navModalSectionButton = navModalSection.find('.header-catalog__section-button');
+
+      navModalSectionButton.on('click', function () {
+        const navModalSectionClicked = $(this).closest('.header-catalog__section');
+
+        if (navModalSectionClicked.hasClass('header-catalog__section--active')) {
+          navModalSectionClicked.find('.header-catalog__section-dropdown').slideUp();
+          navModalSectionClicked.removeClass('header-catalog__section--active')
+        } else {
+          $('.header-catalog__section--active').find('.header-catalog__section-dropdown').slideUp();
+          $('.header-catalog__section--active').removeClass('header-catalog__section--active');
+
+          navModalSectionClicked.find('.header-catalog__section-dropdown').slideDown();
+          navModalSectionClicked.addClass('header-catalog__section--active');
         }
       });
     }
