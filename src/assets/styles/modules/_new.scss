@@ -1816,6 +1816,8 @@ body>.wrapper {
   &--mobile {
     display: flex;
     justify-content: center;
+    width: 100%;
+    overflow-x: auto;
 
     @media (min-width: $breakpoint) {
       display: none;
@@ -1828,14 +1830,14 @@ body>.wrapper {
     &::after {
       content: "";
       display: block;
-      height: 20px;
-      width: 100px;
+      height: 21px;
+      width: 170px;
       position: absolute;
       z-index: 1;
       right: 0;
 
 
-      background-color: #fff;
+      background: linear-gradient(270deg, #FFFFFF 0%, #FFFFFF 9.37%, rgba(255, 255, 255, 0.73) 34.37%, rgba(255, 255, 255, 0) 100%);
     }
   }
 
