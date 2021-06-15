@@ -34,22 +34,27 @@ block content
           .search__wrapper 
             .search__result
               |Найдено 268 товаров
-          .catalog 
-            ul.catalog__list 
-              - for (i = 0; i < 9; i++)
-                li.catalog__item
-                  .top-slide.top-slide--catalog
-                    .top-slide__discont
-                      .top-slide__discont-icon
-                        +top-icon-svg('catalog__icon')
-                      .top-slide__discont-text.top-slide__discont-text--catalog
-                        |-40%
-                    .top-slide__container.top-slide__container--catalog
-                      .top-slide__frame
-                        img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
-                      p.top-slide__text.top-slide__text--catalog
-                        |Ветчина из Говядины ТМ Русские колбасы, 1 кг
-                      .top-slide__price.top-slide__price--catalog
-                        span 
-                          |760 ₽
-                        |610 ₽
+          .search__container
+            .search__undefiend 
+              .search__text 
+                |Подходящих товаров нет
+          .search__catalog
+            .catalog
+              ul.catalog__list 
+                - for (i = 0; i < 9; i++)
+                  li.catalog__item
+                    .top-slide.top-slide--catalog
+                      .top-slide__discont
+                        .top-slide__discont-icon
+                          +top-icon-svg('catalog__icon')
+                        .top-slide__discont-text.top-slide__discont-text--catalog
+                          |-40%
+                      .top-slide__container.top-slide__container--catalog
+                        .top-slide__frame
+                          img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
+                        p.top-slide__text.top-slide__text--catalog
+                          |Ветчина из Говядины ТМ Русские колбасы, 1 кг
+                        .top-slide__price.top-slide__price--catalog
+                          span 
+                            |760 ₽
+                          |610 ₽

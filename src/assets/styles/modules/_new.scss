@@ -2003,83 +2003,56 @@ body>.wrapper {
   }
 
   &__list {
-    width: 100%;
-    @media (max-width: $breakpoint - 1px) {
-      width: calc(#{$col-part-m} * 4 - #{$col-gap-m});
-    }
-
+    flex-shrink: 0;
     @media (min-width: $breakpoint) {
-      margin-left: 20px;
-
-      width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
-      flex-shrink: 0;
+      margin-top: -20px;
+      margin-left: -20px;
+      width: calc(100% + 20px);
     }
 
-    @media (max-width: $breakpoint -1px) {
+    @media (max-width: $breakpoint - 1px) {
+      margin-left: -15px;
+      width: calc(100% + 15px);
+    }
+
+    @media (max-width: $breakpoint-m - 1px) {
+      margin-left: 0;
       width: 100%;
     }
 
     display: flex;
     flex-wrap: wrap;
-
-    &--wide {
-      margin-left: 0;
-      width: calc(#{$col-part-d} * #{$col-count-d} - #{$col-gap-d});
-      @media (max-width: $breakpoint - 1px) {
-        width: calc(#{$col-part-m} * 4 - #{$col-gap-m});
-      }
-    }
+    align-items: stretch;
   }
 
   &__card {
     padding: 20px;
     @media (max-width: $breakpoint - 1px) {
+      margin-left: 15px;
+
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
     }
     @media (max-width: $breakpoint-m - 1px) {
+      margin-left: 0;
+
       width: 100%;
     }
 
-    &:nth-child(even) {
-      @media (max-width: $breakpoint - 1px) {
-        margin-left: $col-gap-m;
-      }
-      @media (max-width: $breakpoint-m - 1px) {
-        margin-left: 0;
-      }
-    }
-
     @media (min-width: $breakpoint) {
+      margin-top: 20px;
+      margin-left: calc(#{$grid-gap-d});
       padding: 30px;
 
       width: calc(#{$grid-part-d} * 6 - #{$grid-gap-d});
-      height: 250px;
-
-      &--primary {
-        margin-top: 20px;
-        margin-left: calc(#{$grid-gap-d});
-
-        &:nth-child(-n + 2) {
-          margin-top: 0;
-        }
-
-        &:nth-child(2n + 1) {
-          margin-left: 0;
-        }
-      }
-
-      &--secondary {
-        margin-top: 20px;
-        margin-left: calc(#{$grid-gap-d});
-
-        &:nth-child(3n + 1) {
-          margin-left: 0;
-        }
-      }
+      min-height: 250px;
     }
 
     width: 100%;
-    height: 159px;
+    min-height: 159px;
 
     flex-shrink: 0;
     display: flex;
@@ -2090,10 +2063,10 @@ body>.wrapper {
     border-radius: 20px;
 
     &--big {
-      margin-top: 0;
 
       height: 397px;
       @media (max-width: $breakpoint - 1px) {
+
         width: 100%;
       }
       @media (min-width: $breakpoint) {
@@ -2174,27 +2147,35 @@ body>.wrapper {
 
       @media (min-width: $breakpoint) {
         margin-top: 30px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 130px
       }
     }
 
     &-item {
-      display: block;
-
-      color: $color-black;
-      font-size: 13px;
-
+      
       @media (min-width: $breakpoint) {
+        margin-top: 10px;
+
+        width: calc(#{$grid-part-d} * 3 - 30px);
+
         font-size: 15px;
 
-        :not(:first-child) {
-          margin-top: 15px;
+        &:nth-child(5n + 1) {
+          margin-top: 0;
         }
       }
-
+      font-weight: 400;
+      font-size: 13px;
       line-height: 1.2;
 
-      &:not(:first-child) {
-        margin-top: 10px;
+      @media (max-width: $breakpoint - 1px) {
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -2231,7 +2212,6 @@ body>.wrapper {
   }
 
   &__text {
-    color: $color-black;
     font-size: 16px;
 
     @media (min-width: $breakpoint) {
@@ -2243,6 +2223,8 @@ body>.wrapper {
     &:nth-child(2) {
       margin-top: 15px;
     }
+
+    
   }
 
   &__row {
@@ -2270,6 +2252,10 @@ body>.wrapper {
       @include fsl(14px, 140%);
       @media (min-width: $breakpoint) {
         @include fsl(16px, 140%);
+      }
+
+      &--white {
+        color: $color-white
       }
     }
 
@@ -3322,6 +3308,13 @@ body>.wrapper {
         display: none;
       }
     }
+  }
+
+  &__wrapper {
+    margin-top: 0;
+    margin-left: 0;
+
+    width: 100%;
   }
 }
 
@@ -4411,10 +4404,26 @@ body>.wrapper {
       }
     }
   }
+
+  &__container {
+    position: relative;
+  }
 }
 
 .form {
   width: 100%;
+
+  transition: .4s;
+  &--hidden {
+    opacity: 0;
+    @media (min-width: $breakpoint) {
+      visibility: hidden;
+    }
+
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    } 
+  }
 
   &__item {
     &:not(:first-child) {
@@ -4426,7 +4435,7 @@ body>.wrapper {
   }
 
   &__input {
-    padding: 24px 35px;
+    padding: 20px 35px;
 
     width: 100%;
 
@@ -4441,12 +4450,24 @@ body>.wrapper {
       color: $color-black;
     }
 
+    &--large {
+      height: 160px;
+      resize: none;
+    }
+
   }
 
   &__wrapper {
     padding: 30px 0;
     @media (min-width: $breakpoint) {
       padding: 40px 0;
+    }
+
+    &--alt {
+      padding-top: 30px;
+      @media (min-width: $breakpoint) {
+        padding-top: 40px;
+      }
     }
   }
 
@@ -4487,6 +4508,8 @@ body>.wrapper {
     display: flex;
     justify-content: flex-end;
   }
+
+  
 }
 
 .checkbox {
@@ -5320,6 +5343,11 @@ body>.wrapper {
     }
   }
 
+  &__container {
+    width: 100%;
+    position: relative;
+  }
+
   &__docs {
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
@@ -5334,6 +5362,82 @@ body>.wrapper {
     path {
       fill: $color-black;
     }
+  }
+}
+
+.response {
+  
+  @media (min-width: $breakpoint) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    bottom: 0;
+  }
+  opacity: 0;
+  visibility: hidden;
+
+  
+  background-color: $color-white;
+  border-radius: 20px;
+  transition: .5s;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__container {
+    padding-bottom: 20px;
+    padding-top: 40px;
+    @media (min-width: $breakpoint) {
+      padding-top: 60px;
+    }
+    @media (min-width: $breakpoint) {
+      height: 100%;
+    }
+  }
+
+  &__row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__col {
+    &:nth-child(1) {
+      padding-left: 40px;
+      padding-right: 30px;
+      @media (min-width: $breakpoint) {
+        padding: 0 60px;
+      }
+    }
+
+    &:nth-child(2) {
+      padding: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include f-alt();
+    @include fsl(18px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(24px, 120%);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    @include fsl(18px, 120%);
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -5415,6 +5519,29 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         padding: 23px 0;
       }
+    }
+  }
+
+  &__container {
+    display: none;
+  }
+
+  &__undefiend {
+    padding-top: 20px;
+    @media (min-width: $breakpoint) {
+      padding-top: 40px;
+    }
+
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text {
+    @include f-alt();
+    color: #CDCDCD;
+    @include fsl(20px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(50px, 80%);
     }
   }
 }
@@ -5499,6 +5626,10 @@ body>.wrapper {
       top: 20px;
       right: 20px;
       z-index: 1;
+    }
+
+    &--default {
+
     }
     
     &__wrapper {
@@ -5614,6 +5745,19 @@ body>.wrapper {
     &__wrapper {
       padding: 0 20px;
     }
+  }
+
+  &-balloon {
+    $comp: &;
+    cursor: pointer;
+
+    &--alt {
+      position: absolute;
+
+      #{$comp}__container {
+        width: 291px;
+      }
+    }
 
     &__container {
       padding: 20px;
@@ -5634,21 +5778,43 @@ body>.wrapper {
       margin-bottom: 15px;
 
       @include fsl(14px, 120%);
+      font-weight: 700 !important;
     }
 
     &__time {
-      display: flex;
-      align-items: center;
-    }
-
-    &__icon {
-      margin-right: 12px;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
     }
 
     &__text {
+      margin-top: 10px;
+      padding-left: 27px;
+
+      position: relative;
+
       font-weight: 400;
       text-transform: uppercase;
       @include fsl(14px, 120%);
+
+      &:before {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        background: url("assets/images/svg/clock.svg") center no-repeat;
+        background-size: contain;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -5769,12 +5935,11 @@ body>.wrapper {
 }
 
 .addres {
-  display: none;
 
   &__inner {
     padding-top: 15px;
     @media (min-width: $breakpoint) {
-      padding-top: 170px;
+      padding-top: 80px;
     }
   }
 
@@ -5878,74 +6043,58 @@ body>.wrapper {
     @include fsl(14px, 120%);
     text-transform: uppercase;
   }
+
+  &__clock {
+    path {
+      stroke: $color-black;
+    }
+  }
 }
 
-.search-modal {
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: translateY(-100%);
+.stores-list {
 
-  transition: $transition;
-
-  // верт отступ
   &__inner {
-    padding-top: 20px;
+    padding-top: 40px;
     @media (min-width: $breakpoint) {
-      padding-top: 30px;
+      padding-top: 80px;
     }
   }
 
-  &__container {
-    height: 170px;
+  &__row {
     display: flex;
-    justify-content: flex-end;
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+    }
 
-    background-color: white;
-  }
-
-  &__close {
-    width: 50px;
-    height: 50px;
-
-    background-color: black;
-  }
-}
-
-// header, модальные окна
-.header {
-  // z order:
-  // .header
-  // .header::before (blackout)
-  // .left-modal, .right-modal (catalog, menu)
-  // .up-modal (location, search)
-
-  // описание:
-  // .header - шапка
-  // содержит кнопки вызова модальных окон (меню, поиск)
-  // содержит сами модальные окна (отдельные блоки)
-  // имеет модификаторы вида .header--<мод. окно>
-
-  // z-index структура (по возрастанию):
-  // .header
-  // .header::before (blackout)
-  // .left-modal, .right-modal (catalog, menu)
-  // .up-modal (location, search)
-
-  &--blackout {
-    &::before {
-      opacity: 1;
+    @media (max-width: $breakpoint - 1px) {
+      flex-direction: column;
     }
   }
+  
+  &__col {
 
-  @each $modal in (left-modal, right-modal, up-modal) {
-    &--#{$modal} {
-      .#{$modal} {
-        // модальное окно "выезжает"
-        transform: none;
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        margin-left: 20px;
+        width: 331px;
+      }
+
+      @media (max-width: $breakpoint) {
+        order: 2;
       }
     }
+
+    &:nth-child(2) {
+      @media (min-width: $breakpoint) {
+        margin-right: 20px;
+
+      }
+
+      @media (max-width: $breakpoint) {
+        order: 1;
+      }
+    }
+    
   }
 }
+
