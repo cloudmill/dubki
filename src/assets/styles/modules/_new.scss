@@ -72,23 +72,13 @@ body>.wrapper {
     transition: $transition;
   }
 
-  // modals state
   &--nav-modal {
     &::before {
       opacity: 1;
     }
 
     .nav-modal {
-      transform: translateX(-100%);
-    }
-  }
-  &--search-modal {
-    &::before {
-      opacity: 1;
-    }
-
-    .search-modal {
-      transform: translateY(0);
+      transform: none;
     }
   }
 
