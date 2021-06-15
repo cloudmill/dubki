@@ -552,10 +552,12 @@ mixin header()
               .modal-search__row 
                 .modal-search__col
                   h4.modal-search__title 
-                    |Выбрать город
-                .modal-search__col
-                  form.search-form(action="/")  
-                    input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Саратов")
+                    |Выбрать 
+                    br
+                    |город
+                  .modal-search__form
+                    form.search-form(action="/")  
+                      input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Саратов")
                 .modal-search__col
                   .modal-search__button
                     .button-modal.button-modal--active(data-fancybox-close='1')
@@ -569,7 +571,6 @@ mixin header()
                     |Поиск 
                     br
                     |по каталогу
-                .modal-search__col
                   form.search-form(action="/") 
                     .search-form__row.search-form__row--modal
                       .search-form__col--modal

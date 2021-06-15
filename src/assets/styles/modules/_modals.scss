@@ -15,24 +15,24 @@
   transform: translateY(-130%);
   transition: $transition;
 
-  &--catalog {
-    #{$comp}__col {
+  // &--catalog {
+  //   #{$comp}__col {
 
-      &:nth-child(1) {
-        @media (min-width: $breakpoint) {
-          width: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
-        }
-      }
+  //     &:nth-child(1) {
+  //       @media (min-width: $breakpoint) {
+  //         width: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
+  //       }
+  //     }
 
-      &:nth-child(2) {
-        @media (min-width: $breakpoint) {
-          padding-left: calc(#{$grid-gap-d});
+  //     &:nth-child(2) {
+  //       @media (min-width: $breakpoint) {
+  //         padding-left: calc(#{$grid-gap-d});
 
-          width: calc(#{$grid-part-d} * 12);
-        }
-      }
-    }
-  }
+  //         width: calc(#{$grid-part-d} * 12);
+  //       }
+  //     }
+  //   }
+  // }
 
   &__container {
     padding: 30px 0;
@@ -49,41 +49,34 @@
   &__row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     @media (max-width: $breakpoint - 1px) {
       // padding: 0 30px;
 
       flex-wrap: wrap;
-      justify-content: space-between;
     }
   }
 
   &__col {
     flex-shrink: 0;
     &:nth-child(1) {
-      padding-bottom: 15px;
-
+      padding: 0 15px;
       width: 100%;
       @media (min-width: $breakpoint) {
-        padding-bottom: 0;
+        padding: 0;
         padding-left: calc(#{$grid-part-d});
 
-        width: calc(#{$grid-part-d} * 2);
+        width: calc(#{$grid-part-d} * 15 - #{$grid-gap-d});
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
     }
 
     &:nth-child(2) {
       @media (min-width: $breakpoint) {
-        padding-left: calc(#{$grid-part-d});
-        width: calc(#{$grid-part-d} * 13 - #{$grid-gap-d});
+        padding: 0 20px;
       }
-    }
-
-    &:nth-child(3) {
-      @media (min-width: $breakpoint) {
-        padding: 0;
-        padding-left: calc(#{$grid-part-d} * 2);
-      }
-
       @media (max-width: $breakpoint - 1px) {
         position: absolute;
         top: 10px;
@@ -94,9 +87,19 @@
   }
 
   &__title {
+    white-space: nowrap;
     @include fsl(22px, 100%);
     @media (max-width: $breakpoint - 1px) {
+      padding-bottom: 15px;
+
       text-align: center;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    @media (min-width: $breakpoint) {
+      padding-left: calc(#{$grid-part-d});
     }
   }
 }

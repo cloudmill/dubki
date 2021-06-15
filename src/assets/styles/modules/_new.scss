@@ -238,6 +238,10 @@ body>.wrapper {
 
     &__link {
       @include fsl(13px, 120%);
+      transition: $transition;
+      &:hover {
+        color: $color-green;
+      }
     }
   }
 
@@ -308,6 +312,10 @@ body>.wrapper {
     display: none;
 
     @media (min-width: $breakpoint) {
+      display: flex;
+    }
+
+    &--mobile {
       display: flex;
     }
 
@@ -5854,6 +5862,9 @@ body>.wrapper {
           align-items: center;
           justify-content: space-between;
         }
+        @media (max-width: $breakpoint-m) {
+          flex-wrap: wrap;
+        }
       }
     }
 
@@ -5879,13 +5890,14 @@ body>.wrapper {
       &--modal {
         flex-shrink: 0;
         &:nth-child(1) {
-          padding-left: 15px;
           width: calc(#{$grid-pard-m} * 3 - #{$grid-gap-m});
           @media (min-width: $breakpoint) {
-            padding-left: 0;
             padding-right: 20px;
 
             width: calc(#{$grid-part-d} * 10 - #{$grid-gap-d});
+          }
+          @media (max-width: $breakpoint-m) {
+            width: 100%;
           }
         }
 
@@ -5894,6 +5906,12 @@ body>.wrapper {
           @media (min-width: $breakpoint) {
             padding-left: 0;
             width: calc(#{$grid-part-d} * 2);
+          }
+          @media (max-width: $breakpoint-m) {
+            padding-left: 0;
+            padding-top: 15px;
+
+            width: 100%;
           }
         }
       }

@@ -170,7 +170,8 @@ function toggleDataAttr($element, attr, value='') {
         if (
           header.hasClass('header--nav-modal') &&
           event.target !== navModalButton[0] &&
-          $(event.target).closest('.nav-modal').length === 0
+          $(event.target).closest('.nav-modal').length === 0 &&
+          $(event.target).closest('.modal-search').length === 0 
         ) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('button-modal--active');
@@ -214,13 +215,13 @@ function toggleDataAttr($element, attr, value='') {
         const navModalSectionClicked = $(this).closest('.header-catalog__section');
 
         if (navModalSectionClicked.hasClass('header-catalog__section--active')) {
-          navModalSectionClicked.find('.header-catalog__section-dropdown').slideUp();
+          navModalSectionClicked.find('.header-catalog__section-dropdown').slideUp(500);
           navModalSectionClicked.removeClass('header-catalog__section--active')
         } else {
-          $('.header-catalog__section--active').find('.header-catalog__section-dropdown').slideUp();
+          $('.header-catalog__section--active').find('.header-catalog__section-dropdown').slideUp(650);
           $('.header-catalog__section--active').removeClass('header-catalog__section--active');
 
-          navModalSectionClicked.find('.header-catalog__section-dropdown').slideDown();
+          navModalSectionClicked.find('.header-catalog__section-dropdown').slideDown(500);
           navModalSectionClicked.addClass('header-catalog__section--active');
         }
       });
@@ -237,16 +238,18 @@ function toggleDataAttr($element, attr, value='') {
       const citySearchButton = header.find('.header__city-button');
       const cityModalButton = header.find('.modal-search__button');
 
+      // console.log(citySearchButton)
       // button open
       citySearchButton.on('click', function() {
+        console.log(1)
         header.addClass('header--city-search');
       });
 
       // button close
       cityModalButton.on('click', function() {
-        if (header.hasClass('header--city-search')) {
+        // if (header.hasClass('header--city-search')) {
           header.removeClass('header--city-search');
-        }
+        // }
       });
 
       //click close
@@ -255,7 +258,8 @@ function toggleDataAttr($element, attr, value='') {
         if (
           header.hasClass('header--city-search') &&
           target !== citySearchButton[0] &&
-          $(event.target).closest('.modal-search--city').length === 0
+          $(event.target).closest('.modal-search--city').length === 0 &&
+          $(event.target).closest('.nav-modal').length === 0 
         ) {
           header.removeClass('header--city-search');
         }
