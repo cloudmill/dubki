@@ -67,3 +67,18 @@ mixin header()
                 .footer__media-item
                   a.footer__mail(href="#") 
                     |info@dubki-producty.ru
+
+        .modal-search
+          .container
+            .modal-search__container 
+              .modal-search__row 
+                .modal-search__col
+                  h4.modal-search__title 
+                    |Выбрать город
+                .modal-search__col
+                  form.search-form(action="/")  
+                    input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Саратов")
+                .modal-search__col
+                  .modal-search__button
+                    .button-modal.button-modal--active(data-fancybox-close='1')
+                      .button-modal__image

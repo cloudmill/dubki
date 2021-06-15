@@ -100,7 +100,6 @@ import '@fancyapps/fancybox';
       const recipeHeight = recipe.innerHeight();
       const recipeList = $('.recipe__ingredients');
 
-      console.log(recipeHeight)
 
       $(window).on('scroll', function() {
         const scrollPos = $(this).scrollTop();
@@ -118,7 +117,6 @@ import '@fancyapps/fancybox';
     }
   });
 }
-
 
 // nav-modal
 {
@@ -156,6 +154,41 @@ import '@fancyapps/fancybox';
   });
 }
 
+// city-search modal
+{
+  $(() => {
+    const header = $('.header');
+
+    if (header.length !== 0) {
+      const citySearchButton = header.find('.header__city-button');
+      const cityModalButton = header.find('.modal-search__button');
+
+      // button open
+      citySearchButton.on('click', function() {
+        header.addClass('header--city-search');
+      });
+
+      // button close
+      cityModalButton.on('click', function() {
+        if (header.hasClass('header--city-search')) {
+          header.removeClass('header--city-search');
+        }
+      });
+
+      //click close
+      $(window).on('click', function(event) {
+        const target = event.target.closest('.header__city-button');
+        if (
+          header.hasClass('header--city-search') &&
+          target !== citySearchButton[0] &&
+          $(event.target).closest('.modal-search').length === 0
+        ) {
+          header.removeClass('header--city-search');
+        }
+      });
+    }
+  })
+}
 
 // vacancies dropdown
 {
@@ -305,7 +338,9 @@ import '@fancyapps/fancybox';
   $(() => {
     const select = $('.select__select');
 
-    select.select2();
+    select.select2({
+      // dropdownParent: $('.modal'),
+    });
   });
 }
 

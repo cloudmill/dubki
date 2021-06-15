@@ -82,6 +82,12 @@ body>.wrapper {
     }
   }
 
+  &--city-search {
+    .modal-search {
+      transform: translateY(0);
+    }
+  }
+
   &__row {
     display: flex;
     align-items: center;
@@ -5719,6 +5725,15 @@ body>.wrapper {
         color: $color-black;
         @include f-main(400);
         @include fsl(16px, 80%);
+      }
+
+      &--modal {
+        height: 70px;
+
+        transition: $transition;
+        &:focus {
+          border: 1px solid $color-green;
+        }
       }
     }
 
