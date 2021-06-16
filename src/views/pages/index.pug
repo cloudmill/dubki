@@ -138,12 +138,14 @@ block content
                     a.button(href="#")
                       |Все новости
     //- recipes
-    .section
-      .section__frame 
+    .section.index__recipes
+      .index__recipes-cursor
+        +recipes-cursor-svg.index__recipes-cursor-svg
+      .section__frame
         .section__layot 
         .container
           .section__inner
-            .row 
+            .row.index__recipes-row
               .row__side.index__recipes-side
                 .section__content.section__content--white
                   h3.section__title(data-aos="fade-up") 
@@ -153,11 +155,11 @@ block content
                 .section__button(data-aos="fade-up")    
                   a.button(href="#")
                     |Все новости 
-              .row__main
+              .row__main.index__recipes-main
                 .index__recipes-slider
                   .swiper-wrapper.slider__inner
                     - for ( i = 0; i < 3; i++ )
-                      a.slider__item.swiper-slide(href='#')(data-aos="fade-up")
+                      a.slider__item.swiper-slide.index__recipes-slide(href='#')(data-aos="fade-up")
                         .slider__container
                           .slider__frame
                             img.slider__photo(src="assets/images/slider-1.jpg", alt="")
@@ -170,7 +172,7 @@ block content
                               |Завтрак
                         h3.slider__title(data-aos="fade-up") 
                           |Пицца с грибами и колбасой
-                      a.slider__item.slider__item--s.swiper-slide(href='#')(data-aos="fade-up")
+                      a.slider__item.slider__item--s.swiper-slide.index__recipes-slide(href='#')(data-aos="fade-up")
                         .slider__container
                           .slider__frame
                             img.slider__photo(src="assets/images/slider-2.jpg", alt="")
@@ -183,7 +185,7 @@ block content
                               |Завтрак
                         h3.slider__title(data-aos="fade-up") 
                           |Пицца с грибами и колбасой
-                      a.slider__item.slider__item--m.swiper-slide(href='#')(data-aos="fade-up")
+                      a.slider__item.slider__item--m.swiper-slide.index__recipes-slide(href='#')(data-aos="fade-up")
                         .slider__container
                           .slider__frame
                             img.slider__photo(src="assets/images/slider-1.jpg", alt="")

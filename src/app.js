@@ -69,7 +69,7 @@ function toggleDataAttr($element, attr, value='') {
       // элемент, который перемещаем (анимируем)
       const moveEl = $('.index__recipes-side')
       // элемент, перемещение которого отслеживаем
-      const moveTrackingEl = $('.index__recipes-slider .slider__item').first()
+      const moveTrackingEl = $('.index__recipes-slide').first()
 
       // адаптив
       const breakpoint = matchMedia(`(min-width: ${BREAKPOINT}px)`)
@@ -90,6 +90,7 @@ function toggleDataAttr($element, attr, value='') {
       const swiper = new Swiper(slider[0], { // экземпляр swiper'a
         slidesPerView: 'auto',
         spaceBetween: 20,
+        touchStartPreventDefault: false,
       })
       
       // обработка событий: начало/конец движения слайдера
@@ -107,6 +108,7 @@ function toggleDataAttr($element, attr, value='') {
       }
 
       function moveUpdate(distance) {
+        console.log(distance);
         // вычиление данных анимации (css)
         // transform (движение "влево")
         const transform = `translateX(${-distance / parallaxRatio}px)` // ? 15
@@ -133,6 +135,57 @@ function toggleDataAttr($element, attr, value='') {
         // "отсекаем" движение вправо
         return distance < 0 ? 0 : distance
       }
+    }
+
+    // курсор Рецепты на Главная
+    if ($('.index').length !== 0) {
+      const area = $('.index__recipes-row')
+      const cursor = $('.index__recipes-cursor')
+      let onSide = false
+      let onArea = false
+
+      cursor.appendTo($('body > .wrapper'))
+
+      area.on('mouseenter', () => {
+        onArea = true
+        if (!onSide) {
+          // area.on('mousemove', mouseMoveHandler)
+          requestAnimationFrame(() => {
+            cursor.css('opacity', 1)
+          })
+        }
+      })
+      area.on('mouseleave', () => {
+        onArea = false
+        // area.off('mousemove')
+        requestAnimationFrame(() => {
+          cursor.css('opacity', '')
+        })
+      })
+      $('.index__recipes-side').on('mouseenter', () => {
+        onSide = true
+        // area.off('mousemove')
+        requestAnimationFrame(() => {
+          cursor.css('opacity', '')
+        })
+      })
+      $('.index__recipes-side').on('mouseleave', () => {
+        onSide = false
+        setTimeout(() => {
+          if (onArea) {
+            // area.on('mousemove', mouseMoveHandler)
+            requestAnimationFrame(() => {
+              cursor.css('opacity', 1)
+            })
+          }
+        }, 0)
+      })
+
+      function mouseMoveHandler(event) {
+        cursor.css('transform', `translate(calc(${event.originalEvent.clientX}px - 50%), calc(${event.originalEvent.clientY}px - 50%))`)
+      }
+
+      $('.index__recipes').on('mousemove', mouseMoveHandler)
     }
 
     const swiperProductSlider = new Swiper($('.product-slider')[0], {
