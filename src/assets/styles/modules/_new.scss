@@ -5056,6 +5056,12 @@ body>.wrapper {
     border: 1px solid $color-light-green;
     border-radius: 20px;
     cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-light-green;
+      color: $color-white;
+    }
   }
 
   &__text {
@@ -5149,6 +5155,7 @@ body>.wrapper {
     @media (max-width: $breakpoint - 1px) {
       flex-direction: column;
     }
+
   }
 
   &__col {
@@ -5204,6 +5211,7 @@ body>.wrapper {
   }
 
   &__download {
+    $comp: &;
     display: flex;
 
     &-row {
@@ -5217,8 +5225,18 @@ body>.wrapper {
         width: calc(#{$grid-part-d} * 3);
       }
 
+      cursor: pointer;
+      transition: $transition;
       border-radius: 25px;
       border: 1px solid $color-yellow;
+
+      &:hover {
+        background-color: $color-yellow;
+
+        #{$comp}-text {
+          color: $color-black;
+        }
+      }
     }
 
     &-col {
@@ -5238,6 +5256,7 @@ body>.wrapper {
       color: $color-white;
       font-weight: 400;
       @include fsl(16px, 140%);
+      transition: $transition;
     }
   }
 
@@ -5390,6 +5409,12 @@ body>.wrapper {
         border: 1px solid $color-light-green;
         border-radius: 20px;
         cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          background-color: $color-light-green;
+          color: $color-white;
+        }
       }
     }
   }

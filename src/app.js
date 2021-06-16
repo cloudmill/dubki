@@ -66,7 +66,6 @@ function toggleDataAttr($element, attr, value='') {
 // top slider
 {
   $(() => {
-    // const topSlider = $('.top__container');
     const topSlide = $('.top-slide');
 
     if (topSlide.length !== 0) {
