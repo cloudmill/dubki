@@ -1944,13 +1944,6 @@ body>.wrapper {
 .banner {
   $comp: &;
 
-  @media (max-width: $breakpoint - 1px) {
-    // display: none;
-  }
-
-  background-color: $color-banner-yellow;
-  border-radius: 50px;
-
   &--second {
     height: 350px;
 
@@ -1981,9 +1974,36 @@ body>.wrapper {
   &__frame {
     height: 100%;
     width: 100%;
-    position: relative;
-    z-index: 0;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
+    @media (min-width: $breakpoint) {
+      border-radius: 50px;
+    }
+  }
+
+  &__inner {
+    padding-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__img {
+
+    &--desctop {
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &--mobile {
+      display: block;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
   }
 
   &__layout {
@@ -2066,13 +2086,6 @@ body>.wrapper {
     #{$comp}__title {
       color: $color-white;
       line-height: 1;
-    }
-  }
-
-  &__inner {
-    // padding-top: 40px;
-    @media (min-width: $breakpoint) {
-      padding-top: 50px;
     }
   }
 
