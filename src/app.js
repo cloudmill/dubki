@@ -237,7 +237,6 @@ function toggleDataAttr($element, attr, value='') {
     if (header.length !== 0) {
       const citySearchButton = header.find('.header__city-button');
       const cityModalButton = header.find('.modal-search__button');
-      console.log(citySearchButton)
 
       // button open
       citySearchButton.on('click', function() {
@@ -496,27 +495,25 @@ function toggleDataAttr($element, attr, value='') {
 }
 
 
-// header 
+// fixed header
 {
   $(() => {
     const header = $('.header');
     
     if (header.length !== 0) {
-      $(window).scroll(
+      $(window).on('scroll',
         {
           previousTop: 0
         }, 
         function () {
-        const currentTop = $(window).scrollTop();
-        if (currentTop < this.previousTop) {
-            $(".sidebar em").text("Up"); 
-            $(".header").addClass('header--scroll');
-        } else {
-            $(".sidebar em").text("Down");
-            $(".header").removeClass('header--scroll');
-        }
-        this.previousTop = currentTop;
-    });
+          const currentTop = $(window).scrollTop();
+          if (currentTop < this.previousTop && currentTop > 200) {
+              $('.header').addClass('header--scroll');
+          } else {
+              $('.header').removeClass('header--scroll');
+          }
+          this.previousTop = currentTop;
+      });
     };
   });
 }
