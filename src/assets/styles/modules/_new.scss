@@ -1925,7 +1925,12 @@ body>.wrapper {
 
     background-color: $color-yellow;
 
-    #{$comp}__frame {
+    // #{$comp}__frame {
+    //   background: url("assets/images/banner-bg.png") center no-repeat;
+    //   background-size: cover;
+    // }
+
+    #{$comp}__layout {
       background: url("assets/images/banner-bg.png") center no-repeat;
       background-size: cover;
     }
@@ -1945,6 +1950,18 @@ body>.wrapper {
   &__frame {
     height: 100%;
     width: 100%;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  &__layout {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
   }
 
   &__row {
@@ -1955,6 +1972,8 @@ body>.wrapper {
     justify-content: space-between;
     height: 100%;
     width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   &__col {
@@ -2001,6 +2020,10 @@ body>.wrapper {
     font-size: 148px;
     line-height: 0.8;
     color: $color-white;
+  }
+
+  &__icon {
+    cursor: pointer;
   }
 }
 
@@ -6438,6 +6461,14 @@ body>.wrapper {
   &-balloon {
     $comp: &;
     cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    transition: $transition;
+
+    &:hover {
+      border-color: $color-yellow;
+    }
 
     &--alt {
       position: absolute;
@@ -6448,10 +6479,10 @@ body>.wrapper {
     }
 
     &__container {
-      padding: 20px;
+      padding: 19px;
 
       background-color: $color-white;
-      border-radius: 15px;
+      
     }
 
     &__store {
