@@ -4685,7 +4685,7 @@ body>.wrapper {
     &--fixed {
       @media (min-width: $breakpoint) {
         position: fixed;
-        top: 240px;
+        top: 220px;
       }
     }
 
@@ -5590,13 +5590,31 @@ body>.wrapper {
     }
   }
 
-  &__select {
+  &__wrapper {
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 30px;
+    }
+  }
 
-    &-text {
-      @include fsl(16px, 80%);
-      @media (min-width: $breakpoint) {
-        @include fsl(22px, 80%);
-      }
+  &__text {
+    @include fsl(16px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 80%);
+    }
+  }
+
+  &__city {
+    
+    &--fixed {
+      position: fixed;
+      top: 150px;
+    }
+  }
+
+  &__select {
+    @media (min-width: $breakpoint) {
+      width: 210px;
     }
   }
 

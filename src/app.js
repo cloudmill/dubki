@@ -135,6 +135,36 @@ function toggleDataAttr($element, attr, value='') {
   });
 }
 
+// jobs select
+{
+  $(() => {
+    const vacancies = $('.vacancies__row');
+
+    if (vacancies.length !== 0) {
+      const vacanciesPos = vacancies.offset().top;
+      const vacanciesHeight = vacancies.innerHeight();
+      const vacanciesContainer = vacanciesPos + vacanciesHeight - 250;
+      const vacanciesCity = $('.vacancies__city');
+
+      console.log(vacanciesContainer)
+
+      $(window).on('scroll', function() {
+        const scrollPos = $(this).scrollTop();
+
+        if (scrollPos > vacanciesPos) {
+          vacanciesCity.addClass('vacancies__city--fixed');
+        } else {
+          vacanciesCity.removeClass('vacancies__city--fixed');
+        }
+        
+        // if (scrollPos > vacanciesContainer) {
+        //   vacanciesCity.removeClass('vacancies__city--fixed');
+        // } else 
+      });
+    }
+  });
+}
+
 // nav-modal
 // notifi-modal
 {
@@ -495,7 +525,6 @@ function toggleDataAttr($element, attr, value='') {
 		});
   });
 }
-
 
 // fixed header
 {
