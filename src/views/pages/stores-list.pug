@@ -97,6 +97,12 @@ block content
                                     +clock-svg('addres__clock')
                                   .addres__text 
                                     |пнд—вс  |  9—18
-                .wrapper 
-                  .button--s(data-aos="fade-up") 
+                .wrapper(data-aos="fade-up") 
+                  .button--s
                     |Показать еще
+      
+
+block footer 
+  +footer({
+    mod: 'catalog-grey',
+  })
