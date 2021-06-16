@@ -666,6 +666,23 @@ body>.wrapper {
       justify-content: space-between;
     }
 
+    &:hover {
+      #{$comp}__img {
+        border-color: $color-yellow;
+        background-color: $color-yellow;
+      }
+
+      #{$comp}__link {
+        color: $color-yellow;
+      }
+
+      .footer__icon {
+        path {
+          fill: $color-black;
+        }
+      }
+    }
+
     &--black {
 
       &:hover {
@@ -1409,10 +1426,9 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       padding: 30px 0;
 
-      width: calc((#{$grid-part-d}) * 7 - #{$grid-gap-d});
+      width: calc((#{$grid-part-d}) * 11 - #{$grid-gap-d});
     }
 
-    // width: 600px;?
     width: calc(#{$grid-pard-m} * 3 - 20px);
   }
 
