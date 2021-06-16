@@ -1272,10 +1272,17 @@ body>.wrapper {
       @include fsl(16px, 80%);
       border-radius: 20px;
     }
-
+    font-weight: 400;
     border: 1px solid $color-light-grey;
     border-radius: 15px;
+    transition: $transition;
     cursor: pointer;
+
+    &:hover {
+      border-color: $color-green;
+      background-color: $color-green;
+      color: $color-white;
+    }
   }
 
   &--xl {
@@ -2260,38 +2267,33 @@ body>.wrapper {
 
   &__item {
     padding: 12px 20px;
-
     @media (min-width: $breakpoint) {
       padding: 18px 30px;
 
       border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
+      @include fsl(16px, 80%);
     }
-
-      color: $color-black;
-      font-size: 14px;
-      line-height: 0.8;
-      border: 1px solid $color-light-green;
-      border-radius: 15px;
-      white-space: nowrap;
-
-      cursor: pointer;
-
-    color: $color-black;
-    font-size: 14px;
-    line-height: 0.8;
+    @include fsl(14px, 80%);
+    font-weight: 400;
     border: 1px solid $color-light-green;
     border-radius: 15px;
+    white-space: nowrap;
+    transition: $transition;
+    cursor: pointer;
 
     &:not(:first-child) {
       margin-left: 10px;
     }
 
-      &--active {
-        background-color: $color-light-green;
-        color: $color-white;
-      }
+    &:hover {
+      background-color: $color-light-green;
+      color: $color-white;
+    }
+
+    &--active {
+      background-color: $color-light-green;
+      color: $color-white;
+    }
   }
 }
 
@@ -2315,13 +2317,13 @@ body>.wrapper {
       margin-top: 50px;
       margin-left: calc(#{$grid-gap-d});
     }
-    width: 243px;
+    // width: 243px;
     @media (max-width: $breakpoint - 1px) {
-      width: 169px;
+      // width: 169px;
     }
 
     .top-slide {
-      width: 100%;
+      // width: 100%;
     }
   }
 
