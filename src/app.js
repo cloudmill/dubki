@@ -479,8 +479,10 @@ function toggleDataAttr($element, attr, value='') {
   $(() => {
     const select = $('.select__select');
 
-    select.select2({
-      // dropdownParent: $('.modal'),
+    select.select2({});
+    
+    $('.select__select--modal').select2({
+      dropdownParent: $('.modal'),
     });
   });
 }
