@@ -1122,38 +1122,27 @@ body>.wrapper {
   &__title {
     margin-bottom: 15px;
 
-    font-weight: 900;
-    font-size: 30px;
-
+    @include f-alt();
+    @include fsl(30px, 80%);
     @media (min-width: $breakpoint) {
       margin-bottom: 40px;
 
-      font-size: 70px;
+      @include fsl(70px, 80%);
     }
 
-    line-height: 0.8;
-
     &--m {
-      color: $color-black;
-      font-weight: 900;
-      font-size: 24px;
-
+      @include fsl(24px, 80%);
       @media (min-width: $breakpoint) {
-        font-size: 50px;
+        @include fsl(50px, 80%);
       }
-
-      line-height: 0.8;
     }
   }
 
   &__text {
-    font-size: 14px;
-
+    @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 18px;
+      @include fsl(18px, 140%);
     }
-
-    line-height: 1.4;
   }
 
   &__button {
@@ -1444,15 +1433,11 @@ body>.wrapper {
   }
 
   &__text {
-    font-weight: 900;
-    color: $color-black;
-    font-size: 14px;
-
+    @include f-alt();
+    @include fsl(14px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 30px;
+      @include fsl(30px, 120%);
     }
-
-    line-height: 1.2;
   }
 
   &__container {
@@ -2586,19 +2571,15 @@ body>.wrapper {
   }
 
   &__text {
-    font-size: 16px;
-
+    font-weight: 400;
+    @include fsl(16px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 22px;
+      @include fsl(22px, 140%);
     }
-
-    line-height: 1.4;
 
     &:nth-child(2) {
       margin-top: 15px;
     }
-
-    
   }
 
   &__row {
