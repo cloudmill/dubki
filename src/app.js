@@ -56,6 +56,7 @@ function toggleDataAttr($element, attr, value='') {
       });
     }
 
+    // Рецепты, Главная
     // слайдер Рецепты на Главная
     if ($('.index').length !== 0) {
       // частота трекинга перемещения
@@ -108,7 +109,6 @@ function toggleDataAttr($element, attr, value='') {
       }
 
       function moveUpdate(distance) {
-        console.log(distance);
         // вычиление данных анимации (css)
         // transform (движение "влево")
         const transform = `translateX(${-distance / parallaxRatio}px)` // ? 15
@@ -125,31 +125,36 @@ function toggleDataAttr($element, attr, value='') {
       }
 
       function getMoveDistance() {
-        const startY = slider.offset().left
-        const y = moveTrackingEl.offset().left
+        const startX = slider.offset().left
+        const x = moveTrackingEl.offset().left
+        console.log(x);
 
-        // движение "влево" (startY > y)
-        // поэтому вычитаем (startY - y)
+        // движение "влево" (startX > x)
+        // поэтому вычитаем (startX - x)
         // получаем положительный distance при движении влево
-        const distance = startY - y
+        const distance = startX - x
         // "отсекаем" движение вправо
         return distance < 0 ? 0 : distance
       }
     }
-
     // курсор Рецепты на Главная
     if ($('.index').length !== 0) {
       const area = $('.index__recipes-row')
       const cursor = $('.index__recipes-cursor')
+      
+      // состояние курсора
+      // над side частью (заголовок + кнопка)
       let onSide = false
+      // над всем блоком со слайдером (side + slider)
       let onArea = false
 
+      // перемещаем катомный курсор (верстку, dom эл-т) в конец .wrapper страниц из секции
       cursor.appendTo($('body > .wrapper'))
 
+      // появление (opacity: 1) кастомного курсора только над карточками рецептов
       area.on('mouseenter', () => {
         onArea = true
         if (!onSide) {
-          // area.on('mousemove', mouseMoveHandler)
           requestAnimationFrame(() => {
             cursor.css('opacity', 1)
           })
@@ -157,14 +162,12 @@ function toggleDataAttr($element, attr, value='') {
       })
       area.on('mouseleave', () => {
         onArea = false
-        // area.off('mousemove')
         requestAnimationFrame(() => {
           cursor.css('opacity', '')
         })
       })
       $('.index__recipes-side').on('mouseenter', () => {
         onSide = true
-        // area.off('mousemove')
         requestAnimationFrame(() => {
           cursor.css('opacity', '')
         })
@@ -173,7 +176,6 @@ function toggleDataAttr($element, attr, value='') {
         onSide = false
         setTimeout(() => {
           if (onArea) {
-            // area.on('mousemove', mouseMoveHandler)
             requestAnimationFrame(() => {
               cursor.css('opacity', 1)
             })
@@ -181,11 +183,20 @@ function toggleDataAttr($element, attr, value='') {
         }, 0)
       })
 
+      // для перемещения (следования за курсором) кастомного курсора используем transform + pos. fixed
       function mouseMoveHandler(event) {
         cursor.css('transform', `translate(calc(${event.originalEvent.clientX}px - 50%), calc(${event.originalEvent.clientY}px - 50%))`)
       }
 
+      // перемещение кастомного курсора в пределах всех секции Рецепты
       $('.index__recipes').on('mousemove', mouseMoveHandler)
+
+      // решение проблемы с drag-n-drop в firefox (отключение drag-n-drop)
+      $('.index__recipes-slide').on('mousedown', event => {
+        if (event.preventDefault) {
+          event.preventDefault()
+        }
+      })
     }
 
     const swiperProductSlider = new Swiper($('.product-slider')[0], {
