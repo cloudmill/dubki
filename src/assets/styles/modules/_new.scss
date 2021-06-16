@@ -41,7 +41,7 @@ body>.wrapper {
 .header {
   $comp: &;
 
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -72,6 +72,10 @@ body>.wrapper {
     transition: $transition;
   }
 
+  &--scroll {
+    position: fixed;
+  }
+
   &--nav-modal {
     &::before {
       opacity: 1;
@@ -97,7 +101,7 @@ body>.wrapper {
     }
 
     &::before {
-      z-index: 2;
+      opacity: 1;
     }
   }
 
@@ -668,6 +672,43 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       justify-content: space-between;
     }
+
+    &:hover {
+      #{$comp}__img {
+        border-color: $color-yellow;
+        background-color: $color-yellow;
+      }
+
+      #{$comp}__link {
+        color: $color-yellow;
+      }
+
+      .footer__icon {
+        path {
+          fill: $color-black;
+        }
+      }
+    }
+
+    &--black {
+
+      &:hover {
+        #{$comp}__img {
+          border-color: $color-green;
+          background-color: $color-green;
+        }
+
+        #{$comp}__link {
+          color: $color-green;
+        }
+
+        .contacts__icon {
+          path {
+            fill: $color-white;
+          }
+        }
+      }
+    }
   }
 
   &__col {
@@ -704,12 +745,14 @@ body>.wrapper {
 
     border: 1px solid $color-border-white;
     border-radius: 50%;
+    transition: $transition;
   }
 
   &__link {
     font-weight: 400;
     @include fsl(14px, 140%);
     color: $color-white;
+    transition: $transition;
   }
 }
 
@@ -760,11 +803,57 @@ body>.wrapper {
 
   &__layout {
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+
+    flex-shrink: 0;
+    max-width: 200px;
+    @media (min-width: $breakpoint) {
+      max-width: 240px;
+    }
+    height: auto;
+
+    &--small {
+      z-index: 1;
+      right: 20px;
+      @media (min-width: $breakpoint) {
+        right: 40px;
+        max-width: 120px;
+      }
+      max-width: 90px;
+
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    z-index: 0;
+
+    flex-shrink: 0;
+    height: auto;
+    max-width: calc(#{$grid-pard-m} * 2);
+    @media (min-width: $breakpoint) {
+      padding: 0;
+      max-width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
+
+      top: 10px;
+      right: calc(#{$grid-part-d});
+    }
+    @media (max-width: $breakpoint-m) {
+      max-width: 320px;
+    }
   }
 
   &__container {
@@ -893,6 +982,7 @@ body>.wrapper {
     }
 
     overflow: hidden;
+    position: relative;
 
     background-color: $color-light-green;
     border-radius: 70px 0px 0px 0px;
@@ -987,6 +1077,37 @@ body>.wrapper {
     }
   }
 
+  &__layout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+
+    &-image {
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        z-index: 0;
+
+        max-width: 720px;
+        height: auto;
+      }
+
+      &--small {
+        max-width: 105px;
+        left: 100px;
+      }
+    }
+
+    &--second {
+      position: static;
+    }
+  }
+
   &__image {
 
     position: absolute;
@@ -1025,38 +1146,27 @@ body>.wrapper {
   &__title {
     margin-bottom: 15px;
 
-    font-weight: 900;
-    font-size: 30px;
-
+    @include f-alt();
+    @include fsl(30px, 80%);
     @media (min-width: $breakpoint) {
       margin-bottom: 40px;
 
-      font-size: 70px;
+      @include fsl(70px, 80%);
     }
 
-    line-height: 0.8;
-
     &--m {
-      color: $color-black;
-      font-weight: 900;
-      font-size: 24px;
-
+      @include fsl(24px, 80%);
       @media (min-width: $breakpoint) {
-        font-size: 50px;
+        @include fsl(50px, 80%);
       }
-
-      line-height: 0.8;
     }
   }
 
   &__text {
-    font-size: 14px;
-
+    @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 18px;
+      @include fsl(18px, 140%);
     }
-
-    line-height: 1.4;
   }
 
   &__button {
@@ -1131,6 +1241,7 @@ body>.wrapper {
 }
 
 .button {
+  $comp: &;
   padding: 18px 30px;
 
   @media (min-width: $breakpoint) {
@@ -1156,6 +1267,12 @@ body>.wrapper {
   &:hover {
     background-color: $color-green;
     color: $color-white;
+
+    #{$comp}__svg {
+      path {
+        stroke: $color-white;
+      }
+    }
   }
 
   &--l {
@@ -1190,10 +1307,17 @@ body>.wrapper {
       @include fsl(16px, 80%);
       border-radius: 20px;
     }
-
+    font-weight: 400;
     border: 1px solid $color-light-grey;
     border-radius: 15px;
+    transition: $transition;
     cursor: pointer;
+
+    &:hover {
+      border-color: $color-green;
+      background-color: $color-green;
+      color: $color-white;
+    }
   }
 
   &--xl {
@@ -1259,6 +1383,12 @@ body>.wrapper {
       stroke: $color-black;
     }
   }
+
+  &__svg {
+    path {
+      transition: $transition;
+    }
+  }
 }
 
 .news {
@@ -1303,10 +1433,9 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       padding: 30px 0;
 
-      width: calc((#{$grid-part-d}) * 7 - #{$grid-gap-d});
+      width: calc((#{$grid-part-d}) * 11 - #{$grid-gap-d});
     }
 
-    // width: 600px;?
     width: calc(#{$grid-pard-m} * 3 - 20px);
   }
 
@@ -1327,15 +1456,11 @@ body>.wrapper {
   }
 
   &__text {
-    font-weight: 900;
-    color: $color-black;
-    font-size: 14px;
-
+    @include f-alt();
+    @include fsl(14px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 30px;
+      @include fsl(30px, 120%);
     }
-
-    line-height: 1.2;
   }
 
   &__container {
@@ -1842,19 +1967,17 @@ body>.wrapper {
 .banner {
   $comp: &;
 
-  @media (max-width: $breakpoint - 1px) {
-    // display: none;
-  }
-
-  background-color: $color-banner-yellow;
-  border-radius: 50px;
-
   &--second {
     height: 350px;
 
     background-color: $color-yellow;
 
-    #{$comp}__frame {
+    // #{$comp}__frame {
+    //   background: url("assets/images/banner-bg.png") center no-repeat;
+    //   background-size: cover;
+    // }
+
+    #{$comp}__layout {
       background: url("assets/images/banner-bg.png") center no-repeat;
       background-size: cover;
     }
@@ -1874,6 +1997,45 @@ body>.wrapper {
   &__frame {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    @media (min-width: $breakpoint) {
+      border-radius: 50px;
+    }
+  }
+
+  &__inner {
+    padding-bottom: 40px;
+    @media (min-width: $breakpoint) {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__img {
+
+    &--desctop {
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &--mobile {
+      display: block;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__layout {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
   }
 
   &__row {
@@ -1884,6 +2046,8 @@ body>.wrapper {
     justify-content: space-between;
     height: 100%;
     width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   &__col {
@@ -1931,6 +2095,10 @@ body>.wrapper {
     line-height: 0.8;
     color: $color-white;
   }
+
+  &__icon {
+    cursor: pointer;
+  }
 }
 
 .block {
@@ -1944,13 +2112,6 @@ body>.wrapper {
     }
   }
 
-  &__inner {
-    // padding-top: 40px;
-    @media (min-width: $breakpoint) {
-      padding-top: 50px;
-    }
-  }
-
   &__wrapper {
     padding-bottom: 40px;
 
@@ -1961,18 +2122,13 @@ body>.wrapper {
 
   &__title {
     width: 100%;
-
-    font-weight: 900;
-    color: $color-black;
-    font-size: 24px;
-
     @media (min-width: $breakpoint) {
       width: calc(#{$grid-part-d} * 12 - #{$grid-gap-d});
 
-      font-size: 70px;
+      @include fsl(70px, 80%);
     }
-
-    line-height: 0.8;
+    @include fsl(24px, 80%);
+    @include f-alt();
 
     &--small {
       @media (min-width: $breakpoint) {
@@ -2065,7 +2221,7 @@ body>.wrapper {
       z-index: 1;
       right: 0;
 
-
+      pointer-events: none;
       background: linear-gradient(270deg, #FFFFFF 0%, #FFFFFF 9.37%, rgba(255, 255, 255, 0.73) 34.37%, rgba(255, 255, 255, 0) 100%);
     }
   }
@@ -2083,19 +2239,21 @@ body>.wrapper {
     }
 
     &-text {
-      color: $color-black;
       font-weight: 400;
       @include fsl (14px, 80%);
-
       @media (min-width: $breakpoint) {
         @include fsl (16px, 80%);
       }
-      line-height: 0.8;
       white-space: nowrap;
       cursor: pointer;
+      transition: $transition;
 
       &--active {
         font-weight: 700;
+      }
+
+      &:hover {
+        color: $color-green;
       }
     }
   }
@@ -2149,38 +2307,33 @@ body>.wrapper {
 
   &__item {
     padding: 12px 20px;
-
     @media (min-width: $breakpoint) {
       padding: 18px 30px;
 
       border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
+      @include fsl(16px, 80%);
     }
-
-      color: $color-black;
-      font-size: 14px;
-      line-height: 0.8;
-      border: 1px solid $color-light-green;
-      border-radius: 15px;
-      white-space: nowrap;
-
-      cursor: pointer;
-
-    color: $color-black;
-    font-size: 14px;
-    line-height: 0.8;
+    @include fsl(14px, 80%);
+    font-weight: 400;
     border: 1px solid $color-light-green;
     border-radius: 15px;
+    white-space: nowrap;
+    transition: $transition;
+    cursor: pointer;
 
     &:not(:first-child) {
       margin-left: 10px;
     }
 
-      &--active {
-        background-color: $color-light-green;
-        color: $color-white;
-      }
+    &:hover {
+      background-color: $color-light-green;
+      color: $color-white;
+    }
+
+    &--active {
+      background-color: $color-light-green;
+      color: $color-white;
+    }
   }
 }
 
@@ -2204,13 +2357,13 @@ body>.wrapper {
       margin-top: 50px;
       margin-left: calc(#{$grid-gap-d});
     }
-    width: 243px;
+    // width: 243px;
     @media (max-width: $breakpoint - 1px) {
-      width: 169px;
+      // width: 169px;
     }
 
     .top-slide {
-      width: 100%;
+      // width: 100%;
     }
   }
 
@@ -2454,19 +2607,15 @@ body>.wrapper {
   }
 
   &__text {
-    font-size: 16px;
-
+    font-weight: 400;
+    @include fsl(16px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 22px;
+      @include fsl(22px, 140%);
     }
-
-    line-height: 1.4;
 
     &:nth-child(2) {
       margin-top: 15px;
     }
-
-    
   }
 
   &__row {
@@ -2610,7 +2759,7 @@ body>.wrapper {
   display: flex;
 
   @media (min-width: $breakpoint) {
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   @media (max-width: $breakpoint - 1px) {
@@ -2684,6 +2833,12 @@ body>.wrapper {
       }
     }
 
+    &--nav {
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+
     &-thumb {
       width: 44px;
       height: 44px;
@@ -2700,9 +2855,15 @@ body>.wrapper {
       border: 1px solid #e9e9e9;
       border-radius: 50%;
       cursor: pointer;
+      transition: $transition;
 
       &--black {
         border: 2px solid $color-black;
+
+        &:hover {
+          border-color: $color-yellow;
+          background-color: $color-yellow;
+        }
       }
     }
 
@@ -2797,6 +2958,16 @@ body>.wrapper {
       cursor: pointer;
       border-radius: 15px;
       border: 1px solid $color-green;
+      transition: $transition;
+
+      &:hover {
+        border-color: $color-light-green;
+        background-color: $color-light-green;
+
+        .video-button {
+          background-color: $color-light-green;
+        }
+      }
     }
   }
 
@@ -2842,6 +3013,7 @@ body>.wrapper {
   background-color: $color-green;
   border-radius: 13px;
   cursor: pointer;
+  transition: $transition;
 
   &__icon {
     width: 8px;
@@ -2862,15 +3034,11 @@ body>.wrapper {
   }
 
   &__title {
-    font-weight: 900;
-    color: $color-black;
-    font-size: 18px;
-
+    @include f-alt();
+    @include fsl(18px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 40px;
+      @include fsl(40px, 140%);
     }
-
-    line-height: 1.4;
   }
 
   &__wrapper {
@@ -2927,14 +3095,11 @@ body>.wrapper {
   }
 
   &__text {
-    color: $color-black;
-    font-size: 14px;
-
+    font-weight: 400;
+    @include fsl(14px, 100%);
     @media (min-width: $breakpoint) {
-      font-size: 16px;
+      @include fsl(16px, 100%);
     }
-
-    line-height: 1;
 
     &--bold {
       margin-top: 10px;
@@ -3079,15 +3244,12 @@ body>.wrapper {
   }
 
   &__title {
-    color: $color-black;
-    font-weight: 900;
-    font-size: 18px;
-
+    @include f-alt();
+    @include fsl(18px, 80%);
     @media (min-width: $breakpoint) {
-      font-size: 25px;
+      @include fsl(25px, 80%);
     }
 
-    line-height: 0.8;
   }
 
   &__wrapper {
@@ -3099,14 +3261,11 @@ body>.wrapper {
   }
 
   &__text {
-    color: $color-black;
-    font-size: 14px;
-
+    font-weight: 400;
+    @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 18px;
+      @include fsl(18px, 140%);
     }
-
-    line-height: 1.4;
   }
 }
 
@@ -3117,6 +3276,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       display: flex;
       justify-content: space-between;
+      align-items: stretch;
     }
   }
 
@@ -3136,9 +3296,6 @@ body>.wrapper {
   }
 
   &__card {
-    @media (min-width: $breakpoint) {
-      height: 320px;
-    }
 
     border-radius: 25px;
 
@@ -3147,16 +3304,98 @@ body>.wrapper {
     }
 
     &--green {
+      height: 100%;
+
       background-color: #DCF8D2;
     }
   }
 
+  &__frame {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &-img {
+      position: absolute;
+      left: calc(#{$grid-pard-m} - #{$grid-gap-m} * 2);
+      top: -20px;
+      z-index: 0;
+
+      max-width: 160px;
+      @media (min-width: $breakpoint) {
+        max-width: 210px;
+        left: 20px;
+        top: 0;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+
+      max-width: 300px;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+
+      &--small {
+        right: calc(#{$grid-part-d} - #{$grid-gap-d});
+        max-width: 100px;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 20px;
+    @media (min-width: $breakpoint) {
+      left: 10px;
+      max-width: 140px;
+    }
+    max-width: 90px;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 0;
+    right: calc(#{$grid-pard-m} - #{$grid-gap-m} * 3);
+    bottom: 0;
+    @media (min-width: $breakpoint) {
+      bottom: 0;
+      right: 0;
+
+      max-width: 300px;
+    }
+    max-width: 200px;
+  }
+
   &__container {
     padding: 15px 15px 20px;
-
     @media (min-width: $breakpoint) {
       padding: 60px calc(#{$grid-part-d});
     }
+    width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   &__content {
@@ -3172,15 +3411,11 @@ body>.wrapper {
     }
 
     &-title {
-      font-weight: 900;
-      color: $color-black;
-      font-size: 14px;
-
+      @include f-alt();
+      @include fsl(14px, 120%);
       @media (min-width: $breakpoint) {
-        font-size: 25px;
+        @include fsl(25px, 120%);
       }
-
-      line-height: 1.2;
 
       @media (max-width: $breakpoint - 1px) {
         padding: 20px 20px 27px;
@@ -3264,15 +3499,11 @@ body>.wrapper {
     }
 
     &-text {
-      font-weight: 900;
-      color: $color-black;
-      font-size: 14px;
-
+      @include f-alt();
+      @include fsl(14px, 80%);
       @media (min-width: $breakpoint) {
-        font-size: 16px;
+        @include fsl(18px, 80%);
       }
-
-      line-height: 0.8;
     }
 
     &-num {
@@ -3332,15 +3563,11 @@ body>.wrapper {
   }
 
   &__title {
-    font-weight: 900;
-    color: $color-black;
-    font-size: 18px;
-
+    @include f-alt();
+    @include fsl(18px, 80%);
     @media (min-width: $breakpoint) {
-      font-size: 25px;
+      @include fsl(25px, 80%);
     }
-
-    line-height: 0.8;
   }
 
   &__day {
@@ -3362,9 +3589,8 @@ body>.wrapper {
   &__text {
     margin-bottom: 10px;
 
-    color: $color-black;
-    font-size: 16px;
-    line-height: 1;
+    font-weight: 400;
+    @include fsl(16px, 100%);
   }
 
   &__num {
@@ -3420,15 +3646,12 @@ body>.wrapper {
   }
 
   &__title {
-    font-weight: 900;
-    color: $color-black;
+    @include f-alt();
     font-size: 24px;
-
+    @include fsl(24px, 80%);
     @media (min-width: $breakpoint) {
-      font-size: 50px;
+      @include fsl(50px, 80%);
     }
-
-    line-height: 0.8;
   }
 }
 
@@ -4498,7 +4721,7 @@ body>.wrapper {
     &--fixed {
       @media (min-width: $breakpoint) {
         position: fixed;
-        top: 240px;
+        top: 220px;
       }
     }
 
@@ -4856,6 +5079,12 @@ body>.wrapper {
     border: 1px solid $color-light-green;
     border-radius: 20px;
     cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-light-green;
+      color: $color-white;
+    }
   }
 
   &__text {
@@ -4909,10 +5138,12 @@ body>.wrapper {
     
     border-radius: 8px;
     border: 1px solid $color-green;
+    transition: $transition;
   }
 
   &__icon {
     opacity: 0;
+    transition: $transition;
   }
 
   &__text {
@@ -4947,6 +5178,7 @@ body>.wrapper {
     @media (max-width: $breakpoint - 1px) {
       flex-direction: column;
     }
+
   }
 
   &__col {
@@ -5002,6 +5234,7 @@ body>.wrapper {
   }
 
   &__download {
+    $comp: &;
     display: flex;
 
     &-row {
@@ -5015,8 +5248,18 @@ body>.wrapper {
         width: calc(#{$grid-part-d} * 3);
       }
 
+      cursor: pointer;
+      transition: $transition;
       border-radius: 25px;
       border: 1px solid $color-yellow;
+
+      &:hover {
+        background-color: $color-yellow;
+
+        #{$comp}-text {
+          color: $color-black;
+        }
+      }
     }
 
     &-col {
@@ -5036,6 +5279,7 @@ body>.wrapper {
       color: $color-white;
       font-weight: 400;
       @include fsl(16px, 140%);
+      transition: $transition;
     }
   }
 
@@ -5188,6 +5432,12 @@ body>.wrapper {
         border: 1px solid $color-light-green;
         border-radius: 20px;
         cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          background-color: $color-light-green;
+          color: $color-white;
+        }
       }
     }
   }
@@ -5403,13 +5653,31 @@ body>.wrapper {
     }
   }
 
-  &__select {
+  &__wrapper {
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 30px;
+    }
+  }
 
-    &-text {
-      @include fsl(16px, 80%);
-      @media (min-width: $breakpoint) {
-        @include fsl(22px, 80%);
-      }
+  &__text {
+    @include fsl(16px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 80%);
+    }
+  }
+
+  &__city {
+    
+    &--fixed {
+      position: fixed;
+      top: 150px;
+    }
+  }
+
+  &__select {
+    @media (min-width: $breakpoint) {
+      width: 210px;
     }
   }
 
@@ -5432,6 +5700,35 @@ body>.wrapper {
       }
 
 
+      
+    }
+
+    &__row {
+      padding: 20px;
+      @media (min-width: $breakpoint) {
+        padding: 40px 0;
+      }
+      display: flex;
+      align-items: center;
+      @media (max-width: $breakpoint - 1px) {
+        justify-content: space-between;
+      }
+      cursor: pointer;
+      
+      &:hover {
+        #{$comp}__title {
+          color: $color-green;
+        }
+
+        #{$comp}__city {
+          color: $color-green;
+        }
+
+        #{$comp}__button-item {
+          background-color: $color-green;
+        }
+      }
+
       &--active {
         #{$comp}__title {
           color: $color-green;
@@ -5451,22 +5748,11 @@ body>.wrapper {
       } 
     }
 
-    &__container {
-      padding: 20px;
-      @media (min-width: $breakpoint) {
-        padding: 40px 0;
-      }
-    }
-
-    &__row {
-      display: flex;
-      align-items: center;
-      @media (max-width: $breakpoint - 1px) {
-        justify-content: space-between;
-      }
-    }
-
     &__dropdown {
+      padding-bottom: 20px;
+      @media (min-width: $breakpoint) {
+        padding-bottom: 40px;
+      }
       display: none;
     }
 
@@ -5549,9 +5835,11 @@ body>.wrapper {
     }
 
     &__content {
-      padding: 30px 0;
+      padding-top: 10px;
+      padding-bottom: 30px;
       @media (min-width: $breakpoint) {
-        padding: 60px 0;
+        padding-bottom: 60px;
+        padding-top: 20px;
       }
 
       &-list {
@@ -5727,6 +6015,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       @include fsl(52px, 120%);
     }
+    cursor: pointer;
   }
 
   &__mail {
@@ -5734,6 +6023,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       @include fsl(30px, 120%);
     }
+    cursor: pointer;
   }
 
   &__wrapper {
@@ -5797,6 +6087,7 @@ body>.wrapper {
   &__icon {
     path {
       fill: $color-black;
+      transition: $transition;
     }
   }
 }
@@ -6287,6 +6578,14 @@ body>.wrapper {
   &-balloon {
     $comp: &;
     cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    transition: $transition;
+
+    &:hover {
+      border-color: $color-yellow;
+    }
 
     &--alt {
       position: absolute;
@@ -6297,10 +6596,10 @@ body>.wrapper {
     }
 
     &__container {
-      padding: 20px;
+      padding: 19px;
 
       background-color: $color-white;
-      border-radius: 15px;
+      
     }
 
     &__store {

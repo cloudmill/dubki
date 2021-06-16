@@ -7,32 +7,32 @@ mixin footer(opt={})
           .footer__top 
             nav.footer__nav 
               ul.footer__list 
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up") 
+                li.footer__item(data-aos="fade-up") 
+                  a.footer__link(href="#")
                     |Акционный каталог
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up") 
+                li.footer__item(data-aos="fade-up") 
+                  a.footer__link(href="#")
                     |Где купить
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up") 
+                li.footer__item(data-aos="fade-up") 
+                  a.footer__link(href="#")
                     |Поставщикам
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up")
+                li.footer__item(data-aos="fade-up")
+                  a.footer__link(href="#")
                     |Арендодателям
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up")
+                li.footer__item(data-aos="fade-up")
+                  a.footer__link(href="#")
                     |О компании
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up")
+                li.footer__item(data-aos="fade-up")
+                  a.footer__link(href="#")
                     |Новости
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up")
+                li.footer__item(data-aos="fade-up")
+                  a.footer__link(href="#")
                     |Рецепты
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up")
+                li.footer__item(data-aos="fade-up")
+                  a.footer__link(href="#")
                     |Вакансии
-                li.footer__item 
-                  a.footer__link(href="#")(data-aos="fade-up")
+                li.footer__item(data-aos="fade-up")
+                  a.footer__link(href="#")
                     |Контакты
             .footer__social
               .social 
@@ -41,7 +41,7 @@ mixin footer(opt={})
                     a.social__row(href='#')
                       .social__col
                         .social__img
-                          +instagram-svg
+                          +instagram-svg('footer__icon')
                       .social__col
                         .social__link
                           |Instagram
@@ -49,7 +49,7 @@ mixin footer(opt={})
                     a.social__row(href='#')
                       .social__col
                         .social__img(href="#") 
-                          +vk-svg
+                          +vk-svg('footer__icon')
                       .social__col
                         .social__link(href="#")
                           |Вконтакте
@@ -57,7 +57,7 @@ mixin footer(opt={})
                     a.social__row(href='#')
                       .social__col
                         .social__img(href="#") 
-                          +facebook-svg
+                          +facebook-svg('footer__icon')
                       .social__col
                         .social__link(href="#")
                           |Facebook
@@ -65,7 +65,7 @@ mixin footer(opt={})
                     a.social__row(href='#')
                       .social__col
                         .social__img(href="#") 
-                          +classmates-svg
+                          +classmates-svg('footer__icon')
                       .social__col
                         .social__link(href="#")
                           |Одноклассники

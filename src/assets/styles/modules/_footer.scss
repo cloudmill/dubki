@@ -110,6 +110,11 @@
     @media (min-width: $breakpoint) {
       @include fsl(30px);
     }
+    transition: $transition;
+
+    &:hover {
+      color: $color-yellow;
+    }
   }
 
   &__social {
@@ -146,10 +151,11 @@
   }
 
   &__corp {
+    font-weight: 400;
     color: $color-white;
-    font-size: 12px;
+    @include fsl(12px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 14px;
+      @include fsl(14px, 140%);
     }
 
     &:first-child {
@@ -161,12 +167,17 @@
   }
 
   &__author {
-    font-weight: 900;
+    @include f-alt();
     color: $color-white;
     text-decoration: none;
-    font-size: 12px;
+    @include fsl(12px, 140%);
     @media (min-width: $breakpoint) {
-      font-size: 14px;
+      @include fsl(14px, 140%);
+    }
+    transition: $transition;
+
+    &:hover {
+      color: $color-yellow;
     }
   }
 
@@ -229,6 +240,12 @@
     @media (min-width: $breakpoint) {
       font-size: 30px;
       line-height: 36px;
+    }
+  }
+
+  &__icon {
+    path {
+      transition: $transition;
     }
   }
 }

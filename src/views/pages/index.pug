@@ -62,7 +62,7 @@ block content
                           .top-slide__price
                             span 
                               |760 ₽
-                            |610 ₽
+                            |610 ₽     
     //- card
     .section
       .container
@@ -72,6 +72,8 @@ block content
               .card(data-aos="fade-up")
                 .card__frame
                   .card__layout
+                    img.card__image(src="assets/images/card-1.png", alt="")
+                    img.card__image.card__image--small(src="assets/images/card-2.png", alt="")
                   .card__container
                     h3.card__title
                       .card__text.card__text--large
@@ -85,6 +87,7 @@ block content
               .card(data-aos="fade-up")
                 .card__frame.card__frame--alt
                   .card__layout
+                    img.card__img(src="assets/images/card-3.png", alt="")
                   .card__container.card__container--alt
                     h3.card__title.card__title--black
                       .card__text.card__text--large
@@ -94,7 +97,7 @@ block content
     //- news            
     .section
       .section__container 
-        .section__layout
+        .section__layout.section__layout--second
           .container 
             .section__inner
               .row 
@@ -136,7 +139,7 @@ block content
                           img.news__photo(src="assets/images/news-3.jpg", alt="")
                   .news__button(data-aos="fade-up")
                     a.button(href="#")
-                      |Все новости
+                      |Все новости 
     //- recipes
     .section.index__recipes
       .index__recipes-cursor

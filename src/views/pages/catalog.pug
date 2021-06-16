@@ -5,17 +5,10 @@ block content
   .section--grey.section--header
     .container
       .banner 
-        .banner__frame 
-          .banner__layout 
-          .banner__row 
-            .banner__col
-              h3.banner__title
-                |Скидка 25% на всю мясную гастрономию
-            .banner__col
-              .banner__wrapper
-                img.banner__image(src="assets/images/banner.png", alt="")
-                .banner__discont 
-                  |-25%
+        .banner__inner
+          .banner__frame 
+            img.banner__img.banner__img--desctop(src="assets/images/banner-desctop-1.jpg", alt="")
+            img.banner__img.banner__img--mobile(src="assets/images/banner-mobile-1.png", alt="")
   .section--grey
     .container 
       .block
@@ -96,8 +89,8 @@ block content
                       span 
                         |760 ₽
                       |610 ₽
-          .wrapper 
-            .button--s(data-aos="fade-up")
+          .wrapper(data-aos="fade-up")
+            .button--s
               |Показать еще
 
 
@@ -106,3 +99,14 @@ block footer
   +footer({
     mod: 'catalog-grey',
   })
+
+  //- .banner__layout 
+  //-         .banner__row 
+  //-           .banner__col
+  //-             h3.banner__title
+  //-               |Скидка 25% на всю мясную гастрономию
+  //-           .banner__col
+  //-             .banner__wrapper
+  //-               img.banner__image(src="assets/images/banner.png", alt="")
+  //-               .banner__discont 
+  //-                 |-25%

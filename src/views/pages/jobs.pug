@@ -17,7 +17,7 @@ block content
                 input.form__input(type="text" name="phone" placeholder="Телефон")
               .form__item.form__item--select
                 .select 
-                  select.select__select(name="city")(style="width: 100%")
+                  select.select__select.select__select--modal(name="city")(style="width: 100%")
                     option(value="saratov", selected) 
                       |Саратов
                     option(value="moscov") 
@@ -165,12 +165,12 @@ block content
                             .news-page__item-icon
                               +ball-svg
                             p.news-page__item-text
-                              |Отношения сотрудника и работодателя оформлены в соответствии с действующим законодательством
+                              |В «Дубках» есть все возможности пройти карьерный путь от первой ступени продавец до территориального управляющего
                           li.news-page__item.news-page__item--second(data-aos="fade-up") 
                             .news-page__item-icon
                               +ball-svg
                             p.news-page__item-text
-                              |Заработная плата выплачивается вовремя, уплачиваются все налоги
+                              |С первого дня и непрерывно сотрудники проходят обучение
                         
               li.jobs__item 
                   .jobs__row 
@@ -188,17 +188,17 @@ block content
                             .news-page__item-icon
                               +ball-svg
                             p.news-page__item-text
-                              |Отношения сотрудника и работодателя оформлены в соответствии с действующим законодательством
+                              |В каждом магазине, есть зона отдыха, где сотрудник может отдохнуть и пообедать в свой перерыв
                           li.news-page__item.news-page__item--second(data-aos="fade-up")  
                             .news-page__item-icon
                               +ball-svg
                             p.news-page__item-text
-                              |Заработная плата выплачивается вовремя, уплачиваются все налоги
+                              |График работы составлен с учетом пожелания сотрудника
                           li.news-page__item.news-page__item--second(data-aos="fade-up")  
                             .news-page__item-icon
                               +ball-svg
                             p.news-page__item-text
-                              |Очередные отпуска предоставляются и оплачиваются в соответствии с законодательством
+                              |При приеме на работу бесплатно выдается комплект униформы
                         
               li.jobs__item 
                   .jobs__row 
@@ -227,10 +227,23 @@ block content
             h3.vacancies__title(data-aos="fade-up") 
               |Актуальные вакансии
           .vacancies__row
-            .vacancies__col(data-aos="fade-up") 
-              .vacancies__select 
-                .vacancies__select-text 
-                  |Город
+            .vacancies__col
+              .vacancies__city
+                .vacancies__wrapper(data-aos="fade-up") 
+                  .vacancies__text 
+                    |Город
+                .vacancies__select
+                  .select(data-aos="fade-up")
+                    .select 
+                      select.select__select(name="city")(style="width: 100%")
+                        option(value="saratov", selected) 
+                          |Саратов
+                        option(value="moscov") 
+                          |Москва
+                        option(value="spb") 
+                          |Санкт-Питербург
+                        option(value="voronezh") 
+                          |Воронеж
             .vacancies__col(data-aos="fade-up") 
               ul.vacancies-list 
                 - for (i = 0; i < 5; i++)
@@ -329,3 +342,7 @@ block content
                                     |Откликнуться
 
 
+block footer 
+  +footer({
+    mod: 'catalog-grey',
+  })

@@ -209,9 +209,10 @@ function toggleDataAttr($element, attr, value='') {
 // top slider
 {
   $(() => {
-    const topSlider = $('.top__container');
+    const topSlide = $('.top-slide');
 
-    if (topSlider.length !== 0) {
+    if (topSlide.length !== 0) {
+      const topSlider = $('.top__container'); 
       const swiper = new Swiper(topSlider[0], {
         slidesPerView: 'auto',
         slidesPerGroup: 1,
@@ -226,9 +227,9 @@ function toggleDataAttr($element, attr, value='') {
       });
 
       $('.top__button').on('click', () => {
-        console.log(123);
         swiper.slideNext();
       });
+
     }
   });
 }
@@ -277,6 +278,38 @@ function toggleDataAttr($element, attr, value='') {
 }
 
 // шапка, модальные окна, каталог (слева), меню (справа)
+// jobs select
+{
+  $(() => {
+    const vacancies = $('.vacancies__row');
+
+    if (vacancies.length !== 0) {
+      const vacanciesPos = vacancies.offset().top;
+      const vacanciesHeight = vacancies.innerHeight();
+      const vacanciesContainer = vacanciesPos + vacanciesHeight - 250;
+      const vacanciesCity = $('.vacancies__city');
+
+      console.log(vacanciesContainer)
+
+      $(window).on('scroll', function() {
+        const scrollPos = $(this).scrollTop();
+
+        if (scrollPos > vacanciesPos) {
+          vacanciesCity.addClass('vacancies__city--fixed');
+        } else {
+          vacanciesCity.removeClass('vacancies__city--fixed');
+        }
+        
+        // if (scrollPos > vacanciesContainer) {
+        //   vacanciesCity.removeClass('vacancies__city--fixed');
+        // } else 
+      });
+    }
+  });
+}
+
+// nav-modal
+// notifi-modal
 {
   $(() => {
     const header = $('.header');
@@ -377,7 +410,6 @@ function toggleDataAttr($element, attr, value='') {
     if (header.length !== 0) {
       const citySearchButton = header.find('.header__city-button');
       const cityModalButton = header.find('.modal-search__button');
-      console.log(citySearchButton)
 
       // button open
       citySearchButton.on('click', function() {
@@ -446,11 +478,11 @@ function toggleDataAttr($element, attr, value='') {
 
   vacanciesItem.each(function () {
     const vacancies = $(this);
-    const vacanciesButton = vacancies.find('.vacancies-list__button');
+    const vacanciesButton = vacancies.find('.vacancies-list__row');
     const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
 
     vacanciesButton.on('click', function() {
-      vacancies.toggleClass('vacancies-list__item--active');
+      vacanciesButton.toggleClass('vacancies-list__row--active');
       vacanciesDrop.slideToggle();
     });
   });
@@ -588,8 +620,10 @@ function toggleDataAttr($element, attr, value='') {
   $(() => {
     const select = $('.select__select');
 
-    select.select2({
-      // dropdownParent: $('.modal'),
+    select.select2({});
+    
+    $('.select__select--modal').select2({
+      dropdownParent: $('.modal'),
     });
   });
 }
@@ -701,5 +735,27 @@ function toggleDataAttr($element, attr, value='') {
         }
       });
     }
+  });
+}
+// fixed header
+{
+  $(() => {
+    const header = $('.header');
+    
+    if (header.length !== 0) {
+      $(window).on('scroll',
+        {
+          previousTop: 0
+        }, 
+        function () {
+          const currentTop = $(window).scrollTop();
+          if (currentTop < this.previousTop && currentTop > 200) {
+              $('.header').addClass('header--scroll');
+          } else {
+              $('.header').removeClass('header--scroll');
+          }
+          this.previousTop = currentTop;
+      });
+    };
   });
 }
