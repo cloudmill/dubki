@@ -92,7 +92,7 @@ body>.wrapper {
     }
 
     &::before {
-      z-index: 2;
+      opacity: 1;
     }
   }
 
@@ -5619,6 +5619,35 @@ body>.wrapper {
       }
 
 
+      
+    }
+
+    &__row {
+      padding: 20px;
+      @media (min-width: $breakpoint) {
+        padding: 40px 0;
+      }
+      display: flex;
+      align-items: center;
+      @media (max-width: $breakpoint - 1px) {
+        justify-content: space-between;
+      }
+      cursor: pointer;
+      
+      &:hover {
+        #{$comp}__title {
+          color: $color-green;
+        }
+
+        #{$comp}__city {
+          color: $color-green;
+        }
+
+        #{$comp}__button-item {
+          background-color: $color-green;
+        }
+      }
+
       &--active {
         #{$comp}__title {
           color: $color-green;
@@ -5638,22 +5667,11 @@ body>.wrapper {
       } 
     }
 
-    &__container {
-      padding: 20px;
-      @media (min-width: $breakpoint) {
-        padding: 40px 0;
-      }
-    }
-
-    &__row {
-      display: flex;
-      align-items: center;
-      @media (max-width: $breakpoint - 1px) {
-        justify-content: space-between;
-      }
-    }
-
     &__dropdown {
+      padding-bottom: 20px;
+      @media (min-width: $breakpoint) {
+        padding-bottom: 40px;
+      }
       display: none;
     }
 
@@ -5736,9 +5754,11 @@ body>.wrapper {
     }
 
     &__content {
-      padding: 30px 0;
+      padding-top: 10px;
+      padding-bottom: 30px;
       @media (min-width: $breakpoint) {
-        padding: 60px 0;
+        padding-bottom: 60px;
+        padding-top: 20px;
       }
 
       &-list {

@@ -307,11 +307,11 @@ function toggleDataAttr($element, attr, value='') {
 
   vacanciesItem.each(function () {
     const vacancies = $(this);
-    const vacanciesButton = vacancies.find('.vacancies-list__button');
+    const vacanciesButton = vacancies.find('.vacancies-list__row');
     const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
 
     vacanciesButton.on('click', function() {
-      vacancies.toggleClass('vacancies-list__item--active');
+      vacanciesButton.toggleClass('vacancies-list__row--active');
       vacanciesDrop.slideToggle();
     });
   });
