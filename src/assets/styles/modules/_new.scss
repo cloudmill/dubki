@@ -427,6 +427,11 @@ body>.wrapper {
         @include fsl(18px, 80%);
       }
       color: $color-white;
+      transition: $transition;
+      
+      &:hover {
+        color: $color-yellow;
+      }
     }
   }
 
@@ -461,9 +466,23 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         border-width: 2px;
       }
-
       border-radius: 50%;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-yellow;
+        border-color: $color-yellow;
+
+        .header__search-icon {
+          circle {
+            stroke: $color-black;
+          }
+          path {
+            stroke: $color-black;
+          }
+        }
+      }
     }
 
     &-icon {
@@ -474,6 +493,13 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         max-width: 22px;
         max-height: 22px;
+      }
+
+      circle {
+        transition: $transition;
+      }
+      path {
+        transition: $transition;
       }
     }
   }
@@ -510,6 +536,18 @@ body>.wrapper {
   border-radius: 50%;
   cursor: pointer;
   transition: $transition;
+
+  &:hover {
+    background-color: $color-green;
+
+    #{$comp}__image {
+
+      &:before,
+      &:after {
+        background-color: $color-white;
+      }
+    }
+  }
 
   &--active {
     background-color: $color-black;
@@ -881,23 +919,17 @@ body>.wrapper {
   }
 
   &__text {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.2;
-
+    @include fsl(28px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 38px;
+      @include fsl(38px, 120%);
     }
 
     &--large {
-      font-weight: 900;
-      font-size: 90px;
-
+      @include f-alt();
+      @include fsl(90px, 100%);
       @media (min-width: $breakpoint) {
-        font-size: 150px;
+        @include fsl(150px, 100%);
       }
-
-      line-height: 1;
     }
   }
 
@@ -1156,6 +1188,7 @@ body>.wrapper {
   }
 
   &__text {
+    font-weight: 400;
     @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
       @include fsl(18px, 140%);
@@ -1690,18 +1723,15 @@ body>.wrapper {
   &__title {
     margin-left: 14px;
     width: 233px;
-
     @media (min-width: $breakpoint) {
       margin-left: 80px;
       width: 418px;
 
-      font-size: 90px;
+      @include fsl(90px, 80%);
     }
-
-    font-weight: 900;
+    @include f-alt();
     color: $color-white;
-    font-size: 50px;
-    line-height: 0.8;
+    @include fsl(50px, 80%);
   }
 
   &__container {
