@@ -126,82 +126,69 @@ body>.wrapper {
   &__catalog {
     position: relative;
     z-index: 2;
-
+  
     width: calc((#{$col-part-d}) * 4 - #{$col-gap-d});
     flex-shrink: 0;
     display: none;
-
+  
     @media (min-width: $breakpoint) {
       display: flex;
-      width: calc((#{$col-part-d}) * 4 - #{$col-gap-d});
     }
-
-    &--mobile {
-      width: 100%;
-    }
-
+  
     &-button {
       @mixin catalog-button-hover() {
         background-color: $color-green;
-
+  
         #{$comp}__catalog-text {
           color: $color-white;
         }
-
+  
         #{$comp}__catalog-icon {
           path {
             stroke: $color-white;
           }
         }
       }
-
+  
+      padding: 25px 30px;
+      width: calc(#{$col-part-d} * 3);
+      height: 70px;
+  
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-
-      background: $color-yellow;
+  
+      background-color: $color-yellow;
+      border-radius: 25px;
       cursor: pointer;
       transition: $transition;
-
+  
       &:hover {
         @include catalog-button-hover();
       }
-
+  
       &--active {
         @include catalog-button-hover();
-
+  
         #{$comp}__catalog-icon {
           transform: rotate(180deg);
         }
       }
     }
-
+  
     &-text {
       @include fsl(18px, 80%);
-
+  
       transition: $transition;
     }
-
+  
     &-icon {
       margin-left: 10px;
       display: flex;
       align-items: center;
-
+  
       transition: $transition;
-
-      path {
-        transition: $transition;
-      }
-    }
-
-    &-arrow {
-      width: 14px;
-      height: 5px;
-      @media (min-width: $breakpoint) {
-        width: 100%;
-        height: 100%;
-      }
-      transition: $transition;
+  
       path {
         transition: $transition;
       }
