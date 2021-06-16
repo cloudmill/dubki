@@ -66,9 +66,11 @@ function toggleDataAttr($element, attr, value='') {
 // top slider
 {
   $(() => {
-    const topSlider = $('.top__container');
+    // const topSlider = $('.top__container');
+    const topSlide = $('.top-slide');
 
-    if (topSlider.length !== 0) {
+    if (topSlide.length !== 0) {
+      const topSlider = $('.top__container'); 
       const swiper = new Swiper(topSlider[0], {
         slidesPerView: 'auto',
         slidesPerGroup: 1,
@@ -83,9 +85,9 @@ function toggleDataAttr($element, attr, value='') {
       });
 
       $('.top__button').on('click', () => {
-        console.log(123);
         swiper.slideNext();
       });
+
     }
   });
 }
