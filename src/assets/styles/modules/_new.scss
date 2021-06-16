@@ -936,6 +936,7 @@ body>.wrapper {
     }
 
     overflow: hidden;
+    position: relative;
 
     background-color: $color-light-green;
     border-radius: 70px 0px 0px 0px;
@@ -1026,6 +1027,33 @@ body>.wrapper {
         z-index: 1;
 
         background-color: rgba(#000, 0.3);
+      }
+    }
+  }
+
+  &__layout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+
+    &-image {
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        z-index: 0;
+
+        max-width: 720px;
+        height: auto;
+      }
+
+      &--small {
+        max-width: 105px;
+        left: 100px;
       }
     }
   }
@@ -3160,6 +3188,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       display: flex;
       justify-content: space-between;
+      align-items: stretch;
     }
   }
 
@@ -3179,9 +3208,6 @@ body>.wrapper {
   }
 
   &__card {
-    @media (min-width: $breakpoint) {
-      height: 320px;
-    }
 
     border-radius: 25px;
 
@@ -3190,16 +3216,98 @@ body>.wrapper {
     }
 
     &--green {
+      height: 100%;
+
       background-color: #DCF8D2;
     }
   }
 
+  &__frame {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &-img {
+      position: absolute;
+      left: calc(#{$grid-pard-m} - #{$grid-gap-m} * 2);
+      top: -20px;
+      z-index: 0;
+
+      max-width: 160px;
+      @media (min-width: $breakpoint) {
+        max-width: 210px;
+        left: 20px;
+        top: 0;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+
+      max-width: 300px;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+
+      &--small {
+        right: calc(#{$grid-part-d} - #{$grid-gap-d});
+        max-width: 100px;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 20px;
+    @media (min-width: $breakpoint) {
+      left: 10px;
+      max-width: 140px;
+    }
+    max-width: 90px;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 0;
+    right: calc(#{$grid-pard-m} - #{$grid-gap-m} * 3);
+    bottom: 0;
+    @media (min-width: $breakpoint) {
+      bottom: 0;
+      right: 0;
+
+      max-width: 300px;
+    }
+    max-width: 200px;
+  }
+
   &__container {
     padding: 15px 15px 20px;
-
     @media (min-width: $breakpoint) {
       padding: 60px calc(#{$grid-part-d});
     }
+    width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   &__content {

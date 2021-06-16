@@ -6,6 +6,8 @@ block content
   .section--grey 
     .section__frame.section__frame--product
       .section__layout 
+        img.section__layout-image(src="assets/images/product-layout-1.png", alt="")
+        img.section__layout-image.section__layout-image--small(src="assets/images/product-layout-2.png", alt="")
       .container 
         .section__wrapper
           ul.block-list.block-list--mobile(data-aos="fade-up")
@@ -148,8 +150,8 @@ block content
                   .product-card__video-wrapper 
                     .video-button
                       +play-svg('video-button__icon')
-                .product__link 
-                  a.button(href="#")(data-aos="fade-up") 
+                .product__link(data-aos="fade-up") 
+                  a.button(href="#")
                     |Купить в интернет-магазине
   .section--grey 
     .container 
@@ -174,61 +176,66 @@ block content
                 .info-card__col
                   .info-card__card.info-card__card--green(data-aos="fade-up") 
                     .info-card__frame 
-                      .info-card__layot
-                    .info-card__container
-                      .info-card__content 
-                        .info-card__item.info-card__item--first 
-                          p.info-card__item-text 
-                            |Энергетическая ценность, кКал
-                          .info-card__item-num 
-                            |100
-                        ul.info-card__list 
-                          li.info-card__item 
+                      .info-card__layout
+                        img.info-card__layout-img(src="assets/images/info-card-1.png", alt="")
+                        img.info-card__layout-image(src="assets/images/info-card-2.png", alt="")
+                        img.info-card__layout-image.info-card__layout-image--small(src="assets/images/info-card-3.png", alt="")
+                      .info-card__container
+                        .info-card__content 
+                          .info-card__item.info-card__item--first 
                             p.info-card__item-text 
-                              |Белки, г
+                              |Энергетическая ценность, кКал
                             .info-card__item-num 
-                              |12
-                          li.info-card__item 
-                            p.info-card__item-text 
-                              |Жиры, г
-                            .info-card__item-num 
-                              |34
-                          li.info-card__item 
-                            p.info-card__item-text 
-                              |Углеводы, г
-                            .info-card__item-num 
-                              |67
-          
-                .info-card__col 
-                  .info-card__card.info-card__card--yellow(data-aos="fade-up") 
-                    .info-card__frame 
-                      .info-card__layot
-                    .info-card__container
-                      .info-card__content.info-card__content--alt
-                        h4.info-card__content-title
-                          |На 100 гр продукта % от суточной нормы КБЖУ
-                        .info-card__wrapper 
-                          ul.info-card__list.info-card__list--alt
+                              |100
+                          ul.info-card__list 
                             li.info-card__item 
                               p.info-card__item-text 
                                 |Белки, г
                               .info-card__item-num 
-                                |16%
+                                |12
                             li.info-card__item 
                               p.info-card__item-text 
                                 |Жиры, г
                               .info-card__item-num 
-                                |0%
+                                |34
                             li.info-card__item 
                               p.info-card__item-text 
                                 |Углеводы, г
                               .info-card__item-num 
-                                |1%
-                            li.info-card__item 
-                              p.info-card__item-text 
-                                |кКал
-                              .info-card__item-num 
-                                |6%
+                                |67
+          
+                .info-card__col 
+                  .info-card__card.info-card__card--yellow(data-aos="fade-up") 
+                    .info-card__frame 
+                      .info-card__layout
+                        img.info-card__img(src="assets/images/info-card-5.png", alt="")
+                        img.info-card__image(src="assets/images/info-card-4.png", alt="")
+                      .info-card__container
+                        .info-card__content.info-card__content--alt
+                          h4.info-card__content-title
+                            |На 100 гр продукта % от суточной нормы КБЖУ
+                          .info-card__wrapper 
+                            ul.info-card__list.info-card__list--alt
+                              li.info-card__item 
+                                p.info-card__item-text 
+                                  |Белки, г
+                                .info-card__item-num 
+                                  |16%
+                              li.info-card__item 
+                                p.info-card__item-text 
+                                  |Жиры, г
+                                .info-card__item-num 
+                                  |0%
+                              li.info-card__item 
+                                p.info-card__item-text 
+                                  |Углеводы, г
+                                .info-card__item-num 
+                                  |1%
+                              li.info-card__item 
+                                p.info-card__item-text 
+                                  |кКал
+                                .info-card__item-num 
+                                  |6%
 
           .info__inner 
             .conditions 
@@ -252,14 +259,14 @@ block content
       .section__inner 
         .store-buttons
           .store-buttons__row 
-            .store-buttons__col
-              .button--xl.button.button--m(data-aos="fade-up") 
+            .store-buttons__col(data-aos="fade-up") 
+              .button--xl.button.button--m
                 .button__wrapper
                   +cursor-svg('button__wrapper-icon') 
                 .button__text
                   |Вернуться ко всем новостям
-            .store-buttons__col
-              .button--xl.button.button--m-yellow(data-aos="fade-up") 
+            .store-buttons__col(data-aos="fade-up") 
+              .button--xl.button.button--m-yellow
                 .button__text
                   |Вернуться ко всем новостям
                 .button__wrapper.button__wrapper--alt
