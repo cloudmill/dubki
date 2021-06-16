@@ -1,7 +1,7 @@
 // imports
 import "Styles/_app.scss";
 
-import Swiper from "swiper/bundle";
+import Swiper, { Parallax } from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
@@ -54,6 +54,85 @@ function toggleDataAttr($element, attr, value='') {
         slidesPerView: 'auto',
         spaceBetween: 20,
       });
+    }
+
+    // слайдер Рецепты на Главная
+    if ($('.index').length !== 0) {
+      // частота трекинга перемещения
+      const moveFps = 60
+      // parallax эффект
+      let parallaxRatio
+      const parallaxRatioM = 15
+      const parallaxRatioD = 3
+      // интервал трекинга перемещения
+      let moveInterval
+      // элемент, который перемещаем (анимируем)
+      const moveEl = $('.index__recipes-side')
+      // элемент, перемещение которого отслеживаем
+      const moveTrackingEl = $('.index__recipes-slider .slider__item').first()
+
+      // адаптив
+      const breakpoint = matchMedia(`(min-width: ${BREAKPOINT}px)`)
+      parallaxRatio = parallaxRatioM
+      if (breakpoint.matches) {
+        parallaxRatio = parallaxRatioD
+      }
+      breakpoint.addListener(event => {
+        if (event.matches) {
+          parallaxRatio = parallaxRatioD
+        } else {
+          parallaxRatio = parallaxRatioM
+        }
+      })
+
+      // инициализация
+      const slider = $('.index__recipes-slider') // контейнер swiper'a
+      const swiper = new Swiper(slider[0], { // экземпляр swiper'a
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+      })
+      
+      // обработка событий: начало/конец движения слайдера
+      // начало
+      swiper.on('sliderFirstMove', () => {
+        moveInterval = setInterval(moveHandler, 1000 / moveFps)
+      })
+      // конец
+      swiper.on('transitionEnd', () => {
+        clearInterval(moveInterval)
+      })
+
+      function moveHandler() {
+        moveUpdate(getMoveDistance())
+      }
+
+      function moveUpdate(distance) {
+        // вычиление данных анимации (css)
+        // transform (движение "влево")
+        const transform = `translateX(${-distance / parallaxRatio}px)` // ? 15
+        // opacity
+        // в пределах [0, 1]
+        let opacity = 1 - (distance / (moveTrackingEl.width() + 20))
+        opacity = opacity < 0 ? 0 : opacity
+
+        // анимация
+        requestAnimationFrame(() => {
+          moveEl.css('transform', transform)
+          moveEl.css('opacity', opacity)
+        })
+      }
+
+      function getMoveDistance() {
+        const startY = slider.offset().left
+        const y = moveTrackingEl.offset().left
+
+        // движение "влево" (startY > y)
+        // поэтому вычитаем (startY - y)
+        // получаем положительный distance при движении влево
+        const distance = startY - y
+        // "отсекаем" движение вправо
+        return distance < 0 ? 0 : distance
+      }
     }
 
     const swiperProductSlider = new Swiper($('.product-slider')[0], {

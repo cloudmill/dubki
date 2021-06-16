@@ -3,198 +3,199 @@ extends ../layouts/master.pug
 
 
 block content
-  .section
-    .section__inner
-      .section__frame.section__frame--top
-        .section__layout 
-        .container 
-          .top
-            .top__content(data-aos="fade-up")
-              .top__button
-                +rotate-button-svg('top__button-icon')
-              h3.top__title
-                |Сейчас по акции
-            .top__container.swiper-container
-              .swiper-wrapper
-                - for (i = 0; i < 3; i++)
-                  .swiper-slide
-                    a.top-slide.top-slide--big(href='#')(data-aos="fade-up")
-                      .top-slide__discont
-                        .top-slide__discont-icon
-                          +top-icon-svg
-                        .top-slide__discont-text
-                          |-25%
-                      .top-slide__container 
-                        img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
-                        p.top-slide__text 
-                          |Колбаса Балыковая ТМ Дубки, 1 кг
-                        .top-slide__price
-                          span 
-                            |760 ₽
-                          |610 ₽
-                  .swiper-slide
-                    a.top-slide(href='#')(data-aos="fade-up")
-                      .top-slide__discont
-                        .top-slide__discont-icon
-                          +top-icon-svg
-                        .top-slide__discont-text
-                          |-40%
-                      .top-slide__container 
-                        img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
-                        p.top-slide__text 
-                          |Блинчики с творогом, 1 кг
-                        .top-slide__price
-                          span 
-                            |760 ₽
-                          |610 ₽
-                  .swiper-slide
-                    a.top-slide(href='#')(data-aos="fade-up")
-                      .top-slide__discont
-                        .top-slide__discont-icon
-                          +top-icon-svg
-                        .top-slide__discont-text
-                          |-40%
-                      .top-slide__container 
-                        img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
-                        p.top-slide__text 
-                          |Колбаса Прованс ТМ Дубки, 1 кг
-                        .top-slide__price
-                          span 
-                            |760 ₽
-                          |610 ₽
-  //- card
-  .section
-    .container
+  .index
+    .section
       .section__inner
-        .row 
-          .row__side 
-            .card(data-aos="fade-up")
-              .card__frame
-                .card__layout
-                .card__container
-                  h3.card__title
-                    .card__text.card__text--large
-                      |700
-                    .card__text
-                      |магазинов
-                  .card__button
-                    .button
-                      |Где купить
-          .row__main
-            .card(data-aos="fade-up")
-              .card__frame.card__frame--alt
-                .card__layout
-                .card__container.card__container--alt
-                  h3.card__title.card__title--black
-                    .card__text.card__text--large
-                      |35
-                    .card__text
-                      |регионов России
-  //- news            
-  .section
-    .section__container 
-      .section__layout
-        .container 
-          .section__inner
-            .row 
-              .row__side 
-                .section__content 
-                  h3.section__title(data-aos="fade-up")
-                    |Новости
-                  p.section__text(data-aos="fade-up") 
-                    |Актуальные акции, скидки и новости компании.
-                .section__button(data-aos="fade-up")  
-                  a.button(href="#")
-                    |Все новости
-              .row__main 
-                .news
-                  ul.news__list
-                    a.news__item(href='#')(data-aos="fade-up")
-                      .news__content 
-                        p.news__data 
-                          |24 апреля 2021
-                        h3.news__text
-                          |Скидка на сырокопченую колбасу во всех фирменных магазинах
-                      .news__container
-                        img.news__photo(src="assets/images/news-1.jpg", alt="")
-                    a.news__item(href='#')(data-aos="fade-up")
-                      .news__content 
-                        p.news__data 
-                          |24 апреля 2021
-                        h3.news__text
-                          |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
-                      .news__container
-                        img.news__photo(src="assets/images/news-2.jpg", alt="")
-                    a.news__item(href='#')(data-aos="fade-up") 
-                      .news__content 
-                        p.news__data 
-                          |24 апреля 2021
-                        h3.news__text
-                          |Скидка на сырокопченую колбасу во всех фирменных магазинах
-                      .news__container
-                        img.news__photo(src="assets/images/news-3.jpg", alt="")
-                .news__button(data-aos="fade-up")
-                  a.button(href="#")
-                    |Все новости
-  //- slider
-  .section
-    .section__frame 
-      .section__layot 
+        .section__frame.section__frame--top
+          .section__layout 
+          .container 
+            .top
+              .top__content(data-aos="fade-up")
+                .top__button
+                  +rotate-button-svg('top__button-icon')
+                h3.top__title
+                  |Сейчас по акции
+              .top__container.swiper-container
+                .swiper-wrapper
+                  - for (i = 0; i < 3; i++)
+                    .swiper-slide
+                      a.top-slide.top-slide--big(href='#')(data-aos="fade-up")
+                        .top-slide__discont
+                          .top-slide__discont-icon
+                            +top-icon-svg
+                          .top-slide__discont-text
+                            |-25%
+                        .top-slide__container 
+                          img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
+                          p.top-slide__text 
+                            |Колбаса Балыковая ТМ Дубки, 1 кг
+                          .top-slide__price
+                            span 
+                              |760 ₽
+                            |610 ₽
+                    .swiper-slide
+                      a.top-slide(href='#')(data-aos="fade-up")
+                        .top-slide__discont
+                          .top-slide__discont-icon
+                            +top-icon-svg
+                          .top-slide__discont-text
+                            |-40%
+                        .top-slide__container 
+                          img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
+                          p.top-slide__text 
+                            |Блинчики с творогом, 1 кг
+                          .top-slide__price
+                            span 
+                              |760 ₽
+                            |610 ₽
+                    .swiper-slide
+                      a.top-slide(href='#')(data-aos="fade-up")
+                        .top-slide__discont
+                          .top-slide__discont-icon
+                            +top-icon-svg
+                          .top-slide__discont-text
+                            |-40%
+                        .top-slide__container 
+                          img.top-slide__image(src="assets/images/top-slide-1.jpg", alt="")
+                          p.top-slide__text 
+                            |Колбаса Прованс ТМ Дубки, 1 кг
+                          .top-slide__price
+                            span 
+                              |760 ₽
+                            |610 ₽
+    //- card
+    .section
       .container
         .section__inner
           .row 
-            .row__side
-              .section__content.section__content--white
-                h3.section__title(data-aos="fade-up") 
-                  |Рецепты
-                p.section__text(data-aos="fade-up") 
-                  |Вкусные и простые рецепты с нашими продуктами. Каждый найдет что-то для себя.
-              .section__button(data-aos="fade-up")    
-                a.button(href="#")
-                  |Все новости 
+            .row__side 
+              .card(data-aos="fade-up")
+                .card__frame
+                  .card__layout
+                  .card__container
+                    h3.card__title
+                      .card__text.card__text--large
+                        |700
+                      .card__text
+                        |магазинов
+                    .card__button
+                      .button
+                        |Где купить
             .row__main
-              .slider.swider-container 
-                .swiper-wrapper.slider__inner
-                  - for ( i = 0; i < 3; i++ )
-                    a.slider__item.swiper-slide(href='#')(data-aos="fade-up")
-                      .slider__container
-                        .slider__frame
-                          img.slider__photo(src="assets/images/slider-1.jpg", alt="")
-                        .slider__info 
-                          .slider__time.slider__time--green
-                            .slider__icon
-                              +clock-svg
-                            |30 мин
-                          .slider__time
-                            |Завтрак
-                      h3.slider__title(data-aos="fade-up") 
-                        |Пицца с грибами и колбасой
-                    a.slider__item.slider__item--s.swiper-slide(href='#')(data-aos="fade-up")
-                      .slider__container
-                        .slider__frame
-                          img.slider__photo(src="assets/images/slider-2.jpg", alt="")
-                        .slider__info 
-                          .slider__time.slider__time--green
-                            .slider__icon
-                              +clock-svg
-                            |30 мин
-                          .slider__time
-                            |Завтрак
-                      h3.slider__title(data-aos="fade-up") 
-                        |Пицца с грибами и колбасой
-                    a.slider__item.slider__item--m.swiper-slide(href='#')(data-aos="fade-up")
-                      .slider__container
-                        .slider__frame
-                          img.slider__photo(src="assets/images/slider-1.jpg", alt="")
-                        .slider__info 
-                          .slider__time.slider__time--green
-                            .slider__icon
-                              +clock-svg
-                            |30 мин
-                          .slider__time
-                            |Завтрак
-                      h3.slider__title(data-aos="fade-up")
-                        |Пицца с грибами и колбасой
-                .slider__button(data-aos="fade-up") 
+              .card(data-aos="fade-up")
+                .card__frame.card__frame--alt
+                  .card__layout
+                  .card__container.card__container--alt
+                    h3.card__title.card__title--black
+                      .card__text.card__text--large
+                        |35
+                      .card__text
+                        |регионов России
+    //- news            
+    .section
+      .section__container 
+        .section__layout
+          .container 
+            .section__inner
+              .row 
+                .row__side 
+                  .section__content 
+                    h3.section__title(data-aos="fade-up")
+                      |Новости
+                    p.section__text(data-aos="fade-up") 
+                      |Актуальные акции, скидки и новости компании.
+                  .section__button(data-aos="fade-up")  
+                    a.button(href="#")
+                      |Все новости
+                .row__main 
+                  .news
+                    ul.news__list
+                      a.news__item(href='#')(data-aos="fade-up")
+                        .news__content 
+                          p.news__data 
+                            |24 апреля 2021
+                          h3.news__text
+                            |Скидка на сырокопченую колбасу во всех фирменных магазинах
+                        .news__container
+                          img.news__photo(src="assets/images/news-1.jpg", alt="")
+                      a.news__item(href='#')(data-aos="fade-up")
+                        .news__content 
+                          p.news__data 
+                            |24 апреля 2021
+                          h3.news__text
+                            |Продукция мясокомбината «Дубки» с успехом прошла конкурсные испытания на фестивале качества
+                        .news__container
+                          img.news__photo(src="assets/images/news-2.jpg", alt="")
+                      a.news__item(href='#')(data-aos="fade-up") 
+                        .news__content 
+                          p.news__data 
+                            |24 апреля 2021
+                          h3.news__text
+                            |Скидка на сырокопченую колбасу во всех фирменных магазинах
+                        .news__container
+                          img.news__photo(src="assets/images/news-3.jpg", alt="")
+                  .news__button(data-aos="fade-up")
+                    a.button(href="#")
+                      |Все новости
+    //- recipes
+    .section
+      .section__frame 
+        .section__layot 
+        .container
+          .section__inner
+            .row 
+              .row__side.index__recipes-side
+                .section__content.section__content--white
+                  h3.section__title(data-aos="fade-up") 
+                    |Рецепты
+                  p.section__text(data-aos="fade-up") 
+                    |Вкусные и простые рецепты с нашими продуктами. Каждый найдет что-то для себя.
+                .section__button(data-aos="fade-up")    
                   a.button(href="#")
-                    |Все новости
+                    |Все новости 
+              .row__main
+                .index__recipes-slider
+                  .swiper-wrapper.slider__inner
+                    - for ( i = 0; i < 3; i++ )
+                      a.slider__item.swiper-slide(href='#')(data-aos="fade-up")
+                        .slider__container
+                          .slider__frame
+                            img.slider__photo(src="assets/images/slider-1.jpg", alt="")
+                          .slider__info 
+                            .slider__time.slider__time--green
+                              .slider__icon
+                                +clock-svg
+                              |30 мин
+                            .slider__time
+                              |Завтрак
+                        h3.slider__title(data-aos="fade-up") 
+                          |Пицца с грибами и колбасой
+                      a.slider__item.slider__item--s.swiper-slide(href='#')(data-aos="fade-up")
+                        .slider__container
+                          .slider__frame
+                            img.slider__photo(src="assets/images/slider-2.jpg", alt="")
+                          .slider__info 
+                            .slider__time.slider__time--green
+                              .slider__icon
+                                +clock-svg
+                              |30 мин
+                            .slider__time
+                              |Завтрак
+                        h3.slider__title(data-aos="fade-up") 
+                          |Пицца с грибами и колбасой
+                      a.slider__item.slider__item--m.swiper-slide(href='#')(data-aos="fade-up")
+                        .slider__container
+                          .slider__frame
+                            img.slider__photo(src="assets/images/slider-1.jpg", alt="")
+                          .slider__info 
+                            .slider__time.slider__time--green
+                              .slider__icon
+                                +clock-svg
+                              |30 мин
+                            .slider__time
+                              |Завтрак
+                        h3.slider__title(data-aos="fade-up")
+                          |Пицца с грибами и колбасой
+                  .slider__button(data-aos="fade-up") 
+                    a.button(href="#")
+                      |Все новости
