@@ -6803,7 +6803,10 @@ body>.wrapper {
   border-radius: 20px;
 }
 
+
+
 .select2 {
+  $comp: &;
 
   &-hidden-accessible {
     border: 0!important;
@@ -6819,6 +6822,7 @@ body>.wrapper {
   }
 
   &-container {
+
     &--default .select2-selection--single {
       padding: 18px 30px;
 
@@ -6830,6 +6834,19 @@ body>.wrapper {
       border: 1px solid $color-light-green;
       border-radius: 20px;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-light-green;
+
+        #{$comp}-selection__rendered {
+          color: $color-white;
+        }
+
+        .select2-selection__arrow {
+          border-color: $color-white;
+        }
+      }
     }
 
     &--default.select2-container--open .select2-selection--single {
@@ -6859,6 +6876,7 @@ body>.wrapper {
       border-bottom: 2px solid $color-black;
       border-right: 2px solid $color-black;
       transform: rotate(45deg);
+      transition: $transition;
     }
   }
 
@@ -6883,6 +6901,7 @@ body>.wrapper {
 
   &-selection__rendered {
     @include fsl(16px, 80%);
+    transition: $transition;
   }
 
   &-results__options {
