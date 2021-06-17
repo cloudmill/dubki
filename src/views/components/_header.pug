@@ -8,7 +8,6 @@ mixin header()
               |Акционный каталог
             .header__catalog-icon
               +arrow-svg('header__catalog-arrow')
-           
         .header__store(data-aos="fade-up")
           a.header__store-button.header__store-button--dark(href='#')
             .header__store-text 
@@ -464,56 +463,32 @@ mixin header()
                 -
                   var data = [
                     {
-                      title: 'Главная',
-                      href: 'index.html',
-                    },
-                    {
                       title: 'Акционный каталог',
                       href: 'action-catalog.html',
-                    },
-                    {
-                      title: 'Каталог',
-                      href: 'catalog.html',
-                    },
-                    {
-                      title: 'Карточка товара',
-                      href: 'product.html',
-                    },
-                    {
-                      title: 'О компании',
-                      href: 'about.html',
                     },
                     {
                       title: 'Где купить (карта)',
                       href: 'stores.html',
                     },
                     {
-                      title: 'Где купить (список)',
-                      href: 'stores-list.html',
-                    },
-                    {
-                      title: 'Новости',
-                      href: 'news.html',
-                    },
-                    {
-                      title: 'Новость',
-                      href: 'news-1.html',
-                    },
-                    {
-                      title: 'Рецепты',
-                      href: 'recipes.html',
-                    },
-                    {
-                      title: 'Рецепт',
-                      href: 'recipe-1.html',
+                      title: 'Поставщикам',
+                      href: 'provider.html',
                     },
                     {
                       title: 'Арендодателям',
                       href: 'rent.html',
                     },
                     {
-                      title: 'Поставщикам',
-                      href: 'provider.html',
+                      title: 'О компании',
+                      href: 'about.html',
+                    },
+                    {
+                      title: 'Новости',
+                      href: 'news.html',
+                    },
+                    {
+                      title: 'Рецепты',
+                      href: 'recipes.html',
                     },
                     {
                       title: 'Вакансии',
@@ -522,14 +497,6 @@ mixin header()
                     {
                       title: 'Контакты',
                       href: 'contacts.html',
-                    },
-                    {
-                      title: 'Результат по­иска',
-                      href: 'search.html',
-                    },
-                    {
-                      title: '404',
-                      href: 'page404.html',
                     },
                   ]
                 each page in data
@@ -583,72 +550,152 @@ mixin header()
                     .button-modal.button-modal--active(data-fancybox-close='1')
                       .button-modal__image
         .catalog-modal
-          .catalog-modal__frame
-            .catalog-modal__row
-              .catalog-modal__col
-                .catalog-modal__frame.catalog-modal__frame--sub
-                  .catalog-modal__container
-                    ul.catalog-modal__list
-                      -
-                        var categories = [
-                          'Бакалея',
-                          'Замороженные полуфабрикаты',
-                          'Консервы',
-                          'Мясо замороженное',
-                          'Овощи',
-                          'Рыба',
-                          'Соусы',
-                          'Чай, кофе',
-                          'Мясная гастрономия',
-                          'Вода, напитки',
-                          'Кондитерские изделия',
-                          'Молочные продукты',
-                          'Мясо охлажденное',
-                          'Приправы',
-                          'Снеки',
-                          'Хлебобулочные изделия',
-                          'Бакалея',
-                          'Замороженные полуфабрикаты',
-                          'Консервы',
-                          'Мясо замороженное',
-                          'Овощи',
-                          'Рыба',
-                          'Соусы',
-                          'Чай, кофе',
-                          'Мясная гастрономия',
-                          'Вода, напитки',
-                          'Кондитерские изделия',
-                          'Молочные продукты',
-                          'Мясо охлажденное',
-                          'Приправы',
-                          'Снеки',
-                          'Хлебобулочные изделия',
-                        ]
-                      - var activeCategory = 10
-                      each category, index in categories
-                        li.catalog-modal__list-item(data-tabs-id=1 data-tabs-button=(index + 1) data-tabs-active=(index === activeCategory ? '' : undefined))
-                          .catalog-modal__list-link
-                            |#{category}
-              .catalog-modal__col
-                .catalog-modal__container
-                  -
-                    var subCategories = [
-                      'Вафли',
-                      'Зефир, мармелад, пастила',
-                      'Конфеты вес',
-                      'Конфеты наборы',
-                      'Крекер',
-                      'Печенье',
-                      'Пряник',
-                      'Торты, пирожное',
-                      'Шоколад',
-                    ]
-                  each category, index in categories
-                    ul.catalog-modal__list.catalog-modal__list--sub(data-tabs-id=1 data-tabs-tab=(index + 1) data-tabs-active=(index === activeCategory ? '' : undefined))
-                      - for (let i=0; i<(Math.ceil(Math.random() * categories.length)); i++)
-                        li.catalog-modal__list-item
-                          a.catalog-modal__list-link(href="#")
-                            |#{subCategories[i]}
-
-
-                  
+          .catalog-modal__row
+            -
+              var categories = [
+                {
+                  name: 'Мясная гастрономия',
+                  sub: [
+                    'Вареные колбасы',
+                    'Ветчина',
+                    'Деликатесы',
+                    'Копченые колбасы',
+                    'Паштеты',
+                    'Сардельки',
+                    'Сосиски',
+                  ],
+                },
+                {
+                  name: 'Мясо охлажденное',
+                  sub: [
+                    'Курица гриль',
+                    'Свинина',
+                  ],
+                },
+                {
+                  name: 'Молочные продукты, сыры, масло',
+                  sub: [
+                    'Кисломолочные продукты',
+                    'Масло',
+                    'Молоко',
+                    'Сыры',
+                  ],
+                },
+                {
+                  name: 'Замороженные полуфабрикаты',
+                  sub: [
+                    'Весовые полуфабрикаты',
+                    'Готовые блюда',
+                    'Тесто',
+                    'Штучные полуфабрикаты',
+                  ],
+                },
+                {
+                  name: 'Кондитерские изделия',
+                  sub: [
+                    'Вафли',
+                    'Зефир, мармелад, пастила',
+                    'Конфеты вес',
+                    'Конфеты наборы',
+                    'Крекер',
+                    'Печенье',
+                    'Пряники',
+                    'Торты, пирожные',
+                    'Шоколад',
+                  ],
+                },
+                {
+                  name: 'Бакалея',
+                  sub: [
+                    'Крупы',
+                    'Каши',
+                    'Макаронные изделия',
+                    'Молоко сгущенное',
+                  ],
+                },
+                {
+                  name: 'Замороженные полуфабрикаты',
+                  sub: [
+                    'Крупы',
+                    'Каши',
+                    'Макаронные изделия',
+                    'Молоко сгущенное',
+                  ],
+                },
+                {
+                  name: 'Вода, напитки',
+                },
+                {
+                  name: 'Рыба',
+                },
+                {
+                  name: 'Снеки',
+                },
+                {
+                  name: 'Овощи',
+                },
+                {
+                  name: 'Приправы',
+                },
+                {
+                  name: 'Мясо замороженное',
+                },
+                {
+                  name: 'Чай, кофе',
+                  sub: [
+                    'Кофе, кофейные напитки',
+                    'Прикасса',
+                    'Чай, чайные напитки',
+                  ],
+                },
+                {
+                  name: 'Консервы',
+                  sub: [
+                    'Консервы овощные',
+                    'Консервы рыбные',
+                    'Мясные консервы',
+                    'Мясорастительные консервы',
+                  ],
+                },
+                {
+                  name: 'Хлебобулочные изделия',
+                  sub: [
+                    'Мелкоштучная выпечка',
+                    'Хлеб',
+                  ],
+                },
+                {
+                  name: 'Соусы',
+                  sub: [
+                    'Кетчуп',
+                    'Майонезный соус',
+                    'Соусы',
+                  ],
+                },
+              ]
+            .catalog-modal__col
+              .catalog-modal__inner
+                .catalog-modal__categories-wrapper.catalog-modal__categories-wrapper--grey
+                  .catalog-modal__scrollbar(data-scrollbar-id='a')
+                    .catalog-modal__scrollbar-thumb(data-scrollbar-thumb='a')
+                  .catalog-modal__categories(data-scrollbar-outer='a')
+                    .catalog-modal__categories-container(data-scrollbar-inner='a')
+                      ul.catalog-modal__categories-list
+                        each category, index in categories
+                          li.catalog-modal__categories-item(data-category-item=index data-category-single=('sub' in category ? undefined : '') data-category-active=(index === 0 ? '' : undefined))
+                            a.catalog-modal__categories-button(href='#' data-category-button)
+                              |#{category.name}
+            .catalog-modal__col
+              .catalog-modal__inner
+                each category, index in categories
+                  if ('sub' in category)
+                    .catalog-modal__categories-wrapper(data-category-tab=index)
+                      .catalog-modal__scrollbar(data-scrollbar-id=index)
+                        .catalog-modal__scrollbar-thumb(data-scrollbar-thumb=index)
+                      .catalog-modal__categories(data-scrollbar-outer=index)
+                        .catalog-modal__categories-container(data-scrollbar-inner=index)
+                          ul.catalog-modal__sub-list
+                            each sub in category.sub
+                              li.catalog-modal__sub-item
+                                a.catalog-modal__sub-link(href="#")
+                                  |#{sub}

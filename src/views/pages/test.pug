@@ -82,27 +82,21 @@ block content
           },
           {
             name: 'Вода, напитки',
-            sub: [],
           },
           {
             name: 'Рыба',
-            sub: [],
           },
           {
             name: 'Снеки',
-            sub: [],
           },
           {
             name: 'Овощи',
-            sub: [],
           },
           {
             name: 'Приправы',
-            sub: [],
           },
           {
             name: 'Мясо замороженное',
-            sub: [],
           },
           {
             name: 'Чай, кофе',
@@ -149,19 +143,23 @@ block content
                     li.test__categories-item(data-category-item=index data-category-active=(index === 0 ? '' : undefined))
                       .test__categories-button(data-category-button)
                         |#{category.name}
+                        if ('sub' in category)
+                          p
+                            |sub
       .test__col
         .test__inner
           each category, index in categories
-            .test__categories-wrapper(data-category-tab=index)
-              .test__scrollbar(data-scrollbar-id=index)
-                .test__scrollbar-thumb(data-scrollbar-thumb=index)
-              .test__categories(data-scrollbar-outer=index)
-                .test__categories-container(data-scrollbar-inner=index)
-                  ul.test__sub-list
-                    each sub in category.sub
-                      li.test__sub-item
-                        a.test__sub-link(href="#")
-                          |#{sub}
+            if (category.sub)
+              .test__categories-wrapper(data-category-tab=index)
+                .test__scrollbar(data-scrollbar-id=index)
+                  .test__scrollbar-thumb(data-scrollbar-thumb=index)
+                .test__categories(data-scrollbar-outer=index)
+                  .test__categories-container(data-scrollbar-inner=index)
+                    ul.test__sub-list
+                      each sub in category.sub
+                        li.test__sub-item
+                          a.test__sub-link(href="#")
+                            |#{sub}
 
 
 

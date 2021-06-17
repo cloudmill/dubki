@@ -309,17 +309,14 @@ function toggleDataAttr($element, attr, value='') {
 }
 
 // nav-modal
-// notifi-modal
 {
   $(() => {
     const header = $('.header');
 
     if (header.length !== 0) {
       const navModalButton = header.find('.header__button-button');
-      const catalogModalButton = header.find('.header__catalog-button');
 
       // клик по кнопке вызова модального окна (открытие-закрытие)
-      // м.о. меню
       navModalButton.on('click', function () {
         if (header.hasClass('header--nav-modal')) { // если модальное окно открыто - закрываем
           header.removeClass('header--nav-modal'); // обновляем модификатор header (шапка, контейнер модальных окон)
@@ -329,21 +326,9 @@ function toggleDataAttr($element, attr, value='') {
           navModalButton.addClass('button-modal--active');
         }
       });
-      // м.о. каталог
-      // аналогично (выше)
-      catalogModalButton.on('click', function () {
-        if (header.hasClass('header--catalog-modal')) {
-          header.removeClass('header--catalog-modal');
-          catalogModalButton.removeClass('header__catalog-button--active');
-        } else {
-          header.addClass('header--catalog-modal');
-          catalogModalButton.addClass('header__catalog-button--active');
-        }
-      });
 
       // клик вне модального окна (закрытие)
       $(window).on('click', event => {
-        // обработка клика по окну в контексте catalog-modal
         if (
           header.hasClass('header--nav-modal') && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
@@ -351,15 +336,6 @@ function toggleDataAttr($element, attr, value='') {
         ) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('button-modal--active');
-        }
-        // обработка клика по окну в контексте catalog-modal
-        if (
-          header.hasClass('header--catalog-modal') && // если модальное окно открыто
-          $(event.target).closest(catalogModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest('.catalog-modal').length === 0 // + клик не по модальному окну
-        ) {
-          header.removeClass('header--catalog-modal'); // обновляем состояние header (стили прокидываются на catalog-modal)
-          catalogModalButton.removeClass('header__catalog-button--active'); // обновляем состояние кнопки
         }
       });
     }
@@ -836,16 +812,48 @@ function toggleDataAttr($element, attr, value='') {
           $(`[data-category-tab="${categoryID}"]`).css('display', '')
         }
 
+        const isSingle = 'categorySingle' in categoryItem[0].dataset
         categoryButton.on('mouseenter', () => {
-          const categoryActiveItem = categoryItems.filter('[data-category-active]')
-          delete categoryActiveItem[0].dataset['categoryActive']
-
-          $(this)[0].dataset['categoryActive'] = ''
-
-          categoryTabs.css('display', 'none')
-          $(`[data-category-tab="${categoryID}"]`).css('display', '')
+          if (!isSingle) {
+            const categoryActiveItem = categoryItems.filter('[data-category-active]')
+            delete categoryActiveItem[0].dataset['categoryActive']
+  
+            $(this)[0].dataset['categoryActive'] = ''
+  
+            categoryTabs.css('display', 'none')
+            $(`[data-category-tab="${categoryID}"]`).css('display', '')
+          }
         })
       })
+    }
+
+    {
+      const header = $('.header');
+
+      if (header.length !== 0) {
+        const catalogModalButton = header.find('.header__catalog-button');
+
+        catalogModalButton.on('click', function () {
+          if (header.hasClass('header--catalog-modal')) {
+            header.removeClass('header--catalog-modal');
+            catalogModalButton.removeClass('header__catalog-button--active');
+          } else {
+            header.addClass('header--catalog-modal');
+            catalogModalButton.addClass('header__catalog-button--active');
+          }
+        });
+
+        $(window).on('click', event => {
+          if (
+            header.hasClass('header--catalog-modal') && // если модальное окно открыто
+            $(event.target).closest(catalogModalButton).length === 0 && // + клик не по кнопке
+            $(event.target).closest('.catalog-modal').length === 0 // + клик не по модальному окну
+          ) {
+            header.removeClass('header--catalog-modal'); // обновляем состояние header (стили прокидываются на catalog-modal)
+            catalogModalButton.removeClass('header__catalog-button--active'); // обновляем состояние кнопки
+          }
+        })
+      }
     }
   })
 }
