@@ -1863,18 +1863,29 @@ body>.wrapper {
       position: absolute;
       z-index: 1;
 
-      font-weight: 900;
-      font-size: 28px;
-      line-height: .8;
-      color: $color-black;
+      @include f-alt();
+      @include fsl(28px, 80%);
 
       &--catalog {
-        font-size: 20px;
+        @include fsl(20px, 80%);
 
         @media (min-width: $breakpoint) {
-          font-size: 28px;
+          @include fsl(28px, 80%);
         }
       }
+    }
+
+    &-subtext {
+      @include fsl(14px, 80%);
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
     }
   }
 
@@ -2286,7 +2297,6 @@ body>.wrapper {
   &__row {
     @media (min-width: $breakpoint) {
       display: flex;
-      align-items: center;
     }
 
 
@@ -2300,30 +2310,28 @@ body>.wrapper {
   }
 
   &__section {
+    flex-shrink: 0;
+    @include fsl(14px, 80%);
     @media (min-width: $breakpoint) {
+      padding-top: 15px;
+      @include fsl(22px, 80%);
       width: calc(#{$grid-part-d} * 3);
     }
-
-    font-weight: 700;
-    color: $color-black;
-    font-size: 14px;
-    flex-shrink: 0;
-    @media (min-width: $breakpoint) {
-      font-size: 22px;
+    @media (max-width: $breakpoint - 1px) {
+      margin-bottom: 20px;
     }
-
-    line-height: 0.8;
-
-
-
-
   }
 
   &__list {
+    @media (min-width: $breakpoint) {
+      margin-top: -10px;
+      margin-left: -10px;
+      flex-wrap: wrap;
+    }
     display: flex;
-
     @media (max-width: $breakpoint - 1px) {
-      margin-top: 20px;
+      width: calc(100% + 30px);
+      overflow-x: scroll;
     }
   }
 
@@ -2331,6 +2339,8 @@ body>.wrapper {
     padding: 12px 20px;
     @media (min-width: $breakpoint) {
       padding: 18px 30px;
+      margin-top: 10px;
+      margin-left: 10px;
 
       border-radius: 20px;
       @include fsl(16px, 80%);
@@ -2344,7 +2354,9 @@ body>.wrapper {
     cursor: pointer;
 
     &:not(:first-child) {
-      margin-left: 10px;
+      @media (max-width: $breakpoint - 1px) {
+        margin-left: 10px;
+      }
     }
 
     &:hover {

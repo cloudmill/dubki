@@ -2,14 +2,14 @@ extends ../layouts/master.pug
 
 
 block content
-  .section--grey.section--header
+  .section.section--header
     .container
       .banner 
         .banner__inner
           .banner__frame 
             img.banner__img.banner__img--desctop(src="assets/images/banner-desctop-1.jpg", alt="")
             img.banner__img.banner__img--mobile(src="assets/images/banner-mobile-1.png", alt="")
-  .section--grey
+  .section
     .container 
       .block
         .block__inner
@@ -30,7 +30,7 @@ block content
                     +leaflet-svg 
                   p.block-list__item-text.block-list__item-text--active
                     |Мясная гастрономия
-  .section--grey.section--catalog
+  .section.section--catalog
     .container 
       .category 
         .category__row(data-aos="fade-up")
@@ -67,12 +67,12 @@ block content
               |-25%
             li.category__item
               |-30%
-  .section--grey.section--catalog
+  .section.section--catalog
     .container 
       .section__inner
         .catalog 
           ul.catalog__list 
-            - for (i = 0; i < 18; i++)
+            - for (i = 0; i < 9; i++)
               li.catalog__item(data-aos="fade-up")
                 .top-slide.top-slide--catalog
                   .top-slide__discont
@@ -80,6 +80,24 @@ block content
                       +top-icon-svg('catalog__icon')
                     .top-slide__discont-text.top-slide__discont-text--catalog
                       |-40%
+                      .top-slide__discont-subtext
+                        |3 по 1
+                  .top-slide__container.top-slide__container--catalog
+                    .top-slide__frame
+                      img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
+                    p.top-slide__text.top-slide__text--catalog
+                      |Ветчина из Говядины ТМ Русские колбасы, 1 кг
+                    .top-slide__price.top-slide__price--catalog
+                      span 
+                        |760 ₽
+                      |610 ₽
+              li.catalog__item(data-aos="fade-up")
+                .top-slide.top-slide--catalog
+                  .top-slide__discont
+                    .top-slide__discont-icon
+                      +top-icon-svg('catalog__icon')
+                    .top-slide__discont-text.top-slide__discont-text--catalog
+                      |-30%
                   .top-slide__container.top-slide__container--catalog
                     .top-slide__frame
                       img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
@@ -97,7 +115,7 @@ block content
 
 block footer 
   +footer({
-    mod: 'catalog-grey',
+    mod: 'light-grey',
   })
 
   //- .banner__layout 

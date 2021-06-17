@@ -5,6 +5,10 @@
     background-color: $color-catalog-grey;
   }
 
+  &--light-grey {
+    background-color: $color-grey;
+  }
+
   &__frame {
     overflow: hidden;
 
