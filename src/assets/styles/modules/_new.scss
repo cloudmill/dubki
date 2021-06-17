@@ -357,6 +357,7 @@ body>.wrapper {
   }
 
   &__city {
+    $comp: &;
     width: calc((#{$col-part-d}) * 2 - #{$col-gap-d});
     flex-shrink: 0;
     display: none;
@@ -373,12 +374,19 @@ body>.wrapper {
       display: flex;
       align-items: center;
 
-      .header__arrow path {
-        // ? можно заменить на &__arrow { path { ... у блока (не создавать зависимость)
-        stroke: $color-white;
-      }
-
       cursor: pointer;
+
+      &:hover {
+        #{$comp}-text {
+          color: $color-yellow;
+        }
+
+        .header__arrow {
+          path {
+            stroke: $color-yellow;
+          }
+        }
+      }
     }
 
     &-text {
@@ -387,6 +395,7 @@ body>.wrapper {
         @include fsl(18px, 80%);
       }
       color: $color-white;
+      transition: $transition;
     }
 
     &-icon {
@@ -399,6 +408,13 @@ body>.wrapper {
         width: 100%;
         height: 100%;
       }
+    }
+  }
+
+  &__arrow {
+    path {
+      transition: $transition;
+      stroke: $color-white;
     }
   }
 
@@ -1775,7 +1791,23 @@ body>.wrapper {
   background-color: $color-white;
   border-radius: 137px;
 
+  &:hover {
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.03);
+    #{$comp}__discont {
+      transform: rotate(25deg);
+    }
+
+    #{$comp}__image {
+      // width: 155px;
+      // height: 109px;
+      // transform: scale(1.2);
+      width: calc(100% + 20%);
+      height: calc(100% + 20%);
+    }
+  }
+
   &--catalog {
+    padding-top: 45px;
     height: 241px;
 
     @media (min-width: $breakpoint) {
@@ -1794,7 +1826,6 @@ body>.wrapper {
     }
 
   }
-
 
   &--big {
     @media (min-width: $breakpoint) {
@@ -1852,6 +1883,7 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: $transition;
 
     &-text {
       position: absolute;
@@ -1900,13 +1932,13 @@ body>.wrapper {
   }
 
   &__frame {
-    margin-top: 20px;
+    // margin-top: 20px;
 
     @media (min-width: $breakpoint) {
-      margin-top: 30px;
+      // margin-top: 30px;
     }
 
-    height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1920,9 +1952,12 @@ body>.wrapper {
     width: 129px;
     height: 91px;
     flex-shrink: 0;
+    transition: $transition;
 
     &--catalog {
       flex-shrink: 0;
+      width: 100%;
+      height: 100%;
     }
 
     &--product {
