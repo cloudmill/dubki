@@ -35,30 +35,32 @@ block content
               .recipes__text(data-aos="fade-up") 
                 |Тип блюда
               .recipes__select 
-                .select(data-aos="fade-up")
-                  select.select__select(name="type")(style="width: 147px")
-                    option(value="all", selected) 
-                      |Все
-                    option(value="breakfast") 
-                      |Завтрак
-                    option(value="lunch") 
-                      |Обед
-                    option(value="dinner") 
-                      |Ужин
+                .select-wrapper
+                  .select(data-aos="fade-up")
+                    select.select__select(name="type")(style="width: 147px")
+                      option(value="all", selected) 
+                        |Все
+                      option(value="breakfast") 
+                        |Завтрак
+                      option(value="lunch") 
+                        |Обед
+                      option(value="dinner") 
+                        |Ужин
             .recipes__col
               .recipes__text(data-aos="fade-up") 
                 |Время готовки
               .recipes__select 
-                .select(data-aos="fade-up")
-                  select.select__select(name="type")(style="width: 100%")
-                    option(value="all", selected) 
-                      |Все
-                    option(value="breakfast") 
-                      |Завтрак
-                    option(value="lunch") 
-                      |Обед
-                    option(value="dinner") 
-                      |Ужин
+                .select-wrapper
+                  .select(data-aos="fade-up")
+                    select.select__select(name="type")(style="width: 100%")
+                      option(value="all", selected) 
+                        |Все
+                      option(value="breakfast") 
+                        |Завтрак
+                      option(value="lunch") 
+                        |Обед
+                      option(value="dinner") 
+                        |Ужин
           .section--catalog 
             .recipes__wrapper 
               .slider

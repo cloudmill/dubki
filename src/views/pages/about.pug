@@ -26,11 +26,11 @@ block content
                                     p.block-list__item-text.block-list__item-text--active
                                         |О нас
 
-    .section--grey 
+    .section
         .intro 
             .intro__bg
                 
-    .section--grey 
+    .section 
         .container 
             .about-info 
                 .about-info__inner 
@@ -41,7 +41,7 @@ block content
                         p.about-info__text(data-aos="fade-up")
                             |Помимо продуктов питания, наша сеть радует клиентов вкусными готовыми блюдами. В магазинах новой концепции мы готовим:
 
-    .section--grey
+    .section
         .container 
             .about-card
                 .about-card__inner
@@ -137,7 +137,7 @@ block content
                                         h4.action-catalog__title
                                             |Мясная гастрономия
 
-    .section--grey
+    .section
         .frame--green
             .container 
                 .about
@@ -198,7 +198,7 @@ block content
                                 .button.button--l.button--l-transparent
                                     |Магазины «самообслуживания»
 
-    .section--grey 
+    .section
         .frame-about.frame-about--second
             .container 
                 .section__inner 
@@ -228,7 +228,7 @@ block content
                                                         .product-card__item-button 
                                                             +cursor-svg('product-card__item-icon')
 
-    .section--grey 
+    .section
         .container 
             .section__inner
                 .gifts 
@@ -258,7 +258,7 @@ block content
                                     p.gifts__text 
                                         |Часто проходят дегустации новинок и продуктов «хитов»
 
-    .section--grey 
+    .section
         .container 
             .section__inner 
                 .video(data-aos="fade-up")
@@ -270,14 +270,19 @@ block content
                                 .video-button.video-button--big
                                     +play-svg('video__button-icon')
 
-    .section--grey 
+    .section
         .container 
             .section__inner 
                 .contact 
+                    .contact__layout 
+                        img.contact__layout-img(src="assets/images/svg/contact-1.svg", alt="")
+                        img.contact__layout-image(src="assets/images/svg/contact-2.svg", alt="")
                     .contact__wrapper 
                         h3.contact__title(data-aos="fade-up") 
                             |Получая обратную связь от клиента, мы тщательно анализируем и результатом работы является:
                     .contact__inner 
+                        .contact__image(data-aos="fade-up") 
+                            img(src="assets/images/svg/about-img-1.svg", alt="")
                         ul.contact-list(data-aos="fade-up")
                             li.contact-list__item  
                                 .contact-list__icon 
@@ -310,14 +315,14 @@ block content
                                         |Перейти
                                     .button__wrapper.button__wrapper--alt 
                                         .button__wrapper.button__wrapper--alt
-                                            +cursor-svg('button__icon') 
+                                            +cursor-svg('button__icon button__svg') 
                         .contact__col(data-aos="fade-up")
                             p.contact__text 
                                 |Книга отзывов и предложений в каждой точке продаж
                                 span.question
                                     +quest-svg('question__mark')
 
-    .section--grey 
+    .section
         .section__inner
             .frame 
                 .container 
@@ -339,7 +344,7 @@ block content
                                 .progress__stat-text(data-aos="fade-up")
                                     |регионов России
 
-    .section--grey 
+    .section
         .container 
             .section__inner 
                 .partners 
@@ -359,22 +364,17 @@ block content
                                             p.partners-card__text 
                                                 |Крупнейшем в России производитель мясо-колбасной, молочной и кондитерской продукцией
     
-    .section--grey 
+    .section 
         .container 
             .section__inner
-                .banner.banner--second
-                    .banner__frame(data-aos="fade-up")
-                        .banner__layout 
-                        .banner__row 
-                            .banner__col
-                                h3.banner__title
-                                    |Каталог акций
-                            .banner__col
-                                .banner__icon 
-                                    +big-arrow-svg
+                .banner
+                    .banner__inner
+                        .banner__frame 
+                            img.banner__img.banner__img--desctop(src="assets/images/banner-desctop-2.png", alt="")
+                            img.banner__img.banner__img--mobile(src="assets/images/banner-mobile-2.png", alt="")
             
 
 block footer 
     +footer({
-        mod: 'catalog-grey',
+        mod: 'light-grey',
     })
