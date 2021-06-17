@@ -6476,7 +6476,9 @@ body>.wrapper {
     }
 
     &:nth-child(2) {
+      padding-top: 60px;
       @media (min-width: $breakpoint) {
+        padding-top: 0;
         padding-right: calc(#{$grid-part-d} - #{$grid-gap-d});
 
         width: calc(#{$grid-part-d} * 10);
