@@ -156,7 +156,7 @@
       transition: $transition;
     }
 
-    &--active {
+    &[data-category-active] {
       &::before {
         opacity: 1;
       }
@@ -189,5 +189,34 @@
 
     background-color: black;
     border-radius: 2px;
+  }
+
+  &__sub-list {
+    @keyframes category-sub-list {
+      0% {
+        transform: translateY(40px);
+
+        opacity: 0;
+      }
+      100% {
+        transform: none;
+
+        opacity: 1;
+      }
+    }
+
+    padding: 0 60px;
+
+    animation: category-sub-list $transition;
+  }
+  &__sub-item {
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+  &__sub-link {
+    color: red;
   }
 }

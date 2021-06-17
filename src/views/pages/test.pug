@@ -9,33 +9,159 @@ block header
 block content
   .test
     .test__row
+      -
+        var categories = [
+          {
+            name: 'Мясная гастрономия',
+            sub: [
+              'Вареные колбасы',
+              'Ветчина',
+              'Деликатесы',
+              'Копченые колбасы',
+              'Паштеты',
+              'Сардельки',
+              'Сосиски',
+            ],
+          },
+          {
+            name: 'Мясо охлажденное',
+            sub: [
+              'Курица гриль',
+              'Свинина',
+            ],
+          },
+          {
+            name: 'Молочные продукты, сыры, масло',
+            sub: [
+              'Кисломолочные продукты',
+              'Масло',
+              'Молоко',
+              'Сыры',
+            ],
+          },
+          {
+            name: 'Замороженные полуфабрикаты',
+            sub: [
+              'Весовые полуфабрикаты',
+              'Готовые блюда',
+              'Тесто',
+              'Штучные полуфабрикаты',
+            ],
+          },
+          {
+            name: 'Кондитерские изделия',
+            sub: [
+              'Вафли',
+              'Зефир, мармелад, пастила',
+              'Конфеты вес',
+              'Конфеты наборы',
+              'Крекер',
+              'Печенье',
+              'Пряники',
+              'Торты, пирожные',
+              'Шоколад',
+            ],
+          },
+          {
+            name: 'Бакалея',
+            sub: [
+              'Крупы',
+              'Каши',
+              'Макаронные изделия',
+              'Молоко сгущенное',
+            ],
+          },
+          {
+            name: 'Замороженные полуфабрикаты',
+            sub: [
+              'Крупы',
+              'Каши',
+              'Макаронные изделия',
+              'Молоко сгущенное',
+            ],
+          },
+          {
+            name: 'Вода, напитки',
+            sub: [],
+          },
+          {
+            name: 'Рыба',
+            sub: [],
+          },
+          {
+            name: 'Снеки',
+            sub: [],
+          },
+          {
+            name: 'Овощи',
+            sub: [],
+          },
+          {
+            name: 'Приправы',
+            sub: [],
+          },
+          {
+            name: 'Мясо замороженное',
+            sub: [],
+          },
+          {
+            name: 'Чай, кофе',
+            sub: [
+              'Кофе, кофейные напитки',
+              'Прикасса',
+              'Чай, чайные напитки',
+            ],
+          },
+          {
+            name: 'Консервы',
+            sub: [
+              'Консервы овощные',
+              'Консервы рыбные',
+              'Мясные консервы',
+              'Мясорастительные консервы',
+            ],
+          },
+          {
+            name: 'Хлебобулочные изделия',
+            sub: [
+              'Мелкоштучная выпечка',
+              'Хлеб',
+            ],
+          },
+          {
+            name: 'Соусы',
+            sub: [
+              'Кетчуп',
+              'Майонезный соус',
+              'Соусы',
+            ],
+          },
+        ]
       .test__col
         .test__inner
           .test__categories-wrapper
-            .test__scrollbar(data-scrollbar-id='1')
-              .test__scrollbar-thumb(data-scrollbar-thumb='1')
-            .test__categories(data-scrollbar-outer='1')
-              .test__categories-container(data-scrollbar-inner='1')
+            .test__scrollbar(data-scrollbar-id='a')
+              .test__scrollbar-thumb(data-scrollbar-thumb='a')
+            .test__categories(data-scrollbar-outer='a')
+              .test__categories-container(data-scrollbar-inner='a')
                 ul.test__categories-list
-                  li.test__categories-item.test__categories-item--active
-                    .test__categories-button
-                      |category
-                  -
-                    var categories = [
-                      'category',
-                      'category',
-                      'category',
-                      'category',
-                      'category',
-                    ]
-                  - for (let i=0; i<10; i++)
-                    each category in categories
-                      li.test__categories-item
-                        .test__categories-button
-                          |#{category}
+                  each category, index in categories
+                    li.test__categories-item(data-category-item=index data-category-active=(index === 0 ? '' : undefined))
+                      .test__categories-button(data-category-button)
+                        |#{category.name}
       .test__col
         .test__inner
-          |sub-categories
+          each category, index in categories
+            .test__categories-wrapper(data-category-tab=index)
+              .test__scrollbar(data-scrollbar-id=index)
+                .test__scrollbar-thumb(data-scrollbar-thumb=index)
+              .test__categories(data-scrollbar-outer=index)
+                .test__categories-container(data-scrollbar-inner=index)
+                  ul.test__sub-list
+                    each sub in category.sub
+                      li.test__sub-item
+                        a.test__sub-link(href="#")
+                          |#{sub}
 
 
 

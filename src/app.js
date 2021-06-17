@@ -323,7 +323,7 @@ function toggleDataAttr($element, attr, value='') {
       navModalButton.on('click', function () {
         if (header.hasClass('header--nav-modal')) { // если модальное окно открыто - закрываем
           header.removeClass('header--nav-modal'); // обновляем модификатор header (шапка, контейнер модальных окон)
-          navModalButton.removeClass('header__button-button--active'); // обновляем модификатор кнопки
+          navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
         } else { // открывыем, аналогично (выше)
           header.addClass('header--nav-modal');
           navModalButton.addClass('button-modal--active');
@@ -762,44 +762,90 @@ function toggleDataAttr($element, attr, value='') {
 
 // catalog-modal
 {
+  // ждем полной загрузки
+  // т.к. нам нужен оригинальный шрифт
+  // для корректных расчетов
   $(window).on('load', () => {
-    const scrollbars = $('[data-scrollbar-id]')
+    // логика скроллбаров
+    {
+      const scrollbars = $('[data-scrollbar-id]')
 
-    scrollbars.each(function () {
-      const scrollbar = $(this)
-      const scrollbarID = scrollbar.data('scrollbar-id')
+      scrollbars.each(function () {
+        // скроллбар
+        const scrollbar = $(this)
+        const scrollbarID = scrollbar.data('scrollbar-id')
 
-      const scrollbarOuter = $(`[data-scrollbar-outer="${scrollbarID}"]`)
-      const scrollbarInner = $(`[data-scrollbar-inner="${scrollbarID}"]`)
+        // контейнеры
+        const scrollbarOuter = $(`[data-scrollbar-outer="${scrollbarID}"]`)
+        const scrollbarInner = $(`[data-scrollbar-inner="${scrollbarID}"]`)
 
-      const scrollbarOuterHeight = scrollbarOuter[0].offsetHeight
-      const scrollbarInnerHeight = scrollbarInner[0].offsetHeight
-      const scrollbarDist = scrollbarInnerHeight - scrollbarOuterHeight
+        // расстояние скролла
+        const scrollbarOuterHeight = scrollbarOuter[0].offsetHeight
+        const scrollbarInnerHeight = scrollbarInner[0].offsetHeight
+        const scrollbarDist = scrollbarInnerHeight - scrollbarOuterHeight
 
-      if (scrollbarDist <= 0) {
-        scrollbar.css('display', 'none')
-        return
-      }
+        // нужен ли скроллбар?
+        if (scrollbarDist <= 0) {
+          scrollbar.css('display', 'none')
+          return
+        }
 
-      const thumb = $(`[data-scrollbar-thumb="${scrollbarID}"]`)
-      const thumbPercentage = scrollbarOuterHeight / scrollbarInnerHeight * 100
+        // ползунок
+        const thumb = $(`[data-scrollbar-thumb="${scrollbarID}"]`)
+        const thumbHeight = scrollbarOuterHeight / scrollbarInnerHeight * 100 // в % от скроллбара
+        const thumbDist = 100 - thumbHeight // в % от скроллбара
 
-      requestAnimationFrame(() => {
-        thumb.css('height', `${thumbPercentage}%`)
-      })
-
-      const scrollbarHeight = scrollbar[0].offsetHeight
-      const thumbHeight = thumb[0].offsetHeight
-      const thumbDist = scrollbarHeight - thumbHeight
-      scrollbarOuter.on('scroll', () => {
-        const y = scrollbarOuter.scrollTop()
-        let progress = Math.round(y / scrollbarDist * 100)
-        progress = progress < 0 ? 0 : (progress > 100 ? 100 : progress)
-
+        // высота ползунка (инициализация)
         requestAnimationFrame(() => {
-          thumb.css('top', `${thumbDist * progress / 100}px`)
+          thumb.css('height', `${thumbHeight}%`)
+        })
+
+        // движение ползунка
+        scrollbarOuter.on('scroll', () => {
+          // текущий скролл в px
+          const y = scrollbarOuter.scrollTop()
+          // текущий скролл в %
+          let progress = Math.round(y / scrollbarDist * 100)
+          progress = progress < 0 ? 0 : (progress > 100 ? 100 : progress)
+
+          requestAnimationFrame(() => {
+            thumb.css('top', `${thumbDist * (progress / 100)}%`)
+          })
         })
       })
-    })
+    }
+
+    // логика табов
+    // после логики скроллбаров
+    // т.к. логика скроллбаров в вычислениях опирается на содержимое контейнеров
+    // а в логике табов происходит скрытие содержимого контейнеров
+    {
+      const categoryItems = $('[data-category-item]')
+
+      const categoryTabs = $('[data-category-tab]')
+      categoryTabs.css('display', 'none')
+
+      categoryItems.each(function () {
+        const categoryItem = $(this)
+        const categoryID = categoryItem.data('category-item')
+        const categoryButton = categoryItem.find('[data-category-button]')
+
+        const categoryIsActive = 'categoryActive' in categoryItem[0].dataset
+
+        if (categoryIsActive) {
+          $(`[data-category-tab="${categoryID}"]`).css('display', '')
+        }
+
+        categoryButton.on('mouseenter', () => {
+          const categoryActiveItem = categoryItems.filter('[data-category-active]')
+          delete categoryActiveItem[0].dataset['categoryActive']
+
+          $(this)[0].dataset['categoryActive'] = ''
+
+          categoryTabs.css('display', 'none')
+          $(`[data-category-tab="${categoryID}"]`).css('display', '')
+        })
+      })
+    }
   })
 }
