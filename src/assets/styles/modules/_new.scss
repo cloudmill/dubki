@@ -6900,6 +6900,10 @@ body>.wrapper {
   }
 
   &-selection__rendered {
+    width: 127px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     @include fsl(16px, 80%);
     transition: $transition;
   }
