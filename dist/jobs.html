@@ -667,12 +667,14 @@
 										<div class="form__item"><input class="form__input" name="name" placeholder="Имя"></div>
 										<div class="form__item"><input class="form__input" name="phone" placeholder="Телефон"></div>
 										<div class="form__item form__item--select">
-											<div class="select"><select class="select__select select__select--modal" name="city" style="width: 100%">
-													<option value="saratov" selected="selected">Саратов</option>
-													<option value="moscov">Москва</option>
-													<option value="spb">Санкт-Питербург</option>
-													<option value="voronezh">Воронеж</option>
-												</select></div>
+											<div class="select-wrapper">
+												<div class="select"><select class="select__select select__select--modal" name="city" style="width: 100%">
+														<option value="saratov" selected="selected">Саратов</option>
+														<option value="moscov">Москва</option>
+														<option value="spb">Санкт-Питербург</option>
+														<option value="voronezh">Воронеж</option>
+													</select></div>
+											</div>
 										</div>
 										<div class="form__item"><textarea class="form__input form__input--large" name="text" placeholder="Вопрос или пожелание"></textarea></div>
 										<div class="form__wrapper">
@@ -933,8 +935,8 @@
 											<div class="vacancies__wrapper" data-aos="fade-up">
 												<div class="vacancies__text">Город</div>
 											</div>
-											<div class="vacancies__select">
-												<div class="select" data-aos="fade-up">
+											<div class="select-wrapper">
+												<div class="vacancies__select">
 													<div class="select"><select class="select__select" name="city" style="width: 100%">
 															<option value="saratov" selected="selected">Саратов</option>
 															<option value="moscov">Москва</option>
