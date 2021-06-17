@@ -759,3 +759,47 @@ function toggleDataAttr($element, attr, value='') {
     };
   });
 }
+
+// catalog-modal
+{
+  $(window).on('load', () => {
+    const scrollbars = $('[data-scrollbar-id]')
+
+    scrollbars.each(function () {
+      const scrollbar = $(this)
+      const scrollbarID = scrollbar.data('scrollbar-id')
+
+      const scrollbarOuter = $(`[data-scrollbar-outer="${scrollbarID}"]`)
+      const scrollbarInner = $(`[data-scrollbar-inner="${scrollbarID}"]`)
+
+      const scrollbarOuterHeight = scrollbarOuter[0].offsetHeight
+      const scrollbarInnerHeight = scrollbarInner[0].offsetHeight
+      const scrollbarDist = scrollbarInnerHeight - scrollbarOuterHeight
+
+      if (scrollbarDist <= 0) {
+        scrollbar.css('display', 'none')
+        return
+      }
+
+      const thumb = $(`[data-scrollbar-thumb="${scrollbarID}"]`)
+      const thumbPercentage = scrollbarOuterHeight / scrollbarInnerHeight * 100
+
+      requestAnimationFrame(() => {
+        thumb.css('height', `${thumbPercentage}%`)
+      })
+
+      const scrollbarHeight = scrollbar[0].offsetHeight
+      const thumbHeight = thumb[0].offsetHeight
+      const thumbDist = scrollbarHeight - thumbHeight
+      scrollbarOuter.on('scroll', () => {
+        const y = scrollbarOuter.scrollTop()
+        let progress = Math.round(y / scrollbarDist * 100)
+        progress = progress < 0 ? 0 : (progress > 100 ? 100 : progress)
+
+        requestAnimationFrame(() => {
+          thumb.css('top', `${thumbDist * progress / 100}px`)
+        })
+      })
+    })
+  })
+}

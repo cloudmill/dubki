@@ -8,7 +8,34 @@ block header
 
 block content
   .test
-    |test
+    .test__row
+      .test__col
+        .test__inner
+          .test__categories-wrapper
+            .test__scrollbar(data-scrollbar-id='1')
+              .test__scrollbar-thumb(data-scrollbar-thumb='1')
+            .test__categories(data-scrollbar-outer='1')
+              .test__categories-container(data-scrollbar-inner='1')
+                ul.test__categories-list
+                  li.test__categories-item.test__categories-item--active
+                    .test__categories-button
+                      |category
+                  -
+                    var categories = [
+                      'category',
+                      'category',
+                      'category',
+                      'category',
+                      'category',
+                    ]
+                  - for (let i=0; i<10; i++)
+                    each category in categories
+                      li.test__categories-item
+                        .test__categories-button
+                          |#{category}
+      .test__col
+        .test__inner
+          |sub-categories
 
 
 

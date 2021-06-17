@@ -1,9 +1,9 @@
-.test {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .test {
+//   min-height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 // главная
 .index {
@@ -45,5 +45,149 @@
 
     opacity: 0;
     transition: opacity 0.25s;
+  }
+}
+
+.test {
+  width: 50%;
+  height: 100vh;
+
+  border: 1px solid black;
+  border-radius: 0 50px 50px 0;
+
+  &__row {
+    height: 100%;
+    display: flex;
+  }
+  &__col {
+    width: 50%;
+    height: 100%;
+
+    &:nth-child(1) {
+      border: 1px solid black;
+      border-radius: 0 50px 50px 0;
+    }
+  }
+
+  &__inner {
+    padding-top: 100px;
+    height: 100%;
+  }
+
+  $offset: 30px;
+  $offset-active: 11px;
+  &__categories-wrapper {
+    @mixin pseudo() {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+
+      content: '';
+      width: 100%;
+      height: $offset - $offset-active;
+      pointer-events: none;
+
+      background: linear-gradient(white, transparent);
+    }
+
+    position: relative;
+    z-index: 0;
+
+    margin-top: -$offset;
+    height: calc(100% + #{$offset});
+
+    &::before {
+      @include pseudo();
+
+      top: 0;
+    }
+    &::after {
+      @include pseudo();
+
+      bottom: 0;
+      transform: rotate(180deg);
+    }
+  }
+  &__categories {
+    @include scrollbar-hidden();
+
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  &__categories-container {
+    padding: $offset 0;
+  }
+
+  &__categories-list {
+    padding-left: $col-pad-d;
+  }
+  &__categories-item {
+    position: relative;
+    z-index: 0;
+
+    padding: 0 32px;
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+
+      content: '';
+      width: 100%;
+      height: calc(100% + (11px * 2));
+      pointer-events: none;
+
+      background-color: gray;
+      border-radius: 5px 0 0 5px;
+      opacity: 0;
+      transition: $transition;
+    }
+
+    &--active {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+  &__categories-button {
+    cursor: pointer;
+  }
+
+  &__scrollbar {
+    position: absolute;
+    z-index: 1;
+    top: $offset;
+    bottom: $offset;
+    left: $col-pad-d / 2;
+    transform: translateX(-50%);
+
+    width: 4px;
+    pointer-events: none;
+    
+    background-color: gray;
+    border-radius: 2px;
+  }
+  &__scrollbar-thumb {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 25%;
+
+    background-color: black;
+    border-radius: 2px;
   }
 }
