@@ -4363,11 +4363,44 @@ body>.wrapper {
 }
 
 .contact { 
+  position: relative;
+
+  &__layout {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    z-index: 0;
+
+    &-img {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 0;
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      right: calc(#{$grid-part-d} * 4 - #{$grid-part-d} + 60px);
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+  }
 
   &__wrapper {
     padding-bottom: 30px;
     @media (min-width: $breakpoint) {
-      padding-bottom: 50px;
+      padding-bottom: 15px;
       padding-left: calc(#{$grid-part-d} * 3);
     }
   }
@@ -4386,12 +4419,23 @@ body>.wrapper {
     padding-bottom: 60px;
     @media (min-width: $breakpoint) {
       padding-bottom: 100px;
+      margin-left: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+    }
+    display: flex;
+  }
+
+  &__image {
+    margin-right: calc(#{$grid-gap-d});
+    width: calc(#{$grid-part-d} * 3);
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
     }
   }
 
   &-list {
     @media (min-width: $breakpoint) {
-      margin-left: calc(#{$grid-part-d} * 7);
+      padding-top: 35px;
 
       width: calc(#{$grid-part-d} * 5);
     }
@@ -4476,7 +4520,14 @@ body>.wrapper {
     }
     @include fsl(16px, 120%);
     color: $color-green;
+    transition: $transition;
+
+    // &:hover {
+    //   color: $color-yellow;
+    // }
   }
+
+  
 
   &__button {
     margin-top: 15px;
