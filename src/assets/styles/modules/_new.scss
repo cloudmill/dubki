@@ -1888,9 +1888,7 @@ body>.wrapper {
     #{$comp}__image {
       // width: 155px;
       // height: 109px;
-      // transform: scale(1.2);
-      width: calc(100% + 20%);
-      height: calc(100% + 20%);
+      transform: scale(1.2);
     }
   }
 
@@ -1966,6 +1964,7 @@ body>.wrapper {
 
   &__discont {
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
     display: flex;
@@ -4772,6 +4771,16 @@ body>.wrapper {
         order: 1;
       }
     }
+
+    &--sticky {
+      
+      &:nth-child(2) {
+        @media (min-width: $breakpoint) {
+          display: flex;
+          align-items: flex-end;
+        }
+      }
+    }
   }
 
   &__text {
@@ -4872,7 +4881,7 @@ body>.wrapper {
     &--fixed {
       @media (min-width: $breakpoint) {
         position: fixed;
-        top: 220px;
+        top: 130px;
       }
     }
 

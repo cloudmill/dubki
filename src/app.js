@@ -256,18 +256,22 @@ function toggleDataAttr($element, attr, value='') {
 
     if (recipe.length !== 0) {
       const recipePos = recipe.offset().top;
-      const recipeHeight = recipe.innerHeight();
+      const recipeHeight = recipe.innerHeight() + 100;
       const recipeList = $('.recipe__ingredients');
 
 
       $(window).on('scroll', function() {
         const scrollPos = $(this).scrollTop();
+        const scrollIng = scrollPos + 130;
 
         if (recipeHeight < scrollPos) {
           recipeList.removeClass('recipe__ingredients--fixed');
-        } else if (recipePos < scrollPos) {
+          $('.recipe__col').addClass('recipe__col--sticky');
+        } else if (recipePos < scrollIng) {
+          $('.recipe__col').removeClass('recipe__col--sticky');
           recipeList.addClass('recipe__ingredients--fixed');
         } else {
+          $('.recipe__col').removeClass('recipe__col--sticky');
           recipeList.removeClass('recipe__ingredients--fixed');
         }
       });
