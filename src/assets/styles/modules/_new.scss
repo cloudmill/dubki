@@ -8,6 +8,20 @@
   width: 100%;
 }
 
+.body {
+  &::-webkit-scrollbar { 
+    width: 5px;
+    background-color: $color-white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 247px;
+    background-color: $color-yellow;
+    border-radius: 6px;
+  }
+}
+
 body>.wrapper {
   // ?
   position: relative;
