@@ -8,6 +8,20 @@
   width: 100%;
 }
 
+.body {
+  &::-webkit-scrollbar { 
+    width: 5px;
+    background-color: $color-white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 247px;
+    background-color: $color-yellow;
+    border-radius: 6px;
+  }
+}
+
 body>.wrapper {
   // ?
   position: relative;
@@ -41,13 +55,14 @@ body>.wrapper {
 .header {
   $comp: &;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
 
   padding: 15px 0;
+  transition: $transition;
   height: 70px;
   @media (min-width: $breakpoint) {
     padding: 30px 0;
@@ -72,8 +87,94 @@ body>.wrapper {
     transition: $transition;
   }
 
+  &--light {
+
+    #{$comp}__store-button {
+      &:hover {
+        #{$comp}__store-text {
+          color: $color-green;
+        }
+
+        #{$comp}__store-svg {
+          path {
+            stroke: $color-green;
+          }
+        }
+      }
+    }
+
+    #{$comp}__store-text {
+      color: $color-black;
+    }
+
+    #{$comp}__store-svg {
+      path {
+        stroke: $color-black;
+      }
+    }
+
+    #{$comp}__logo-svg {
+      path {
+        fill: $color-green;
+      }
+    }
+
+    #{$comp}__city-button {
+      &:hover {
+        #{$comp}__city-text {
+          color: $color-green;
+        }
+
+        #{$comp}__arrow {
+          path {
+            stroke: $color-green;
+          }
+        }
+      }
+    }
+
+    #{$comp}__city-text {
+      color: $color-black;
+    }
+
+    #{$comp}__arrow {
+      path {
+        stroke: $color-black;
+      }
+    }
+
+    #{$comp}__nav-link {
+      color: $color-black;
+      &:hover {
+        color: $color-green;
+      }
+    }
+
+    #{$comp}__search-button {
+      border-color: $color-black;
+    }
+
+    #{$comp}__search-icon {
+      circle {
+        stroke: $color-black;
+      }
+
+      path {
+        stroke: $color-black;
+      }
+    }
+  }
+
+  &--white {
+    background-color: $color-white;
+  }
+
+  &--grey {
+    background-color: $color-grey;
+  }
+
   &--scroll {
-    position: fixed;
+    transform: translateY(-120%);
   }
 
   &--nav-modal {
@@ -85,6 +186,7 @@ body>.wrapper {
       transform: none;
     }
   }
+
   &--catalog-modal {
     &::before {
       opacity: 1;
@@ -357,6 +459,7 @@ body>.wrapper {
   }
 
   &__city {
+    $comp: &;
     width: calc((#{$col-part-d}) * 2 - #{$col-gap-d});
     flex-shrink: 0;
     display: none;
@@ -373,12 +476,19 @@ body>.wrapper {
       display: flex;
       align-items: center;
 
-      .header__arrow path {
-        // ? можно заменить на &__arrow { path { ... у блока (не создавать зависимость)
-        stroke: $color-white;
-      }
-
       cursor: pointer;
+
+      &:hover {
+        #{$comp}-text {
+          color: $color-yellow;
+        }
+
+        .header__arrow {
+          path {
+            stroke: $color-yellow;
+          }
+        }
+      }
     }
 
     &-text {
@@ -387,6 +497,7 @@ body>.wrapper {
         @include fsl(18px, 80%);
       }
       color: $color-white;
+      transition: $transition;
     }
 
     &-icon {
@@ -399,6 +510,13 @@ body>.wrapper {
         width: 100%;
         height: 100%;
       }
+    }
+  }
+
+  &__arrow {
+    path {
+      transition: $transition;
+      stroke: $color-white;
     }
   }
 
@@ -421,6 +539,11 @@ body>.wrapper {
         @include fsl(18px, 80%);
       }
       color: $color-white;
+      transition: $transition;
+      
+      &:hover {
+        color: $color-yellow;
+      }
     }
   }
 
@@ -455,9 +578,23 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         border-width: 2px;
       }
-
       border-radius: 50%;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-yellow;
+        border-color: $color-yellow;
+
+        .header__search-icon {
+          circle {
+            stroke: $color-black;
+          }
+          path {
+            stroke: $color-black;
+          }
+        }
+      }
     }
 
     &-icon {
@@ -468,6 +605,13 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         max-width: 22px;
         max-height: 22px;
+      }
+
+      circle {
+        transition: $transition;
+      }
+      path {
+        transition: $transition;
       }
     }
   }
@@ -504,6 +648,18 @@ body>.wrapper {
   border-radius: 50%;
   cursor: pointer;
   transition: $transition;
+
+  &:hover {
+    background-color: $color-green;
+
+    #{$comp}__image {
+
+      &:before,
+      &:after {
+        background-color: $color-white;
+      }
+    }
+  }
 
   &--active {
     background-color: $color-black;
@@ -799,14 +955,15 @@ body>.wrapper {
 
   &__image {
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     right: 0;
     z-index: 0;
 
     flex-shrink: 0;
-    max-width: 200px;
+    max-width: 160px;
     @media (min-width: $breakpoint) {
       max-width: 240px;
+      bottom: 0;
     }
     height: auto;
 
@@ -824,13 +981,13 @@ body>.wrapper {
 
   &__img {
     position: absolute;
-    bottom: 20px;
+    top: 5px;
     right: 0;
     z-index: 0;
 
     flex-shrink: 0;
     height: auto;
-    max-width: calc(#{$grid-pard-m} * 2);
+    max-width: calc(#{$grid-pard-m} * 3);
     @media (min-width: $breakpoint) {
       padding: 0;
       max-width: calc(#{$grid-part-d} * 7 - #{$grid-gap-d});
@@ -839,7 +996,9 @@ body>.wrapper {
       right: calc(#{$grid-part-d});
     }
     @media (max-width: $breakpoint-m) {
-      max-width: 320px;
+      top: auto;
+      bottom: 5px;
+      max-width: 100%;
     }
   }
 
@@ -875,23 +1034,17 @@ body>.wrapper {
   }
 
   &__text {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.2;
-
+    @include fsl(28px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 38px;
+      @include fsl(38px, 120%);
     }
 
     &--large {
-      font-weight: 900;
-      font-size: 90px;
-
+      @include f-alt();
+      @include fsl(90px, 100%);
       @media (min-width: $breakpoint) {
-        font-size: 150px;
+        @include fsl(150px, 100%);
       }
-
-      line-height: 1;
     }
   }
 
@@ -1150,6 +1303,7 @@ body>.wrapper {
   }
 
   &__text {
+    font-weight: 400;
     @include fsl(14px, 140%);
     @media (min-width: $breakpoint) {
       @include fsl(18px, 140%);
@@ -1684,7 +1838,6 @@ body>.wrapper {
   &__title {
     margin-left: 14px;
     width: 233px;
-
     @media (min-width: $breakpoint) {
       margin-left: 80px;
       width: 418px;
@@ -1722,6 +1875,7 @@ body>.wrapper {
   $comp: &;
 
   padding-bottom: 25px;
+  padding-top: 65px;
 
   width: 221px;
   height: 302px;
@@ -1739,7 +1893,21 @@ body>.wrapper {
   background-color: $color-white;
   border-radius: 137px;
 
+  &:hover {
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.03);
+    #{$comp}__discont {
+      transform: rotate(25deg);
+    }
+
+    #{$comp}__image {
+      // width: 155px;
+      // height: 109px;
+      transform: scale(1.2);
+    }
+  }
+
   &--catalog {
+    padding-top: 45px;
     height: 241px;
 
     @media (min-width: $breakpoint) {
@@ -1759,7 +1927,6 @@ body>.wrapper {
 
   }
 
-
   &--big {
     @media (min-width: $breakpoint) {
       width: 414px;
@@ -1778,18 +1945,11 @@ body>.wrapper {
       }
 
       #{$comp}__text {
-        padding: 0 82px;
-      }
-
-      #{$comp}__text {
-        margin-top: 103px;
-
+        width: 250px;
         font-size: 18px;
       }
 
       #{$comp}__price {
-        margin-top: 54px;
-
         font-size: 18px;
 
         span {
@@ -1818,36 +1978,51 @@ body>.wrapper {
 
   &__discont {
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: $transition;
 
     &-text {
       position: absolute;
       z-index: 1;
 
-      font-weight: 900;
-      font-size: 28px;
-      line-height: .8;
-      color: $color-black;
+      @include f-alt();
+      @include fsl(28px, 80%);
 
       &--catalog {
-        font-size: 20px;
+        @include fsl(20px, 80%);
 
         @media (min-width: $breakpoint) {
-          font-size: 28px;
+          @include fsl(28px, 80%);
         }
       }
+    }
+
+    &-subtext {
+      @include fsl(14px, 80%);
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
     }
   }
 
   &__container {
     padding: 0 27px;
 
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
     &--catalog {
@@ -1858,13 +2033,13 @@ body>.wrapper {
   }
 
   &__frame {
-    margin-top: 20px;
+    // margin-top: 20px;
 
     @media (min-width: $breakpoint) {
-      margin-top: 30px;
+      // margin-top: 30px;
     }
 
-    height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1878,9 +2053,12 @@ body>.wrapper {
     width: 129px;
     height: 91px;
     flex-shrink: 0;
+    transition: $transition;
 
     &--catalog {
       flex-shrink: 0;
+      width: 100%;
+      height: 100%;
     }
 
     &--product {
@@ -1893,31 +2071,29 @@ body>.wrapper {
   }
 
   &__text {
-    margin-top: 54px;
-
+    width: 167px;
+    flex-shrink: 0;
     text-align: center;
+    @include fsl(13px, 120%);
 
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1.2;
-    color: $color-black;
+    &--crop {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
 
     &--catalog {
       margin-top: 0;
 
-      font-size: 10px;
-
+      @include fsl(10px, 120%);
       @media (min-width: $breakpoint) {
-        font-size: 15px;
+        @include fsl(15px, 120%);
       }
     }
   }
 
   &__price {
-    margin-top: 35px;
-
     color: $color-black;
-    font-weight: 700;
     font-size: 13px;
     line-height: 1.2;
 
@@ -2251,7 +2427,6 @@ body>.wrapper {
   &__row {
     @media (min-width: $breakpoint) {
       display: flex;
-      align-items: center;
     }
 
 
@@ -2265,30 +2440,28 @@ body>.wrapper {
   }
 
   &__section {
+    flex-shrink: 0;
+    @include fsl(14px, 80%);
     @media (min-width: $breakpoint) {
+      padding-top: 15px;
+      @include fsl(22px, 80%);
       width: calc(#{$grid-part-d} * 3);
     }
-
-    font-weight: 700;
-    color: $color-black;
-    font-size: 14px;
-    flex-shrink: 0;
-    @media (min-width: $breakpoint) {
-      font-size: 22px;
+    @media (max-width: $breakpoint - 1px) {
+      margin-bottom: 20px;
     }
-
-    line-height: 0.8;
-
-
-
-
   }
 
   &__list {
+    @media (min-width: $breakpoint) {
+      margin-top: -10px;
+      margin-left: -10px;
+      flex-wrap: wrap;
+    }
     display: flex;
-
     @media (max-width: $breakpoint - 1px) {
-      margin-top: 20px;
+      width: calc(100% + 30px);
+      overflow-x: scroll;
     }
   }
 
@@ -2296,6 +2469,8 @@ body>.wrapper {
     padding: 12px 20px;
     @media (min-width: $breakpoint) {
       padding: 18px 30px;
+      margin-top: 10px;
+      margin-left: 10px;
 
       border-radius: 20px;
       @include fsl(16px, 80%);
@@ -2309,7 +2484,9 @@ body>.wrapper {
     cursor: pointer;
 
     &:not(:first-child) {
-      margin-left: 10px;
+      @media (max-width: $breakpoint - 1px) {
+        margin-left: 10px;
+      }
     }
 
     &:hover {
@@ -2523,18 +2700,18 @@ body>.wrapper {
   }
 
   &__content {
+    position: relative;
 
     &-list {
       margin-top: 20px;
-
       @media (min-width: $breakpoint) {
         margin-top: 30px;
 
-        display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
         height: 130px
       }
+      display: flex;
+      flex-direction: column;
     }
 
     &-item {
@@ -3325,7 +3502,7 @@ body>.wrapper {
       max-width: 160px;
       @media (min-width: $breakpoint) {
         max-width: 210px;
-        left: 20px;
+        left: calc(#{$grid-part-d} - #{$grid-gap-d});
         top: 0;
       }
     }
@@ -3365,7 +3542,7 @@ body>.wrapper {
     position: absolute;
     z-index: 0;
     right: calc(#{$grid-pard-m} - #{$grid-gap-m} * 3);
-    bottom: 0;
+    bottom: -20px;
     @media (min-width: $breakpoint) {
       bottom: 0;
       right: 0;
@@ -4608,6 +4785,16 @@ body>.wrapper {
         order: 1;
       }
     }
+
+    &--sticky {
+      
+      &:nth-child(2) {
+        @media (min-width: $breakpoint) {
+          display: flex;
+          align-items: flex-end;
+        }
+      }
+    }
   }
 
   &__text {
@@ -4708,7 +4895,7 @@ body>.wrapper {
     &--fixed {
       @media (min-width: $breakpoint) {
         position: fixed;
-        top: 220px;
+        top: 130px;
       }
     }
 
@@ -4787,6 +4974,69 @@ body>.wrapper {
     border-radius: 0 0 50px 50px;
     @media (min-width: $breakpoint) {
       border-radius: 0 0 170px 170px;
+    }
+    position: relative;
+    overflow: hidden;
+
+    &__layout {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+
+      &-img {
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        @media (min-width: $breakpoint) {
+          right: 30px;
+          max-width: 100%;
+        }
+        max-width: 400px;
+
+        &--small {
+          display: none;
+          @media (min-width: $breakpoint) {
+            display: block;
+          }
+          right: calc(#{$grid-part-d} * 6 - #{$grid-gap-d} * 2 + 60px);
+        }
+      }
+    }
+
+    &__img {
+      position: absolute;
+      bottom: 0;
+      left: calc(#{$grid-part-d} - #{$grid-gap-d} + 60px);
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &__image {
+      position: absolute;
+      bottom: 0;
+      left: calc(#{$grid-part-d} * 6 + 60px);
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &__svg {
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+
+      display: block;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
     }
   }
 
@@ -5279,6 +5529,13 @@ body>.wrapper {
 
     background-color: $color-yellow;
     border-radius: 20px;
+  }
+
+  &__image {
+    @media (max-width: $breakpoint - 1px) {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__img {
@@ -6293,7 +6550,7 @@ body>.wrapper {
       &::placeholder {
         color: $color-black;
         @include f-main(400);
-        @include fsl(16px, 80%);
+        @include fsl(16px, 100%);
       }
 
       &--modal {
@@ -6371,7 +6628,9 @@ body>.wrapper {
     }
 
     &:nth-child(2) {
+      padding-top: 60px;
       @media (min-width: $breakpoint) {
+        padding-top: 0;
         padding-right: calc(#{$grid-part-d} - #{$grid-gap-d});
 
         width: calc(#{$grid-part-d} * 10);
@@ -6510,6 +6769,7 @@ body>.wrapper {
 
     background-color: #f5f5f5;
     border-radius: 30px;
+    box-shadow: 0px 4px 30px rgba(0, 81, 30, 0.2);
   }
 
   &-select {
@@ -6550,6 +6810,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       height: 531px;
     }
+    @include scrollbar-hidden();
 
     &__item {
       &:not(:first-child) {
@@ -6653,7 +6914,10 @@ body>.wrapper {
   border-radius: 20px;
 }
 
+
+
 .select2 {
+  $comp: &;
 
   &-hidden-accessible {
     border: 0!important;
@@ -6669,6 +6933,7 @@ body>.wrapper {
   }
 
   &-container {
+
     &--default .select2-selection--single {
       padding: 18px 30px;
 
@@ -6680,6 +6945,19 @@ body>.wrapper {
       border: 1px solid $color-light-green;
       border-radius: 20px;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-light-green;
+
+        #{$comp}-selection__rendered {
+          color: $color-white;
+        }
+
+        .select2-selection__arrow {
+          border-color: $color-white;
+        }
+      }
     }
 
     &--default.select2-container--open .select2-selection--single {
@@ -6709,6 +6987,7 @@ body>.wrapper {
       border-bottom: 2px solid $color-black;
       border-right: 2px solid $color-black;
       transform: rotate(45deg);
+      transition: $transition;
     }
   }
 
@@ -6732,7 +7011,12 @@ body>.wrapper {
   }
 
   &-selection__rendered {
+    width: 127px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     @include fsl(16px, 80%);
+    transition: $transition;
   }
 
   &-results__options {

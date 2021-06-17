@@ -1,5 +1,11 @@
 extends ../layouts/master.pug
 
+
+block header 
+  +header({
+    mod: 'white header--light',
+  })
+
 block content 
   .section--light-green
     .section__frame.section__frame--white
@@ -21,6 +27,8 @@ block content
 
   .section--grey 
     .rent-frame 
+      .rent-frame__layout 
+        img.rent-frame__svg(src="assets/images/svg/rent-3.svg", alt="")
       .container
         .provider-intro 
           .provider-intro__inner
@@ -41,7 +49,7 @@ block content
                         +download-svg
               .provider-intro__col
                 .provider-intro__image(data-aos="fade-up")
-                  img.provider-intro__img(src="assets/images/provider-bg.png", alt="")
+                  img.provider-intro__img(src="assets/images/svg/provider-bg.svg", alt="")
 
   .section--grey 
     .container 

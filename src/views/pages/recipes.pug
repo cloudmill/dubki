@@ -2,6 +2,11 @@ extends ../layouts/master.pug
 
 
 
+block header 
+  +header({
+    mod: 'white header--light',
+  })
+
 block content 
   .section--grey
     .section__frame.section__frame--white

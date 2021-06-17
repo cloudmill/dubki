@@ -256,18 +256,22 @@ function toggleDataAttr($element, attr, value='') {
 
     if (recipe.length !== 0) {
       const recipePos = recipe.offset().top;
-      const recipeHeight = recipe.innerHeight();
+      const recipeHeight = recipe.innerHeight() + 100;
       const recipeList = $('.recipe__ingredients');
 
 
       $(window).on('scroll', function() {
         const scrollPos = $(this).scrollTop();
+        const scrollIng = scrollPos + 130;
 
         if (recipeHeight < scrollPos) {
           recipeList.removeClass('recipe__ingredients--fixed');
-        } else if (recipePos < scrollPos) {
+          $('.recipe__col').addClass('recipe__col--sticky');
+        } else if (recipePos < scrollIng) {
+          $('.recipe__col').removeClass('recipe__col--sticky');
           recipeList.addClass('recipe__ingredients--fixed');
         } else {
+          $('.recipe__col').removeClass('recipe__col--sticky');
           recipeList.removeClass('recipe__ingredients--fixed');
         }
       });
@@ -725,10 +729,16 @@ function toggleDataAttr($element, attr, value='') {
         }, 
         function () {
           const currentTop = $(window).scrollTop();
-          if (currentTop < this.previousTop && currentTop > 200) {
-              $('.header').addClass('header--scroll');
+          // if (currentTop > 200) {
+          //   header.addClass('header--scroll')
+          // } else if (currentTop < this.previousTop) {
+          //   header.removeClass('header--scroll');
+          // }
+
+          if (currentTop < this.previousTop) {
+              header.removeClass('header--scroll');
           } else {
-              $('.header').removeClass('header--scroll');
+              header.addClass('header--scroll');
           }
           this.previousTop = currentTop;
       });

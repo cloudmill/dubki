@@ -1,5 +1,11 @@
 extends ../layouts/master.pug
 
+
+block header 
+  +header({
+    mod: 'white header--light',
+  })
+
 block content 
   .section--light-green
     .section__frame.section__frame--white
@@ -22,6 +28,10 @@ block content
   .section--grey 
     .section__inner
       .rent-frame 
+        .rent-frame__layout 
+          img.rent-frame__img(src="assets/images/svg/rent-1.svg", alt="")
+          img.rent-frame__image(src="assets/images/svg/rent-2.svg", alt="")
+          img.rent-frame__svg(src="assets/images/svg/rent-3.svg", alt="")
         .container 
           .rent 
             .rent__inner 
@@ -35,7 +45,7 @@ block content
                       |Мы находимся в постоянном поиске свободных торговых площадей.
                 .rent__col
                   .rent__image(data-aos="fade-up")
-                    img.rent__img(src="assets/images/rent-bg.png", alt="")
+                    img.rent__img(src="assets/images/svg/rent-bg.svg", alt="")
 
   .section--grey 
     .section__inner 

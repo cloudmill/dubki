@@ -1,13 +1,17 @@
 extends ../layouts/master.pug
 
 
+block header 
+  +header({
+    mod: 'white header--light',
+  })
 
 block content 
   .section--grey 
     .section__frame.section__frame--product
       .section__layout 
-        img.section__layout-image(src="assets/images/product-layout-1.png", alt="")
-        img.section__layout-image.section__layout-image--small(src="assets/images/product-layout-2.png", alt="")
+        img.section__layout-image(src="assets/images/svg/product-layout-1.svg", alt="")
+        img.section__layout-image.section__layout-image--small(src="assets/images/svg/product-layout-2.svg", alt="")
       .container 
         .section__wrapper
           ul.block-list.block-list--mobile(data-aos="fade-up")
@@ -177,9 +181,9 @@ block content
                   .info-card__card.info-card__card--green(data-aos="fade-up") 
                     .info-card__frame 
                       .info-card__layout
-                        img.info-card__layout-img(src="assets/images/info-card-1.png", alt="")
-                        img.info-card__layout-image(src="assets/images/info-card-2.png", alt="")
-                        img.info-card__layout-image.info-card__layout-image--small(src="assets/images/info-card-3.png", alt="")
+                        img.info-card__layout-img(src="assets/images/svg/info-card-1.svg", alt="")
+                        img.info-card__layout-image(src="assets/images/svg/info-card-2.svg", alt="")
+                        img.info-card__layout-image.info-card__layout-image--small(src="assets/images/svg/info-card-3.svg", alt="")
                       .info-card__container
                         .info-card__content 
                           .info-card__item.info-card__item--first 
@@ -208,8 +212,8 @@ block content
                   .info-card__card.info-card__card--yellow(data-aos="fade-up") 
                     .info-card__frame 
                       .info-card__layout
-                        img.info-card__img(src="assets/images/info-card-5.png", alt="")
-                        img.info-card__image(src="assets/images/info-card-4.png", alt="")
+                        img.info-card__img(src="assets/images/svg/info-card-5.svg", alt="")
+                        img.info-card__image(src="assets/images/svg/info-card-4.svg", alt="")
                       .info-card__container
                         .info-card__content.info-card__content--alt
                           h4.info-card__content-title

@@ -1,5 +1,12 @@
 extends ../layouts/master.pug
 
+
+
+block header 
+  +header({
+    mod: 'white header--light',
+  })
+
 block content
   
   .modals 
@@ -76,6 +83,9 @@ block content
   
   .section--grey 
     .rent-frame 
+      .rent-frame__layout 
+        img.rent-frame__layout-img(src="assets/images/svg/jobs-1.svg", alt="")
+        img.rent-frame__layout-img.rent-frame__layout-img--small(src="assets/images/svg/jobs-2.svg", alt="")
       .container
         .jobs-intro 
           .jobs-intro__inner 
