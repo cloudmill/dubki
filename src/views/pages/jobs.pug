@@ -23,16 +23,17 @@ block content
               .form__item 
                 input.form__input(type="text" name="phone" placeholder="Телефон")
               .form__item.form__item--select
-                .select 
-                  select.select__select.select__select--modal(name="city")(style="width: 100%")
-                    option(value="saratov", selected) 
-                      |Саратов
-                    option(value="moscov") 
-                      |Москва
-                    option(value="spb") 
-                      |Санкт-Питербург
-                    option(value="voronezh") 
-                      |Воронеж
+                .select-wrapper
+                  .select 
+                    select.select__select.select__select--modal(name="city")(style="width: 100%")
+                      option(value="saratov", selected) 
+                        |Саратов
+                      option(value="moscov") 
+                        |Москва
+                      option(value="spb") 
+                        |Санкт-Питербург
+                      option(value="voronezh") 
+                        |Воронеж
               .form__item 
                 textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание")
               .form__wrapper 
@@ -237,23 +238,23 @@ block content
             h3.vacancies__title(data-aos="fade-up") 
               |Актуальные вакансии
           .vacancies__row
-            .vacancies__col
-              .vacancies__city
-                .vacancies__wrapper(data-aos="fade-up") 
-                  .vacancies__text 
-                    |Город
-                .vacancies__select
-                  .select(data-aos="fade-up")
-                    .select 
-                      select.select__select(name="city")(style="width: 100%")
-                        option(value="saratov", selected) 
-                          |Саратов
-                        option(value="moscov") 
-                          |Москва
-                        option(value="spb") 
-                          |Санкт-Питербург
-                        option(value="voronezh") 
-                          |Воронеж
+            .vacancies__col 
+                .vacancies__city
+                  .vacancies__wrapper(data-aos="fade-up") 
+                    .vacancies__text 
+                      |Город
+                  .select-wrapper
+                    .vacancies__select
+                      .select 
+                        select.select__select(name="city")(style="width: 100%")
+                          option(value="saratov", selected) 
+                            |Саратов
+                          option(value="moscov") 
+                            |Москва
+                          option(value="spb") 
+                            |Санкт-Питербург
+                          option(value="voronezh") 
+                            |Воронеж
             .vacancies__col(data-aos="fade-up") 
               ul.vacancies-list 
                 - for (i = 0; i < 5; i++)

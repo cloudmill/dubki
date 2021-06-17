@@ -622,12 +622,31 @@ function toggleDataAttr($element, attr, value='') {
 // select
 {
   $(() => {
-    const select = $('.select__select');
+    // const select = $('.select__select');
+    $('.select__select').each(function() {
+      const select = $(this);
+      const selectWrapper = select.closest('.select-wrapper');
+      const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
+      if (selectWrapperStyles.position === 'static') {
+        selectWrapper.css('position', 'relative');
+      }
 
-    select.select2({});
-    
-    $('.select__select--modal').select2({
-      dropdownParent: $('.modal'),
+      select.select2({
+        dropdownParent: selectWrapper,
+      });
+
+      select.on('select2:open', () => {
+        selectWrapper.css('z-index', '100000');
+
+        const selectDropdown = selectWrapper.find('.select2-dropdown');
+
+			  selectDropdown.hide();
+        const timeout = setTimeout(() => {
+          selectDropdown.slideDown({ duration: 500,});
+
+          clearTimeout(timeout);
+        }, 0);
+      });
     });
   });
 }
