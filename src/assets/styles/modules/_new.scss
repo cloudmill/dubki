@@ -4823,6 +4823,49 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       border-radius: 0 0 170px 170px;
     }
+    position: relative;
+
+    &__layout {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    &__img {
+      position: absolute;
+      bottom: 0;
+      left: calc(#{$grid-part-d} - #{$grid-gap-d} + 60px);
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &__image {
+      position: absolute;
+      bottom: 0;
+      left: calc(#{$grid-part-d} * 6 + 60px);
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+    }
+
+    &__svg {
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+
+      display: block;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
+    }
   }
 
   &__inner {
