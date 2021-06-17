@@ -87,3 +87,12 @@ $breakpoint-l: 1366px;
 $breakpoint-ll: 1440px;
 $breakpoint-xl: 1680px;
 $breakpoint-xxl: 1920px;
+
+@mixin scrollbar-hidden() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

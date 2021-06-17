@@ -1,7 +1,7 @@
 // imports
 import "Styles/_app.scss";
 
-import Swiper from "swiper/bundle";
+import Swiper, { Parallax } from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
@@ -54,6 +54,149 @@ function toggleDataAttr($element, attr, value='') {
         slidesPerView: 'auto',
         spaceBetween: 20,
       });
+    }
+
+    // Рецепты, Главная
+    // слайдер Рецепты на Главная
+    if ($('.index').length !== 0) {
+      // частота трекинга перемещения
+      const moveFps = 60
+      // parallax эффект
+      let parallaxRatio
+      const parallaxRatioM = 15
+      const parallaxRatioD = 3
+      // интервал трекинга перемещения
+      let moveInterval
+      // элемент, который перемещаем (анимируем)
+      const moveEl = $('.index__recipes-side')
+      // элемент, перемещение которого отслеживаем
+      const moveTrackingEl = $('.index__recipes-slide').first()
+
+      // адаптив
+      const breakpoint = matchMedia(`(min-width: ${BREAKPOINT}px)`)
+      parallaxRatio = parallaxRatioM
+      if (breakpoint.matches) {
+        parallaxRatio = parallaxRatioD
+      }
+      breakpoint.addListener(event => {
+        if (event.matches) {
+          parallaxRatio = parallaxRatioD
+        } else {
+          parallaxRatio = parallaxRatioM
+        }
+      })
+
+      // инициализация
+      const slider = $('.index__recipes-slider') // контейнер swiper'a
+      const swiper = new Swiper(slider[0], { // экземпляр swiper'a
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        touchStartPreventDefault: false,
+      })
+      
+      // обработка событий: начало/конец движения слайдера
+      // начало
+      swiper.on('sliderFirstMove', () => {
+        moveInterval = setInterval(moveHandler, 1000 / moveFps)
+      })
+      // конец
+      swiper.on('transitionEnd', () => {
+        clearInterval(moveInterval)
+      })
+
+      function moveHandler() {
+        moveUpdate(getMoveDistance())
+      }
+
+      function moveUpdate(distance) {
+        // вычиление данных анимации (css)
+        // transform (движение "влево")
+        const transform = `translateX(${-distance / parallaxRatio}px)` // ? 15
+        // opacity
+        // в пределах [0, 1]
+        let opacity = 1 - (distance / (moveTrackingEl.width() + 20))
+        opacity = opacity < 0 ? 0 : opacity
+
+        // анимация
+        requestAnimationFrame(() => {
+          moveEl.css('transform', transform)
+          moveEl.css('opacity', opacity)
+        })
+      }
+
+      function getMoveDistance() {
+        const startX = slider.offset().left
+        const x = moveTrackingEl.offset().left
+        console.log(x);
+
+        // движение "влево" (startX > x)
+        // поэтому вычитаем (startX - x)
+        // получаем положительный distance при движении влево
+        const distance = startX - x
+        // "отсекаем" движение вправо
+        return distance < 0 ? 0 : distance
+      }
+    }
+    // курсор Рецепты на Главная
+    if ($('.index').length !== 0) {
+      const area = $('.index__recipes-row')
+      const cursor = $('.index__recipes-cursor')
+      
+      // состояние курсора
+      // над side частью (заголовок + кнопка)
+      let onSide = false
+      // над всем блоком со слайдером (side + slider)
+      let onArea = false
+
+      // перемещаем катомный курсор (верстку, dom эл-т) в конец .wrapper страниц из секции
+      cursor.appendTo($('body > .wrapper'))
+
+      // появление (opacity: 1) кастомного курсора только над карточками рецептов
+      area.on('mouseenter', () => {
+        onArea = true
+        if (!onSide) {
+          requestAnimationFrame(() => {
+            cursor.css('opacity', 1)
+          })
+        }
+      })
+      area.on('mouseleave', () => {
+        onArea = false
+        requestAnimationFrame(() => {
+          cursor.css('opacity', '')
+        })
+      })
+      $('.index__recipes-side').on('mouseenter', () => {
+        onSide = true
+        requestAnimationFrame(() => {
+          cursor.css('opacity', '')
+        })
+      })
+      $('.index__recipes-side').on('mouseleave', () => {
+        onSide = false
+        setTimeout(() => {
+          if (onArea) {
+            requestAnimationFrame(() => {
+              cursor.css('opacity', 1)
+            })
+          }
+        }, 0)
+      })
+
+      // для перемещения (следования за курсором) кастомного курсора используем transform + pos. fixed
+      function mouseMoveHandler(event) {
+        cursor.css('transform', `translate(calc(${event.originalEvent.clientX}px - 50%), calc(${event.originalEvent.clientY}px - 50%))`)
+      }
+
+      // перемещение кастомного курсора в пределах всех секции Рецепты
+      $('.index__recipes').on('mousemove', mouseMoveHandler)
+
+      // решение проблемы с drag-n-drop в firefox (отключение drag-n-drop)
+      $('.index__recipes-slide').on('mousedown', event => {
+        if (event.preventDefault) {
+          event.preventDefault()
+        }
+      })
     }
 
     const swiperProductSlider = new Swiper($('.product-slider')[0], {
@@ -134,6 +277,7 @@ function toggleDataAttr($element, attr, value='') {
   });
 }
 
+// шапка, модальные окна, каталог (слева), меню (справа)
 // jobs select
 {
   $(() => {
@@ -171,53 +315,51 @@ function toggleDataAttr($element, attr, value='') {
     const header = $('.header');
 
     if (header.length !== 0) {
-      const navModalButton = header.find('.header__button .button-modal');
-      const searchModalButton = header.find('.header__search-button');
+      const navModalButton = header.find('.header__button-button');
+      const catalogModalButton = header.find('.header__catalog-button');
 
-      // button
+      // клик по кнопке вызова модального окна (открытие-закрытие)
+      // м.о. меню
       navModalButton.on('click', function () {
-        console.log(123);
-        if (header.hasClass('header--nav-modal')) {
-          header.removeClass('header--nav-modal');
-          navModalButton.removeClass('button-modal--active');
-        } else {
+        if (header.hasClass('header--nav-modal')) { // если модальное окно открыто - закрываем
+          header.removeClass('header--nav-modal'); // обновляем модификатор header (шапка, контейнер модальных окон)
+          navModalButton.removeClass('header__button-button--active'); // обновляем модификатор кнопки
+        } else { // открывыем, аналогично (выше)
           header.addClass('header--nav-modal');
           navModalButton.addClass('button-modal--active');
         }
       });
-      searchModalButton.on('click', function () {
-        if (header.hasClass('header--search-modal')) {
-          header.removeClass('header--search-modal');
-          navModalButton.removeClass('header__search-button--active');
+      // м.о. каталог
+      // аналогично (выше)
+      catalogModalButton.on('click', function () {
+        if (header.hasClass('header--catalog-modal')) {
+          header.removeClass('header--catalog-modal');
+          catalogModalButton.removeClass('header__catalog-button--active');
         } else {
-          header.addClass('header--search-modal');
-          navModalButton.addClass('header__search-button--active');
+          header.addClass('header--catalog-modal');
+          catalogModalButton.addClass('header__catalog-button--active');
         }
       });
 
-      // click close
+      // клик вне модального окна (закрытие)
       $(window).on('click', event => {
-        // .nav-modal
+        // обработка клика по окну в контексте catalog-modal
         if (
-          header.hasClass('header--nav-modal') &&
-          event.target !== navModalButton[0] &&
-          $(event.target).closest('.nav-modal').length === 0 &&
-          $(event.target).closest('.modal-search').length === 0 
+          header.hasClass('header--nav-modal') && // если модальное окно открыто
+          $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
+          $(event.target).closest('.nav-modal').length === 0 // + клик не по модальному окну
         ) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('button-modal--active');
         }
-        // .search-modal
+        // обработка клика по окну в контексте catalog-modal
         if (
-          (
-            header.hasClass('header--search-modal') &&
-            event.target !== searchModalButton[0] &&
-            $(event.target).closest('.search-modal__container').length === 0
-          ) ||
-          $(event.target).closest('.search-modal__close').length !== 0
+          header.hasClass('header--catalog-modal') && // если модальное окно открыто
+          $(event.target).closest(catalogModalButton).length === 0 && // + клик не по кнопке
+          $(event.target).closest('.catalog-modal').length === 0 // + клик не по модальному окну
         ) {
-          header.removeClass('header--search-modal');
-          navModalButton.removeClass('header__search-button--active');
+          header.removeClass('header--catalog-modal'); // обновляем состояние header (стили прокидываются на catalog-modal)
+          catalogModalButton.removeClass('header__catalog-button--active'); // обновляем состояние кнопки
         }
       });
     }
@@ -527,6 +669,74 @@ function toggleDataAttr($element, attr, value='') {
   });
 }
 
+// tabs
+{
+  $(() => {
+    // attrs:
+    // data-tabs-id: id компонента
+    // data-tabs-button: id таба
+    // data-tabs-tab: id таба
+    // data-tabs-active: id активного таба
+
+    const tabs_el = $('[data-tabs-id]');
+
+    // проверка на существование компонентов
+    if (tabs_el.length !== 0) {
+      const tabs_id = [];
+
+      // сбор id компонентов
+      tabs_el.each(function () {
+        const cur_id = $(this).data('tabs-id');
+
+        if (tabs_id.indexOf(cur_id) === -1) {
+          tabs_id.push(cur_id);
+        }
+      });
+
+      // обработка компонентов (по id)
+      tabs_id.forEach(comp_id => {
+        const tab_el = $(`[data-tabs-id="${comp_id}"][data-tabs-tab]`);
+        const button_el = $(`[data-tabs-id="${comp_id}"][data-tabs-button]`);
+
+        // проверка на существование табов
+        if (tab_el.length !== 0) {
+          const state = {
+            id: null, // active таб
+            update: function (id) {
+              this.id = id;
+            },
+            close: function () {
+              tab_el.filter(`[data-tabs-tab="${this.id}"]`).removeAttr('data-tabs-active');
+              button_el.filter(`[data-tabs-button="${this.id}"]`).removeAttr('data-tabs-active');
+            },
+            open: function () {
+              tab_el.filter(`[data-tabs-tab="${this.id}"]`).attr('data-tabs-active', '');
+              button_el.filter(`[data-tabs-button="${this.id}"]`).attr('data-tabs-active', '');
+            },
+            change: function (id) {
+              if (id && id !== this.id) {
+                this.close();
+                this.update(id);
+                this.open();
+              }
+            },
+            init: function () {
+              const tab_active_id = button_el.filter('[data-tabs-active]').data('tabs-button');
+              this.update(tab_active_id);
+            }
+          };
+
+          state.init();
+
+          button_el.on('click', function () {
+            const tab_clicked_id = $(this).data('tabs-button');
+            state.change(tab_clicked_id);
+          });
+        }
+      });
+    }
+  });
+}
 // fixed header
 {
   $(() => {

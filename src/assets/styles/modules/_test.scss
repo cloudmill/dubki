@@ -4,3 +4,46 @@
   justify-content: center;
   align-items: center;
 }
+
+// главная
+.index {
+  // рецепты
+  &__recipes {
+
+  }
+  &__recipes-row {
+    @media (min-width: $breakpoint) {
+      cursor: none;
+    }
+  }
+  &__recipes-side {
+    @media (min-width: $breakpoint) {
+      cursor: auto;
+    }
+  }
+  &__recipes-slide {
+    &,
+    & * {
+      @media (min-width: $breakpoint) {
+        cursor: none;
+        user-select: none;
+      }
+    }
+  }
+  &__recipes-cursor {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      display: none;
+    }
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+}
