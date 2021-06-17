@@ -5359,6 +5359,13 @@ body>.wrapper {
     border-radius: 20px;
   }
 
+  &__image {
+    @media (max-width: $breakpoint - 1px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   &__img {
     display: block;
   }
