@@ -4824,6 +4824,7 @@ body>.wrapper {
       border-radius: 0 0 170px 170px;
     }
     position: relative;
+    overflow: hidden;
 
     &__layout {
       position: absolute;
@@ -4832,6 +4833,25 @@ body>.wrapper {
       bottom: 0;
       left: 0;
       z-index: 0;
+
+      &-img {
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        @media (min-width: $breakpoint) {
+          right: 30px;
+          max-width: 100%;
+        }
+        max-width: 400px;
+
+        &--small {
+          display: none;
+          @media (min-width: $breakpoint) {
+            display: block;
+          }
+          right: calc(#{$grid-part-d} * 6 - #{$grid-gap-d} * 2 + 60px);
+        }
+      }
     }
 
     &__img {
