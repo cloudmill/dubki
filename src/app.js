@@ -749,10 +749,16 @@ function toggleDataAttr($element, attr, value='') {
         }, 
         function () {
           const currentTop = $(window).scrollTop();
-          if (currentTop < this.previousTop && currentTop > 200) {
-              $('.header').addClass('header--scroll');
+          // if (currentTop > 200) {
+          //   header.addClass('header--scroll')
+          // } else if (currentTop < this.previousTop) {
+          //   header.removeClass('header--scroll');
+          // }
+
+          if (currentTop < this.previousTop) {
+              header.removeClass('header--scroll');
           } else {
-              $('.header').removeClass('header--scroll');
+              header.addClass('header--scroll');
           }
           this.previousTop = currentTop;
       });
