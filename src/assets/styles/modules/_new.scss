@@ -6617,6 +6617,7 @@ body>.wrapper {
 
     background-color: #f5f5f5;
     border-radius: 30px;
+    box-shadow: 0px 4px 30px rgba(0, 81, 30, 0.2);
   }
 
   &-select {
@@ -6657,6 +6658,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       height: 531px;
     }
+    @include scrollbar-hidden();
 
     &__item {
       &:not(:first-child) {
