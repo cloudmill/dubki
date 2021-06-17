@@ -1757,6 +1757,7 @@ body>.wrapper {
   $comp: &;
 
   padding-bottom: 25px;
+  padding-top: 65px;
 
   width: 221px;
   height: 302px;
@@ -1813,18 +1814,11 @@ body>.wrapper {
       }
 
       #{$comp}__text {
-        padding: 0 82px;
-      }
-
-      #{$comp}__text {
-        margin-top: 103px;
-
+        width: 250px;
         font-size: 18px;
       }
 
       #{$comp}__price {
-        margin-top: 54px;
-
         font-size: 18px;
 
         span {
@@ -1892,8 +1886,10 @@ body>.wrapper {
   &__container {
     padding: 0 27px;
 
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
     &--catalog {
@@ -1939,31 +1935,29 @@ body>.wrapper {
   }
 
   &__text {
-    margin-top: 54px;
-
+    width: 167px;
+    flex-shrink: 0;
     text-align: center;
+    @include fsl(13px, 120%);
 
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1.2;
-    color: $color-black;
+    &--crop {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
 
     &--catalog {
       margin-top: 0;
 
-      font-size: 10px;
-
+      @include fsl(10px, 120%);
       @media (min-width: $breakpoint) {
-        font-size: 15px;
+        @include fsl(15px, 120%);
       }
     }
   }
 
   &__price {
-    margin-top: 35px;
-
     color: $color-black;
-    font-weight: 700;
     font-size: 13px;
     line-height: 1.2;
 
