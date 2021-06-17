@@ -1,5 +1,5 @@
-mixin header()
-  header.header
+mixin header(opt={})
+  header.header(class=(opt.mod ? `header--${opt.mod}` : ''))
     .container
       .header__row
         .header__catalog(data-aos="fade-up")
@@ -17,7 +17,7 @@ mixin header()
               +cursor-svg('header__store-svg')
         .header__logo(data-aos="fade-up")
           a.header__logo-link(href="#")
-            +logo-svg
+            +logo-svg('header__logo-svg')
         .header__city(data-aos="fade-up")
           .header__city-button
             .header__city-text

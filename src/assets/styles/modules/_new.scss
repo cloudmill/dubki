@@ -73,6 +73,92 @@ body>.wrapper {
     transition: $transition;
   }
 
+  &--light {
+
+    #{$comp}__store-button {
+      &:hover {
+        #{$comp}__store-text {
+          color: $color-green;
+        }
+
+        #{$comp}__store-svg {
+          path {
+            stroke: $color-green;
+          }
+        }
+      }
+    }
+
+    #{$comp}__store-text {
+      color: $color-black;
+    }
+
+    #{$comp}__store-svg {
+      path {
+        stroke: $color-black;
+      }
+    }
+
+    #{$comp}__logo-svg {
+      path {
+        fill: $color-green;
+      }
+    }
+
+    #{$comp}__city-button {
+      &:hover {
+        #{$comp}__city-text {
+          color: $color-green;
+        }
+
+        #{$comp}__arrow {
+          path {
+            stroke: $color-green;
+          }
+        }
+      }
+    }
+
+    #{$comp}__city-text {
+      color: $color-black;
+    }
+
+    #{$comp}__arrow {
+      path {
+        stroke: $color-black;
+      }
+    }
+
+    #{$comp}__nav-link {
+      color: $color-black;
+      &:hover {
+        color: $color-green;
+      }
+    }
+
+    #{$comp}__search-button {
+      border-color: $color-black;
+    }
+
+    #{$comp}__search-icon {
+      circle {
+        stroke: $color-black;
+      }
+
+      path {
+        stroke: $color-black;
+      }
+    }
+  }
+
+  &--white {
+    background-color: $color-white;
+  }
+
+  &--grey {
+    background-color: $color-grey;
+  }
+
   &--scroll {
     transform: translateY(-120%);
   }
@@ -86,6 +172,7 @@ body>.wrapper {
       transform: none;
     }
   }
+
   &--catalog-modal {
     &::before {
       opacity: 1;

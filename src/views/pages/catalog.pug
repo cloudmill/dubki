@@ -1,6 +1,11 @@
 extends ../layouts/master.pug
 
 
+block header 
+  +header({
+    mod: 'grey header--light',
+  })
+
 block content
   .section.section--header
     .container
