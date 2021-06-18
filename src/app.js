@@ -1,7 +1,7 @@
 // imports
 import "Styles/_app.scss";
 
-import Swiper, { Parallax } from "swiper/bundle";
+import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
@@ -209,27 +209,48 @@ function toggleDataAttr($element, attr, value='') {
 // top slider
 {
   $(() => {
-    const topSlide = $('.top-slide');
+    // desktop
+    {
+      const sliders = $('.top__slider--desktop .top__swiper')
+      const swipers = []
 
-    if (topSlide.length !== 0) {
-      const topSlider = $('.top__container'); 
-      const swiper = new Swiper(topSlider[0], {
-        slidesPerView: 'auto',
-        slidesPerGroup: 1,
-        spaceBetween: 25,
-        // effect: 'flip',
-        loop: true,
-        breakpoints: {
-          [1280]: {
-            slidesPerGroup: 3,
+      sliders.each(function () {
+        const slider = $(this)
+
+        swipers.push(new Swiper(slider[0], {
+          effect: 'flip',
+          loop: true,
+          allowTouchMove: false,
+          flipEffect: {
+            slideShadows: false,
           },
-        },
-      });
+        }))
+      })
 
-      $('.top__button').on('click', () => {
-        swiper.slideNext();
-      });
+      const buttonNext = $('.top__button')
+      buttonNext.on('click', () => {
+        swipers.forEach(swiper => {
+          swiper.slideNext()
+        })
+      })
+    }
 
+    // mobile
+    {
+      const slider = $('.top__slider--mobile .top__swiper')
+
+      if (slider.length !== 0) {
+        const swiper = new Swiper(slider[0], {
+          slidesPerView: 'auto',
+          spaceBetween: 15,
+          loop: true,
+        })
+
+        const buttonNext = $('.top__button')
+        buttonNext.on('click', () => {
+          swiper.slideNext()
+        })
+      }
     }
   });
 }
@@ -313,41 +334,26 @@ function toggleDataAttr($element, attr, value='') {
 }
 
 // nav-modal
-// notifi-modal
 {
   $(() => {
     const header = $('.header');
 
     if (header.length !== 0) {
       const navModalButton = header.find('.header__button-button');
-      const catalogModalButton = header.find('.header__catalog-button');
 
       // клик по кнопке вызова модального окна (открытие-закрытие)
-      // м.о. меню
       navModalButton.on('click', function () {
         if (header.hasClass('header--nav-modal')) { // если модальное окно открыто - закрываем
           header.removeClass('header--nav-modal'); // обновляем модификатор header (шапка, контейнер модальных окон)
-          navModalButton.removeClass('header__button-button--active'); // обновляем модификатор кнопки
+          navModalButton.removeClass('button-modal--active'); // обновляем модификатор кнопки
         } else { // открывыем, аналогично (выше)
           header.addClass('header--nav-modal');
           navModalButton.addClass('button-modal--active');
         }
       });
-      // м.о. каталог
-      // аналогично (выше)
-      catalogModalButton.on('click', function () {
-        if (header.hasClass('header--catalog-modal')) {
-          header.removeClass('header--catalog-modal');
-          catalogModalButton.removeClass('header__catalog-button--active');
-        } else {
-          header.addClass('header--catalog-modal');
-          catalogModalButton.addClass('header__catalog-button--active');
-        }
-      });
 
       // клик вне модального окна (закрытие)
       $(window).on('click', event => {
-        // обработка клика по окну в контексте catalog-modal
         if (
           header.hasClass('header--nav-modal') && // если модальное окно открыто
           $(event.target).closest(navModalButton).length === 0 && // + клик не по кнопке
@@ -355,15 +361,6 @@ function toggleDataAttr($element, attr, value='') {
         ) {
           header.removeClass('header--nav-modal');
           navModalButton.removeClass('button-modal--active');
-        }
-        // обработка клика по окну в контексте catalog-modal
-        if (
-          header.hasClass('header--catalog-modal') && // если модальное окно открыто
-          $(event.target).closest(catalogModalButton).length === 0 && // + клик не по кнопке
-          $(event.target).closest('.catalog-modal').length === 0 // + клик не по модальному окну
-        ) {
-          header.removeClass('header--catalog-modal'); // обновляем состояние header (стили прокидываются на catalog-modal)
-          catalogModalButton.removeClass('header__catalog-button--active'); // обновляем состояние кнопки
         }
       });
     }
@@ -819,4 +816,126 @@ function toggleDataAttr($element, attr, value='') {
       });
     };
   });
+}
+
+// catalog-modal
+{
+  // ждем полной загрузки
+  // т.к. нам нужен оригинальный шрифт
+  // для корректных расчетов
+  $(window).on('load', () => {
+    // логика скроллбаров
+    {
+      const scrollbars = $('[data-scrollbar-id]')
+
+      scrollbars.each(function () {
+        // скроллбар
+        const scrollbar = $(this)
+        const scrollbarID = scrollbar.data('scrollbar-id')
+
+        // контейнеры
+        const scrollbarOuter = $(`[data-scrollbar-outer="${scrollbarID}"]`)
+        const scrollbarInner = $(`[data-scrollbar-inner="${scrollbarID}"]`)
+
+        // расстояние скролла
+        const scrollbarOuterHeight = scrollbarOuter[0].offsetHeight
+        const scrollbarInnerHeight = scrollbarInner[0].offsetHeight
+        const scrollbarDist = scrollbarInnerHeight - scrollbarOuterHeight
+
+        // нужен ли скроллбар?
+        if (scrollbarDist <= 0) {
+          scrollbar.css('display', 'none')
+          return
+        }
+
+        // ползунок
+        const thumb = $(`[data-scrollbar-thumb="${scrollbarID}"]`)
+        const thumbHeight = scrollbarOuterHeight / scrollbarInnerHeight * 100 // в % от скроллбара
+        const thumbDist = 100 - thumbHeight // в % от скроллбара
+
+        // высота ползунка (инициализация)
+        requestAnimationFrame(() => {
+          thumb.css('height', `${thumbHeight}%`)
+        })
+
+        // движение ползунка
+        scrollbarOuter.on('scroll', () => {
+          // текущий скролл в px
+          const y = scrollbarOuter.scrollTop()
+          // текущий скролл в %
+          let progress = Math.round(y / scrollbarDist * 100)
+          progress = progress < 0 ? 0 : (progress > 100 ? 100 : progress)
+
+          requestAnimationFrame(() => {
+            thumb.css('top', `${thumbDist * (progress / 100)}%`)
+          })
+        })
+      })
+    }
+
+    // логика табов
+    // после логики скроллбаров
+    // т.к. логика скроллбаров в вычислениях опирается на содержимое контейнеров
+    // а в логике табов происходит скрытие содержимого контейнеров
+    {
+      const categoryItems = $('[data-category-item]')
+
+      const categoryTabs = $('[data-category-tab]')
+      categoryTabs.css('display', 'none')
+
+      categoryItems.each(function () {
+        const categoryItem = $(this)
+        const categoryID = categoryItem.data('category-item')
+        const categoryButton = categoryItem.find('[data-category-button]')
+
+        const categoryIsActive = 'categoryActive' in categoryItem[0].dataset
+
+        if (categoryIsActive) {
+          $(`[data-category-tab="${categoryID}"]`).css('display', '')
+        }
+
+        const isSingle = 'categorySingle' in categoryItem[0].dataset
+        categoryButton.on('mouseenter', () => {
+          if (!isSingle) {
+            const categoryActiveItem = categoryItems.filter('[data-category-active]')
+            delete categoryActiveItem[0].dataset['categoryActive']
+  
+            $(this)[0].dataset['categoryActive'] = ''
+  
+            categoryTabs.css('display', 'none')
+            $(`[data-category-tab="${categoryID}"]`).css('display', '')
+          }
+        })
+      })
+    }
+
+    {
+      const header = $('.header');
+
+      if (header.length !== 0) {
+        const catalogModalButton = header.find('.header__catalog-button');
+
+        catalogModalButton.on('click', function () {
+          if (header.hasClass('header--catalog-modal')) {
+            header.removeClass('header--catalog-modal');
+            catalogModalButton.removeClass('header__catalog-button--active');
+          } else {
+            header.addClass('header--catalog-modal');
+            catalogModalButton.addClass('header__catalog-button--active');
+          }
+        });
+
+        $(window).on('click', event => {
+          if (
+            header.hasClass('header--catalog-modal') && // если модальное окно открыто
+            $(event.target).closest(catalogModalButton).length === 0 && // + клик не по кнопке
+            $(event.target).closest('.catalog-modal').length === 0 // + клик не по модальному окну
+          ) {
+            header.removeClass('header--catalog-modal'); // обновляем состояние header (стили прокидываются на catalog-modal)
+            catalogModalButton.removeClass('header__catalog-button--active'); // обновляем состояние кнопки
+          }
+        })
+      }
+    }
+  })
 }
