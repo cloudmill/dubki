@@ -506,72 +506,6 @@ function toggleDataAttr($element, attr, value='') {
         controls: [],
       });
 
-      
-
-			// balloon layout
-			const layout = ymaps.templateLayoutFactory.createClass(
-				[
-					'<div class="map-balloon--alt">',
-					'<div class="map-balloon__container">',
-					'<div class="map-balloon__store">',
-					'{{properties.label}}',
-					'</div>',
-          '<div class="map-balloon__addres">',
-          '{{properties.title}}',
-          '</div>',
-          '<div class="map-balloon__time">',
-          '<div class="map-balloon__text">',
-          '{{properties.time}}',
-          '</div>',
-          '</div>',
-					'</div>',
-					'</div>',
-				].join(''),
-				{
-					build: function () {
-						this.constructor.superclass.build.call(this);
-
-						this._$element = $('.map-balloon--alt', this.getParentElement());
-
-						this.applyElementOffset();
-					},
-					onSublayoutSizeChange: function () {
-						layout.superclass.onSublayoutSizeChange.apply(this, arguments);
-
-						if (!this._isElement(this._$element)) {
-							return;
-						}
-
-						this.applyElementOffset();
-
-						this.events.fire('shapechange');
-					},
-					applyElementOffset: function () {
-						this._$element.css({
-							left: -(this._$element[0].offsetWidth / 2),
-							top: -(this._$element[0].offsetHeight + markHeight / 2),
-						});
-					},
-					getShape: function () {
-						if (!this._isElement(this._$element)) {
-							return layout.superclass.getShape.call(this);
-						}
-
-						var position = this._$element.position();
-
-						return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-							[position.left, position.top], [
-								position.left + this._$element[0].offsetWidth,
-								position.top + this._$element[0].offsetHeight,
-							]
-						]));
-					},
-					_isElement: function (element) {
-						return element && element[0];
-					}
-				}
-			);
-
 			// balloon close
 			map.events.add('click', () => {
 				if (map.balloon.isOpen()) {
@@ -615,7 +549,6 @@ function toggleDataAttr($element, attr, value='') {
           '</div>',
           '</div>',
         ])
-        console.log(template.join(''))
         const layout = ymaps.templateLayoutFactory.createClass(
           template.join(''),
           {
@@ -662,7 +595,6 @@ function toggleDataAttr($element, attr, value='') {
             }
           }
         )
-        
         const placemarkGeo = new ymaps.Placemark(placemark.coordinates, {
           
         }, {  
@@ -674,7 +606,11 @@ function toggleDataAttr($element, attr, value='') {
           balloonLayout: layout,
 					balloonPanelMaxMapArea: 0,
 					hideIconOnBalloonOpen: false,
-        })
+        });
+
+        placemarkGeo.events.add('click', (event) => {
+          console.log(index)
+        });
 
         placemarksGeo.push(placemarkGeo)
       });
