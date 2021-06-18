@@ -117,23 +117,40 @@ block content
                     |45.994837
             .map__list
               .map-select 
-                .map-select__inner
-                  .map-select__container 
-                    .map-select__row(data-aos="fade-up") 
-                      .map-select__col
-                        .map-select__text
-                          |Город
-                      .map-select__col
-                        .select
-                          select.select__select(name="city")(style="width: 100%")
-                            option(value="saratov", selected) 
-                              |Саратов
-                            option(value="moscov") 
-                              |Москва
-                            option(value="spb") 
-                              |Санкт-Питербург
-                            option(value="voronezh") 
-                              |Воронеж
+                .select-wrapper
+                  .map-select__inner
+                    .map-select__container 
+                      .map-select__row(data-aos="fade-up") 
+                        .map-select__col
+                          .map-select__text
+                            |Город
+                        .map-select__col
+                          .select
+                            select.select__select(name="city")(style="width: 100%")
+                              option(value="saratov", selected) 
+                                |Саратов
+                              option(value="moscov") 
+                                |Москва
+                              option(value="spb") 
+                                |Санкт-Питербург
+                              option(value="voronezh") 
+                                |Воронеж
+                              option(value="saratov") 
+                                |Саратов
+                              option(value="moscov") 
+                                |Москва
+                              option(value="spb") 
+                                |Санкт-Питербург
+                              option(value="voronezh") 
+                                |Воронеж
+                              option(value="saratov") 
+                                |Саратов
+                              option(value="moscov") 
+                                |Москва
+                              option(value="spb") 
+                                |Санкт-Питербург
+                              option(value="voronezh") 
+                                |Воронеж
               ul.map-list(data-aos="fade-up") 
                 - for (i = 0; i < 6; i++)
                   li.map-list__item
