@@ -2543,6 +2543,7 @@ body>.wrapper {
 }
 
 .catalog {
+  width: calc(100% + 20px);
 
   &__list {
     margin-top: -15px;
@@ -2553,6 +2554,7 @@ body>.wrapper {
     }
     display: flex;
     flex-wrap: wrap;
+    width: calc(100% + 20px);
   }
 
   &__item {
@@ -2588,6 +2590,7 @@ body>.wrapper {
 
 .action-catalog {
   $comp: &;
+  width: calc(100% + 20px);
 
   &__row {
     display: flex;
