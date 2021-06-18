@@ -32,6 +32,7 @@ import '@fancyapps/fancybox';
 
 // vars
 const BREAKPOINT = 1280
+const BREAKPOINT_MEDIA = matchMedia(`(min-width: ${BREAKPOINT}px)`)
 
 // functions
 function toggleDataAttr($element, attr, value='') {
@@ -229,9 +230,11 @@ function toggleDataAttr($element, attr, value='') {
 
       const buttonNext = $('.top__button')
       buttonNext.on('click', () => {
-        swipers.forEach(swiper => {
-          swiper.slideNext()
-        })
+        if (BREAKPOINT_MEDIA.matches) {
+          swipers.forEach(swiper => {
+            swiper.slideNext()
+          })
+        }
       })
     }
 
@@ -248,7 +251,9 @@ function toggleDataAttr($element, attr, value='') {
 
         const buttonNext = $('.top__button')
         buttonNext.on('click', () => {
-          swiper.slideNext()
+          if (!BREAKPOINT_MEDIA.matches) {
+            swiper.slideNext()
+          }
         })
       }
     }
