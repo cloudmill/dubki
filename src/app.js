@@ -1,7 +1,7 @@
 // imports
 import "Styles/_app.scss";
 
-import Swiper, { Parallax } from "swiper/bundle";
+import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
@@ -209,27 +209,48 @@ function toggleDataAttr($element, attr, value='') {
 // top slider
 {
   $(() => {
-    const topSlide = $('.top-slide');
+    // desktop
+    {
+      const sliders = $('.top__slider--desktop .top__swiper')
+      const swipers = []
 
-    if (topSlide.length !== 0) {
-      const topSlider = $('.top__container'); 
-      const swiper = new Swiper(topSlider[0], {
-        slidesPerView: 'auto',
-        slidesPerGroup: 1,
-        spaceBetween: 25,
-        // effect: 'flip',
-        loop: true,
-        breakpoints: {
-          [1280]: {
-            slidesPerGroup: 3,
+      sliders.each(function () {
+        const slider = $(this)
+
+        swipers.push(new Swiper(slider[0], {
+          effect: 'flip',
+          loop: true,
+          allowTouchMove: false,
+          flipEffect: {
+            slideShadows: false,
           },
-        },
-      });
+        }))
+      })
 
-      $('.top__button').on('click', () => {
-        swiper.slideNext();
-      });
+      const buttonNext = $('.top__button')
+      buttonNext.on('click', () => {
+        swipers.forEach(swiper => {
+          swiper.slideNext()
+        })
+      })
+    }
 
+    // mobile
+    {
+      const slider = $('.top__slider--mobile .top__swiper')
+
+      if (slider.length !== 0) {
+        const swiper = new Swiper(slider[0], {
+          slidesPerView: 'auto',
+          spaceBetween: 15,
+          loop: true,
+        })
+
+        const buttonNext = $('.top__button')
+        buttonNext.on('click', () => {
+          swiper.slideNext()
+        })
+      }
     }
   });
 }
