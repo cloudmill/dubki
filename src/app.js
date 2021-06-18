@@ -633,6 +633,7 @@ function toggleDataAttr($element, attr, value='') {
 
       select.select2({
         dropdownParent: selectWrapper,
+        selectOnClose: true,
       });
 
       select.on('select2:open', () => {
@@ -647,6 +648,37 @@ function toggleDataAttr($element, attr, value='') {
           clearTimeout(timeout);
         }, 0);
       });
+
+      select.on('select2:closing', event => {
+        event.preventDefault();
+
+        const selectDropdown = selectWrapper.find('.select2-dropdown');
+
+        const timeout = setTimeout(() => {
+          selectWrapper.css('z-index', '');
+
+          const select2 = selectWrapper.find('.select2');
+
+          select2.addClass('closing');
+          select2.removeClass('select2-container--open');
+          selectDropdown.slideUp(500, () => {
+            const timeout2 = setTimeout(() => {
+              select.select2('destroy');
+              select.select2({
+                dropdownParent: selectWrapper,
+                selectOnClose: true,
+              });
+              select.removeClass('closing');
+
+              selectWrapper.css('z-index', '');
+
+              clearTimeout(timeout2);
+            }, 300);
+          }); 
+          clearTimeout(timeout);
+        }, 0);
+      });
+
     });
   });
 }
