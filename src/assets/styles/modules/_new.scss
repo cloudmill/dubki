@@ -5367,9 +5367,9 @@ body>.wrapper {
     border: none;
     border-radius: 20px;
     @include f-main(400);
-    @include fsl(16px, 80%);
+    @include fsl(16px, 100%);
     &::placeholder {
-      @include fsl(16px, 80%);
+      @include fsl(16px, 100%);
       @include f-main(400);
       color: $color-black;
     }
