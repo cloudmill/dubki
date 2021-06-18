@@ -2543,6 +2543,7 @@ body>.wrapper {
 }
 
 .catalog {
+  width: calc(100% + 20px);
 
   &__list {
     margin-top: -15px;
@@ -2553,6 +2554,7 @@ body>.wrapper {
     }
     display: flex;
     flex-wrap: wrap;
+    width: calc(100% + 20px);
   }
 
   &__item {
@@ -2588,6 +2590,7 @@ body>.wrapper {
 
 .action-catalog {
   $comp: &;
+  width: calc(100% + 20px);
 
   &__row {
     display: flex;
@@ -5364,9 +5367,9 @@ body>.wrapper {
     border: none;
     border-radius: 20px;
     @include f-main(400);
-    @include fsl(16px, 80%);
+    @include fsl(16px, 100%);
     &::placeholder {
-      @include fsl(16px, 80%);
+      @include fsl(16px, 100%);
       @include f-main(400);
       color: $color-black;
     }
@@ -6937,6 +6940,7 @@ body>.wrapper {
 
     &--alt {
       position: absolute;
+      width: 291px;
 
       #{$comp}__container {
         width: 291px;
@@ -6965,13 +6969,13 @@ body>.wrapper {
       font-weight: 700 !important;
     }
 
-    &__time {
+    &__times {
       &:not(:last-child) {
         margin-bottom: 10px;
       }
     }
 
-    &__text {
+    &__time {
       margin-top: 10px;
       padding-left: 27px;
 
@@ -7113,7 +7117,7 @@ body>.wrapper {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    @include fsl(16px, 80%);
+    @include fsl(16px, 100%);
     transition: $transition;
   }
 
@@ -7387,4 +7391,22 @@ body>.wrapper {
   &-button {
     display: none;
   }
+}
+
+
+#map-test {
+  width: 1000px;
+  height: 500px;
+}
+
+.clusterIcon {
+  width: 50px;
+  height: 50px;
+  background: url("assets/images/svg/cluster.svg") center no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
