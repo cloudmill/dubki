@@ -1980,17 +1980,17 @@ body>.wrapper {
         height: 187px;
       }
 
+      #{$comp}__info {
+        height: 125px;
+      }
+
       #{$comp}__text {
         width: 250px;
         font-size: 18px;
       }
 
       #{$comp}__price {
-        font-size: 18px;
-
-        span {
-          font-size: 18px;
-        }
+        font-size: 24px;
       }
     }
   }
@@ -2084,7 +2084,6 @@ body>.wrapper {
     border-radius: 50%;
   }
 
-
   &__image {
     width: 129px;
     height: 91px;
@@ -2104,6 +2103,14 @@ body>.wrapper {
         transform: scale(0.7);
       }
     }
+  }
+
+  &__info {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__text {
@@ -2130,15 +2137,13 @@ body>.wrapper {
 
   &__price {
     color: $color-black;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.2;
 
     span {
       margin-right: 8px;
 
       color: $color-light-grey;
-      font-weight: 700;
-      font-size: 13px;
       line-height: 1.2;
       text-decoration: line-through;
 
