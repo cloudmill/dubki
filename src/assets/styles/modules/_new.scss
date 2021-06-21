@@ -6806,10 +6806,6 @@ body>.wrapper {
       right: 20px;
       z-index: 1;
     }
-
-    &--default {
-
-    }
     
     &__wrapper {
       margin-bottom: 15px;
@@ -6850,6 +6846,12 @@ body>.wrapper {
       border: 1px solid $color-light-green;
       border-radius: 20px;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-light-green;
+        color: $color-white;
+      }
 
       &--active {
         background-color: $color-light-green;

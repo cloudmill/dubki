@@ -998,6 +998,3 @@ function toggleDataAttr($element, attr, value='') {
 }
 
 
-// text 
-{
-}
