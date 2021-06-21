@@ -213,6 +213,16 @@ function toggleDataAttr($element, attr, value='') {
     $('.slider-button--prev').on('click', function() {
       swiperProductSlider.slidePrev();
     });
+
+    const swiperProduct = new Swiper ($('.products')[0], {
+      slidesPerView: 'auto',
+    })
+
+    $('.slider-button').on('click', function() {
+      swiperProduct.slideNext();
+    });
+
+    
   });
 }
 

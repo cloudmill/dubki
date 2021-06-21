@@ -48,7 +48,7 @@ block content
                       li.product-card__item 
                         .product-card__item-thumb 
                           img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
-                    .product-card__item--button
+                    .product-card__item--button.slider-button
                       .product-card__item-thumb.product-card__item-thumb--black
                         .product-card__item-button 
                           +cursor-svg('product-card__item-icon')
@@ -60,16 +60,18 @@ block content
                       .video-button
                         +play-svg('video-button__icon')
                 .product-card__col
-                  .products 
-                    .products__item
-                      .products__container 
-                        .products__label 
-                          .products__icon 
-                            +top-icon-svg
-                          .products__text   
-                            |-30%
-                        .products__image 
-                          img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                  .products.swiper-container
+                    .swiper-wrapper
+                      - for (i = 0; i < 3; i++)
+                        .products__item.swiper-slide
+                          .products__container 
+                            .products__label 
+                              .products__icon 
+                                +top-icon-svg
+                              .products__text   
+                                |-30%
+                            .products__image 
+                              img.products__img(src="assets/images/top-slide-1.png", alt="")    
             .row__col
               ul.block-list.block-list--hidden.block-list--faded(data-aos="fade-up") 
                 li.block-list__item 
