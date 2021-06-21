@@ -55,6 +55,8 @@ function toggleDataAttr($element, attr, value='') {
         slidesPerView: 'auto',
         spaceBetween: 20,
       });
+
+      
     }
 
     // Рецепты, Главная
@@ -203,6 +205,13 @@ function toggleDataAttr($element, attr, value='') {
     const swiperProductSlider = new Swiper($('.product-slider')[0], {
       slidesPerView: 'auto',
       spaceBetween: 20,
+    });
+
+    $('.slider-button--next').on('click', function() {
+      swiperProductSlider.slideNext();
+    });
+    $('.slider-button--prev').on('click', function() {
+      swiperProductSlider.slidePrev();
     });
   });
 }
