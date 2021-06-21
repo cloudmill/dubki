@@ -8,6 +8,7 @@ include ../components/_footer.pug
 
 
 block variables
+  - var gridTestActive = true
 
 
 
@@ -25,7 +26,8 @@ html(lang='en')
     meta(name="format-detection", content="address=no")
     script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
   body.body
-    +grid-test
+    if (gridTestActive)
+      +grid-test
     .wrapper
       block header
         +header
