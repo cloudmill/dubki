@@ -6829,7 +6829,9 @@ body>.wrapper {
 }
 
 .map {
-  
+  position: relative;
+  z-index: 0;
+
   &__inner {
     padding-top: 40px;
     @media (min-width: $breakpoint) {
@@ -6904,6 +6906,9 @@ body>.wrapper {
   }
 
   &__list {
+    position: relative;
+    z-index: 1;
+
     margin-bottom: 15px;
     @media (min-width: $breakpoint) {
       margin-bottom: 0;
@@ -6921,6 +6926,8 @@ body>.wrapper {
   }
 
   &-select {
+    position: relative;
+    z-index: 2;
 
     &__inner {
       margin-bottom: 20px;
