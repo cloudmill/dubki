@@ -388,7 +388,13 @@
   }
 }
 
-.test {
+.qwe {
+  min-height: 100vh;
+
+  background-color: gainsboro;
+}
+
+.product-announcement {
   $comp: &;
 
   $width-m: 165px;
@@ -403,9 +409,9 @@
   position: relative;
   z-index: 0;
 
-  padding-top: $offset-m;
+  padding: $offset-m 0 10px;
   @media (min-width: $breakpoint) {
-    padding-top: $offset-d;
+    padding: $offset-d 0 15px;
   }
   width: $width-m;
   height: 231px;
@@ -415,31 +421,43 @@
   }
   display: flex;
   flex-direction: column;
-  align-items: center;
 
-  background-color: gray;
+  background-color: $color-white;
   border-radius: 197px;
   cursor: pointer;
+  transition: $transition;
 
   &:hover {
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.03);
+
     #{$comp}__frame {
       transform: scale(#{1 + (($offset-m * 2) / $frame-m)});
       @media (min-width: $breakpoint) {
         transform: scale(#{1 + (($offset-d * 2) / $frame-d)});
       }
     }
+
+    #{$comp}__label {
+      transform: rotate(25deg);
+    }
+  }
+
+  &--responsive {
+    width: 100%;
   }
 
   &__frame {
     position: relative;
     z-index: 0;
 
+    margin: 0 auto;
     width: $frame-m;
     height: $frame-m;
     @media (min-width: $breakpoint) {
       width: $frame-d;
       height: $frame-d;
     }
+    flex-shrink: 0;
     pointer-events: none;
     overflow: hidden;
 
@@ -456,28 +474,161 @@
     max-height: 100%;
   }
 
-  &__bottom {
-    margin-top: $offset-m;
-    @media (min-width: $breakpoint) {
-      margin-top: $offset-d;
-    }
-  }
-
   &__label {
     position: absolute;
     z-index: 0;
     top: 0;
     left: 0;
-
+    
+    @media (max-width: $breakpoint - 1px) {
+      max-width: 55px;
+    }
     pointer-events: none;
 
     transition: $transition;
   }
   &__label-background {
     display: flex;
+
+    svg {
+      height: auto;
+    }
   }
   &__label-text {
+    @include f-alt();
+    @include fsl(20px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(28px);
+    }
+
     position: absolute;
-    
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+  }
+  &__label-subtext {
+    font-size: 10px;
+    @media (min-width: $breakpoint) {
+      font-size: 14px;
+    }
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__bottom {
+    margin-top: $offset-m;
+    @media (min-width: $breakpoint) {
+      margin-top: $offset-d;
+    }
+    padding: 0 20px;
+    @media (min-width: $breakpoint) {
+      padding: 0 30px;
+    }
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include fsl(10px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(15px);
+    }
+    text-align: center;
+  }
+  &__title-line {
+    white-space: nowrap;
+
+    &--crop {
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+  }
+  &__price-text {
+    @include fsl(10px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(15px);
+    }
+    white-space: nowrap;
+
+    &:last-child {
+      margin-left: 10px;
+    }
+
+    &--old {
+      color: $color-light-grey;
+      text-decoration-line: line-through;
+    }
+  }
+}
+.product-announcement-list {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  &__item {
+    @mixin margin($cols) {
+      margin-top: 15px;
+      margin-left: 15px;
+      @media (min-width: $breakpoint) {
+        margin-top: 50px;
+        margin-left: 20px;
+      }
+
+      &:nth-child(-n + #{$cols}) {
+        margin-top: 0;
+      }
+      &:nth-child(#{$cols}n + 1) {
+        margin-left: 0;
+      }
+    }
+    @mixin width($cols) {
+      width: calc((100% - (15px * #{$cols - 1})) / #{$cols});
+      @media (min-width: $breakpoint) {
+        width: calc((100% - (20px * #{$cols - 1})) / #{$cols});
+      }
+    }
+    @mixin pos($cols) {
+      @include margin($cols);
+      @include width($cols);
+    }
+
+    flex-shrink: 0;
+
+    @media (max-width: $breakpoint-s - 1px) {
+      @include pos(2);
+    }
+    @media (min-width: $breakpoint-s) and (max-width: $breakpoint-m - 1px) {
+      @include pos(3);
+    }
+    @media (min-width: $breakpoint-m) and (max-width: $breakpoint-t - 1px) {
+      @include pos(4);
+    }
+    @media (min-width: $breakpoint-t) and (max-width: $breakpoint - 1px) {
+      @include pos(5);
+    }
+    @media (min-width: $breakpoint) and (max-width: $breakpoint-ll - 1px) {
+      @include pos(4);
+    }
+    @media (min-width: $breakpoint-ll) and (max-width: $breakpoint-xl - 1px) {
+      @include pos(5);
+    }
+    @media (min-width: $breakpoint-xl) {
+      @include pos(6);
+    }
   }
 }

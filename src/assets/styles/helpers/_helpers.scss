@@ -80,6 +80,8 @@ $col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap-d})';
 
 // breakpoints
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
 $breakpoint-m: 768px;
 $breakpoint-t: 1024px;
 $breakpoint: 1280px; // основной, переходный (мобильный - десктоп) брейкпоинт
