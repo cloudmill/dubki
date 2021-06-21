@@ -513,18 +513,18 @@ mixin header(opt={})
                 .footer__media-item
                   a.footer__mail(href="#") 
                     |info@dubki-producty.ru
-        .modal-search.modal-search--city
+        .modal-search.modal-search--city(data-autocomplete-place='1')
           .container
-            .modal-search__container 
+            .modal-search__container
               .modal-search__row 
                 .modal-search__col
-                  h4.modal-search__title 
+                  h4.modal-search__title
                     |Выбрать 
                     br.modal-search__line
                     |город
                   .modal-search__form
-                    form.search-form(action="/")  
-                      input.search-form__input.search-form__input--modal(type="text" name="search" placeholder="Саратов")
+                    form.search-form(action="#")
+                      input.search-form__input.search-form__input--modal(data-autocomplete-input='1' data-autocomplete-list=JSON.stringify(['Саратов','Самара','Саранск','Сыктывкар',]) name="location" placeholder="Саратов")
                 .modal-search__col
                   .modal-search__button
                     .button-modal.button-modal--active(data-fancybox-close='1')

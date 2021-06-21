@@ -5,7 +5,7 @@ import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
-require("jquery-ui/ui/widgets/autocomplete");
+require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
   require("assets/scripts/backend");
@@ -23,7 +23,7 @@ $(() => {
     disableMutationObserver: false, // disables automatic mutations' detections (advanced)
     debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
     throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-    
+
 
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
     offset: 120, // offset (in px) from the original trigger point
@@ -31,8 +31,8 @@ $(() => {
     duration: 1500, // values from 0 to 3000, with step 50ms
     easing: 'ease', // default easing for AOS animations
     once: false, // whether animation should happen only once - while scrolling down
-    mirror: false, 
-});
+    mirror: false,
+  });
 }
 
 // vars
@@ -40,7 +40,7 @@ const BREAKPOINT = 1280
 const BREAKPOINT_MEDIA = matchMedia(`(min-width: ${BREAKPOINT}px)`)
 
 // functions
-function toggleDataAttr($element, attr, value='') {
+function toggleDataAttr($element, attr, value = '') {
   const element = $element[0]
 
   if (attr in element.dataset) {
@@ -99,7 +99,7 @@ function toggleDataAttr($element, attr, value='') {
         spaceBetween: 20,
         touchStartPreventDefault: false,
       })
-      
+
       // обработка событий: начало/конец движения слайдера
       // начало
       swiper.on('sliderFirstMove', () => {
@@ -147,7 +147,7 @@ function toggleDataAttr($element, attr, value='') {
     if ($('.index').length !== 0) {
       const area = $('.index__recipes-row')
       const cursor = $('.index__recipes-cursor')
-      
+
       // состояние курсора
       // над side частью (заголовок + кнопка)
       let onSide = false
@@ -291,7 +291,7 @@ function toggleDataAttr($element, attr, value='') {
       const recipeList = $('.recipe__ingredients');
 
 
-      $(window).on('scroll', function() {
+      $(window).on('scroll', function () {
         const scrollPos = $(this).scrollTop();
         const scrollIng = scrollPos + 130;
 
@@ -307,7 +307,7 @@ function toggleDataAttr($element, attr, value='') {
         }
       });
 
-      
+
     }
   });
 }
@@ -326,7 +326,7 @@ function toggleDataAttr($element, attr, value='') {
 
       console.log(vacanciesContainer)
 
-      $(window).on('scroll', function() {
+      $(window).on('scroll', function () {
         const scrollPos = $(this).scrollTop();
 
         if (scrollPos > vacanciesPos) {
@@ -334,7 +334,7 @@ function toggleDataAttr($element, attr, value='') {
         } else {
           vacanciesCity.removeClass('vacancies__city--fixed');
         }
-        
+
         // if (scrollPos > vacanciesContainer) {
         //   vacanciesCity.removeClass('vacancies__city--fixed');
         // } else 
@@ -386,7 +386,7 @@ function toggleDataAttr($element, attr, value='') {
       const navModalButton = navModal.find('.header__catalog-button');
       const navModalDropdown = navModal.find('.header-catalog__dropdown');
 
-      navModalButton.on('click', function() {
+      navModalButton.on('click', function () {
         navModalButton.toggleClass('header__catalog-button--active');
         navModalDropdown.slideToggle();
       });
@@ -423,24 +423,24 @@ function toggleDataAttr($element, attr, value='') {
       const cityModalButton = header.find('.modal-search__button');
 
       // button open
-      citySearchButton.on('click', function() {
+      citySearchButton.on('click', function () {
         header.addClass('header--city-search');
       });
 
       // button close
-      cityModalButton.on('click', function() {
+      cityModalButton.on('click', function () {
         header.removeClass('header--city-search');
       });
 
       //click close
-      $(window).on('click', function(event) {
+      $(window).on('click', function (event) {
         const target = event.target.closest('.header__city-button');
 
         if (
           header.hasClass('header--city-search') &&
           target !== citySearchButton[0] &&
           $(event.target).closest('.modal-search--city').length === 0 &&
-          $(target).closest('.nav-modal').length === 0 
+          $(target).closest('.nav-modal').length === 0
         ) {
           header.removeClass('header--city-search');
         }
@@ -459,17 +459,17 @@ function toggleDataAttr($element, attr, value='') {
       const catalogModalButton = header.find('.modal-search__button-catalog');
 
       // button open
-      catalogSearchButton.on('click', function() {
+      catalogSearchButton.on('click', function () {
         header.addClass('header--catalog-search');
       });
 
       // button close
-      catalogModalButton.on('click', function() {
+      catalogModalButton.on('click', function () {
         header.removeClass('header--catalog-search');
       });
 
       //click close
-      $(window).on('click', function(event) {
+      $(window).on('click', function (event) {
         const target = event.target.closest('.header__search-button');
         if (
           header.hasClass('header--catalog-search') &&
@@ -492,7 +492,7 @@ function toggleDataAttr($element, attr, value='') {
     const vacanciesButton = vacancies.find('.vacancies-list__row');
     const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
 
-    vacanciesButton.on('click', function() {
+    vacanciesButton.on('click', function () {
       vacanciesButton.toggleClass('vacancies-list__row--active');
       vacanciesDrop.slideToggle();
     });
@@ -501,30 +501,30 @@ function toggleDataAttr($element, attr, value='') {
 
 // map
 {
-	ymaps.ready(() => {
-		const mapContainer = $('#map');
+  ymaps.ready(() => {
+    const mapContainer = $('#map');
 
-		if (mapContainer.length !== 0) {
-			// vars
-			const markWidth = 53;
+    if (mapContainer.length !== 0) {
+      // vars
+      const markWidth = 53;
       const markHeight = 56;
 
-			// init
-			const map = new ymaps.Map('map', {
+      // init
+      const map = new ymaps.Map('map', {
         center: [51.518328, 45.996784],
         zoom: 12,
         controls: [],
       });
 
-			// balloon close
-			map.events.add('click', (event) => {
-				if (map.balloon.isOpen()) {
-					map.balloon.close();
-				}
+      // balloon close
+      map.events.add('click', (event) => {
+        if (map.balloon.isOpen()) {
+          map.balloon.close();
+        }
         if (event.target == undefined) {
           listItem.removeClass('map-list__item--active');
-        } 
-			});
+        }
+      });
 
       const placemarksJSON = $('.placemarks').text();
       const placemarks = JSON.parse(placemarksJSON);
@@ -565,17 +565,17 @@ function toggleDataAttr($element, attr, value='') {
           '</div>',
           '</div>',
         ])
-        
+
         // balloon layout
         const layout = ymaps.templateLayoutFactory.createClass(
           template.join(''),
           {
             build: function () {
-						this.constructor.superclass.build.call(this);
+              this.constructor.superclass.build.call(this);
 
-						this._$element = $('.map-balloon--alt', this.getParentElement());
+              this._$element = $('.map-balloon--alt', this.getParentElement());
 
-						this.applyElementOffset();
+              this.applyElementOffset();
             },
             onSublayoutSizeChange: function () {
               layout.superclass.onSublayoutSizeChange.apply(this, arguments);
@@ -614,20 +614,20 @@ function toggleDataAttr($element, attr, value='') {
           }
         )
 
-        
-        
+
+
         // точки
         const placemarkGeo = new ymaps.Placemark(placemark.coordinates, {
-          
-        }, {  
+
+        }, {
           iconLayout: 'default#image',
           iconImageHref: 'assets/images/svg/placemark.svg',
           iconImageSize: [markWidth, markHeight],
           iconImageOffset: [-markWidth / 2, -markHeight],
 
           balloonLayout: layout,
-					balloonPanelMaxMapArea: 0,
-					hideIconOnBalloonOpen: false,
+          balloonPanelMaxMapArea: 0,
+          hideIconOnBalloonOpen: false,
         });
 
         // клик по точке на карте
@@ -644,7 +644,7 @@ function toggleDataAttr($element, attr, value='') {
         });
 
         // клик на пункт меню
-        listItem.eq(index).on('click', function() {
+        listItem.eq(index).on('click', function () {
           map.setCenter(placemark.coordinates, 15);
           placemarkGeo.balloon.open();
           if ($(this).hasClass('map-list__item--active')) {
@@ -659,7 +659,7 @@ function toggleDataAttr($element, attr, value='') {
         placemarksGeo.push(placemarkGeo)
       });
 
-      
+
 
       // cluster
       const clusterer = new ymaps.Clusterer({
@@ -678,20 +678,20 @@ function toggleDataAttr($element, attr, value='') {
       map.setBounds(clusterer.getBounds(), {
         zoomMargin: Math.max(markWidth, markHeight),
       });
-		}
-	});
+    }
+  });
 }
 
 // select
 {
   $(() => {
     const components = $('.select')
-  
+
     components.each(function () {
       const component = $(this)
-      
+
       const select = component.find('select')
-  
+
       select.select2({
         width: '100%',
         dropdownParent: component,
@@ -737,13 +737,13 @@ function toggleDataAttr($element, attr, value='') {
       const responseButton = $('.response__btn');
       const formButton = $('.form__btn');
 
-      formButton.on('click', function() {
+      formButton.on('click', function () {
         form.addClass('form--hidden');
         response.addClass('response--active');
         $('.provider__row').addClass('provider__row--active');
       });
 
-      responseButton.on('click', function() {
+      responseButton.on('click', function () {
         form.removeClass('form--hidden');
         response.removeClass('response--active');
         $('.provider__row').removeClass('provider__row--active');
@@ -758,13 +758,13 @@ function toggleDataAttr($element, attr, value='') {
     $.fancybox.defaults.closeExisting = true;
 
     $('[data-fancy-button]').on('click', function (event) {
-			event.preventDefault();
-		
-			const id = $(this).data('fancy-button');
-			const modal = $(`[data-fancy-modal="${id}"]`);
+      event.preventDefault();
 
-			$.fancybox.open(modal);
-		});
+      const id = $(this).data('fancy-button');
+      const modal = $(`[data-fancy-modal="${id}"]`);
+
+      $.fancybox.open(modal);
+    });
   });
 }
 
@@ -840,12 +840,12 @@ function toggleDataAttr($element, attr, value='') {
 {
   $(() => {
     const header = $('.header');
-    
+
     if (header.length !== 0) {
       $(window).on('scroll',
         {
           previousTop: 0
-        }, 
+        },
         function () {
           const currentTop = $(window).scrollTop();
           // if (currentTop > 200) {
@@ -855,12 +855,12 @@ function toggleDataAttr($element, attr, value='') {
           // }
 
           if (currentTop < this.previousTop) {
-              header.removeClass('header--scroll');
+            header.removeClass('header--scroll');
           } else {
-              header.addClass('header--scroll');
+            header.addClass('header--scroll');
           }
           this.previousTop = currentTop;
-      });
+        });
     };
   });
 }
@@ -946,9 +946,9 @@ function toggleDataAttr($element, attr, value='') {
           if (!isSingle) {
             const categoryActiveItem = categoryItems.filter('[data-category-active]')
             delete categoryActiveItem[0].dataset['categoryActive']
-  
+
             $(this)[0].dataset['categoryActive'] = ''
-  
+
             categoryTabs.css('display', 'none')
             $(`[data-category-tab="${categoryID}"]`).css('display', '')
           }
@@ -987,15 +987,35 @@ function toggleDataAttr($element, attr, value='') {
   })
 }
 
-// autocomplete
+// location autocomplete
 {
-  $('.test').each(function () {
-    $(this).autocomplete({
-      source: [
-        'aaa',
-        'bbb',
-        'ccc',
-      ],
+  $(() => {
+    const inputs = $('[data-autocomplete-input]')
+
+    inputs.each(function () {
+      const input = $(this)
+      const inputID = input.data('autocomplete-input')
+
+      const inputPlace = `[data-autocomplete-place="${inputID}"]`
+      const inputList = input.data('autocomplete-list')
+
+      input.autocomplete({
+        appendTo: inputPlace,
+        source: inputList,
+
+        position: {
+          my: 'left top+5',
+        },
+
+        open: function () {
+          $('.ui-menu-item-wrapper').on('click', function () {
+            console.log($(this));
+          })
+          $('.ui-menu-item').on('click', function () {
+            console.log($(this));
+          })
+        },
+      })
     })
   })
 }

@@ -6692,7 +6692,7 @@ body>.wrapper {
       border: none;
       color: $color-black;
       @include f-main(400);
-      @include fsl(16px, 80%);
+      @include fsl(16px, 100%);
       &::placeholder {
         color: $color-black;
         @include f-main(400);
@@ -6707,6 +6707,7 @@ body>.wrapper {
           height: 70px;
         }
 
+        border: 1px solid transparent;
         transition: $transition;
         &:focus {
           border: 1px solid $color-green;

@@ -632,3 +632,39 @@
     }
   }
 }
+
+// location autocomplete
+.ui-helper-hidden-accessible {
+  display: none !important;
+}
+
+[data-autocomplete-place] {
+  .ui-autocomplete {
+    padding: 20px;
+
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04);
+  }
+
+  .ui-menu-item {
+    min-height: 18px;
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+  .ui-menu-item-wrapper {
+    @include f-main(400);
+    @include fsl(16px, 80%);
+
+    border: none;
+    transition: $transition;
+
+    &.ui-state-active {
+      background: none;
+      color: $color-green;
+    }
+  }
+}
