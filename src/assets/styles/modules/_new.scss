@@ -236,6 +236,20 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       display: flex;
     }
+
+    &--mobile {
+      display: block;
+      width: 100%;
+
+      .header__catalog-button {
+        padding: 15px 15px 15px 30px;
+
+        height: auto;
+        width: 100%;
+        justify-content: space-between;
+        border-radius: 0;
+      }
+    }
   
     &-button {
       @mixin catalog-button-hover() {
@@ -246,6 +260,7 @@ body>.wrapper {
         }
   
         #{$comp}__catalog-icon {
+          transform: rotate(180deg);
           path {
             stroke: $color-white;
           }
@@ -394,6 +409,19 @@ body>.wrapper {
       align-items: center;
 
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        #{$comp}-text {
+          color: $color-yellow;
+        }
+        
+        #{$comp}-svg {
+          path {
+            stroke: $color-yellow;
+          }
+        }
+      }
 
       &--dark {
         

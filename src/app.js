@@ -955,7 +955,7 @@ function toggleDataAttr($element, attr, value='') {
       const header = $('.header');
 
       if (header.length !== 0) {
-        const catalogModalButton = header.find('.header__catalog-button');
+        const catalogModalButton = header.find('.header__catalog-button[data-modal-button]');
 
         catalogModalButton.on('click', function () {
           if (header.hasClass('header--catalog-modal')) {

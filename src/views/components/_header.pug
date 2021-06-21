@@ -3,7 +3,7 @@ mixin header(opt={})
     .container
       .header__row
         .header__catalog(data-aos="fade-up")
-          .header__catalog-button
+          .header__catalog-button(data-modal-button="")
             .header__catalog-text
               |Акционный каталог
             .header__catalog-icon
@@ -43,7 +43,7 @@ mixin header(opt={})
           .nav-modal__row 
             .nav-modal__item
               .header-catalog
-                .header__catalog--mobile
+                .header__catalog.header__catalog--mobile
                   .header__catalog-button
                     .header__catalog-text
                       |Акционный каталог
@@ -447,15 +447,15 @@ mixin header(opt={})
                             a.header-catalog__link(href="#")
                               |Шоколад
             .nav-modal__item
-              .header__store--mobile
-                a.header__store-button(href='#')(data-aos="fade-up")
+              .header__store--mobile(data-aos="fade-up")
+                a.header__store-button(href='#')
                   .header__store-text 
                     |Интернет-магазин
                   .header__store-icon
-                    +cursor-svg
+                    +cursor-svg('header__store-svg')
             .nav-modal__item
-              .header__nav--mobile
-                a.header__nav-link(href="#")(data-aos="fade-up") 
+              .header__nav--mobile(data-aos="fade-up") 
+                a.header__nav-link(href="#")
                   |Где купить
           .nav-modal__content
             .nav-modal__top
