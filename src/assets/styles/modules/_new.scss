@@ -1697,7 +1697,7 @@ body>.wrapper {
 
     &--m {
       @media (min-width: $breakpoint) {
-        width: 419px;
+        width: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
       }
 
       #{$comp}__frame {
@@ -2692,13 +2692,13 @@ body>.wrapper {
       width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
 
       &:not(:first-child) {
-        margin-top: 20px;
+        margin-top: 15px;
       }
     }
     @media (max-width: $breakpoint-m - 1px) {
       margin-left: 0;
 
-      width: 100%;
+      width: calc(#{$grid-pard-m} * 4 - #{$grid-gap-m});
     }
 
     @media (min-width: $breakpoint) {
@@ -2725,7 +2725,7 @@ body>.wrapper {
 
       height: 397px;
       @media (max-width: $breakpoint - 1px) {
-        width: 100%;
+        width: calc(#{$grid-pard-m} * 4 - #{$grid-gap-m});
       }
       @media (min-width: $breakpoint) {
         height: 520px;
@@ -7324,12 +7324,6 @@ body>.wrapper {
   &-button {
     display: none;
   }
-}
-
-
-#map-test {
-  width: 1000px;
-  height: 500px;
 }
 
 .cluster {
