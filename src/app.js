@@ -518,6 +518,7 @@ function toggleDataAttr($element, attr, value='') {
 
       const placemarksGeo = [];
       placemarks.forEach((placemark, index) => {
+        // balloon template
         let template = [
           '<div class="map-balloon--alt">',
           '<div class="map-balloon__container">',
@@ -549,6 +550,8 @@ function toggleDataAttr($element, attr, value='') {
           '</div>',
           '</div>',
         ])
+        
+        // balloon layout
         const layout = ymaps.templateLayoutFactory.createClass(
           template.join(''),
           {
@@ -595,6 +598,8 @@ function toggleDataAttr($element, attr, value='') {
             }
           }
         )
+        
+        // точки
         const placemarkGeo = new ymaps.Placemark(placemark.coordinates, {
           
         }, {  
@@ -615,6 +620,7 @@ function toggleDataAttr($element, attr, value='') {
         placemarksGeo.push(placemarkGeo)
       });
 
+      // cluster
       const clusterer = new ymaps.Clusterer({
 
         clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="clusterIcon">{{ properties.geoObjects.length }}</div>'),
@@ -631,43 +637,6 @@ function toggleDataAttr($element, attr, value='') {
       map.setBounds(clusterer.getBounds(), {
         zoomMargin: Math.max(markWidth, markHeight),
       });
-
-			// добавление точек
-			// const placemarks = new ymaps.GeoObjectCollection();
-			// $('.placemarks__item').each(function () {
-			// 	// данные
-			// 	const balloon = $(this).find('.placemarks__balloon');
-      //   const balloonStore = $(this).find('.map-balloon__store').text().trim();
-      //   const balloonAddres = $(this).find('.map-balloon__addres').text().trim();
-      //   const balloonText = $(this).find('.map-balloon__text').text().trim();
-			// 	const latitude = $(this).find('.placemarks__latitude').text().trim();
-			// 	const longitude = $(this).find('.placemarks__longitude').text().trim();
-
-			// 	// placemark
-			// 	const coordinates = [latitude, longitude];
-			// 	const placemark = new ymaps.Placemark(coordinates, {
-			// 		balloon, balloonStore, balloonAddres, balloonText,
-			// 	}, {
-			// 		iconLayout: 'default#image',
-			// 		iconImageHref: 'assets/images/svg/placemark.svg',
-			// 		iconImageSize: [markWidth, markHeight],
-			// 		iconImageOffset: [-markWidth / 2, -markHeight],
-
-			// 		balloonLayout: layout,
-			// 		balloonPanelMaxMapArea: 0,
-			// 		hideIconOnBalloonOpen: false,
-			// 	});
-
-			// 	placemarks.add(placemark);
-			// });
-
-			// // добавление на карту
-			// map.geoObjects.add(placemarks);
-
-			// // позиционирование на точках
-			// map.setBounds(placemarks.getBounds(), {
-			// 	zoomMargin: Math.max(markWidth, markHeight),
-			// });
 		}
 	});
 }
