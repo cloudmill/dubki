@@ -843,17 +843,26 @@ function toggleDataAttr($element, attr, value='') {
         }, 
         function () {
           const currentTop = $(window).scrollTop();
-          // if (currentTop > 200) {
-          //   header.addClass('header--scroll')
-          // } else if (currentTop < this.previousTop) {
-          //   header.removeClass('header--scroll');
-          // }
+
+          if (window.pageYOffset > 0) {
+            header.addClass('header--scroll');
+          } else {
+            header.removeClass('header--scroll');
+          }
 
           if (currentTop < this.previousTop) {
-              header.removeClass('header--scroll');
+            header.removeClass('header--scroll--down');
+            header.addClass('header--scroll--up');
           } else {
-              header.addClass('header--scroll');
+            header.removeClass('header--scroll--up');
+            header.addClass('header--scroll--down');
           }
+
+          if (currentTop < 1) {
+            header.removeClass('header--scroll--up');
+            header.removeClass('header--scroll--down');
+          }
+
           this.previousTop = currentTop;
       });
     };
