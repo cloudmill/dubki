@@ -222,7 +222,7 @@ function toggleDataAttr($element, attr, value='') {
       swiperProduct.slideNext();
     });
 
-    
+
   });
 }
 
@@ -870,18 +870,19 @@ function toggleDataAttr($element, attr, value='') {
         function () {
           const currentTop = $(window).scrollTop();
 
-          if (window.pageYOffset > 0) {
-            header.addClass('header--scroll');
-          } else {
-            header.removeClass('header--scroll');
-          }
-
-          if (currentTop < this.previousTop) {
-            header.removeClass('header--scroll--down');
-            header.addClass('header--scroll--up');
-          } else {
-            header.removeClass('header--scroll--up');
-            header.addClass('header--scroll--down');
+          if (!(
+            header.hasClass('header--nav-modal') ||
+            header.hasClass('header--catalog-search') ||
+            header.hasClass('header--catalog-modal') ||
+            header.hasClass('header--city-search')
+          )) {
+            if (currentTop < this.previousTop) {
+              header.removeClass('header--scroll--down');
+              header.addClass('header--scroll--up');
+            } else {
+              header.removeClass('header--scroll--up');
+              header.addClass('header--scroll--down');
+            }
           }
 
           if (currentTop < 1) {
