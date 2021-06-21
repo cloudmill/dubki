@@ -511,84 +511,24 @@ function toggleDataAttr($element, attr, value='') {
         controls: [],
       });
 
-      
-
-			// balloon layout
-			const layout = ymaps.templateLayoutFactory.createClass(
-				[
-					'<div class="map-balloon--alt">',
-					'<div class="map-balloon__container">',
-					'<div class="map-balloon__store">',
-					'{{properties.label}}',
-					'</div>',
-          '<div class="map-balloon__addres">',
-          '{{properties.title}}',
-          '</div>',
-          '<div class="map-balloon__time">',
-          '<div class="map-balloon__text">',
-          '{{properties.time}}',
-          '</div>',
-          '</div>',
-					'</div>',
-					'</div>',
-				].join(''),
-				{
-					build: function () {
-						this.constructor.superclass.build.call(this);
-
-						this._$element = $('.map-balloon--alt', this.getParentElement());
-
-						this.applyElementOffset();
-					},
-					onSublayoutSizeChange: function () {
-						layout.superclass.onSublayoutSizeChange.apply(this, arguments);
-
-						if (!this._isElement(this._$element)) {
-							return;
-						}
-
-						this.applyElementOffset();
-
-						this.events.fire('shapechange');
-					},
-					applyElementOffset: function () {
-						this._$element.css({
-							left: -(this._$element[0].offsetWidth / 2),
-							top: -(this._$element[0].offsetHeight + markHeight / 2),
-						});
-					},
-					getShape: function () {
-						if (!this._isElement(this._$element)) {
-							return layout.superclass.getShape.call(this);
-						}
-
-						var position = this._$element.position();
-
-						return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-							[position.left, position.top], [
-								position.left + this._$element[0].offsetWidth,
-								position.top + this._$element[0].offsetHeight,
-							]
-						]));
-					},
-					_isElement: function (element) {
-						return element && element[0];
-					}
-				}
-			);
-
 			// balloon close
-			map.events.add('click', () => {
+			map.events.add('click', (event) => {
 				if (map.balloon.isOpen()) {
 					map.balloon.close();
 				}
+        if (event.target == undefined) {
+          listItem.removeClass('map-list__item--active');
+        } 
 			});
 
       const placemarksJSON = $('.placemarks').text();
       const placemarks = JSON.parse(placemarksJSON);
+      const listItem = $('.map-list__item');
+
 
       const placemarksGeo = [];
       placemarks.forEach((placemark, index) => {
+        // balloon template
         let template = [
           '<div class="map-balloon--alt">',
           '<div class="map-balloon__container">',
@@ -620,7 +560,8 @@ function toggleDataAttr($element, attr, value='') {
           '</div>',
           '</div>',
         ])
-        console.log(template.join(''))
+        
+        // balloon layout
         const layout = ymaps.templateLayoutFactory.createClass(
           template.join(''),
           {
@@ -667,7 +608,10 @@ function toggleDataAttr($element, attr, value='') {
             }
           }
         )
+
         
+        
+        // точки
         const placemarkGeo = new ymaps.Placemark(placemark.coordinates, {
           
         }, {  
@@ -679,14 +623,43 @@ function toggleDataAttr($element, attr, value='') {
           balloonLayout: layout,
 					balloonPanelMaxMapArea: 0,
 					hideIconOnBalloonOpen: false,
+        });
+
+        // клик по точке на карте
+        placemarkGeo.events.add('click', (event) => {
+          const currentItem = listItem.eq(index);
+
+          if (currentItem.hasClass('map-list__item--active')) {
+            listItem.removeClass('map-list__item--active');
+          } else {
+            listItem.removeClass('map-list__item--active');
+
+            listItem.eq(index).addClass('map-list__item--active');
+          }
+        });
+
+        // клик на пункт меню
+        listItem.eq(index).on('click', function() {
+          map.setCenter(placemark.coordinates, 15);
+          placemarkGeo.balloon.open();
+          if ($(this).hasClass('map-list__item--active')) {
+            $(this).addClass('map-list__item--active')
+          } else {
+            listItem.removeClass('map-list__item--active')
+
+            $(this).addClass('map-list__item--active')
+          }
         })
 
         placemarksGeo.push(placemarkGeo)
       });
 
+      
+
+      // cluster
       const clusterer = new ymaps.Clusterer({
 
-        clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="clusterIcon">{{ properties.geoObjects.length }}</div>'),
+        clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="cluster">{{ properties.geoObjects.length }}</div>'),
 
         clusterIconShape: {
           type: 'Rectangle',
@@ -700,43 +673,6 @@ function toggleDataAttr($element, attr, value='') {
       map.setBounds(clusterer.getBounds(), {
         zoomMargin: Math.max(markWidth, markHeight),
       });
-
-			// добавление точек
-			// const placemarks = new ymaps.GeoObjectCollection();
-			// $('.placemarks__item').each(function () {
-			// 	// данные
-			// 	const balloon = $(this).find('.placemarks__balloon');
-      //   const balloonStore = $(this).find('.map-balloon__store').text().trim();
-      //   const balloonAddres = $(this).find('.map-balloon__addres').text().trim();
-      //   const balloonText = $(this).find('.map-balloon__text').text().trim();
-			// 	const latitude = $(this).find('.placemarks__latitude').text().trim();
-			// 	const longitude = $(this).find('.placemarks__longitude').text().trim();
-
-			// 	// placemark
-			// 	const coordinates = [latitude, longitude];
-			// 	const placemark = new ymaps.Placemark(coordinates, {
-			// 		balloon, balloonStore, balloonAddres, balloonText,
-			// 	}, {
-			// 		iconLayout: 'default#image',
-			// 		iconImageHref: 'assets/images/svg/placemark.svg',
-			// 		iconImageSize: [markWidth, markHeight],
-			// 		iconImageOffset: [-markWidth / 2, -markHeight],
-
-			// 		balloonLayout: layout,
-			// 		balloonPanelMaxMapArea: 0,
-			// 		hideIconOnBalloonOpen: false,
-			// 	});
-
-			// 	placemarks.add(placemark);
-			// });
-
-			// // добавление на карту
-			// map.geoObjects.add(placemarks);
-
-			// // позиционирование на точках
-			// map.setBounds(placemarks.getBounds(), {
-			// 	zoomMargin: Math.max(markWidth, markHeight),
-			// });
 		}
 	});
 }
@@ -1019,7 +955,7 @@ function toggleDataAttr($element, attr, value='') {
       const header = $('.header');
 
       if (header.length !== 0) {
-        const catalogModalButton = header.find('.header__catalog-button');
+        const catalogModalButton = header.find('.header__catalog-button[data-modal-button]');
 
         catalogModalButton.on('click', function () {
           if (header.hasClass('header--catalog-modal')) {

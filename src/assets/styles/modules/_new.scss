@@ -236,6 +236,20 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       display: flex;
     }
+
+    &--mobile {
+      display: block;
+      width: 100%;
+
+      .header__catalog-button {
+        padding: 15px 15px 15px 30px;
+
+        height: auto;
+        width: 100%;
+        justify-content: space-between;
+        border-radius: 0;
+      }
+    }
   
     &-button {
       @mixin catalog-button-hover() {
@@ -246,6 +260,7 @@ body>.wrapper {
         }
   
         #{$comp}__catalog-icon {
+          transform: rotate(180deg);
           path {
             stroke: $color-white;
           }
@@ -394,6 +409,19 @@ body>.wrapper {
       align-items: center;
 
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        #{$comp}-text {
+          color: $color-yellow;
+        }
+        
+        #{$comp}-svg {
+          path {
+            stroke: $color-yellow;
+          }
+        }
+      }
 
       &--dark {
         
@@ -2590,7 +2618,23 @@ body>.wrapper {
 
 .action-catalog {
   $comp: &;
-  // width: calc(100% + 20px);
+  width: calc(100% + 15px);
+  @media (min-width: $breakpoint) {
+    width: calc(100% + 20px);
+  }
+
+  &__row {
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__col {
+    @media (max-width: $breakpoint - 1px) {
+      width: 100%;
+    }
+  }
 
   &__list {
     flex-shrink: 0;
@@ -2669,7 +2713,6 @@ body>.wrapper {
 
       height: 397px;
       @media (max-width: $breakpoint - 1px) {
-
         width: 100%;
       }
       @media (min-width: $breakpoint) {
@@ -6657,6 +6700,8 @@ body>.wrapper {
       }
 
       &--modal {
+        padding: 29px 20px;
+
         height: 50px;
         @media (min-width: $breakpoint) {
           height: 70px;
@@ -6804,10 +6849,6 @@ body>.wrapper {
       right: 20px;
       z-index: 1;
     }
-
-    &--default {
-
-    }
     
     &__wrapper {
       margin-bottom: 15px;
@@ -6848,6 +6889,12 @@ body>.wrapper {
       border: 1px solid $color-light-green;
       border-radius: 20px;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-light-green;
+        color: $color-white;
+      }
 
       &--active {
         background-color: $color-light-green;
@@ -6860,8 +6907,6 @@ body>.wrapper {
     margin-bottom: 15px;
     @media (min-width: $breakpoint) {
       margin-bottom: 0;
-      padding-bottom: 20px;
-
 
       width: 331px;
       position: absolute;
@@ -6908,6 +6953,7 @@ body>.wrapper {
   }
 
   &-list {
+    padding-bottom: 20px;
     overflow-y: auto;
     height: 290px;
     @media (min-width: $breakpoint) {
@@ -6918,6 +6964,16 @@ body>.wrapper {
     &__item {
       &:not(:first-child) {
         margin-top: 10px;
+      }
+
+      &--active {
+        .map-balloon {
+          border-color: $color-yellow;
+        }
+
+        .map-balloon__container {
+          background-color: $color-yellow;
+        }
       }
     }
 
@@ -6951,7 +7007,7 @@ body>.wrapper {
       padding: 19px;
 
       background-color: $color-white;
-      
+      transition: $transition;
     }
 
     &__store {
@@ -7275,9 +7331,10 @@ body>.wrapper {
   height: 500px;
 }
 
-.clusterIcon {
-  width: 50px;
-  height: 50px;
+.cluster {
+  $size: 50px;
+  width: $size;
+  height: $size;
   background: url("assets/images/svg/cluster.svg") center no-repeat;
   background-size: contain;
   pointer-events: none;
@@ -7285,4 +7342,8 @@ body>.wrapper {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+
+  color: $color-white;
+  @include f-main();
+  @include fsl(22px, 80%);
 }
