@@ -6862,8 +6862,6 @@ body>.wrapper {
     margin-bottom: 15px;
     @media (min-width: $breakpoint) {
       margin-bottom: 0;
-      padding-bottom: 20px;
-
 
       width: 331px;
       position: absolute;
@@ -6910,6 +6908,7 @@ body>.wrapper {
   }
 
   &-list {
+    padding-bottom: 20px;
     overflow-y: auto;
     height: 290px;
     @media (min-width: $breakpoint) {
@@ -6920,6 +6919,16 @@ body>.wrapper {
     &__item {
       &:not(:first-child) {
         margin-top: 10px;
+      }
+
+      &--active {
+        .map-balloon {
+          border-color: $color-yellow;
+        }
+
+        .map-balloon__container {
+          background-color: $color-yellow;
+        }
       }
     }
 
@@ -6953,7 +6962,7 @@ body>.wrapper {
       padding: 19px;
 
       background-color: $color-white;
-      
+      transition: $transition;
     }
 
     &__store {
@@ -7401,9 +7410,10 @@ body>.wrapper {
   height: 500px;
 }
 
-.clusterIcon {
-  width: 50px;
-  height: 50px;
+.cluster {
+  $size: 50px;
+  width: $size;
+  height: $size;
   background: url("assets/images/svg/cluster.svg") center no-repeat;
   background-size: contain;
   pointer-events: none;
@@ -7411,4 +7421,8 @@ body>.wrapper {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+
+  color: $color-white;
+  @include f-main();
+  @include fsl(22px, 80%);
 }
