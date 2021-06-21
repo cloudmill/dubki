@@ -2590,20 +2590,7 @@ body>.wrapper {
 
 .action-catalog {
   $comp: &;
-  width: calc(100% + 20px);
-
-  &__row {
-    display: flex;
-    @media (max-width: $breakpoint - 1px) {
-      flex-wrap: wrap;
-    }
-  }
-
-  &__col {
-    @media (max-width: $breakpoint - 1px) {
-      width: 100%;
-    }
-  }
+  // width: calc(100% + 20px);
 
   &__list {
     flex-shrink: 0;
@@ -2626,6 +2613,19 @@ body>.wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+  }
+
+  &__row {
+    display: flex;
+    @media (max-width: $breakpoint - 1px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__col {
+    @media (max-width: $breakpoint - 1px) {
+      width: 100%;
+    }
   }
 
   &__card {
@@ -7269,7 +7269,6 @@ body>.wrapper {
     display: none;
   }
 }
-
 
 #map-test {
   width: 1000px;
