@@ -6657,6 +6657,8 @@ body>.wrapper {
       }
 
       &--modal {
+        padding: 29px 20px;
+
         height: 50px;
         @media (min-width: $breakpoint) {
           height: 70px;
