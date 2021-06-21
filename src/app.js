@@ -5,6 +5,7 @@ import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
+require("jquery-ui/ui/widgets/autocomplete");
 
 // AOS
 {
@@ -979,5 +980,18 @@ function toggleDataAttr($element, attr, value='') {
         })
       }
     }
+  })
+}
+
+// autocomplete
+{
+  $('.test').each(function () {
+    $(this).autocomplete({
+      source: [
+        'aaa',
+        'bbb',
+        'ccc',
+      ],
+    })
   })
 }
