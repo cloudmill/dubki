@@ -2,14 +2,72 @@ extends ../layouts/master.pug
 
 
 
+block variables
+
+
+
 block header
 
 
 
 block content
   .test
-    |test
+    .select.select--default
+      select
+        option(value="saratov")
+          |Саратов
+        option(value="moscov") 
+          |Москва
+        option(value="spb") 
+          |Санкт-Питербург
+        option(value="voronezh") 
+          |Воронеж
+        option(value="saratov") 
+          |Саратов
+        option(value="moscov") 
+          |Москва
+        option(value="spb") 
+          |Санкт-Питербург
+        option(value="voronezh") 
+          |Воронеж
+        option(value="saratov") 
+          |Саратов
+        option(value="moscov") 
+          |Москва
+        option(value="spb") 
+          |Санкт-Питербург
+        option(value="voronezh") 
+          |Воронеж
 
 
 
 block footer
+
+
+
+//- 
+  шапка
+
+  (default)
+  фон
+    прозрачный
+  эл-ты
+    на светлом
+
+  (конкретные страницы)
+  --dark
+    эл-ты
+      на темном
+
+  (y > 0)
+  --scroll
+
+    --down
+      translateY(-100%)
+
+    --up
+      фон
+        белый
+      эл-ты
+        на белом
+

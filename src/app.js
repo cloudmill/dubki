@@ -32,6 +32,7 @@ import '@fancyapps/fancybox';
 
 // vars
 const BREAKPOINT = 1280
+const BREAKPOINT_MEDIA = matchMedia(`(min-width: ${BREAKPOINT}px)`)
 
 // functions
 function toggleDataAttr($element, attr, value='') {
@@ -229,9 +230,11 @@ function toggleDataAttr($element, attr, value='') {
 
       const buttonNext = $('.top__button')
       buttonNext.on('click', () => {
-        swipers.forEach(swiper => {
-          swiper.slideNext()
-        })
+        if (BREAKPOINT_MEDIA.matches) {
+          swipers.forEach(swiper => {
+            swiper.slideNext()
+          })
+        }
       })
     }
 
@@ -248,7 +251,9 @@ function toggleDataAttr($element, attr, value='') {
 
         const buttonNext = $('.top__button')
         buttonNext.on('click', () => {
-          swiper.slideNext()
+          if (!BREAKPOINT_MEDIA.matches) {
+            swiper.slideNext()
+          }
         })
       }
     }
@@ -671,68 +676,50 @@ function toggleDataAttr($element, attr, value='') {
 		}
 	});
 }
+
 // select
 {
   $(() => {
-    // const select = $('.select__select');
-    $('.select__select').each(function() {
-      const select = $(this);
-      const selectWrapper = select.closest('.select-wrapper');
-      const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
-      if (selectWrapperStyles.position === 'static') {
-        selectWrapper.css('position', 'relative');
-      }
-
+    const components = $('.select')
+  
+    components.each(function () {
+      const component = $(this)
+      
+      const select = component.find('select')
+  
       select.select2({
-        dropdownParent: selectWrapper,
+        width: '100%',
+        dropdownParent: component,
+        minimumResultsForSearch: -1,
         selectOnClose: true,
-      });
+      })
 
+      console.log(select.select2('data'))
+
+      let isOpen = false
       select.on('select2:open', () => {
-        selectWrapper.css('z-index', '100000');
+        const dropdown = component.find('.select2-dropdown')
 
-        const selectDropdown = selectWrapper.find('.select2-dropdown');
+        dropdown.hide()
+        dropdown.slideDown()
 
-			  selectDropdown.hide();
-        const timeout = setTimeout(() => {
-          selectDropdown.slideDown({ duration: 500,});
-
-          clearTimeout(timeout);
-        }, 0);
-      });
-
+        isOpen = true
+      })
       select.on('select2:closing', event => {
-        event.preventDefault();
+        if (isOpen) {
+          event.preventDefault()
 
-        const selectDropdown = selectWrapper.find('.select2-dropdown');
+          const dropdown = component.find('.select2-dropdown')
 
-        const timeout = setTimeout(() => {
-          selectWrapper.css('z-index', '');
+          dropdown.slideUp(() => {
+            isOpen = false
 
-          const select2 = selectWrapper.find('.select2');
-
-          select2.addClass('closing');
-          select2.removeClass('select2-container--open');
-          selectDropdown.slideUp(500, () => {
-            const timeout2 = setTimeout(() => {
-              select.select2('destroy');
-              select.select2({
-                dropdownParent: selectWrapper,
-                selectOnClose: true,
-              });
-              select.removeClass('closing');
-
-              selectWrapper.css('z-index', '');
-
-              clearTimeout(timeout2);
-            }, 300);
-          }); 
-          clearTimeout(timeout);
-        }, 0);
-      });
-
-    });
-  });
+            select.select2('close')
+          })
+        }
+      })
+    })
+  })
 }
 
 // response
@@ -994,5 +981,3 @@ function toggleDataAttr($element, attr, value='') {
     }
   })
 }
-
-
