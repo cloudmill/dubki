@@ -60,13 +60,16 @@ block content
                       .video-button
                         +play-svg('video-button__icon')
                 .product-card__col
-                  .top-slide.top-slide--product(data-aos="fade-up") 
-                    .top-slide__discont
-                      .top-slide__discont-icon
-                        +top-icon-svg
-                      .top-slide__discont-text
-                        |-30%
-                    img.top-slide__image--product(src="assets/images/top-slide-1.jpg", alt="")
+                  .products 
+                    .products__item
+                      .products__container 
+                        .products__label 
+                          .products__icon 
+                            +top-icon-svg
+                          .products__text   
+                            |-30%
+                        .products__image 
+                          img.products__img(src="assets/images/top-slide-1.png", alt="")    
             .row__col
               ul.block-list.block-list--hidden.block-list--faded(data-aos="fade-up") 
                 li.block-list__item 
