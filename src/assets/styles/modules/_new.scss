@@ -3147,6 +3147,10 @@ body>.wrapper {
     }
   }
 
+  &__thumbs {
+    display: flex;
+  }
+
   &__list {
     display: flex;
   }
@@ -3164,7 +3168,14 @@ body>.wrapper {
       }
     }
 
+    &--active {
+      #{$comp}-thumb {
+        border-color: $color-green;
+      }
+    }
+
     &--button {
+      margin-left: 15px;
       @media (max-width: $breakpoint - 1px) {
         display: none;
       }
@@ -3456,6 +3467,7 @@ body>.wrapper {
 
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
 
     &-name {
