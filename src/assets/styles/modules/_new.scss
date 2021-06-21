@@ -2590,7 +2590,10 @@ body>.wrapper {
 
 .action-catalog {
   $comp: &;
-  width: calc(100% + 20px);
+  width: calc(100% + 15px);
+  @media (min-width: $breakpoint) {
+    width: calc(100% + 20px);
+  }
 
   &__row {
     display: flex;
@@ -2669,7 +2672,6 @@ body>.wrapper {
 
       height: 397px;
       @media (max-width: $breakpoint - 1px) {
-
         width: 100%;
       }
       @media (min-width: $breakpoint) {

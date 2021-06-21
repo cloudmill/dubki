@@ -511,6 +511,9 @@ function toggleDataAttr($element, attr, value='') {
 				if (map.balloon.isOpen()) {
 					map.balloon.close();
 				}
+        if (event.target == undefined) {
+          listItem.removeClass('map-list__item--active');
+        } 
 			});
 
       const placemarksJSON = $('.placemarks').text();
@@ -630,14 +633,9 @@ function toggleDataAttr($element, attr, value='') {
           }
         });
 
-        map.events.add('click', (event) => {
-          if (event.target == undefined) {
-            listItem.removeClass('map-list__item--active');
-          } 
-        });
-
         // клик на пункт меню
         listItem.eq(index).on('click', function() {
+          map.setCenter(placemark.coordinates, 15);
           placemarkGeo.balloon.open();
           if ($(this).hasClass('map-list__item--active')) {
             $(this).addClass('map-list__item--active')
