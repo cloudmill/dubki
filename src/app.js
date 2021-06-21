@@ -280,6 +280,13 @@ function toggleDataAttr($element, attr, value='') {
 
         spaceBetween: 20,
       });
+
+      $('.slider-button--next').on('click', function() {
+        swiper.slideNext();
+      });
+      $('.slider-button--prev').on('click', function() {
+        swiper.slidePrev();
+      });
     }
   })
 }
