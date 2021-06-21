@@ -7,6 +7,10 @@ import AOS from 'aos';
 import '@fancyapps/fancybox';
 require("jquery-ui/ui/widgets/autocomplete");
 
+$(() => {
+  require("assets/scripts/backend");
+});
+
 // AOS
 {
   AOS.init({
