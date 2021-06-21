@@ -6,6 +6,10 @@ import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
 
+$(() => {
+  require("assets/scripts/backend");
+});
+
 // AOS
 {
   AOS.init({
