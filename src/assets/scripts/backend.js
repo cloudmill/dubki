@@ -8,6 +8,7 @@ $(function () {
   redirectBuy();
   buyListFilter();
   autocompleteDefineRegion();
+  forms();
 });
 
 function vacancy() {
@@ -167,3 +168,29 @@ function autocompleteDefineRegion() {
     },
   });
 }
+
+function forms() {
+  $(document).on('click', '[data-type=submit-form]', function (e) {
+    e.preventDefault();
+
+    let thisObj = $(this),
+        container = thisObj.parents('[data-type=form-container]'),
+        url = container.attr('data-url'),
+        data = {};
+
+    container.find('input:not([type="checkbox"])').each(function () {
+      data[$(this).attr('data-uf')] = $(this).val();
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      dataType: 'json',
+      data: data,
+      success: function (r) {
+        console.log(r);
+      },
+    });
+  });
+}
+
