@@ -5782,6 +5782,7 @@ body>.wrapper {
       color: $color-black;
     }
 
+
     &--large {
       height: 160px;
       resize: none;
@@ -7862,6 +7863,12 @@ body>.wrapper {
   }
 
   &-required {
+    color: #F2535F;
+    font-weight: 400;
+    @include fsl(12px, 80%);
+  }
+
+  &-phone {
     color: #F2535F;
     font-weight: 400;
     @include fsl(12px, 80%);
