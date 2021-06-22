@@ -11,7 +11,7 @@
 		<script src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&amp;lang=ru_RU"></script>
 		<script defer="defer" src="assets/vendor.js"></script>
 		<script defer="defer" src="assets/app.js"></script>
-		<link href="421.css" rel="stylesheet">
+		<link href="599.css" rel="stylesheet">
 		<link href="app.css" rel="stylesheet">
 	</head>
 
@@ -665,12 +665,20 @@
 									<h3 class="modal__title">Откликнуться</h3>
 								</div>
 								<div class="modal__form">
-									<form class="form" action="/">
-										<div class="form__item"><input class="form__input" name="name" placeholder="Имя"></div>
-										<div class="form__item"><input class="form__input" name="phone" placeholder="Телефон"></div>
+									<form class="form" action="/" data-type="feedback-form">
+										<div class="form__item"><input class="form__input" name="name" placeholder="Имя" required="required"></div>
+										<div class="form__item"><input class="form__input" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required"></div>
 										<div class="form__item form__item--select">
-											<div class="select-wrapper">
+											<div class="select-wrapper select-wrapper--wide">
 												<div class="select"><select class="select__select select__select--modal" name="city" style="width: 100%">
+														<option value="saratov" selected="selected">Саратов</option>
+														<option value="moscov">Москва</option>
+														<option value="spb">Санкт-Питербург</option>
+														<option value="voronezh">Воронеж</option>
+														<option value="saratov" selected="selected">Саратов</option>
+														<option value="moscov">Москва</option>
+														<option value="spb">Санкт-Питербург</option>
+														<option value="voronezh">Воронеж</option>
 														<option value="saratov" selected="selected">Саратов</option>
 														<option value="moscov">Москва</option>
 														<option value="spb">Санкт-Питербург</option>
@@ -678,10 +686,10 @@
 													</select></div>
 											</div>
 										</div>
-										<div class="form__item"><textarea class="form__input form__input--large" name="text" placeholder="Вопрос или пожелание"></textarea></div>
+										<div class="form__item"><textarea class="form__input form__input--large" name="text" placeholder="Текст сопроводительного письма"></textarea></div>
 										<div class="form__wrapper">
 											<div class="form__row">
-												<div class="form__row-wrapper"><button class="form__button">Прикрепить резюме</button></div>
+												<div class="form__row-wrapper"><button class="form__button" type="submit">Прикрепить резюме</button></div>
 											</div>
 										</div>
 										<div class="checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">

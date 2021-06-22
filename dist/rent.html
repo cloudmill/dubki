@@ -11,7 +11,7 @@
 		<script src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&amp;lang=ru_RU"></script>
 		<script defer="defer" src="assets/vendor.js"></script>
 		<script defer="defer" src="assets/app.js"></script>
-		<link href="421.css" rel="stylesheet">
+		<link href="599.css" rel="stylesheet">
 		<link href="app.css" rel="stylesheet">
 	</head>
 
@@ -812,29 +812,27 @@
 									</div>
 									<div class="offers__col">
 										<div class="offers__container">
-											<form class="form" action="/">
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="name" placeholder="Имя"></div>
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="phone" placeholder="Телефон"></div>
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="email" placeholder="E-mail"></div>
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="addres" placeholder="Адрес помещения"></div>
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="area" placeholder="Площадь"></div>
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="rent" placeholder="Арендная ставка"></div>
-												<div class="form__item" data-aos="fade-up"><input class="form__input" name="energy" placeholder="Электроэнергия"></div>
+											<form class="form" action="/" data-type="feedback-form">
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="name" placeholder="Имя" required="required"></div>
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required"></div>
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="email" placeholder="E-mail" required="required"></div>
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="addres" placeholder="Адрес помещения" required="required"></div>
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="area" placeholder="Площадь" required="required"></div>
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="rent" placeholder="Арендная ставка" required="required"></div>
+												<div class="form__item" data-aos="fade-up"><input class="form__input" name="energy" placeholder="Электроэнергия" required="required"></div>
 												<div class="form__wrapper">
 													<div class="form__row" data-aos="fade-up">
-														<div class="form__row-wrapper"><button class="form__button">Прикрепить файлы</button></div>
+														<div class="form__row-wrapper"><button class="form__button" type="submit">Прикрепить файлы</button></div>
 														<div class="form__text">Например, фотографии, план</div>
 													</div>
 												</div>
-												<div class="checkbox" data-aos="fade-up"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">
+												<div class="checkbox" data-aos="fade-up"><label class="checkbox__label" required="required"><input class="checkbox__input" type="checkbox" required="required">
 														<div class="checkbox__box"><svg class="checkbox__icon" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 																<path d="M1 5.17391L5.03333 9L12 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 															</svg></div>
 														<div class="checkbox__text">Даю согласание на обработку <a class="checkbox__link" href="#">персональных данных</a></div>
 													</label></div>
-												<div class="form__inner" data-aos="fade-up">
-													<div class="button form__btn">Отправить</div>
-												</div>
+												<div class="form__inner" data-aos="fade-up"><button class="button form__btn" type="submit">Отправить</button></div>
 											</form>
 											<div class="response">
 												<div class="response__container">
