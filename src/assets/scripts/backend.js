@@ -6,7 +6,7 @@ $(() => {
 $(function () {
   vacancy();
   submitForm();
-  redirectBuyList();
+  redirectBuy();
 });
 
 function vacancy() {
@@ -63,8 +63,12 @@ function submitForm() {
   });
 }
 
-function redirectBuyList() {
-  $("[data-type=redirect-buy-list]").on("click", function () {
-    window.location.href = "/buy/list";
+function redirectBuy() {
+  $('[data-type=redirect-buy-list]').on('click', function() {
+    window.location.href = '/buy/list';
+  });
+
+  $('[data-type=redirect-buy-map]').on('click', function() {
+    window.location.href = '/buy';
   });
 }
