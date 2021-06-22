@@ -914,6 +914,7 @@ function toggleDataAttr($element, attr, value = '') {
       // data
       const dataJSON = $('.placemarks').text().trim()
       const data = JSON.parse(dataJSON)
+      console.log(data);
 
 
 
