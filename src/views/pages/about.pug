@@ -192,17 +192,17 @@ block content
                                 |Форматы магазинов
                         .shops-format__row(data-aos="fade-up")
                             .shops-format__col
-                                .button.button--l 
+                                .shops-format__button.shops-format__button--active(data-tab="#at-home")
                                     |Магазины «у дома»
                             .shops-format__col
-                                .button.button--l.button--l-transparent
+                                .shops-format__button(data-tab="#self-service")
                                     |Магазины «самообслуживания»
 
     .section
         .frame-about.frame-about--second
             .container 
                 .section__inner 
-                    .shops 
+                    .shops.shops--active(id="at-home")
                         .shops__row 
                             .shops__col 
                                 .shops__content(data-aos="fade-up")
@@ -212,6 +212,36 @@ block content
                                         .shops__wrapper
                                             p.shops__text
                                                 |Небольшие по площади магазины, предназначенные для ежедневных покупок, с хорошим выбором продуктов питания по низким ценам.
+                            .shops__col
+                                .shops-card(data-aos="fade-up")
+                                    .shops-card__container(data-slider-prev-id="2" data-slider-next-id="1") 
+                                        .shops-card__frame.swiper-container
+                                            .swiper-wrapper 
+                                                img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
+                                                img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
+                                                img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
+                                                img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
+                                                img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
+                                        .shops-card__buttons
+                                            .product-card--alt
+                                                .product-card__item
+                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="2")
+                                                        .product-card__item-button 
+                                                            +cursor-svg('product-card__item-icon product-card__item-icon--revers')
+                                                .shops-card__item
+                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="1")
+                                                        .product-card__item-button 
+                                                            +cursor-svg('product-card__item-icon')
+                    .shops(id="self-service")
+                        .shops__row 
+                            .shops__col 
+                                .shops__content(data-aos="fade-up")
+                                    .shops__container 
+                                        h3.shops__title
+                                            |Магазины «у дома»
+                                        .shops__wrapper
+                                            p.shops__text
+                                                |Магазины с более широким ассортиментом, чем у магазинов «у дома», с «островами» гастрономии, где представлены салаты, горячие блюда и блюда гриль, свежая выпечка, торты и пирожные с выделенной зоной кафе.
                             .shops__col
                                 .shops-card(data-aos="fade-up")
                                     .shops-card__container(data-slider-prev-id="2" data-slider-next-id="1") 

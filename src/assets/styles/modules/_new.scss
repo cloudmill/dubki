@@ -4521,9 +4521,42 @@ body>.wrapper {
       margin-right: 10px;
     }
   }
+
+  &__button {
+    padding: 12px 30px;
+    @media (min-width: $breakpoint) {
+      padding: 18px 30px;
+
+      @include fsl(16px, 80%);
+      border-radius: 20px;
+    }
+    @include fsl(14px, 80%);
+    color: $color-white;
+    font-weight: 400;
+    border: 1px solid $color-light-green;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-yellow;
+      border-color: $color-yellow;
+      color: $color-black;
+    }
+
+    &--active {
+      background-color: $color-yellow;
+      border-color: $color-yellow;
+      color: $color-black;
+    }
+  }
 }
 
 .shops {
+  display: none;
+  &--active {
+    display: block;
+  }
 
   &__row {
     @media (min-width: $breakpoint) {
@@ -4531,6 +4564,7 @@ body>.wrapper {
       justify-content: space-between;
       align-items: flex-end;
     }
+    
   }
 
   &__col {

@@ -256,6 +256,29 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
+// about tabs
+{
+  $(() => {
+    const shops = $('.shops');
+    if (shops.lenght !== 0) {
+      $('[data-tab]').on('click', function() {
+        const tabId = $(this).data('tab');
+
+        if ($(tabId).hasClass('shops--active')) {
+          $(tabId).addClass('shops--active');
+        } else {
+          shops.removeClass('shops--active');
+          $('.shops-format__button').removeClass('shops-format__button--active');
+          
+          $(this).addClass('shops-format__button--active');
+          $(tabId).addClass('shops--active');
+        }
+        
+      });
+    }
+  });
+}
+
 // top slider
 {
   $(() => {
