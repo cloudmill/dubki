@@ -6310,6 +6310,18 @@ body>.wrapper {
     @include fsl(16px, 80%);
     color: $color-white;
 
+    &::-webkit-scrollbar { 
+      width: 5px;
+      background-color: $color-light-green;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 3px;
+      height: 40px;
+      background-color: $color-yellow;
+      border-radius: 6px;
+    }
+
     li {
       padding: 5px 30px;
 
