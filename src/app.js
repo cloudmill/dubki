@@ -5,6 +5,7 @@ import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
+import 'parsleyjs';
 require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
@@ -253,32 +254,29 @@ function toggleDataAttr($element, attr, value = '') {
 				sliderShops.slideNext();
 			});
     })  
-  });
-}
+    // tabs
+    {
+      const shops = $('.shops');
+      if (shops.lenght !== 0) {
+        shops.addClass('shops--hidden');
+        $('[data-tab]').on('click', function() {
+          const tabId = $(this).data('tab');
 
-// about tabs
-{
-  $(() => {
-    const shops = $('.shops');
-    if (shops.lenght !== 0) {
-      $('[data-tab]').on('click', function() {
-        const tabId = $(this).data('tab');
+          if ($(tabId).hasClass('shops--active')) {
+            $(tabId).addClass('shops--active');
+          } else {
+            shops.removeClass('shops--active');
+            $('.shops-format__button').removeClass('shops-format__button--active');
 
-        if ($(tabId).hasClass('shops--active')) {
-          $(tabId).addClass('shops--active');
-        } else {
-          shops.removeClass('shops--active');
-          $('.shops-format__button').removeClass('shops-format__button--active');
-
-          $(this).addClass('shops-format__button--active');
-          $(tabId).addClass('shops--active');
-        }
-
-        
-      });
+            $(this).addClass('shops-format__button--active');
+            $(tabId).addClass('shops--active');
+          }
+        });
+      }
     }
   });
 }
+
 
 // top slider
 {
@@ -1123,4 +1121,13 @@ function toggleDataAttr($element, attr, value = '') {
       })
     })
   })
+}
+
+{
+  $(() => {
+    $(() => {
+      $('#form').parsley();
+    });
+    // $('input[data-mask="phone"]').
+  });
 }

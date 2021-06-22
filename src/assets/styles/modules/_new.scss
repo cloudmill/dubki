@@ -4553,7 +4553,11 @@ body>.wrapper {
 }
 
 .shops {
-  display: none;
+  // display: none;
+  &--hidden {
+    display: none;
+  }
+
   &--active {
     display: block;
   }
