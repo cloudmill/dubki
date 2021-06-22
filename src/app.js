@@ -235,31 +235,31 @@ function toggleDataAttr($element, attr, value = '') {
 // about slider 
 {
   $(() => {
-    $('.shops-card__container').each(function (){
+    $('.shops-card__container').each(function () {
       const slider = $(this);
-			const slider_swiper_el = slider.find('.shops-card__frame');
+      const slider_swiper_el = slider.find('.shops-card__frame');
 
-			const slider_prev_id = slider.data('slider-prev-id');
-			const slider_next_id = slider.data('slider-next-id');
+      const slider_prev_id = slider.data('slider-prev-id');
+      const slider_next_id = slider.data('slider-next-id');
 
       const sliderShops = new Swiper(slider_swiper_el[0], {
         slidesPerView: 'auto',
       });
 
       $('[data-slider-id="' + slider_prev_id + '"]').on('click', () => {
-				sliderShops.slidePrev();
-			});
+        sliderShops.slidePrev();
+      });
 
-			$('[data-slider-id="' + slider_next_id + '"]').on('click', () => {
-				sliderShops.slideNext();
-			});
-    })  
+      $('[data-slider-id="' + slider_next_id + '"]').on('click', () => {
+        sliderShops.slideNext();
+      });
+    })
     // tabs
     {
       const shops = $('.shops');
       if (shops.lenght !== 0) {
         shops.addClass('shops--hidden');
-        $('[data-tab]').on('click', function() {
+        $('[data-tab]').on('click', function () {
           const tabId = $(this).data('tab');
 
           if ($(tabId).hasClass('shops--active')) {
@@ -567,185 +567,6 @@ function toggleDataAttr($element, attr, value = '') {
       vacanciesButton.toggleClass('vacancies-list__row--active');
       vacanciesDrop.slideToggle();
     });
-  });
-}
-
-// map
-{
-  ymaps.ready(() => {
-    const mapContainer = $('#map');
-
-    if (mapContainer.length !== 0) {
-      const markWidth = 53;
-      const markHeight = 56;
-
-      const map = new ymaps.Map('map', {
-        zoom: 12,
-        controls: [],
-      });
-
-      map.events.add('click', (event) => {
-        if (map.balloon.isOpen()) {
-          map.balloon.close();
-        }
-        if (event.target == undefined) {
-          listItem.removeClass('map-list__item--active');
-        }
-      });
-
-      const placemarksJSON = $('.placemarks').text();
-      const placemarks = JSON.parse(placemarksJSON);
-      const listItem = $('.map-list__item');
-
-
-      const placemarksGeo = [];
-      placemarks.forEach((placemark, index) => {
-        // balloon template
-        let template = [
-          '<div class="map-balloon--alt">',
-          '<div class="map-balloon__container">',
-        ]
-        if ('label' in placemark) {
-          template = template.concat([
-            '<div class="map-balloon__store">',
-            placemark.label,
-            '</div>',
-          ])
-        }
-        template = template.concat([
-          '<div class="map-balloon__addres">',
-          placemark.title,
-          '</div>',
-        ])
-        template = template.concat([
-          '<div class="map-balloon__times">',
-        ])
-        placemark.times.forEach(time => {
-          template = template.concat([
-            '<div class="map-balloon__time">',
-            time,
-            '</div>',
-          ])
-        })
-        template = template.concat([
-          '</div>',
-          '</div>',
-          '</div>',
-        ])
-
-        // balloon layout
-        const layout = ymaps.templateLayoutFactory.createClass(
-          template.join(''),
-          {
-            build: function () {
-              this.constructor.superclass.build.call(this);
-
-              this._$element = $('.map-balloon--alt', this.getParentElement());
-
-              this.applyElementOffset();
-            },
-            onSublayoutSizeChange: function () {
-              layout.superclass.onSublayoutSizeChange.apply(this, arguments);
-
-              if (!this._isElement(this._$element)) {
-                return;
-              }
-
-              this.applyElementOffset();
-
-              this.events.fire('shapechange');
-            },
-            applyElementOffset: function () {
-              this._$element.css({
-                left: -(this._$element[0].offsetWidth / 2),
-                top: -(this._$element[0].offsetHeight + markHeight / 2),
-              });
-            },
-            getShape: function () {
-              if (!this._isElement(this._$element)) {
-                return layout.superclass.getShape.call(this);
-              }
-
-              var position = this._$element.position();
-
-              return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                [position.left, position.top], [
-                  position.left + this._$element[0].offsetWidth,
-                  position.top + this._$element[0].offsetHeight,
-                ]
-              ]));
-            },
-            _isElement: function (element) {
-              return element && element[0];
-            }
-          }
-        )
-
-
-
-        // точки
-        const placemarkGeo = new ymaps.Placemark(placemark.coordinates, {
-
-        }, {
-          iconLayout: 'default#image',
-          iconImageHref: 'assets/images/svg/placemark.svg',
-          iconImageSize: [markWidth, markHeight],
-          iconImageOffset: [-markWidth / 2, -markHeight],
-
-          balloonLayout: layout,
-          balloonPanelMaxMapArea: 0,
-          hideIconOnBalloonOpen: false,
-        });
-
-        // клик по точке на карте
-        placemarkGeo.events.add('click', (event) => {
-          const currentItem = listItem.eq(index);
-
-          if (currentItem.hasClass('map-list__item--active')) {
-            listItem.removeClass('map-list__item--active');
-          } else {
-            listItem.removeClass('map-list__item--active');
-
-            listItem.eq(index).addClass('map-list__item--active');
-          }
-        });
-
-        // клик на пункт меню
-        listItem.eq(index).on('click', function () {
-          map.setCenter(placemark.coordinates, 15);
-          placemarkGeo.balloon.open();
-          if ($(this).hasClass('map-list__item--active')) {
-            $(this).addClass('map-list__item--active')
-          } else {
-            listItem.removeClass('map-list__item--active')
-
-            $(this).addClass('map-list__item--active')
-          }
-        })
-
-        placemarksGeo.push(placemarkGeo)
-      });
-
-
-
-      // cluster
-      const clusterer = new ymaps.Clusterer({
-
-        clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="cluster">{{ properties.geoObjects.length }}</div>'),
-
-        clusterIconShape: {
-          type: 'Rectangle',
-          coordinates: [[0, 0], [50, 50]]
-        },
-      });
-
-      clusterer.add(placemarksGeo);
-      map.geoObjects.add(clusterer);
-
-      map.setBounds(clusterer.getBounds(), {
-        zoomMargin: Math.max(markWidth, markHeight),
-      });
-    }
   });
 }
 
@@ -1108,74 +929,89 @@ function toggleDataAttr($element, attr, value = '') {
   })
 }
 
-// test
+// validation
+{
+  $(() => {
+    $(() => {
+      $('#form').parsley();
+    });
+    // $('input[data-mask="phone"]').
+  });
+}
+
+// map
 {
   ymaps.ready(() => {
-    const mapContainer = $('#map')
+    const container = $('#map')
 
-    if (mapContainer.length !== 0) {
+    if (container.length !== 0) {
       // data
-      const mapDataJSON = $('.placemarks').text().trim()
-      const mapData = JSON.parse(mapDataJSON)
-      // geoPoints
-      const geoPoints = mapData.geoPoints
+      const dataJSON = $('.placemarks').text().trim()
+      const data = JSON.parse(dataJSON)
 
-      // select
-      const locationSelect = $('[data-map-select]')
-      // location list
-      const locationList = {}
-      geoPoints.forEach(geoPoint => {
+
+
+      // clusters
+      const clusters = {}
+      data.geoPoints.forEach(geoPoint => {
         const location = geoPoint.location
 
-        if (!(location in locationList)) {
-          locationList[location] = geoPoint()
+        if (location in clusters) {
+          clusters[location].push(geoPoint)
+        } else {
+          clusters[location] = [geoPoint]
         }
       })
-      // init select2
-      locationSelect.select2('destroy')
-      locationSelect.html('')
-      let locationHtml = ''
-      locationList.forEach((location, index) => {
-        locationHtml += `<option value="${location}" ${!index ? 'selected' : ''}>${location}</option>`
-      })
-      locationSelect.html(locationHtml)
-      // start select2 (копия из раздела select, временно)
-      {
-        const select = locationSelect
+
+
+
+      // select init
+      const select = $('[data-map-select]')
+
+      select.select2('destroy')
+
+      let selectHtml = ''
+      for (let location in clusters) {
+        selectHtml += `<option value="${location}" ${location === data.startLocation ? 'selected' : ''}>${location}</option>`
+      }
+
+      select.html(selectHtml)
+
+      { // копия из раздела select
         const selectWrapper = select.closest('.select-wrapper');
         const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
         if (selectWrapperStyles.position === 'static') {
           selectWrapper.css('position', 'relative');
         }
-  
+
         select.select2({
           dropdownParent: selectWrapper,
           selectOnClose: true,
         });
-  
+
         select.on('select2:open', () => {
           selectWrapper.css('z-index', '100000');
-  
+
           const selectDropdown = selectWrapper.find('.select2-dropdown');
-  
+
           selectDropdown.hide();
           const timeout = setTimeout(() => {
             selectDropdown.slideDown({ duration: 500, });
-  
+
             clearTimeout(timeout);
           }, 0);
         });
-  
+
         select.on('select2:closing', event => {
           event.preventDefault();
-  
+
           const selectDropdown = selectWrapper.find('.select2-dropdown');
-  
+
           const timeout = setTimeout(() => {
             selectWrapper.css('z-index', '');
-  
+
             const select2 = selectWrapper.find('.select2');
-  
+
             select2.addClass('closing');
             select2.removeClass('select2-container--open');
             selectDropdown.slideUp(500, () => {
@@ -1186,36 +1022,207 @@ function toggleDataAttr($element, attr, value = '') {
                   selectOnClose: true,
                 });
                 select.removeClass('closing');
-  
+
                 selectWrapper.css('z-index', '');
-  
+
                 clearTimeout(timeout2);
               }, 300);
             });
             clearTimeout(timeout);
           }, 0);
-        });  
+        });
       }
 
-      // cluster
-      const locationClusters = []
 
-      
-      // list
-      // select change
-      locationSelect.on('change', () => {
-        const newLocation = locationSelect.val()
+
+      // update list
+      function updateList(location) {
+        const list = $('[data-map-list]')
+
+        let listHtml = ''
+        clusters[location].forEach(geoPoint => {
+          listHtml += `<li class="map-list__item">`
+          listHtml += `<div class="map-list__wrapper">`
+          listHtml += `<div class="map-balloon">`
+          listHtml += `<div class="map-balloon__container">`
+
+          if ('label' in geoPoint) {
+            listHtml += `<div class="map-balloon__store">${geoPoint.label}</div>`
+          }
+
+          listHtml += `<div class="map-balloon__addres">${geoPoint.address}</div>`
+
+          listHtml += `<div class="map-balloon__times">`
+          geoPoint.schedules.forEach(schedule => {
+            listHtml += `<div class="map-balloon__time">${schedule}</div>`
+          })
+          listHtml += `</div>`
+
+          listHtml += `</div>`
+          listHtml += `</div>`
+          listHtml += `</div>`
+          listHtml += `</li>`
+        })
+
+        list.html(listHtml)
+      }
+
+
+
+      // init list
+      updateList(data.startLocation)
+
+
+
+      // map
+      const map = {}
+
+      // ?
+      const markWidth = 53;
+      const markHeight = 56;
+
+      map.ymap = new ymaps.Map('map', {
+        zoom: 12,
+        controls: [],
+
+        // ?
+        center: clusters[data.startLocation][0].coordinates,
+      })
+
+      map.clusters = {}
+      for (let location in clusters) {
+        // ?
+        map.clusters[location] = new ymaps.Clusterer({
+          clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="cluster">{{ properties.geoObjects.length }}</div>'),
+
+          clusterIconShape: {
+            type: 'Rectangle',
+            coordinates: [[0, 0], [50, 50]]
+          },
+        })
+
+        clusters[location].forEach(geoPoint => {
+          // ?
+          let template = [
+            '<div class="map-balloon--alt">',
+            '<div class="map-balloon__container">',
+          ]
+          if ('label' in geoPoint) {
+            template = template.concat([
+              '<div class="map-balloon__store">',
+              geoPoint.label,
+              '</div>',
+            ])
+          }
+          template = template.concat([
+            '<div class="map-balloon__addres">',
+            geoPoint.address,
+            '</div>',
+          ])
+          template = template.concat([
+            '<div class="map-balloon__times">',
+          ])
+          geoPoint.schedules.forEach(schedule => {
+            template = template.concat([
+              '<div class="map-balloon__time">',
+              schedule,
+              '</div>',
+            ])
+          })
+          template = template.concat([
+            '</div>',
+            '</div>',
+            '</div>',
+          ])
+
+          // ?
+          const layout = ymaps.templateLayoutFactory.createClass(
+            template.join(''),
+            {
+              build: function () {
+                this.constructor.superclass.build.call(this);
+
+                this._$element = $('.map-balloon--alt', this.getParentElement());
+
+                this.applyElementOffset();
+              },
+              onSublayoutSizeChange: function () {
+                layout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                if (!this._isElement(this._$element)) {
+                  return;
+                }
+
+                this.applyElementOffset();
+
+                this.events.fire('shapechange');
+              },
+              applyElementOffset: function () {
+                this._$element.css({
+                  left: -(this._$element[0].offsetWidth / 2),
+                  top: -(this._$element[0].offsetHeight + markHeight / 2),
+                });
+              },
+              getShape: function () {
+                if (!this._isElement(this._$element)) {
+                  return layout.superclass.getShape.call(this);
+                }
+
+                var position = this._$element.position();
+
+                return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                  [position.left, position.top], [
+                    position.left + this._$element[0].offsetWidth,
+                    position.top + this._$element[0].offsetHeight,
+                  ]
+                ]));
+              },
+              _isElement: function (element) {
+                return element && element[0];
+              }
+            }
+          )
+        
+          // ?
+          const placemarkGeo = new ymaps.Placemark(geoPoint.coordinates, {}, {
+            iconLayout: 'default#image',
+            iconImageHref: 'assets/images/svg/placemark.svg',
+            iconImageSize: [markWidth, markHeight],
+            iconImageOffset: [-markWidth / 2, -markHeight],
+  
+            balloonLayout: layout,
+            balloonPanelMaxMapArea: 0,
+            hideIconOnBalloonOpen: false,
+          })
+
+          map.clusters[location].add(placemarkGeo)
+        })
+
+        map.ymap.geoObjects.add(map.clusters[location])
+      }
+
+      map.ymap.events.add('click', (event) => {
+        if (map.ymap.balloon.isOpen()) {
+          map.ymap.balloon.close();
+        }
+      });
+
+      map.ymap.setBounds(map.clusters[data.startLocation].getBounds(), {
+        zoomMargin: Math.max(markWidth, markHeight),
+      });
+
+
+
+      // change location
+      select.on('change', () => {
+        const location = select.val()
+
+        updateList(location)
+
+        map.ymap.setBounds(map.clusters[location].getBounds(), {
+          zoomMargin: Math.max(markWidth, markHeight),
+        });
       })
     }
   })
-}
-
-// validation
-{
-  $(() => {
-    $(() => {
-      $('#form').parsley();
-    });
-    // $('input[data-mask="phone"]').
-  });
 }

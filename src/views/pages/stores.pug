@@ -47,13 +47,14 @@ block content
                   geoPoints: [
                     //- Самара
                     {
+                      id: 0,
                       coordinates: [
                         55,
                         33,
                       ],
                       location: 'Самара',
                       address: 'address',
-                      schedule: [
+                      schedules: [
                         'schedule',
                         'schedule',
                         'schedule',
@@ -61,45 +62,49 @@ block content
                       label: 'label',
                     },
                     {
+                      id: 1,
                       coordinates: [
                         55.1, 33
                       ],
                       location: 'Самара',
                       address: 'address',
-                      schedule: [
+                      schedules: [
                         'schedule',
                       ],
                     },
                     //- Воронеж
                     {
+                      id: 2,
                       coordinates: [
                         55, 34
                       ],
                       location: 'Воронеж',
                       address: 'address',
-                      schedule: [
+                      schedules: [
                         'schedule',
                         'schedule',
                       ],
                       label: 'label',
                     },
                     {
+                      id: 3,
                       coordinates: [
                         55.1, 34
                       ],
                       location: 'Воронеж',
                       address: 'address',
-                      schedule: [
+                      schedules: [
                         'schedule',
                       ],
                     },
                     {
+                      id: 4,
                       coordinates: [
                         55, 34.1
                       ],
                       location: 'Воронеж',
                       address: 'address',
-                      schedule: [
+                      schedules: [
                         'schedule',
                         'schedule',
                         'schedule',
@@ -107,13 +112,14 @@ block content
                       label: 'label',
                     },
                     {
+                      id: 5,
                       coordinates: [
                         56,
                         33,
                       ],
                       location: 'Тула',
                       address: 'address',
-                      schedule: [
+                      schedules: [
                         'schedule',
                         'schedule',
                         'schedule',
@@ -135,22 +141,7 @@ block content
                         .map-select__col
                           .select
                             select.select__select(name="city" data-map-select='')(style="width: 100%")
-              ul.map-list(data-aos="fade-up") 
-                each geoPoint in mapData.geoPoints
-                  if (geoPoint.location === mapData.startLocation)
-                    li.map-list__item
-                      .map-list__wrapper
-                        .map-balloon
-                          .map-balloon__container 
-                            if ('label' in geoPoint)
-                              .map-balloon__store  
-                                |#{geoPoint.label}
-                            .map-balloon__addres 
-                              |#{geoPoint.address}
-                            .map-balloon__times
-                              each scheduleItem in geoPoint.schedule
-                                .map-balloon__time
-                                  |#{scheduleItem}
+              ul.map-list(data-map-list='' data-aos="fade-up")
             #map(data-aos="fade-up") 
   
 block footer 
