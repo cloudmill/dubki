@@ -5,7 +5,8 @@ $(() => {
 $(function () {
   vacancy();
   submitForm();
-  redirectBuyList();
+  redirectBuy();
+  buyListFilter();
 });
 
 function vacancy() {
