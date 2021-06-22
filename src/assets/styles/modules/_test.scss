@@ -312,6 +312,64 @@
     width: 100%;
   }
 
+  &--top {
+    $width: 221px;
+    $frame: $width - ($offset-d * 2);
+    $offset: 11px;
+
+    padding: $offset 0 20px;
+    height: 302px;
+    width: $width;
+
+    &:hover {
+      #{$comp}__frame {
+        transform: scale(#{1 + (($offset * 2) / $frame)});
+      }
+    }
+
+    #{$comp}__frame {
+      width: $frame;
+      height: $frame;
+    }
+
+    #{$comp}__title {
+      @include fsl(13px);
+    }
+
+    #{$comp}__price-text {
+      @include fsl(16px);
+    }
+  }
+
+  &--big {
+    $width: 414px;
+    $offset: 10px;
+    $frame: $width - ($offset * 2);
+
+    padding: $offset 0 30px;
+    height: 563px;
+    width: $width;
+
+    &:hover {
+      #{$comp}__frame {
+        transform: scale(#{1 + (($offset * 2) / $frame)});
+      }
+    }
+
+    #{$comp}__frame {
+      width: $frame;
+      height: $frame;
+    }
+    
+    #{$comp}__title {
+      @include fsl(18px);
+    }
+
+    #{$comp}__price-text {
+      @include fsl(24px);
+    }
+  }
+
   &__frame {
     position: relative;
     z-index: 0;
