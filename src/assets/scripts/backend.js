@@ -43,7 +43,7 @@ function ajaxRecipes() {
     recipesList = $("[data-type=js-recipes-list]");
 
     console.log('ajaxRecipes');
-  
+
 
   $.ajax({
     method: "POST",
@@ -100,24 +100,25 @@ function redirectBuy() {
 }
 
 function buyListFilter() {
-  $(document).on("change", "[data-type=data-buy-filter]", function () {
+  $(document).on('change', '[data-type=data-buy-filter]', function () {
     let obj = $(this),
-      container = obj.parents("[data-type=buy-list-container]"),
-      itemsContainer = container.find("[data-type=items-container]"),
-      data = {
-        regionId: obj.val(),
-      };
+        container = obj.parents('[data-type=buy-list-container]'),
+        itemsContainer = container.find('[data-type=items-container]'),
+        data = {
+          regionId: obj.val(),
+        }
 
     itemsContainer.empty();
 
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: window.location.href,
-      dataType: "html",
+      dataType: 'html',
       data: data,
       success: function (r) {
-        itemsContainer.append($(r));
+        let itemsResponse = $(r).find('[data-type=items-container]').children();
+        itemsContainer.append(itemsResponse);
       },
     });
-  });
+  })
 }
