@@ -7,6 +7,7 @@ $(function () {
   vacancy();
   submitForm();
   redirectBuy();
+  buyListFilter();
 });
 
 function vacancy() {
@@ -71,4 +72,27 @@ function redirectBuy() {
   $('[data-type=redirect-buy-map]').on('click', function() {
     window.location.href = '/buy';
   });
+}
+
+function buyListFilter() {
+  $(document).on('change', '[data-type=data-buy-filter]', function () {
+    let obj = $(this),
+      container = obj.parents('[data-type=buy-list-container]'),
+      itemsContainer = container.find('[data-type=items-container]'),
+      data = {
+        regionId: obj.val(),
+      }
+
+    itemsContainer.empty();
+
+    $.ajax({
+      type: 'POST',
+      url: window.location.href,
+      dataType: 'html',
+      data: data,
+      success: function (r) {
+        itemsContainer.append($(r));
+      },
+    });
+  })
 }
