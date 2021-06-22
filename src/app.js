@@ -711,46 +711,66 @@ function toggleDataAttr($element, attr, value = '') {
 // select
 {
   $(() => {
-    const components = $('.select')
-
-    components.each(function () {
-      const component = $(this)
-
-      const select = component.find('select')
+    // const select = $('.select__select');
+    $('.select__select').each(function () {
+      const select = $(this);
+      console.log(select);
+      const selectWrapper = select.closest('.select-wrapper');
+      const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
+      if (selectWrapperStyles.position === 'static') {
+        selectWrapper.css('position', 'relative');
+      }
 
       select.select2({
-        width: '100%',
-        dropdownParent: component,
-        minimumResultsForSearch: -1,
+        dropdownParent: selectWrapper,
         selectOnClose: true,
-      })
+      });
 
-      console.log(select.select2('data'))
-
-      let isOpen = false
       select.on('select2:open', () => {
-        const dropdown = component.find('.select2-dropdown')
+        selectWrapper.css('z-index', '100000');
 
-        dropdown.hide()
-        dropdown.slideDown()
+        const selectDropdown = selectWrapper.find('.select2-dropdown');
 
-        isOpen = true
-      })
+        selectDropdown.hide();
+        const timeout = setTimeout(() => {
+          selectDropdown.slideDown({ duration: 500, });
+
+          clearTimeout(timeout);
+        }, 0);
+      });
+
       select.on('select2:closing', event => {
-        if (isOpen) {
-          event.preventDefault()
+        event.preventDefault();
 
-          const dropdown = component.find('.select2-dropdown')
+        const selectDropdown = selectWrapper.find('.select2-dropdown');
 
-          dropdown.slideUp(() => {
-            isOpen = false
+        const timeout = setTimeout(() => {
+          selectWrapper.css('z-index', '');
 
-            select.select2('close')
-          })
-        }
-      })
-    })
-  })
+          const select2 = selectWrapper.find('.select2');
+
+          select2.addClass('closing');
+          select2.removeClass('select2-container--open');
+          selectDropdown.slideUp(500, () => {
+            const timeout2 = setTimeout(() => {
+              select.select2('destroy');
+              select.select2({
+                dropdownParent: selectWrapper,
+                selectOnClose: true,
+              });
+              select.removeClass('closing');
+
+              selectWrapper.css('z-index', '');
+
+              clearTimeout(timeout2);
+            }, 300);
+          });
+          clearTimeout(timeout);
+        }, 0);
+      });
+
+    });
+  });
 }
 
 // response
