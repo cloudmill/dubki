@@ -11,7 +11,7 @@
 		<script src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&amp;lang=ru_RU"></script>
 		<script defer="defer" src="assets/vendor.js"></script>
 		<script defer="defer" src="assets/app.js"></script>
-		<link href="928.css" rel="stylesheet">
+		<link href="421.css" rel="stylesheet">
 		<link href="app.css" rel="stylesheet">
 	</head>
 
@@ -856,10 +856,10 @@
 									</div>
 									<div class="shops-format__row" data-aos="fade-up">
 										<div class="shops-format__col">
-											<div class="button button--l">Магазины «у дома»</div>
+											<div class="shops-format__button shops-format__button--active" data-tab="#at-home">Магазины «у дома»</div>
 										</div>
 										<div class="shops-format__col">
-											<div class="button button--l button--l-transparent">Магазины «самообслуживания»</div>
+											<div class="shops-format__button" data-tab="#self-service">Магазины «самообслуживания»</div>
 										</div>
 									</div>
 								</div>
@@ -871,26 +871,28 @@
 					<div class="frame-about frame-about--second">
 						<div class="container">
 							<div class="section__inner">
-								<div class="shops">
+								<div class="shops shops--active" id="at-home">
 									<div class="shops__row">
 										<div class="shops__col">
-											<div class="shops__content">
+											<div class="shops__content" data-aos="fade-up">
 												<div class="shops__container">
-													<h3 class="shops__title" data-aos="fade-up">Магазины «у дома»</h3>
+													<h3 class="shops__title">Магазины «у дома»</h3>
 													<div class="shops__wrapper">
-														<p class="shops__text" data-aos="fade-up">Небольшие по площади магазины, предназначенные для ежедневных покупок, с хорошим выбором продуктов питания по низким ценам.</p>
+														<p class="shops__text">Небольшие по площади магазины, предназначенные для ежедневных покупок, с хорошим выбором продуктов питания по низким ценам.</p>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="shops__col">
 											<div class="shops-card" data-aos="fade-up">
-												<div class="shops-card__container">
-													<div class="shops-card__frame" style="background-image: url(assets/images/shops-card-1.jpg)"></div>
+												<div class="shops-card__container" data-slider-prev-id="2" data-slider-next-id="1">
+													<div class="shops-card__frame swiper-container">
+														<div class="swiper-wrapper"><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""></div>
+													</div>
 													<div class="shops-card__buttons">
 														<div class="product-card--alt">
 															<div class="product-card__item">
-																<div class="product-card__item-thumb product-card__item-thumb--black">
+																<div class="product-card__item-thumb product-card__item-thumb--black" data-slider-id="2">
 																	<div class="product-card__item-button"><svg class="product-card__item-icon product-card__item-icon--revers" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 																			<path d="M14.2463 13.4311L9.0309 18.6464" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 																			<path fill-rule="evenodd" clip-rule="evenodd" d="M17.1611 16.3453L18.872 8.80603L11.3328 10.5169L17.1611 16.3453Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -898,7 +900,50 @@
 																</div>
 															</div>
 															<div class="shops-card__item">
-																<div class="product-card__item-thumb product-card__item-thumb--black">
+																<div class="product-card__item-thumb product-card__item-thumb--black" data-slider-id="1">
+																	<div class="product-card__item-button"><svg class="product-card__item-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<path d="M14.2463 13.4311L9.0309 18.6464" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M17.1611 16.3453L18.872 8.80603L11.3328 10.5169L17.1611 16.3453Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+																		</svg></div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="shops" id="self-service">
+									<div class="shops__row">
+										<div class="shops__col">
+											<div class="shops__content" data-aos="fade-up">
+												<div class="shops__container">
+													<h3 class="shops__title">Магазины «у дома»</h3>
+													<div class="shops__wrapper">
+														<p class="shops__text">Магазины с более широким ассортиментом, чем у магазинов «у дома», с «островами» гастрономии, где представлены салаты, горячие блюда и блюда гриль, свежая выпечка, торты и пирожные с выделенной зоной кафе.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="shops__col">
+											<div class="shops-card" data-aos="fade-up">
+												<div class="shops-card__container" data-slider-prev-id="4" data-slider-next-id="3">
+													<div class="shops-card__frame swiper-container">
+														<div class="swiper-wrapper"><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""><img class="shops-card__img swiper-slide" src="assets/images/shops-card-1.jpg" alt=""></div>
+													</div>
+													<div class="shops-card__buttons">
+														<div class="product-card--alt">
+															<div class="product-card__item">
+																<div class="product-card__item-thumb product-card__item-thumb--black" data-slider-id="4">
+																	<div class="product-card__item-button"><svg class="product-card__item-icon product-card__item-icon--revers" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<path d="M14.2463 13.4311L9.0309 18.6464" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M17.1611 16.3453L18.872 8.80603L11.3328 10.5169L17.1611 16.3453Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+																		</svg></div>
+																</div>
+															</div>
+															<div class="shops-card__item">
+																<div class="product-card__item-thumb product-card__item-thumb--black" data-slider-id="3">
 																	<div class="product-card__item-button"><svg class="product-card__item-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 																			<path d="M14.2463 13.4311L9.0309 18.6464" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 																			<path fill-rule="evenodd" clip-rule="evenodd" d="M17.1611 16.3453L18.872 8.80603L11.3328 10.5169L17.1611 16.3453Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
