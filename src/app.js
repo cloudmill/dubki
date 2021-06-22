@@ -269,10 +269,11 @@ function toggleDataAttr($element, attr, value = '') {
         } else {
           shops.removeClass('shops--active');
           $('.shops-format__button').removeClass('shops-format__button--active');
-          
+
           $(this).addClass('shops-format__button--active');
           $(tabId).addClass('shops--active');
         }
+
         
       });
     }
