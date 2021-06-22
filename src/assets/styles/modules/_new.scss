@@ -6323,6 +6323,13 @@ body>.wrapper {
   
 }
 
+.select-wrapper {
+
+  &--wide {
+    width: 100%;
+  }
+}
+
 .jobs {
 
   &-intro {

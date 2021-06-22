@@ -23,7 +23,7 @@ block content
               .form__item 
                 input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
               .form__item.form__item--select
-                .select-wrapper
+                .select-wrapper.select-wrapper--wide
                   .select 
                     select.select__select.select__select--modal(name="city")(style="width: 100%")
                       option(value="saratov", selected) 
@@ -35,7 +35,7 @@ block content
                       option(value="voronezh") 
                         |Воронеж
               .form__item 
-                textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание")
+                textarea.form__input.form__input--large(name="text" placeholder="Текст сопроводительного письма")
               .form__wrapper 
                 .form__row 
                   .form__row-wrapper
