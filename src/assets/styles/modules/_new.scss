@@ -5726,6 +5726,19 @@ body>.wrapper {
         margin-top: 20px;
       }
     }
+    position: relative;
+
+    // &::before {
+    //   content: "Имя";
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 0;
+    //   transform: translateY(-50%);
+    //   color: $color-black;
+    //   @include f-main();
+    //   font-weight: 400;
+    //   @include fsl(16px, 100%);
+    // }
 
     &--select {
 
@@ -5751,15 +5764,18 @@ body>.wrapper {
   }
 
   &__input {
-    padding: 20px 35px;
+    padding: 19px 34px;
 
     width: 100%;
+    position: relative;
 
     background-color: $color-white;
-    border: none;
+    border: 1px solid $color-white;
     border-radius: 20px;
+    transition: $transition;
     @include f-main(400);
     @include fsl(16px, 100%);
+
     &::placeholder {
       @include fsl(16px, 100%);
       @include f-main(400);
@@ -7826,4 +7842,28 @@ body>.wrapper {
   color: $color-white;
   @include f-main();
   @include fsl(22px, 80%);
+}
+
+.test {
+  background-color: $color-black;
+  height: 100vh;
+}
+
+.parsley {
+
+  &-error {
+    border-color: #F2535F;
+  }
+
+  &-errors-list {
+    position: absolute;
+    bottom: 8px;
+    left: 35px;
+  }
+
+  &-required {
+    color: #F2535F;
+    font-weight: 400;
+    @include fsl(12px, 80%);
+  }
 }

@@ -39,9 +39,9 @@ block content
                     |8 800 333-82-54
                   .contacts__mail
                     |info@dubki-producty.ru
-                .social.social--second
+                .social.social--second(data-aos="fade-up") 
                   ul.social__list
-                    li.social__item(data-aos="fade-up") 
+                    li.social__item
                       a.social__row.social__row--black(href='#')
                         .social__col
                           .social__img
@@ -49,7 +49,7 @@ block content
                         .social__col
                           .social__link
                             |Instagram
-                    li.social__item(data-aos="fade-up") 
+                    li.social__item
                       a.social__row.social__row--black(href='#')
                         .social__col
                           .social__img(href="#") 
@@ -58,7 +58,7 @@ block content
                           .social__link(href="#")
                             |Вконтакте
                   ul.social__list
-                    li.social__item(data-aos="fade-up") 
+                    li.social__item
                       a.social__row.social__row--black(href='#')
                         .social__col
                           .social__img
@@ -66,7 +66,7 @@ block content
                         .social__col
                           .social__link
                             |Facebook
-                    li.social__item(data-aos="fade-up") 
+                    li.social__item
                       a.social__row.social__row--black(href='#')
                         .social__col
                           .social__img(href="#") 
@@ -100,13 +100,13 @@ block content
                 .contacts__container
                   form.form(action="/" data-type="feedback-form") 
                     .form__item(data-aos="fade-up") 
-                      input.form__input(type="text" name="name" placeholder="Имя")
+                      input.form__input(type="text" name="name" placeholder="Имя" required="required")
                     .form__item(data-aos="fade-up")  
-                      input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone")
+                      input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
                     .form__item(data-aos="fade-up") 
-                      input.form__input(type="text" name="email" placeholder="E-mail")
+                      input.form__input(type="text" name="email" placeholder="E-mail" required="required")
                     .form__item(data-aos="fade-up") 
-                      textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание")
+                      textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание" required="required")
                     .form__wrapper--alt
                       .checkbox(data-aos="fade-up") 
                         label.checkbox__label 
@@ -118,7 +118,7 @@ block content
                             a.checkbox__link(href="#") 
                               |персональных данных
                     .form__inner(data-aos="fade-up")   
-                      .button.form__btn
+                      button(type="submit").button.form__btn
                         |Отправить
                   .response
                     .response__container 

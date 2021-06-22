@@ -19,9 +19,9 @@ block content
           .modal__form
             form.form(action="/") 
               .form__item 
-                input.form__input(type="text" name="name" placeholder="Имя")
+                input.form__input(type="text" name="name" placeholder="Имя" required="required")
               .form__item 
-                input.form__input(type="text" name="phone" placeholder="Телефон")
+                input.form__input(type="text" name="phone" placeholder="Телефон" required="required")
               .form__item.form__item--select
                 .select-wrapper
                   .select 
@@ -39,7 +39,7 @@ block content
               .form__wrapper 
                 .form__row 
                   .form__row-wrapper
-                    button.form__button
+                    button(type="submit").form__button
                       |Прикрепить резюме
               .checkbox 
                 label.checkbox__label 
