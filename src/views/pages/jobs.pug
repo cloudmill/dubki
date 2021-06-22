@@ -17,13 +17,13 @@ block content
             h3.modal__title
               |Откликнуться
           .modal__form
-            form.form(action="/") 
+            form.form(action="/" data-type="feedback-form") 
               .form__item 
-                input.form__input(type="text" name="name" placeholder="Имя")
+                input.form__input(type="text" name="name" placeholder="Имя" required="required")
               .form__item 
-                input.form__input(type="text" name="phone" placeholder="Телефон")
+                input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
               .form__item.form__item--select
-                .select-wrapper
+                .select-wrapper.select-wrapper--wide
                   .select 
                     select.select__select.select__select--modal(name="city")(style="width: 100%")
                       option(value="saratov", selected) 
@@ -34,12 +34,28 @@ block content
                         |Санкт-Питербург
                       option(value="voronezh") 
                         |Воронеж
+                      option(value="saratov", selected) 
+                        |Саратов
+                      option(value="moscov") 
+                        |Москва
+                      option(value="spb") 
+                        |Санкт-Питербург
+                      option(value="voronezh") 
+                        |Воронеж
+                      option(value="saratov", selected) 
+                        |Саратов
+                      option(value="moscov") 
+                        |Москва
+                      option(value="spb") 
+                        |Санкт-Питербург
+                      option(value="voronezh") 
+                        |Воронеж
               .form__item 
-                textarea.form__input.form__input--large(name="text" placeholder="Вопрос или пожелание")
+                textarea.form__input.form__input--large(name="text" placeholder="Текст сопроводительного письма")
               .form__wrapper 
                 .form__row 
                   .form__row-wrapper
-                    button.form__button
+                    button(type="submit").form__button
                       |Прикрепить резюме
               .checkbox 
                 label.checkbox__label 

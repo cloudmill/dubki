@@ -2196,108 +2196,56 @@ body>.wrapper {
 .top-slide {
   $comp: &;
 
-  padding-bottom: 25px;
-  padding-top: 65px;
+  // padding-bottom: 25px;
+  // padding-top: 65px;
 
-  width: $top-slide-width-m;
-  height: 302px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: relative;
-  z-index: 0;
+  // width: $top-slide-width-m;
+  // height: 302px;
+  // flex-shrink: 0;
+  // display: flex;
+  // align-items: flex-end;
+  // justify-content: center;
+  // position: relative;
+  // z-index: 0;
 
-  pointer-events: all;
+  // pointer-events: all;
 
-  transition: .4s;
+  // transition: .4s;
 
-  background-color: $color-white;
-  border-radius: 137px;
+  // background-color: $color-white;
+  // border-radius: 137px;
 
-  &:hover {
-    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.03);
-    #{$comp}__discont {
-      transform: rotate(25deg);
-    }
-
-    #{$comp}__image {
-      // width: 155px;
-      // height: 109px;
-      transform: scale(1.2);
-    }
-  }
 
   &--catalog {
-    padding-top: 45px;
-    height: 241px;
+    // padding-top: 45px;
+    // height: 241px;
 
-    @media (min-width: $breakpoint) {
-      width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
-      height: 350px;
-    }
+    // @media (min-width: $breakpoint) 
+    // @media (min-width: $breakpoint-ll) {
+    //   width: 240px;
+    // }
 
-    @media (max-width: $breakpoint) {
-      &:nth-child(-n + 2) {
-        margin-top: 0;
-      }
+    // @media (min-width: $breakpoint) {
+    //   width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
+    // }
+    // @media (max-width: $breakpoint - 1px) {
+    //   width: 165px;
+    // }
+    //   height: 350px;
+    // }
 
-      &:nth-child(2n + 1) {
-        margin-left: 0;
-      }
-    }
+    // @media (max-width: $breakpoint) {
+    //   &:nth-child(-n + 2) {
+    //     margin-top: 0;
+    //   }
+
+    //   &:nth-child(2n + 1) {
+    //     margin-left: 0;
+    //   }
+    // }
 
   }
-
-  &--big {
-    @media (min-width: $breakpoint) {
-      width: $top-slide-width-d;
-      height: 563px;
-
-      border-radius: 230px;
-
-      #{$comp}__discont {
-        top: 10px;
-        left: 10px;
-      }
-
-      #{$comp}__image {
-        width: 263px;
-        height: 187px;
-      }
-
-      #{$comp}__info {
-        height: 125px;
-      }
-
-      #{$comp}__text {
-        width: 250px;
-        font-size: 18px;
-      }
-
-      #{$comp}__price {
-        font-size: 24px;
-      }
-    }
-  }
-
-  &--product {
-    padding: 0;
-
-    width: 345px;
-    height: 345px;
-
-    @media (min-width: $breakpoint) {
-      width: 419px;
-      height: 419px;
-    }
-
-    align-items: center;
-
-    border: 1px solid #e9e9e9;
-    border-radius: 50%;
-  }
-
+  
   &__discont {
     position: absolute;
     z-index: 1;
@@ -5726,6 +5674,20 @@ body>.wrapper {
         margin-top: 20px;
       }
     }
+    position: relative;
+    display: flex;
+
+    // &::before {
+    //   content: "Имя";
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 0;
+    //   transform: translateY(-50%);
+    //   color: $color-black;
+    //   @include f-main();
+    //   font-weight: 400;
+    //   @include fsl(16px, 100%);
+    // }
 
     &--select {
 
@@ -5751,20 +5713,24 @@ body>.wrapper {
   }
 
   &__input {
-    padding: 20px 35px;
+    padding: 19px 34px;
 
     width: 100%;
+    position: relative;
 
     background-color: $color-white;
-    border: none;
+    border: 1px solid $color-white;
     border-radius: 20px;
+    transition: $transition;
     @include f-main(400);
     @include fsl(16px, 100%);
+
     &::placeholder {
       @include fsl(16px, 100%);
       @include f-main(400);
       color: $color-black;
     }
+
 
     &--large {
       height: 160px;
@@ -6292,6 +6258,18 @@ body>.wrapper {
     @include fsl(16px, 80%);
     color: $color-white;
 
+    &::-webkit-scrollbar { 
+      width: 5px;
+      background-color: $color-light-green;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 3px;
+      height: 40px;
+      background-color: $color-yellow;
+      border-radius: 6px;
+    }
+
     li {
       padding: 5px 30px;
 
@@ -6303,6 +6281,13 @@ body>.wrapper {
     }
   }
   
+}
+
+.select-wrapper {
+
+  &--wide {
+    width: 100%;
+  }
 }
 
 .jobs {
@@ -7826,4 +7811,34 @@ body>.wrapper {
   color: $color-white;
   @include f-main();
   @include fsl(22px, 80%);
+}
+
+.test {
+  background-color: $color-black;
+  height: 100vh;
+}
+
+.parsley {
+
+  &-error {
+    border-color: #F2535F;
+  }
+
+  &-errors-list {
+    position: absolute;
+    bottom: 8px;
+    left: 35px;
+  }
+
+  &-required {
+    color: #F2535F;
+    font-weight: 400;
+    @include fsl(12px, 80%);
+  }
+
+  &-phone {
+    color: #F2535F;
+    font-weight: 400;
+    @include fsl(12px, 80%);
+  }
 }

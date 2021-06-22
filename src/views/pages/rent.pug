@@ -129,31 +129,31 @@ block content
                       |Возможность размещения вывесок на фасаде и или торце помещения
             .offers__col
               .offers__container
-                form.form(action="/") 
+                form.form(action="/" data-type="feedback-form") 
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="name" placeholder="Имя")
+                    input.form__input(type="text" name="name" placeholder="Имя" required="required")
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="phone" placeholder="Телефон")
+                    input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="email" placeholder="E-mail")
+                    input.form__input(type="text" name="email" placeholder="E-mail" required="required")
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="addres" placeholder="Адрес помещения")
+                    input.form__input(type="text" name="addres" placeholder="Адрес помещения" required="required")
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="area" placeholder="Площадь")
+                    input.form__input(type="text" name="area" placeholder="Площадь" required="required")
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="rent" placeholder="Арендная ставка")
+                    input.form__input(type="text" name="rent" placeholder="Арендная ставка" required="required")
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="energy" placeholder="Электроэнергия")
+                    input.form__input(type="text" name="energy" placeholder="Электроэнергия" required="required")
                   .form__wrapper 
                     .form__row(data-aos="fade-up")
                       .form__row-wrapper
-                        button.form__button
+                        button(type="submit").form__button
                           |Прикрепить файлы
                       .form__text  
                         |Например, фотографии, план
                   .checkbox(data-aos="fade-up")
-                    label.checkbox__label 
-                      input.checkbox__input(type="checkbox")
+                    label.checkbox__label(required="required")
+                      input.checkbox__input(type="checkbox" required="required")
                       .checkbox__box 
                         +check-svg('checkbox__icon')
                       .checkbox__text 
@@ -161,7 +161,7 @@ block content
                         a.checkbox__link(href="#") 
                           |персональных данных
                   .form__inner(data-aos="fade-up") 
-                    .button.form__btn
+                    button(type="submit").button.form__btn
                       |Отправить
                 .response
                   .response__container 

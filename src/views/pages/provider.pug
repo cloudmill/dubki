@@ -60,26 +60,26 @@ block content
               .provider__col
                 .provider__form
                   form.form(action="/") 
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="company" placeholder="Наименование компании")
+                    .form__item(data-aos="fade-up" data-type="feedback-form") 
+                      input.form__input(type="text" name="company" placeholder="Наименование компании" required="required")
                     .form__item(data-aos="fade-up") 
-                      input.form__input(type="text" name="index" placeholder="ИНН")
+                      input.form__input(type="text" name="index" placeholder="ИНН" required="required")
                     .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="website" placeholder="Сайт")
+                      input.form__input(type="text" name="website" placeholder="Сайт" required="required")
                     .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="sort" placeholder="Ассортимент")
+                      input.form__input(type="text" name="sort" placeholder="Ассортимент" required="required")
                     .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="contact" placeholder="Контактное лицо")
+                      input.form__input(type="text" name="contact" placeholder="Контактное лицо" required="required")
                     .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="post" placeholder="Должность")
+                      input.form__input(type="text" name="post" placeholder="Должность" required="required")
                     .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="email" placeholder="E-mail")
+                      input.form__input(type="text" name="email" placeholder="E-mail" required="required")
                     .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="phone" placeholder="Телефон")
+                      input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
                     .form__wrapper 
                       .form__row(data-aos="fade-up")
                         .form__row-wrapper
-                          button.form__button 
+                          button(type="submit").form__button 
                             |Прикрепить файлы
                         .form__text  
                           |Например, фотографии, план

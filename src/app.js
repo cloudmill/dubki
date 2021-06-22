@@ -6,7 +6,8 @@ import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
-import { map } from "jquery";
+import mask from "inputmask";
+require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
   require("assets/scripts/backend");
@@ -1190,4 +1191,24 @@ function toggleDataAttr($element, attr, value = '') {
       })
     }
   })
+}
+
+// validation
+{
+  $(() => {
+
+    $("[data-type=feedback-form]").parsley();
+
+    window.Parsley.addValidator("phone", {
+      validateString: function (value) {
+        if (value.length == 17 && value[4] == 9) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    });
+
+    Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
+  });
 }
