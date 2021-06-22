@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import "parsleyjs";
-import mask from "inputmask";
 
 $(() => {
   console.log("backend");
@@ -8,9 +5,8 @@ $(() => {
 
 $(function () {
   vacancy();
-  validates();
-  masks();
   submitForm();
+  redirectBuyList();
 });
 
 function vacancy() {
@@ -34,24 +30,6 @@ function ajaxVacancy(cityId) {
   }).done(function (a) {
     vacancyList.html(a);
   });
-}
-
-function validates() {
-  $("[data-type=feedback-form]").parsley();
-
-  window.Parsley.addValidator("phone", {
-    validateString: function (value) {
-      if (value.length == 17 && value[4] == 9) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  });
-}
-
-function masks() {
-  Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
 }
 
 function submitForm() {
@@ -82,14 +60,11 @@ function submitForm() {
         },
       });
     }
-=======
-$(function () {
-  redirectBuyList();
-});
+  });
+}
 
 function redirectBuyList() {
-  $('[data-type=redirect-buy-list]').on('click', function() {
-    window.location.href = '/buy/list';
->>>>>>> fc1c8838d07c688c9303dfbf6dacb39ee77d286a
+  $("[data-type=redirect-buy-list]").on("click", function () {
+    window.location.href = "/buy/list";
   });
 }
