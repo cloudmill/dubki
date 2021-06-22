@@ -98,11 +98,11 @@ block content
                   h4.contacts__title(data-aos="fade-up") 
                     |Задать вопрос или оставить пожелание
                 .contacts__container
-                  form.form(action="/") 
+                  form.form(action="/" data-type="feedback-form") 
                     .form__item(data-aos="fade-up") 
                       input.form__input(type="text" name="name" placeholder="Имя")
                     .form__item(data-aos="fade-up")  
-                      input.form__input(type="text" name="phone" placeholder="Телефон")
+                      input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone")
                     .form__item(data-aos="fade-up") 
                       input.form__input(type="text" name="email" placeholder="E-mail")
                     .form__item(data-aos="fade-up") 
