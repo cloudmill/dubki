@@ -33,19 +33,20 @@ function ajaxVacancy(cityId) {
 }
 
 function recipes() {
-  $('[data-type=js-recipes-filter]').find('select').on('change', function(){
-    ajaxRecipes();
-  });
+  $("[data-type=js-recipes-filter]")
+    .find("select")
+    .on("change", function () {
+      ajaxRecipes();
+    });
 }
 
 function ajaxRecipes() {
-  let form = $('[data-type=js-recipes-filter]'),
-    time = form.find('select[name=time]').val(),
-    type = form.find('select[name=type]').val(),
+  let form = $("[data-type=js-recipes-filter]"),
+    time = form.find("select[name=time]").val(),
+    type = form.find("select[name=type]").val(),
     recipesList = $("[data-type=js-recipes-list]");
 
-    console.log('ajaxRecipes');
-
+  console.log("ajaxRecipes");
 
   $.ajax({
     method: "POST",
@@ -91,6 +92,27 @@ function submitForm() {
   });
 }
 
+function searchForm() {
+  $(document).on("click", ".search-form__button", function (e) {
+    e.preventDefault();
+
+    let form = $(document).find("[data-type=search-form]"),
+      search = form.find("input[name=search]").val(),
+      searchList = $("[data-type=js-search-list]");
+
+    $.ajax({
+      method: "POST",
+      url: window.location.href,
+      data: {
+        ajax: 1,
+        search: search,
+      },
+    }).done(function (a) {
+      searchList.html(a);
+    });
+  });
+}
+
 function redirectBuy() {
   $("[data-type=redirect-buy-list]").on("click", function () {
     window.location.href = "/buy/list";
@@ -102,46 +124,46 @@ function redirectBuy() {
 }
 
 function buyListFilter() {
-  $(document).on('change', '[data-type=data-buy-filter]', function () {
+  $(document).on("change", "[data-type=data-buy-filter]", function () {
     let obj = $(this),
-        container = obj.parents('[data-type=buy-list-container]'),
-        itemsContainer = container.find('[data-type=items-container]'),
-        data = {
-          regionId: obj.val(),
-        }
+      container = obj.parents("[data-type=buy-list-container]"),
+      itemsContainer = container.find("[data-type=items-container]"),
+      data = {
+        regionId: obj.val(),
+      };
 
     itemsContainer.empty();
 
     $.ajax({
-      type: 'POST',
+      type: "POST",
       url: window.location.href,
-      dataType: 'html',
+      dataType: "html",
       data: data,
       success: function (r) {
-        let itemsResponse = $(r).find('[data-type=items-container]').children();
+        let itemsResponse = $(r).find("[data-type=items-container]").children();
         itemsContainer.append(itemsResponse);
       },
     });
-  })
+  });
 }
 
 function autocompleteDefineRegion() {
-  $('[data-type=autocomplete-region-define]').autocomplete({
-    appendTo: '[data-autocomplete-place]',
-    source: function(request, response) {
+  $("[data-type=autocomplete-region-define]").autocomplete({
+    appendTo: "[data-autocomplete-place]",
+    source: function (request, response) {
       $.ajax({
-        url: '/local/templates/main/include/ajax/autocomplete_define_region.php',
-        dataType: 'json',
+        url: "/local/templates/main/include/ajax/autocomplete_define_region.php",
+        dataType: "json",
         data: {
-          q: request.term
+          q: request.term,
         },
-        success: function(data) {
+        success: function (data) {
           response(data);
-        }
+        },
       });
     },
     position: {
-      my: 'left top+5',
+      my: "left top+5",
     },
   });
 }
