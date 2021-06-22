@@ -40,16 +40,17 @@ block content
                         .map-select__text 
                           |Город
                       .map-select__col
-                        .select 
-                          select.select__select(name="city")(style="width: 100%")
-                            option(value="saratov", selected) 
-                              |Саратов
-                            option(value="moscov") 
-                              |Москва
-                            option(value="spb") 
-                              |Санкт-Питербург
-                            option(value="voronezh") 
-                              |Воронеж
+                        .select-wrapper
+                          .select 
+                            select.select__select(name="city")(style="width: 100%")
+                              option(value="saratov", selected) 
+                                |Саратов
+                              option(value="moscov") 
+                                |Москва
+                              option(value="spb") 
+                                |Санкт-Питербург
+                              option(value="voronezh") 
+                                |Воронеж
               .stores-list__col
                 .map-tabs--default
                   .map-tabs__wrapper
