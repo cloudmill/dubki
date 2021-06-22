@@ -17,11 +17,11 @@ block content
             h3.modal__title
               |Откликнуться
           .modal__form
-            form.form(action="/") 
+            form.form(action="/" data-type="feedback-form") 
               .form__item 
                 input.form__input(type="text" name="name" placeholder="Имя" required="required")
               .form__item 
-                input.form__input(type="text" name="phone" placeholder="Телефон" required="required")
+                input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
               .form__item.form__item--select
                 .select-wrapper
                   .select 
