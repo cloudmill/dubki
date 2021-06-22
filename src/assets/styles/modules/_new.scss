@@ -674,7 +674,7 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(18px, 80%);
       }
-      color: $color-white !important; 
+      color: $color-white; 
       transition: $transition;
     }
 
@@ -686,7 +686,7 @@ body>.wrapper {
     &-svg {
       path {
         transition: $transition;
-        stroke: $color-white !important;
+        stroke: $color-white;
       }
     }
   }
@@ -756,7 +756,7 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(18px, 80%);
       }
-      color: $color-white !important;
+      color: $color-white;
       
       transition: $transition;
     }
@@ -777,7 +777,7 @@ body>.wrapper {
   &__arrow {
     path {
       transition: $transition;
-      stroke: $color-white !important;
+      stroke: $color-white;
     }
   }
 
@@ -799,7 +799,7 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         @include fsl(18px, 80%);
       }
-      color: $color-white !important; 
+      color: $color-white; 
       transition: $transition;
       
       &:hover {
