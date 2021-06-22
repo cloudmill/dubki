@@ -7,7 +7,6 @@ import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
 import { map } from "jquery";
-require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
   require("assets/scripts/backend");
@@ -232,7 +231,7 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// about slider 
+// about slider
 {
   $(() => {
     $('.shops-card__container').each(function (){
@@ -253,7 +252,7 @@ function toggleDataAttr($element, attr, value = '') {
 			$('[data-slider-id="' + slider_next_id + '"]').on('click', () => {
 				sliderShops.slideNext();
 			});
-    })  
+    })
     // tabs
     {
       const shops = $('.shops');
@@ -408,7 +407,7 @@ function toggleDataAttr($element, attr, value = '') {
 
         // if (scrollPos > vacanciesContainer) {
         //   vacanciesCity.removeClass('vacancies__city--fixed');
-        // } else 
+        // } else
       });
     }
   });
@@ -448,7 +447,7 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// catalog dropdown 
+// catalog dropdown
 {
   $(() => {
     const navModal = $('.nav-modal');
@@ -1084,30 +1083,6 @@ function toggleDataAttr($element, attr, value = '') {
   })
 }
 
-// location autocomplete
-{
-  $(() => {
-    const inputs = $('[data-autocomplete-input]')
-
-    inputs.each(function () {
-      const input = $(this)
-      const inputID = input.data('autocomplete-input')
-
-      const inputPlace = `[data-autocomplete-place="${inputID}"]`
-      const inputList = input.data('autocomplete-list')
-
-      input.autocomplete({
-        appendTo: inputPlace,
-        source: inputList,
-
-        position: {
-          my: 'left top+5',
-        },
-      })
-    })
-  })
-}
-
 // test
 {
   ymaps.ready(() => {
@@ -1147,35 +1122,35 @@ function toggleDataAttr($element, attr, value = '') {
         if (selectWrapperStyles.position === 'static') {
           selectWrapper.css('position', 'relative');
         }
-  
+
         select.select2({
           dropdownParent: selectWrapper,
           selectOnClose: true,
         });
-  
+
         select.on('select2:open', () => {
           selectWrapper.css('z-index', '100000');
-  
+
           const selectDropdown = selectWrapper.find('.select2-dropdown');
-  
+
           selectDropdown.hide();
           const timeout = setTimeout(() => {
             selectDropdown.slideDown({ duration: 500, });
-  
+
             clearTimeout(timeout);
           }, 0);
         });
-  
+
         select.on('select2:closing', event => {
           event.preventDefault();
-  
+
           const selectDropdown = selectWrapper.find('.select2-dropdown');
-  
+
           const timeout = setTimeout(() => {
             selectWrapper.css('z-index', '');
-  
+
             const select2 = selectWrapper.find('.select2');
-  
+
             select2.addClass('closing');
             select2.removeClass('select2-container--open');
             selectDropdown.slideUp(500, () => {
@@ -1186,21 +1161,21 @@ function toggleDataAttr($element, attr, value = '') {
                   selectOnClose: true,
                 });
                 select.removeClass('closing');
-  
+
                 selectWrapper.css('z-index', '');
-  
+
                 clearTimeout(timeout2);
               }, 300);
             });
             clearTimeout(timeout);
           }, 0);
-        });  
+        });
       }
 
       // cluster
       const locationClusters = []
 
-      
+
       // list
       // select change
       locationSelect.on('change', () => {

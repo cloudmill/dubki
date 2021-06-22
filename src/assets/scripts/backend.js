@@ -7,6 +7,7 @@ $(function () {
   submitForm();
   redirectBuy();
   buyListFilter();
+  autocompleteDefineRegion();
 });
 
 function vacancy() {
@@ -122,4 +123,25 @@ function buyListFilter() {
       },
     });
   })
+}
+
+function autocompleteDefineRegion() {
+  $('[data-type=autocomplete-region-define]').autocomplete({
+    appendTo: '[data-autocomplete-place]',
+    source: function(request, response) {
+      $.ajax({
+        url: '/local/templates/main/include/ajax/autocomplete_define_region.php',
+        dataType: 'json',
+        data: {
+          q: request.term
+        },
+        success: function(data) {
+          response(data);
+        }
+      });
+    },
+    position: {
+      my: 'left top+5',
+    },
+  });
 }
