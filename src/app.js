@@ -231,6 +231,31 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
+// about slider 
+{
+  $(() => {
+    $('.shops-card__container').each(function (){
+      const slider = $(this);
+			const slider_swiper_el = slider.find('.shops-card__frame');
+
+			const slider_prev_id = slider.data('slider-prev-id');
+			const slider_next_id = slider.data('slider-next-id');
+
+      const sliderShops = new Swiper(slider_swiper_el[0], {
+        slidesPerView: 'auto',
+      });
+
+      $('[data-slider-id="' + slider_prev_id + '"]').on('click', () => {
+				sliderShops.slidePrev();
+			});
+
+			$('[data-slider-id="' + slider_next_id + '"]').on('click', () => {
+				sliderShops.slideNext();
+			});
+    })  
+  });
+}
+
 // top slider
 {
   $(() => {

@@ -4595,10 +4595,6 @@ body>.wrapper {
 
   &-card {
 
-    &__container {
-      position: relative;
-    }
-
     &__frame {
       position: relative;
       overflow: hidden;
@@ -4614,13 +4610,11 @@ body>.wrapper {
       background-size: cover;
     }
   
-    // &__image {
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    //   min-width: 100%;
-    // }
+    &__img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%
+    }
 
     &__buttons {
       padding: 13px;
