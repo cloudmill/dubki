@@ -1,4 +1,3 @@
-
 $(() => {
   console.log("backend");
 });
@@ -18,7 +17,7 @@ function vacancy() {
 }
 
 function ajaxVacancy(cityId) {
-    vacancyList = $("[data-type=js-vacancy-list]");
+  let vacancyList = $("[data-type=js-vacancy-list]");
 
   $.ajax({
     method: "POST",
@@ -33,24 +32,19 @@ function ajaxVacancy(cityId) {
 }
 
 function recipes() {
-  console.log("recipes");
-  $("[data-type=js-recipes-filter-type]").on("change", function (e) {
-    console.log("change type");
-    time = $("[data-type=js-recipes-filter-time]").value;
-    ajaxRecipes(this.value, time);
-  });
-  $("[data-type=js-recipes-filter-time]").on("change", function (e) {
-    console.log("change time");
-    type = $("[data-type=js-recipes-filter-type]").value;
-    ajaxRecipes(type, this.value);
+  $('[data-type=js-recipes-filter]').find('select').on('change', function(){
+    ajaxRecipes();
   });
 }
 
-function ajaxRecipes(type, time) {
-  console.log("ajax Recipes");
-  console.log(type);
-  console.log(time);
-  recipesList = $("[data-type=js-recipes-list]");
+function ajaxRecipes() {
+  let form = $('[data-type=js-recipes-filter]'),
+    time = form.find('select[name=time]').val(),
+    type = form.find('select[name=type]').val(),
+    recipesList = $("[data-type=js-recipes-list]");
+
+    console.log('ajaxRecipes');
+  
 
   $.ajax({
     method: "POST",
@@ -58,7 +52,7 @@ function ajaxRecipes(type, time) {
     data: {
       ajax: 1,
       time: time,
-      type: type
+      type: type,
     },
   }).done(function (a) {
     recipesList.html(a);
@@ -97,34 +91,34 @@ function submitForm() {
 }
 
 function redirectBuy() {
-  $('[data-type=redirect-buy-list]').on('click', function() {
-    window.location.href = '/buy/list';
+  $("[data-type=redirect-buy-list]").on("click", function () {
+    window.location.href = "/buy/list";
   });
 
-  $('[data-type=redirect-buy-map]').on('click', function() {
-    window.location.href = '/buy';
+  $("[data-type=redirect-buy-map]").on("click", function () {
+    window.location.href = "/buy";
   });
 }
 
 function buyListFilter() {
-  $(document).on('change', '[data-type=data-buy-filter]', function () {
+  $(document).on("change", "[data-type=data-buy-filter]", function () {
     let obj = $(this),
-      container = obj.parents('[data-type=buy-list-container]'),
-      itemsContainer = container.find('[data-type=items-container]'),
+      container = obj.parents("[data-type=buy-list-container]"),
+      itemsContainer = container.find("[data-type=items-container]"),
       data = {
         regionId: obj.val(),
-      }
+      };
 
     itemsContainer.empty();
 
     $.ajax({
-      type: 'POST',
+      type: "POST",
       url: window.location.href,
-      dataType: 'html',
+      dataType: "html",
       data: data,
       success: function (r) {
         itemsContainer.append($(r));
       },
     });
-  })
+  });
 }
