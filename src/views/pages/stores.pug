@@ -42,52 +42,70 @@ block content
                         |Списком
             .placemarks
               -
-                var placemarks = [
-                  {
-                    "label": "В магазине самообслуживание",
-                    "title": "г. Саратов, ул. Красноармейская, д. 13 а",
-                    "times": [
-                      "пнд—вс  |  9—18",
-                    ],
-                    "coordinates": [
-                      "51.540679",
-                      "51.540679",
-                    ],
-                  },
-                  {
-                    "title": "г. Саратов, ул. Н. Островского, д. 154",
-                    "times": [
-                      "пнд—вс  |  9—20",
-                      "пнд—вс  |  9—20",
-                      "пнд—вс  |  9—20"
-                    ],
-                    "coordinates": [
-                      "51.540679",
-                      "52.540679",
-                    ],
-                  },
-                  {
-                    "title": "г. Саратов, ул. Бульварная, д. 13В",
-                    "times": [
-                      "пнд—вс  |  9—20",
-                    ],
-                    "coordinates": [
-                      "52.540679",
-                      "53.540679",
-                    ],
-                  },
-                  {
-                    "title": "г. Саратов, Ленинский р-н, ул. Жилая, д. 7г",
-                    "times": [
-                      "пнд—вс  |  9—20",
-                    ],
-                    "coordinates": [
-                      "52.540679",
-                      "51.540679",
-                    ],
-                  },
-                ]
-              |#{JSON.stringify(placemarks)}
+                var mapData = {
+                  startLocation: 'Самара',
+                  geoPoints: [
+                    {
+                      coordinates: [
+                        55, 33
+                      ],
+                      location: 'Самара',
+                      address: 'address',
+                      schedule: [
+                        'schedule',
+                        'schedule',
+                        'schedule',
+                      ],
+                      label: 'label',
+                    },
+                    {
+                      coordinates: [
+                        55.1, 33
+                      ],
+                      location: 'Самара',
+                      address: 'address',
+                      schedule: [
+                        'schedule',
+                      ],
+                    },
+                    {
+                      coordinates: [
+                        55, 33.1
+                      ],
+                      location: 'Воронеж',
+                      address: 'address',
+                      schedule: [
+                        'schedule',
+                        'schedule',
+                      ],
+                      label: 'label',
+                    },
+                    {
+                      coordinates: [
+                        55.2, 33.1
+                      ],
+                      location: 'Воронеж',
+                      address: 'address',
+                      schedule: [
+                        'schedule',
+                      ],
+                    },
+                    {
+                      coordinates: [
+                        55, 33.2
+                      ],
+                      location: 'Воронеж',
+                      address: 'address',
+                      schedule: [
+                        'schedule',
+                        'schedule',
+                        'schedule',
+                      ],
+                      label: 'label',
+                    },
+                  ],
+                }
+              |#{JSON.stringify(mapData)}
             .map__list
               .map-select 
                 .select-wrapper
@@ -125,20 +143,21 @@ block content
                               option(value="voronezh") 
                                 |Воронеж
               ul.map-list(data-aos="fade-up") 
-                each placemark in placemarks
-                  li.map-list__item
-                    .map-list__wrapper
-                      .map-balloon
-                        .map-balloon__container 
-                          if ('label' in placemark)
-                            .map-balloon__store  
-                              |#{placemark.label}
-                          .map-balloon__addres 
-                            |#{placemark.title}
-                          .map-balloon__times
-                            each time in placemark.times
-                              .map-balloon__time
-                                |#{time}
+                each geoPoint in mapData.geoPoints
+                  if (geoPoint.location === mapData.startLocation)
+                    li.map-list__item
+                      .map-list__wrapper
+                        .map-balloon
+                          .map-balloon__container 
+                            if ('label' in geoPoint)
+                              .map-balloon__store  
+                                |#{geoPoint.label}
+                            .map-balloon__addres 
+                              |#{geoPoint.address}
+                            .map-balloon__times
+                              each scheduleItem in geoPoint.schedule
+                                .map-balloon__time
+                                  |#{scheduleItem}
             #map(data-aos="fade-up") 
   
 block footer 

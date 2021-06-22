@@ -135,7 +135,6 @@ function toggleDataAttr($element, attr, value = '') {
       function getMoveDistance() {
         const startX = slider.offset().left
         const x = moveTrackingEl.offset().left
-        console.log(x);
 
         // движение "влево" (startX > x)
         // поэтому вычитаем (startX - x)
@@ -350,8 +349,6 @@ function toggleDataAttr($element, attr, value = '') {
       const vacanciesContainer = vacanciesPos + vacanciesHeight - 250;
       const vacanciesCity = $('.vacancies__city');
 
-      console.log(vacanciesContainer)
-
       $(window).on('scroll', function () {
         const scrollPos = $(this).scrollTop();
 
@@ -531,18 +528,14 @@ function toggleDataAttr($element, attr, value = '') {
     const mapContainer = $('#map');
 
     if (mapContainer.length !== 0) {
-      // vars
       const markWidth = 53;
       const markHeight = 56;
 
-      // init
       const map = new ymaps.Map('map', {
-        center: [51.518328, 45.996784],
         zoom: 12,
         controls: [],
       });
 
-      // balloon close
       map.events.add('click', (event) => {
         if (map.balloon.isOpen()) {
           map.balloon.close();
@@ -714,7 +707,6 @@ function toggleDataAttr($element, attr, value = '') {
     // const select = $('.select__select');
     $('.select__select').each(function () {
       const select = $(this);
-      console.log(select);
       const selectWrapper = select.closest('.select-wrapper');
       const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
       if (selectWrapperStyles.position === 'static') {
@@ -882,6 +874,7 @@ function toggleDataAttr($element, attr, value = '') {
     }
   });
 }
+
 // fixed header
 {
   $(() => {
@@ -1062,16 +1055,17 @@ function toggleDataAttr($element, attr, value = '') {
         position: {
           my: 'left top+5',
         },
-
-        open: function () {
-          $('.ui-menu-item-wrapper').on('click', function () {
-            console.log($(this));
-          })
-          $('.ui-menu-item').on('click', function () {
-            console.log($(this));
-          })
-        },
       })
     })
+  })
+}
+
+// test
+{
+  $(() => {
+    const mapDataJSON = $('.placemarks').text().trim()
+    const mapData = JSON.parse(mapDataJSON)
+
+    console.log(mapData);
   })
 }
