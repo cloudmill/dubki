@@ -1,4 +1,3 @@
-
 $(() => {
   console.log("backend");
 });
@@ -17,8 +16,7 @@ function vacancy() {
 }
 
 function ajaxVacancy(cityId) {
-  let tags = [],
-    vacancyList = $("[data-type=js-vacancy-list]");
+  let vacancyList = $("[data-type=js-vacancy-list]");
 
   $.ajax({
     method: "POST",
@@ -29,6 +27,34 @@ function ajaxVacancy(cityId) {
     },
   }).done(function (a) {
     vacancyList.html(a);
+  });
+}
+
+function recipes() {
+  $('[data-type=js-recipes-filter]').find('select').on('change', function(){
+    ajaxRecipes();
+  });
+}
+
+function ajaxRecipes() {
+  let form = $('[data-type=js-recipes-filter]'),
+    time = form.find('select[name=time]').val(),
+    type = form.find('select[name=type]').val(),
+    recipesList = $("[data-type=js-recipes-list]");
+
+    console.log('ajaxRecipes');
+  
+
+  $.ajax({
+    method: "POST",
+    url: window.location.href,
+    data: {
+      ajax: 1,
+      time: time,
+      type: type,
+    },
+  }).done(function (a) {
+    recipesList.html(a);
   });
 }
 
@@ -63,8 +89,35 @@ function submitForm() {
   });
 }
 
-function redirectBuyList() {
+function redirectBuy() {
   $("[data-type=redirect-buy-list]").on("click", function () {
     window.location.href = "/buy/list";
+  });
+
+  $("[data-type=redirect-buy-map]").on("click", function () {
+    window.location.href = "/buy";
+  });
+}
+
+function buyListFilter() {
+  $(document).on("change", "[data-type=data-buy-filter]", function () {
+    let obj = $(this),
+      container = obj.parents("[data-type=buy-list-container]"),
+      itemsContainer = container.find("[data-type=items-container]"),
+      data = {
+        regionId: obj.val(),
+      };
+
+    itemsContainer.empty();
+
+    $.ajax({
+      type: "POST",
+      url: window.location.href,
+      dataType: "html",
+      data: data,
+      success: function (r) {
+        itemsContainer.append($(r));
+      },
+    });
   });
 }
