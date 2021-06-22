@@ -178,7 +178,7 @@ function forms() {
         url = container.attr('data-url'),
         data = {};
 
-    container.find('input:not([type="checkbox"])').each(function () {
+    container.find('input:not([type="checkbox"]), textarea, [data-type=form-type]').each(function () {
       data[$(this).attr('data-uf')] = $(this).val();
     });
 
