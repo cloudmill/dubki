@@ -5,7 +5,9 @@ $(() => {
 $(function () {
   vacancy();
   submitForm();
-  redirectBuyList();
+  redirectBuy();
+  buyListFilter();
+  autocompleteDefineRegion();
 });
 
 function vacancy() {
@@ -43,7 +45,7 @@ function ajaxRecipes() {
     recipesList = $("[data-type=js-recipes-list]");
 
     console.log('ajaxRecipes');
-  
+
 
   $.ajax({
     method: "POST",
@@ -100,24 +102,46 @@ function redirectBuy() {
 }
 
 function buyListFilter() {
-  $(document).on("change", "[data-type=data-buy-filter]", function () {
+  $(document).on('change', '[data-type=data-buy-filter]', function () {
     let obj = $(this),
-      container = obj.parents("[data-type=buy-list-container]"),
-      itemsContainer = container.find("[data-type=items-container]"),
-      data = {
-        regionId: obj.val(),
-      };
+        container = obj.parents('[data-type=buy-list-container]'),
+        itemsContainer = container.find('[data-type=items-container]'),
+        data = {
+          regionId: obj.val(),
+        }
 
     itemsContainer.empty();
 
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: window.location.href,
-      dataType: "html",
+      dataType: 'html',
       data: data,
       success: function (r) {
-        itemsContainer.append($(r));
+        let itemsResponse = $(r).find('[data-type=items-container]').children();
+        itemsContainer.append(itemsResponse);
       },
     });
+  })
+}
+
+function autocompleteDefineRegion() {
+  $('[data-type=autocomplete-region-define]').autocomplete({
+    appendTo: '[data-autocomplete-place]',
+    source: function(request, response) {
+      $.ajax({
+        url: '/local/templates/main/include/ajax/autocomplete_define_region.php',
+        dataType: 'json',
+        data: {
+          q: request.term
+        },
+        success: function(data) {
+          response(data);
+        }
+      });
+    },
+    position: {
+      my: 'left top+5',
+    },
   });
 }

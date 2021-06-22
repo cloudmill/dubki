@@ -7,7 +7,6 @@ import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
 import { map } from "jquery";
-require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
   require("assets/scripts/backend");
@@ -232,7 +231,7 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// about slider 
+// about slider
 {
   $(() => {
     $('.shops-card__container').each(function () {
@@ -408,7 +407,7 @@ function toggleDataAttr($element, attr, value = '') {
 
         // if (scrollPos > vacanciesContainer) {
         //   vacanciesCity.removeClass('vacancies__city--fixed');
-        // } else 
+        // } else
       });
     }
   });
@@ -448,7 +447,7 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// catalog dropdown 
+// catalog dropdown
 {
   $(() => {
     const navModal = $('.nav-modal');
@@ -905,41 +904,7 @@ function toggleDataAttr($element, attr, value = '') {
   })
 }
 
-// location autocomplete
-{
-  $(() => {
-    const inputs = $('[data-autocomplete-input]')
-
-    inputs.each(function () {
-      const input = $(this)
-      const inputID = input.data('autocomplete-input')
-
-      const inputPlace = `[data-autocomplete-place="${inputID}"]`
-      const inputList = input.data('autocomplete-list')
-
-      input.autocomplete({
-        appendTo: inputPlace,
-        source: inputList,
-
-        position: {
-          my: 'left top+5',
-        },
-      })
-    })
-  })
-}
-
-// validation
-{
-  $(() => {
-    $(() => {
-      $('#form').parsley();
-    });
-    // $('input[data-mask="phone"]').
-  });
-}
-
-// map
+// test
 {
   ymaps.ready(() => {
     const container = $('#map')
