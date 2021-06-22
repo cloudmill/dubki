@@ -6,6 +6,7 @@ import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
+import { map } from "jquery";
 require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
@@ -1109,11 +1110,103 @@ function toggleDataAttr($element, attr, value = '') {
 
 // test
 {
-  $(() => {
-    const mapDataJSON = $('.placemarks').text().trim()
-    const mapData = JSON.parse(mapDataJSON)
+  ymaps.ready(() => {
+    const mapContainer = $('#map')
 
-    console.log(mapData);
+    if (mapContainer.length !== 0) {
+      // data
+      const mapDataJSON = $('.placemarks').text().trim()
+      const mapData = JSON.parse(mapDataJSON)
+      // geoPoints
+      const geoPoints = mapData.geoPoints
+
+      // select
+      const locationSelect = $('[data-map-select]')
+      // location list
+      const locationList = {}
+      geoPoints.forEach(geoPoint => {
+        const location = geoPoint.location
+
+        if (!(location in locationList)) {
+          locationList[location] = geoPoint()
+        }
+      })
+      // init select2
+      locationSelect.select2('destroy')
+      locationSelect.html('')
+      let locationHtml = ''
+      locationList.forEach((location, index) => {
+        locationHtml += `<option value="${location}" ${!index ? 'selected' : ''}>${location}</option>`
+      })
+      locationSelect.html(locationHtml)
+      // start select2 (копия из раздела select, временно)
+      {
+        const select = locationSelect
+        const selectWrapper = select.closest('.select-wrapper');
+        const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
+        if (selectWrapperStyles.position === 'static') {
+          selectWrapper.css('position', 'relative');
+        }
+  
+        select.select2({
+          dropdownParent: selectWrapper,
+          selectOnClose: true,
+        });
+  
+        select.on('select2:open', () => {
+          selectWrapper.css('z-index', '100000');
+  
+          const selectDropdown = selectWrapper.find('.select2-dropdown');
+  
+          selectDropdown.hide();
+          const timeout = setTimeout(() => {
+            selectDropdown.slideDown({ duration: 500, });
+  
+            clearTimeout(timeout);
+          }, 0);
+        });
+  
+        select.on('select2:closing', event => {
+          event.preventDefault();
+  
+          const selectDropdown = selectWrapper.find('.select2-dropdown');
+  
+          const timeout = setTimeout(() => {
+            selectWrapper.css('z-index', '');
+  
+            const select2 = selectWrapper.find('.select2');
+  
+            select2.addClass('closing');
+            select2.removeClass('select2-container--open');
+            selectDropdown.slideUp(500, () => {
+              const timeout2 = setTimeout(() => {
+                select.select2('destroy');
+                select.select2({
+                  dropdownParent: selectWrapper,
+                  selectOnClose: true,
+                });
+                select.removeClass('closing');
+  
+                selectWrapper.css('z-index', '');
+  
+                clearTimeout(timeout2);
+              }, 300);
+            });
+            clearTimeout(timeout);
+          }, 0);
+        });  
+      }
+
+      // cluster
+      const locationClusters = []
+
+      
+      // list
+      // select change
+      locationSelect.on('change', () => {
+        const newLocation = locationSelect.val()
+      })
+    }
   })
 }
 
