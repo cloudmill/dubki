@@ -5,6 +5,7 @@ import Swiper from "swiper/bundle";
 import 'select2';
 import AOS from 'aos';
 import '@fancyapps/fancybox';
+import 'parsleyjs';
 require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
@@ -229,6 +230,52 @@ function toggleDataAttr($element, attr, value = '') {
 
   });
 }
+
+// about slider 
+{
+  $(() => {
+    $('.shops-card__container').each(function (){
+      const slider = $(this);
+			const slider_swiper_el = slider.find('.shops-card__frame');
+
+			const slider_prev_id = slider.data('slider-prev-id');
+			const slider_next_id = slider.data('slider-next-id');
+
+      const sliderShops = new Swiper(slider_swiper_el[0], {
+        slidesPerView: 'auto',
+      });
+
+      $('[data-slider-id="' + slider_prev_id + '"]').on('click', () => {
+				sliderShops.slidePrev();
+			});
+
+			$('[data-slider-id="' + slider_next_id + '"]').on('click', () => {
+				sliderShops.slideNext();
+			});
+    })  
+    // tabs
+    {
+      const shops = $('.shops');
+      if (shops.lenght !== 0) {
+        shops.addClass('shops--hidden');
+        $('[data-tab]').on('click', function() {
+          const tabId = $(this).data('tab');
+
+          if ($(tabId).hasClass('shops--active')) {
+            $(tabId).addClass('shops--active');
+          } else {
+            shops.removeClass('shops--active');
+            $('.shops-format__button').removeClass('shops-format__button--active');
+
+            $(this).addClass('shops-format__button--active');
+            $(tabId).addClass('shops--active');
+          }
+        });
+      }
+    }
+  });
+}
+
 
 // top slider
 {
@@ -1068,4 +1115,14 @@ function toggleDataAttr($element, attr, value = '') {
 
     console.log(mapData);
   })
+}
+
+// validation
+{
+  $(() => {
+    $(() => {
+      $('#form').parsley();
+    });
+    // $('input[data-mask="phone"]').
+  });
 }
