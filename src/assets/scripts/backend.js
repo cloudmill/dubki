@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "parsleyjs";
 import mask from "inputmask";
 
@@ -81,5 +82,14 @@ function submitForm() {
         },
       });
     }
+=======
+$(function () {
+  redirectBuyList();
+});
+
+function redirectBuyList() {
+  $('[data-type=redirect-buy-list]').on('click', function() {
+    window.location.href = '/buy/list';
+>>>>>>> fc1c8838d07c688c9303dfbf6dacb39ee77d286a
   });
 }
