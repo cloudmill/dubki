@@ -185,75 +185,75 @@ body>.wrapper {
       #{$comp}__store-button {
         &:hover {
           #{$comp}__store-text {
-            color: $color-green;
+            color: $color-green !important;
           }
 
           #{$comp}__store-svg {
             path {
-              stroke: $color-green;
+              stroke: $color-green !important;
             }
           }
         }
       }
 
       #{$comp}__store-text {
-        color: $color-black;
+        color: $color-black !important;
       }
 
       #{$comp}__store-svg {
         path {
-          stroke: $color-black;
+          stroke: $color-black !important;
         }
       }
 
       #{$comp}__logo-svg {
         path {
-          fill: $color-green;
+          fill: $color-green !important;
         }
       }
 
       #{$comp}__city-button {
         &:hover {
           #{$comp}__city-text {
-            color: $color-green;
+            color: $color-green !important;
           }
 
           #{$comp}__arrow {
             path {
-              stroke: $color-green;
+              stroke: $color-green !important;
             }
           }
         }
       }
 
       #{$comp}__city-text {
-        color: $color-black;
+        color: $color-black !important;
       }
 
       #{$comp}__arrow {
         path {
-          stroke: $color-black;
+          stroke: $color-black !important;
         }
       }
 
       #{$comp}__nav-link {
-        color: $color-black;
+        color: $color-black !important;
         &:hover {
-          color: $color-green;
+          color: $color-green !important;
         }
       }
 
       #{$comp}__search-button {
-        border-color: $color-black;
+        border-color: $color-black !important;
       }
 
       #{$comp}__search-icon {
         circle {
-          stroke: $color-black;
+          stroke: $color-black !important;
         }
 
         path {
-          stroke: $color-black;
+          stroke: $color-black !important;
         }
       }
     }
