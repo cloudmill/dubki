@@ -4,7 +4,7 @@ extends ../layouts/master.pug
 
 block header 
     +header({
-        mod: 'white header--light',
+        mod: 'dark',
     })
 
 block content 
@@ -47,7 +47,7 @@ block content
                 .about-card__inner
                     .about-card__row 
                         .about-card__col 
-                            .action-catalog(data-aos="fade-up")
+                            .action-catalog.action-catalog--second(data-aos="fade-up")
                                 .action-catalog__card.action-catalog__card--big.about-card__wrapper
                                     .action-catalog__frame 
                                         img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
@@ -77,7 +77,7 @@ block content
                                             li.action-catalog__content-item 
                                                 |Сосиски
                         .about-card__col 
-                            .action-catalog(data-aos="fade-up")
+                            .action-catalog.action-catalog--second(data-aos="fade-up")
                                 .about-card__item--hidden
                                     .action-catalog__card.action-catalog__card--big.about-card__wrapper
                                         .action-catalog__frame 
@@ -108,7 +108,7 @@ block content
                                                 li.action-catalog__content-item 
                                                     |Сосиски
                         .about-card__col 
-                            .action-catalog
+                            .action-catalog.action-catalog--second
                                 .about-card__item(data-aos="fade-up")
                                     .action-catalog__card.about-card__wrapper
                                         .action-catalog__frame 

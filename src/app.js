@@ -60,6 +60,8 @@ function toggleDataAttr($element, attr, value = '') {
         slidesPerView: 'auto',
         spaceBetween: 20,
       });
+
+
     }
 
     // Рецепты, Главная
@@ -209,6 +211,23 @@ function toggleDataAttr($element, attr, value = '') {
       slidesPerView: 'auto',
       spaceBetween: 20,
     });
+
+    $('.slider-button--next').on('click', function () {
+      swiperProductSlider.slideNext();
+    });
+    $('.slider-button--prev').on('click', function () {
+      swiperProductSlider.slidePrev();
+    });
+
+    const swiperProduct = new Swiper($('.products')[0], {
+      slidesPerView: 'auto',
+    })
+
+    $('.slider-button').on('click', function () {
+      swiperProduct.slideNext();
+    });
+
+
   });
 }
 
@@ -275,6 +294,13 @@ function toggleDataAttr($element, attr, value = '') {
         slidesPerView: 'auto',
 
         spaceBetween: 20,
+      });
+
+      $('.slider-button--next').on('click', function () {
+        swiper.slideNext();
+      });
+      $('.slider-button--prev').on('click', function () {
+        swiper.slidePrev();
       });
     }
   })
@@ -848,17 +874,27 @@ function toggleDataAttr($element, attr, value = '') {
         },
         function () {
           const currentTop = $(window).scrollTop();
-          // if (currentTop > 200) {
-          //   header.addClass('header--scroll')
-          // } else if (currentTop < this.previousTop) {
-          //   header.removeClass('header--scroll');
-          // }
 
-          if (currentTop < this.previousTop) {
-            header.removeClass('header--scroll');
-          } else {
-            header.addClass('header--scroll');
+          if (!(
+            header.hasClass('header--nav-modal') ||
+            header.hasClass('header--catalog-search') ||
+            header.hasClass('header--catalog-modal') ||
+            header.hasClass('header--city-search')
+          )) {
+            if (currentTop < this.previousTop) {
+              header.removeClass('header--scroll--down');
+              header.addClass('header--scroll--up');
+            } else {
+              header.removeClass('header--scroll--up');
+              header.addClass('header--scroll--down');
+            }
           }
+
+          if (currentTop < 1) {
+            header.removeClass('header--scroll--up');
+            header.removeClass('header--scroll--down');
+          }
+
           this.previousTop = currentTop;
         });
     };

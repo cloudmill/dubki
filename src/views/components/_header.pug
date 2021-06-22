@@ -2,36 +2,37 @@ mixin header(opt={})
   header.header(class=(opt.mod ? `header--${opt.mod}` : ''))
     .container
       .header__row
-        .header__catalog(data-aos="fade-up")
-          .header__catalog-button(data-modal-button="")
-            .header__catalog-text
-              |Акционный каталог
-            .header__catalog-icon
-              +arrow-svg('header__catalog-arrow')
-        .header__store(data-aos="fade-up")
-          a.header__store-button.header__store-button--dark(href='#')
-            .header__store-text 
-              |Интернет-магазин
-            .header__store-icon
-              +cursor-svg('header__store-svg')
-        .header__logo(data-aos="fade-up")
-          a.header__logo-link(href="#")
-            +logo-svg('header__logo-svg')
-        .header__city(data-aos="fade-up")
-          .header__city-button
-            .header__city-text
-              |Саратов
-            .header__city-icon
-              +arrow-svg('header__arrow')
-        .header__nav(data-aos="fade-up") 
-          a.header__nav-link(href="#")
-            |Где купить
-        .header__search(data-aos="fade-up")
-          .header__search-button 
-            +search-svg('header__search-icon')
-        .header__button(data-aos="fade-up")
-          .button-modal.header__button-button
-            .button-modal__image
+        .header__row-wrapper
+          .header__catalog(data-aos="fade-up")
+            .header__catalog-button(data-modal-button="")
+              .header__catalog-text
+                |Акционный каталог
+              .header__catalog-icon
+                +arrow-svg('header__catalog-arrow')
+          .header__store(data-aos="fade-up")
+            a.header__store-button.header__store-button--dark(href='#')
+              .header__store-text 
+                |Интернет-магазин
+              .header__store-icon
+                +cursor-svg('header__store-svg')
+          .header__logo(data-aos="fade-up")
+            a.header__logo-link(href="#")
+              +logo-svg('header__logo-svg')
+          .header__city(data-aos="fade-up")
+            .header__city-button
+              .header__city-text
+                |Саратов
+              .header__city-icon
+                +arrow-svg('header__arrow')
+          .header__nav(data-aos="fade-up") 
+            a.header__nav-link(href="#")
+              |Где купить
+          .header__search(data-aos="fade-up")
+            .header__search-button 
+              +search-svg('header__search-icon')
+          .header__button(data-aos="fade-up")
+            .button-modal.header__button-button
+              .button-modal__image
         .nav-modal
           .nav-modal__wrapper 
             .header__city--mobile
