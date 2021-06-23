@@ -59,7 +59,7 @@ block content
             .provider__row 
               .provider__col
                 .provider__form
-                  form.form(action="/") 
+                  form.form(action="/" data-type="feedback-form") 
                     .form__item(data-aos="fade-up" data-type="feedback-form") 
                       input.form__input(type="text" name="company" placeholder="Наименование компании" required="required")
                     .form__item(data-aos="fade-up") 
@@ -85,8 +85,8 @@ block content
                         .form__text  
                           |Например, фотографии, план
                     .checkbox(data-aos="fade-up")
-                      label.checkbox__label 
-                        input.checkbox__input(type="checkbox")
+                      label.checkbox__label(for="checkbox")
+                        input.checkbox__input(type="checkbox" id="checkbox" required="required")
                         .checkbox__box 
                           +check-svg('checkbox__icon')
                         .checkbox__text 
@@ -94,7 +94,7 @@ block content
                           a.checkbox__link(href="#") 
                             |персональных данных
                     .form__inner(data-aos="fade-up") 
-                      .button.form__btn
+                      button.button.form__btn(type="submit")
                         |Отправить
                   .response
                     .response__container 

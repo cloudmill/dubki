@@ -5864,18 +5864,6 @@ body>.wrapper {
     position: relative;
     display: flex;
 
-    // &::before {
-    //   content: "Имя";
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 0;
-    //   transform: translateY(-50%);
-    //   color: $color-black;
-    //   @include f-main();
-    //   font-weight: 400;
-    //   @include fsl(16px, 100%);
-    // }
-
     &--select {
 
       .select2-container--default .select2-selection--single {
@@ -5923,7 +5911,17 @@ body>.wrapper {
       height: 160px;
       resize: none;
     }
+  }
 
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    color: $color-black;
+    font-weight: 400;
+    @include fsl(16px, 100%);
+    transition: $transition;
   }
 
   &__wrapper {
@@ -5994,11 +5992,16 @@ body>.wrapper {
     display: flex;
     justify-content: flex-end;
   }
+}
 
-  
+input:focus~.form__placeholder {
+  top: 8px;
+  transform: none;
+  @include fsl(12px);
 }
 
 .checkbox {
+  position: relative;
 
   &__label {
     display: flex;
@@ -6051,6 +6054,11 @@ body>.wrapper {
 
   &__link {
     color: $color-light-green;
+  }
+
+  .parsley-errors-list {
+    bottom: -10px;
+    left: 45px;
   }
 }
 
