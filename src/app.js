@@ -1349,6 +1349,8 @@ function toggleDataAttr($element, attr, value = '') {
       }
     })
   })
+}
+
 // input
 {
   $(() => {

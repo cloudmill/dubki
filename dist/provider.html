@@ -722,99 +722,101 @@
 						<div class="section__inner">
 							<div class="provider">
 								<div class="provider__inner">
-									<div class="provider__row">
-										<div class="provider__col">
-											<div class="provider__form">
-												<form class="form" action="/" data-type="feedback-form">
-													<div class="form__item" data-aos="fade-up" data-type="feedback-form"><input class="form__input" name="company" placeholder="Наименование компании" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="index" placeholder="ИНН" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="website" placeholder="Сайт" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="sort" placeholder="Ассортимент" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="contact" placeholder="Контактное лицо" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="post" placeholder="Должность" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" type="email" name="email" placeholder="E-mail" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required"></div>
-													<div class="form__wrapper">
-														<div class="form__row" data-aos="fade-up">
-															<div class="form__row-wrapper"><input class="form__files" type="file" id="myfile" name="myfile"><label class="form__button" for="myfile">Прикрепить файл</label></div>
-															<div class="form__text">Например, фотографии, план</div>
-														</div>
-													</div>
-													<div class="checkbox" data-aos="fade-up"><label class="checkbox__label" for="checkbox"><input class="checkbox__input" type="checkbox" id="checkbox" required="required">
-															<div class="checkbox__box"><svg class="checkbox__icon" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path d="M1 5.17391L5.03333 9L12 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-																</svg></div>
-															<div class="checkbox__text">Даю согласание на обработку <a class="checkbox__link" href="#">персональных данных</a></div>
-														</label></div>
-													<div class="form__inner" data-aos="fade-up"><button class="button form__btn" type="submit">Отправить</button></div>
-												</form>
-												<div class="response">
-													<div class="response__container">
-														<div class="response__row">
-															<div class="response__col">
-																<h3 class="response__title">Отправлено</h3>
-																<p class="response__text">Спасибо за обращение. Мы ответим на него в ближайшее время.</p>
+									<form class="provider__form" action="/" data-type="feedback-form">
+										<div class="provider__row">
+											<div class="provider__col">
+												<div class="provider__form">
+													<div class="form" action="/">
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="company" required="required"><span class="form__placeholder">Наименование компании</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="index" required="required"><span class="form__placeholder">ИНН</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="website" required="required"><span class="form__placeholder">Сайт</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="sort" required="required"><span class="form__placeholder">Ассортимент</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="contact" required="required"><span class="form__placeholder">Контактное лицо</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="post" required="required"><span class="form__placeholder">Должность</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" type="email" name="email" required="required"><span class="form__placeholder">E-mail</span></div>
+														<div class="form__item" data-aos="fade-up"><input class="form__input" name="phone" data-parsley-phone="" data-mask="phone" required="required"><span class="form__placeholder">Телефон</span></div>
+														<div class="form__wrapper">
+															<div class="form__row" data-aos="fade-up">
+																<div class="form__row-wrapper"><input class="form__files" type="file" id="myfile" name="myfile"><label class="form__button" for="myfile">Прикрепить файл</label></div>
+																<div class="form__text">Например, фотографии, план</div>
 															</div>
-															<div class="response__col">
-																<div class="response__wrapper">
-																	<div class="button response__btn">Отправить еще</div>
+														</div>
+														<div class="checkbox" data-aos="fade-up"><label class="checkbox__label" for="checkbox"><input class="checkbox__input" type="checkbox" id="checkbox" required="required">
+																<div class="checkbox__box"><svg class="checkbox__icon" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+																		<path d="M1 5.17391L5.03333 9L12 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+																	</svg></div>
+																<div class="checkbox__text">Даю согласание на обработку <a class="checkbox__link" href="#">персональных данных</a></div>
+															</label></div>
+														<div class="form__inner" data-aos="fade-up"><button class="button form__btn" type="submit">Отправить</button></div>
+													</div>
+													<div class="response">
+														<div class="response__container">
+															<div class="response__row">
+																<div class="response__col">
+																	<h3 class="response__title">Отправлено</h3>
+																	<p class="response__text">Спасибо за обращение. Мы ответим на него в ближайшее время.</p>
+																</div>
+																<div class="response__col">
+																	<div class="response__wrapper">
+																		<div class="button response__btn">Отправить еще</div>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
+											<div class="provider__col">
+												<ul class="provider-list">
+													<li class="provider-list__item">
+														<div class="provider-list__test">
+															<div class="provider-list__wrapper">
+																<p class="provider-list__text" data-aos="fade-up">Направлялось ли Вами ранее коммерческое предложение?</p>
+															</div>
+															<div class="provider-list__checkbox" data-aos="fade-up">
+																<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="radio" name="group1" checked="checked">
+																		<div class="provider-list__checkbox-button">Да</div>
+																	</label></div>
+																<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="radio" name="group1">
+																		<div class="provider-list__checkbox-button">Нет</div>
+																	</label></div>
+															</div>
+														</div>
+													</li>
+													<li class="provider-list__item">
+														<div class="provider-list__test">
+															<div class="provider-list__wrapper">
+																<p class="provider-list__text" data-aos="fade-up">Вы являетесь производителем?</p>
+															</div>
+															<div class="provider-list__checkbox" data-aos="fade-up">
+																<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="radio" name="group2" checked="checked">
+																		<div class="provider-list__checkbox-button">Да</div>
+																	</label></div>
+																<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="radio" name="group2">
+																		<div class="provider-list__checkbox-button">Нет</div>
+																	</label></div>
+															</div>
+														</div>
+													</li>
+													<li class="provider-list__item">
+														<div class="provider-list__test">
+															<div class="provider-list__wrapper">
+																<p class="provider-list__text" data-aos="fade-up">Организационно-правовая форма</p>
+															</div>
+															<div class="provider-list__checkbox" data-aos="fade-up">
+																<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="radio" name="group3" checked="checked">
+																		<div class="provider-list__checkbox-button">ИП</div>
+																	</label></div>
+																<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="radio" name="group3">
+																		<div class="provider-list__checkbox-button">ООО</div>
+																	</label></div>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
 										</div>
-										<div class="provider__col">
-											<ul class="provider-list">
-												<li class="provider-list__item">
-													<div class="provider-list__test">
-														<div class="provider-list__wrapper">
-															<p class="provider-list__text" data-aos="fade-up">Направлялось ли Вами ранее коммерческое предложение?</p>
-														</div>
-														<div class="provider-list__checkbox" data-aos="fade-up">
-															<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="checkbox">
-																	<div class="provider-list__checkbox-button">Да</div>
-																</label></div>
-															<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="checkbox">
-																	<div class="provider-list__checkbox-button">Нет</div>
-																</label></div>
-														</div>
-													</div>
-												</li>
-												<li class="provider-list__item">
-													<div class="provider-list__test">
-														<div class="provider-list__wrapper">
-															<p class="provider-list__text" data-aos="fade-up">Вы являетесь производителем?</p>
-														</div>
-														<div class="provider-list__checkbox" data-aos="fade-up">
-															<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="checkbox">
-																	<div class="provider-list__checkbox-button">Да</div>
-																</label></div>
-															<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="checkbox">
-																	<div class="provider-list__checkbox-button">Нет</div>
-																</label></div>
-														</div>
-													</div>
-												</li>
-												<li class="provider-list__item">
-													<div class="provider-list__test">
-														<div class="provider-list__wrapper">
-															<p class="provider-list__text" data-aos="fade-up">Организационно-правовая форма</p>
-														</div>
-														<div class="provider-list__checkbox" data-aos="fade-up">
-															<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="checkbox">
-																	<div class="provider-list__checkbox-button">ИП</div>
-																</label></div>
-															<div class="provider-list__checkbox-item"><label class="provider-list__checkbox-label"><input class="provider-list__checkbox-input" type="checkbox">
-																	<div class="provider-list__checkbox-button">ООО</div>
-																</label></div>
-														</div>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>
