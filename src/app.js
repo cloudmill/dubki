@@ -1324,12 +1324,12 @@ function toggleDataAttr($element, attr, value = '') {
         let newText = originalText
 
         while (title.height() > (lineHeight * lineCount)) {
-          newText = newText.substring(0, newText.length - 1)
+          newText = newText.substring(0, newText.length - 1).trim()
   
           title.text(newText)
         }
 
-        newText = newText.substring(0, newText.length - 5) + '...'
+        newText = newText.substring(0, newText.length - 5).trim() + '...'
         title.text(newText)
       }
       
