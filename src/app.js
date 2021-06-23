@@ -1180,7 +1180,7 @@ function toggleDataAttr($element, attr, value = '') {
       },
     });
 
-    Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
+    Inputmask({ mask: "+7 (999) 999-9999", showMaskOnHover: false }).mask("[data-mask=phone]");
   });
 }
 
