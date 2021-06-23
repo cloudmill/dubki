@@ -3264,25 +3264,35 @@ body>.wrapper {
 
   &__thumbs {
     display: flex;
+    justify-content: space-between;
   }
 
   &__list {
+    margin-left: 0;
+    margin-right: 0;
     display: flex;
+    width: 185px;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 3 - #{$grid-gap-d})
+    }
   }
 
   &__item {
     $comp: &;
 
     flex-shrink: 0;
-    width: 68px;
-
-    &:not(:first-child) {
-      margin-left: 15px;
-
-      @media (min-width: $breakpoint) {
-        margin-left: calc(#{$grid-gap-d});
-      }
+    width: 51px;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} - #{$grid-gap-d});
     }
+
+    // &:not(:first-child) {
+    //   margin-left: 15px;
+
+    //   @media (min-width: $breakpoint) {
+    //     margin-left: calc(#{$grid-gap-d});
+    //   }
+    // }
 
     &--active {
       #{$comp}-thumb {
@@ -3304,12 +3314,13 @@ body>.wrapper {
     }
 
     &-thumb {
-      width: 44px;
-      height: 44px;
+      $size: 51px;
+      width: $size;
+      height: $size;
 
       @media (min-width: $breakpoint) {
-        width: 68px;
-        height: 68px;
+        width: calc(#{$grid-part-d} - #{$grid-gap-d});
+        height: calc(#{$grid-part-d} - #{$grid-gap-d});
       }
 
       display: flex;
@@ -3335,29 +3346,6 @@ body>.wrapper {
       transform: scale(0.8);
     }
 
-    &-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &-icon {
-      transform: rotate(45deg);
-      width: 18px;
-      height: 18px;
-      @media (min-width: $breakpoint) {
-        width: 27px;
-        height: 27px;
-      }
-
-      path {
-        stroke: $color-black;
-      }
-
-      &--revers {
-        transform: rotate(-135deg);
-      }
-    }
   }
 
   &__video {
@@ -3454,6 +3442,67 @@ body>.wrapper {
   }
 }
 
+.button-slide {
+  width: 44px;
+  height: 44px;
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$grid-part-d} - #{$grid-gap-d});
+    height: calc(#{$grid-part-d} - #{$grid-gap-d});
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid $color-black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $transition;
+
+  border: 2px solid $color-black;
+
+  &:hover {
+    border-color: $color-yellow;
+    background-color: $color-yellow;
+  }
+
+  &--hidden {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+
+  &--second {
+    margin-right: 10px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    transform: rotate(45deg);
+    width: 18px;
+    height: 18px;
+    @media (min-width: $breakpoint) {
+      width: 27px;
+      height: 27px;
+    }
+
+    path {
+      stroke: $color-black;
+    }
+
+    &--revers {
+      transform: rotate(-135deg);
+    }
+  }
+}
+
 .video-button {
   padding: 13px;
 
@@ -3500,7 +3549,7 @@ body>.wrapper {
     position: relative;
     height: 345px;
     @media (min-width: $breakpoint) {
-      height: 419px;
+      height: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
     }
     display: flex;
     align-items: center;
@@ -3514,6 +3563,7 @@ body>.wrapper {
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index: 1;
     
     display: flex;
     align-items: center;
@@ -4171,6 +4221,11 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       @include fsl(50px, 80%);
     }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 

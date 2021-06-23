@@ -220,16 +220,62 @@ function toggleDataAttr($element, attr, value = '') {
       swiperProductSlider.slidePrev();
     });
 
+    // страница product
+    
+
+    
+  });
+}
+
+// product 
+{
+  const product = $('.product-card');
+
+  if (product.length !== 0) {
     const swiperProduct = new Swiper($('.products')[0], {
       slidesPerView: 'auto',
+      loop: true,
     })
 
     $('.slider-button').on('click', function () {
       swiperProduct.slideNext();
     });
 
+    const productThumbs = new Swiper($('.product-card__list')[0], {
+      slidesPerView: 'auto',
+      spaceBetween: 15,
+      breakpoints: {
+        [BREAKPOINT]: {
+          spaceBetween: 20,
+        },
+      },
+    });
 
-  });
+    const thumbsSlide = product.find('.product-card__item');
+
+    let lastAction = 'nothing';
+    swiperProduct.on('sliderFirstMove', () => {
+      lastAction = 'slider swipe';
+    })
+
+    productThumbs.on('click', event => {
+    lastAction = 'thumbs click';
+
+      swiperProduct.slideTo(event.clickedIndex);
+
+      thumbsSlide.removeClass('product-card__item--active');
+      thumbsSlide.eq(event.clickedIndex).addClass('product-card__item--active');
+    });
+
+    swiperProduct.on('slideChange', event => {
+      productThumbs.slideTo(event.realIndex);
+
+      thumbsSlide.removeClass('product-card__item--active');
+      thumbsSlide.eq(event.realIndex).addClass('product-card__item--active');
+
+      lastAction = 'nothing';
+    });
+  }
 }
 
 // about slider 
