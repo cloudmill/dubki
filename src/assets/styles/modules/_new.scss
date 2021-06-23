@@ -5893,8 +5893,8 @@ input:focus~.form__placeholder {
   }
 
   .parsley-errors-list {
-    bottom: -10px;
-    left: 45px;
+    bottom: -10px !important;
+    left: 45px !important;
   }
 }
 
@@ -7860,7 +7860,8 @@ input:focus~.form__placeholder {
   height: 100vh;
 }
 
-.parsley {
+
+.form .parsley {
 
   &-error {
     border-color: #F2535F;

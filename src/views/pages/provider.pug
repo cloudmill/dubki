@@ -56,108 +56,125 @@ block content
       .section__inner 
         .provider 
           .provider__inner 
-            .provider__row 
-              .provider__col
-                .provider__form
-                  form.form(action="/" data-type="feedback-form") 
-                    .form__item(data-aos="fade-up" data-type="feedback-form") 
-                      input.form__input(type="text" name="company" placeholder="Наименование компании" required="required")
-                    .form__item(data-aos="fade-up") 
-                      input.form__input(type="text" name="index" placeholder="ИНН" required="required")
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="website" placeholder="Сайт" required="required")
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="sort" placeholder="Ассортимент" required="required")
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="contact" placeholder="Контактное лицо" required="required")
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="post" placeholder="Должность" required="required")
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="email" name="email" placeholder="E-mail" required="required")
-                    .form__item(data-aos="fade-up")
-                      input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
-                    .form__wrapper 
-                      .form__row(data-aos="fade-up")
-                        .form__row-wrapper
-                          input(type="file" id="myfile" name="myfile").form__files
-                          label(for="myfile").form__button
-                            |Прикрепить файл
-                        .form__text  
-                          |Например, фотографии, план
-                    .checkbox(data-aos="fade-up")
-                      label.checkbox__label(for="checkbox")
-                        input.checkbox__input(type="checkbox" id="checkbox" required="required")
-                        .checkbox__box 
-                          +check-svg('checkbox__icon')
-                        .checkbox__text 
-                          |Даю согласание на обработку 
-                          a.checkbox__link(href="#") 
-                            |персональных данных
-                    .form__inner(data-aos="fade-up") 
-                      button.button.form__btn(type="submit")
-                        |Отправить
-                  .response
-                    .response__container 
-                      .response__row 
-                        .response__col
-                          h3.response__title
-                            |Отправлено
-                          p.response__text 
-                            |Спасибо за обращение. Мы ответим на него в ближайшее время.
-                        .response__col
-                          .response__wrapper 
-                            .button.response__btn
-                              |Отправить еще
-              .provider__col
-                ul.provider-list 
-                  li.provider-list__item 
-                    .provider-list__test
-                      .provider-list__wrapper
-                        p.provider-list__text(data-aos="fade-up")
-                          |Направлялось ли Вами ранее коммерческое предложение?
-                      .provider-list__checkbox(data-aos="fade-up")
-                        .provider-list__checkbox-item 
-                          label.provider-list__checkbox-label 
-                            input.provider-list__checkbox-input(type="checkbox")
-                            .provider-list__checkbox-button
-                              |Да
-                        .provider-list__checkbox-item 
-                          label.provider-list__checkbox-label 
-                            input.provider-list__checkbox-input(type="checkbox")
-                            .provider-list__checkbox-button
-                              |Нет
-                  li.provider-list__item 
-                    .provider-list__test
-                      .provider-list__wrapper
-                        p.provider-list__text(data-aos="fade-up")
-                          |Вы являетесь производителем?
-                      .provider-list__checkbox(data-aos="fade-up") 
-                        .provider-list__checkbox-item 
-                          label.provider-list__checkbox-label 
-                            input.provider-list__checkbox-input(type="checkbox")
-                            .provider-list__checkbox-button
-                              |Да
-                        .provider-list__checkbox-item 
-                          label.provider-list__checkbox-label 
-                            input.provider-list__checkbox-input(type="checkbox")
-                            .provider-list__checkbox-button
-                              |Нет
-                  li.provider-list__item 
-                    .provider-list__test
-                      .provider-list__wrapper
-                        p.provider-list__text(data-aos="fade-up")
-                          |Организационно-правовая форма
-                      .provider-list__checkbox(data-aos="fade-up")
-                        .provider-list__checkbox-item 
-                          label.provider-list__checkbox-label 
-                            input.provider-list__checkbox-input(type="checkbox")
-                            .provider-list__checkbox-button
-                              |ИП
-                        .provider-list__checkbox-item 
-                          label.provider-list__checkbox-label 
-                            input.provider-list__checkbox-input(type="checkbox")
-                            .provider-list__checkbox-button
-                              |ООО
+            form.provider__form(action="/") 
+              .provider__row 
+                .provider__col
+                  .provider__form
+                    .form(action="/" data-type="feedback-form") 
+                      .form__item(data-aos="fade-up" data-type="feedback-form") 
+                        input.form__input(type="text" name="company" required="required")
+                        span.form__placeholder 
+                          |Наименование компании
+                      .form__item(data-aos="fade-up") 
+                        input.form__input(type="text" name="index" required="required")
+                        span.form__placeholder 
+                          |ИНН
+                      .form__item(data-aos="fade-up")
+                        input.form__input(type="text" name="website" required="required")
+                        span.form__placeholder 
+                          |Сайт
+                      .form__item(data-aos="fade-up")
+                        input.form__input(type="text" name="sort" required="required")
+                        span.form__placeholder 
+                          |Ассортимент
+                      .form__item(data-aos="fade-up")
+                        input.form__input(type="text" name="contact" required="required")
+                        span.form__placeholder 
+                          |Контактное лицо
+                      .form__item(data-aos="fade-up")
+                        input.form__input(type="text" name="post" required="required")
+                        span.form__placeholder 
+                          |Должность
+                      .form__item(data-aos="fade-up")
+                        input.form__input(type="email" name="email" required="required")
+                        span.form__placeholder 
+                          |E-mail
+                      .form__item(data-aos="fade-up")
+                        input.form__input(type="text" name="phone" data-parsley-phone="" data-mask="phone" required="required")
+                        span.form__placeholder 
+                          |Телефон
+                      .form__wrapper 
+                        .form__row(data-aos="fade-up")
+                          .form__row-wrapper
+                            input(type="file" id="myfile" name="myfile").form__files
+                            label(for="myfile").form__button
+                              |Прикрепить файл
+                          .form__text  
+                            |Например, фотографии, план
+                      .checkbox(data-aos="fade-up")
+                        label.checkbox__label(for="checkbox")
+                          input.checkbox__input(type="checkbox" id="checkbox" required="required")
+                          .checkbox__box 
+                            +check-svg('checkbox__icon')
+                          .checkbox__text 
+                            |Даю согласание на обработку 
+                            a.checkbox__link(href="#") 
+                              |персональных данных
+                      .form__inner(data-aos="fade-up") 
+                        button.button.form__btn(type="submit")
+                          |Отправить
+                    .response
+                      .response__container 
+                        .response__row 
+                          .response__col
+                            h3.response__title
+                              |Отправлено
+                            p.response__text 
+                              |Спасибо за обращение. Мы ответим на него в ближайшее время.
+                          .response__col
+                            .response__wrapper 
+                              .button.response__btn
+                                |Отправить еще
+                .provider__col
+                  ul.provider-list 
+                    li.provider-list__item 
+                      .provider-list__test
+                        .provider-list__wrapper
+                          p.provider-list__text(data-aos="fade-up")
+                            |Направлялось ли Вами ранее коммерческое предложение?
+                        .provider-list__checkbox(data-aos="fade-up")
+                          .provider-list__checkbox-item 
+                            label.provider-list__checkbox-label 
+                              input.provider-list__checkbox-input(type="radio" name="group1" checked)
+                              .provider-list__checkbox-button
+                                |Да
+                          .provider-list__checkbox-item 
+                            label.provider-list__checkbox-label 
+                              input.provider-list__checkbox-input(type="radio" name="group1")
+                              .provider-list__checkbox-button
+                                |Нет
+                    li.provider-list__item 
+                      .provider-list__test
+                        .provider-list__wrapper
+                          p.provider-list__text(data-aos="fade-up")
+                            |Вы являетесь производителем?
+                        .provider-list__checkbox(data-aos="fade-up") 
+                          .provider-list__checkbox-item 
+                            label.provider-list__checkbox-label 
+                              input.provider-list__checkbox-input(type="radio" name="group2" checked)
+                              .provider-list__checkbox-button
+                                |Да
+                          .provider-list__checkbox-item 
+                            label.provider-list__checkbox-label 
+                              input.provider-list__checkbox-input(type="radio" name="group2")
+                              .provider-list__checkbox-button
+                                |Нет
+                    li.provider-list__item 
+                      .provider-list__test
+                        .provider-list__wrapper
+                          p.provider-list__text(data-aos="fade-up")
+                            |Организационно-правовая форма
+                        .provider-list__checkbox(data-aos="fade-up")
+                          .provider-list__checkbox-item 
+                            label.provider-list__checkbox-label 
+                              input.provider-list__checkbox-input(type="radio" name="group3" checked)
+                              .provider-list__checkbox-button
+                                |ИП
+                          .provider-list__checkbox-item 
+                            label.provider-list__checkbox-label 
+                              input.provider-list__checkbox-input(type="radio" name="group3")
+                              .provider-list__checkbox-button
+                                |ООО
                 
   
 block footer 

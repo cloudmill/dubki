@@ -697,7 +697,7 @@ function toggleDataAttr($element, attr, value = '') {
       const responseButton = $('.response__btn');
       const formButton = $('.form__btn');
 
-      formButton.on('click', function () {
+      formButton.on('submit', function () {
         form.addClass('form--hidden');
         response.addClass('response--active');
         $('.provider__row').addClass('provider__row--active');
@@ -1251,7 +1251,7 @@ function toggleDataAttr($element, attr, value = '') {
       },
     });
 
-    Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
+    Inputmask({ mask: "+7 (999) 999-9999", showMaskOnHover: false }).mask("[data-mask=phone]");
   });
 }
 
@@ -1349,4 +1349,22 @@ function toggleDataAttr($element, attr, value = '') {
       }
     })
   })
+// input
+{
+  $(() => {
+    const formInput = $('.form__input');
+
+    formInput.each(function() {
+      const currentInput = $(this);
+      const formItem = currentInput.closest('.form__item');
+
+      currentInput.on('input', function() {
+        if (currentInput.value !== 0) {
+          formItem.addClass('form__item--active');
+        } else {
+          formItem.removeClass('form__item--active');
+        }
+      });
+    });
+  });
 }
