@@ -56,12 +56,12 @@ block content
       .section__inner 
         .provider 
           .provider__inner 
-            form.provider__form(action="/") 
+            form.provider__form(action="/" data-type="feedback-form") 
               .provider__row 
                 .provider__col
                   .provider__form
-                    .form(action="/" data-type="feedback-form") 
-                      .form__item(data-aos="fade-up" data-type="feedback-form") 
+                    .form(action="/") 
+                      .form__item(data-aos="fade-up") 
                         input.form__input(type="text" name="company" required="required")
                         span.form__placeholder 
                           |Наименование компании
