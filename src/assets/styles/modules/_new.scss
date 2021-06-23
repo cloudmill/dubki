@@ -4863,6 +4863,36 @@ body>.wrapper {
 
 .video {
 
+  &__frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    &-img {
+      position: absolute;
+      left: calc(#{$grid-gap-d});
+      bottom: 55px;
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+
+      &--second {
+        left: auto;
+        right: -60px;
+      }
+    }
+  }
+
   &__wrapper {
     @media (min-width: $breakpoint) {
       display: flex;

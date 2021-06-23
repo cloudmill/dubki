@@ -277,13 +277,17 @@ block content
         .container 
             .section__inner 
                 .video(data-aos="fade-up")
-                    .video__wrapper 
-                        .video__container 
-                            .video__bg
-                                img.video__img(src="assets/images/video-bg.jpg", alt="")
-                            .video__button 
-                                .video-button.video-button--big
-                                    +play-svg('video__button-icon')
+                    .video__frame 
+                        .video__layout
+                            img.video__layout-img(src="assets/images/svg/video-1.svg", alt="")
+                            img.video__layout-img.video__layout-img--second(src="assets/images/svg/video-2.svg", alt="")
+                        .video__wrapper 
+                            .video__container 
+                                .video__bg
+                                    img.video__img(src="assets/images/video-bg.jpg", alt="")
+                                .video__button 
+                                    .video-button.video-button--big
+                                        +play-svg('video__button-icon')
 
     .section
         .container 
