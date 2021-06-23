@@ -916,7 +916,7 @@ function toggleDataAttr($element, attr, value = '') {
 
         const isSingle = 'categorySingle' in categoryItem[0].dataset
         categoryButton.on('mouseenter', () => {
-          if (!isSingle) {
+          // if (!isSingle) {
             const categoryActiveItem = categoryItems.filter('[data-category-active]')
             delete categoryActiveItem[0].dataset['categoryActive']
 
@@ -924,7 +924,7 @@ function toggleDataAttr($element, attr, value = '') {
 
             categoryTabs.css('display', 'none')
             $(`[data-category-tab="${categoryID}"]`).css('display', '')
-          }
+          // }
         })
       })
     }
