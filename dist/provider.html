@@ -725,14 +725,14 @@
 									<div class="provider__row">
 										<div class="provider__col">
 											<div class="provider__form">
-												<form class="form" action="/">
+												<form class="form" action="/" data-type="feedback-form">
 													<div class="form__item" data-aos="fade-up" data-type="feedback-form"><input class="form__input" name="company" placeholder="Наименование компании" required="required"></div>
 													<div class="form__item" data-aos="fade-up"><input class="form__input" name="index" placeholder="ИНН" required="required"></div>
 													<div class="form__item" data-aos="fade-up"><input class="form__input" name="website" placeholder="Сайт" required="required"></div>
 													<div class="form__item" data-aos="fade-up"><input class="form__input" name="sort" placeholder="Ассортимент" required="required"></div>
 													<div class="form__item" data-aos="fade-up"><input class="form__input" name="contact" placeholder="Контактное лицо" required="required"></div>
 													<div class="form__item" data-aos="fade-up"><input class="form__input" name="post" placeholder="Должность" required="required"></div>
-													<div class="form__item" data-aos="fade-up"><input class="form__input" name="email" placeholder="E-mail" required="required"></div>
+													<div class="form__item" data-aos="fade-up"><input class="form__input" type="email" name="email" placeholder="E-mail" required="required"></div>
 													<div class="form__item" data-aos="fade-up"><input class="form__input" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required"></div>
 													<div class="form__wrapper">
 														<div class="form__row" data-aos="fade-up">
@@ -740,15 +740,13 @@
 															<div class="form__text">Например, фотографии, план</div>
 														</div>
 													</div>
-													<div class="checkbox" data-aos="fade-up"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">
+													<div class="checkbox" data-aos="fade-up"><label class="checkbox__label" for="checkbox"><input class="checkbox__input" type="checkbox" id="checkbox" required="required">
 															<div class="checkbox__box"><svg class="checkbox__icon" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 																	<path d="M1 5.17391L5.03333 9L12 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 																</svg></div>
 															<div class="checkbox__text">Даю согласание на обработку <a class="checkbox__link" href="#">персональных данных</a></div>
 														</label></div>
-													<div class="form__inner" data-aos="fade-up">
-														<div class="button form__btn">Отправить</div>
-													</div>
+													<div class="form__inner" data-aos="fade-up"><button class="button form__btn" type="submit">Отправить</button></div>
 												</form>
 												<div class="response">
 													<div class="response__container">
