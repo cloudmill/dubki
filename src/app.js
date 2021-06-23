@@ -62,8 +62,6 @@ function toggleDataAttr($element, attr, value = '') {
         slidesPerView: 'auto',
         spaceBetween: 20,
       });
-
-
     }
 
     // Рецепты, Главная
@@ -208,15 +206,21 @@ function toggleDataAttr($element, attr, value = '') {
       })
     }
 
+    // Похожие товары, Карточка продукта
     const swiperProductSlider = new Swiper($('.product-slider')[0], {
       slidesPerView: 'auto',
-      spaceBetween: 20,
-    });
+      spaceBetween: 5,
 
-    $('.slider-button--next').on('click', function () {
+      breakpoints: {
+        [BREAKPOINT]: {
+          spaceBetween: 20,
+        }
+      }
+    });
+    $('.similar-products .slider-button--next').on('click', function () {
       swiperProductSlider.slideNext();
     });
-    $('.slider-button--prev').on('click', function () {
+    $('.similar-products .slider-button--prev').on('click', function () {
       swiperProductSlider.slidePrev();
     });
 

@@ -45,25 +45,51 @@ block content
               .search__text 
                 |Подходящих товаров нет
           .search__catalog
-            .catalog
-              ul.catalog__list 
-                - for (i = 0; i < 9; i++)
-                  li.catalog__item(data-aos="fade-up") 
-                    .top-slide.top-slide--catalog
-                      .top-slide__discont
-                        .top-slide__discont-icon
-                          +top-icon-svg('catalog__icon')
-                        .top-slide__discont-text.top-slide__discont-text--catalog
-                          |-40%
-                      .top-slide__container.top-slide__container--catalog
-                        .top-slide__frame
-                          img.top-slide__image--catalog(src="assets/images/catalog-photo-1.jpg", alt="")
-                        p.top-slide__text.top-slide__text--catalog
-                          |Ветчина из Говядины ТМ Русские колбасы, 1 кг
-                        .top-slide__price.top-slide__price--catalog
-                          span 
-                            |760 ₽
+            .product-announcement-list
+              .product-announcement-list__list
+                mixin product-announcement-1
+                  a.product-announcement.product-announcement--responsive(href='#')
+                    .product-announcement__frame
+                      img.product-announcement__img(src='assets/images/meat.jpg')
+                    .product-announcement__bottom
+                      .product-announcement__title-wrapper
+                        .product-announcement__title
+                          |Ветчина из Говядины ТМ Русские колбасы, 1 кг Русские колбасы, 1 кг Русские колбасы, 1 кгВетчина из Говядины ТМ Русские колбасы, 1 кг Русские колбасы, 1 кг Русские колбасы, 1 кг
+                      .product-announcement__price
+                        .product-announcement__price-text.product-announcement__price-text--old
+                          |760 ₽
+                        .product-announcement__price-text
                           |610 ₽
+                    .product-announcement__label
+                      .product-announcement__label-background
+                        +top-icon-svg
+                      .product-announcement__label-text
+                        |-20%
+                        .product-announcement__label-subtext
+                          |3 по 1
+                mixin product-announcement-2
+                  a.product-announcement.product-announcement--responsive(href='#')
+                    .product-announcement__frame
+                      img.product-announcement__img(src='assets/images/catalog-photo-1.jpg')
+                    .product-announcement__bottom
+                      .product-announcement__title-wrapper
+                        .product-announcement__title
+                          |Ветчина из Говядины ТМ
+                      .product-announcement__price
+                        .product-announcement__price-text.product-announcement__price-text--old
+                          |760 ₽
+                        .product-announcement__price-text
+                          |610 ₽
+                    .product-announcement__label
+                      .product-announcement__label-background
+                        +top-icon-svg
+                      .product-announcement__label-text
+                        |-30%
+                - for (let i=0; i<9; i++)
+                  .product-announcement-list__item(data-aos='fade-up')
+                    +product-announcement-1
+                  .product-announcement-list__item(data-aos='fade-up')
+                    +product-announcement-2
 
   
 block footer 
