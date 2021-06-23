@@ -147,8 +147,9 @@ block content
                   .form__wrapper 
                     .form__row(data-aos="fade-up")
                       .form__row-wrapper
-                        button(type="submit").form__button
-                          |Прикрепить файлы
+                        input(type="file" id="myfile" name="myfile").form__files
+                        label(for="myfile").form__button
+                          |Прикрепить файл
                       .form__text  
                         |Например, фотографии, план
                   .checkbox(data-aos="fade-up")

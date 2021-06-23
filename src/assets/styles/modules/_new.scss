@@ -3274,6 +3274,7 @@ body>.wrapper {
     $comp: &;
 
     flex-shrink: 0;
+    width: 68px;
 
     &:not(:first-child) {
       margin-left: 15px;
@@ -5768,6 +5769,17 @@ body>.wrapper {
         margin-right: 60px;
       }
     }
+  }
+
+  &__files {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
   }
 
   &__button {
