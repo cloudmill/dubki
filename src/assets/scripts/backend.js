@@ -11,6 +11,9 @@ $(function () {
   forms();
   searchForm();
   searchHeader();
+  recipes();
+  ajaxRecipes();
+
 });
 
 function vacancy() {
