@@ -174,6 +174,7 @@ module.exports = env => {
 					// {from: 'assets/images/favicons/favicon.ico', to: 'assets/favicon.ico'},
 					{ from: 'assets/images', to: 'assets/images' },
 					{ from: 'assets/fonts', to: 'assets/fonts' },
+					{ from: 'assets/data', to: 'assets/data' },
 				]
 			}),
 

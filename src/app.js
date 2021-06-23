@@ -911,367 +911,270 @@ function toggleDataAttr($element, attr, value = '') {
     const container = $('#map')
 
     if (container.length !== 0) {
-      // data (получение данных)
-      const data = {
-        startLocation: 'Самара',
-        geoPoints: [
-          //- Самара
-          {
-            id: 0,
-            coordinates: [
-              55,
-              33,
-            ],
-            location: 'Самара',
-            address: 'address',
-            schedules: [
-              'schedule',
-              'schedule',
-              'schedule',
-            ],
-            label: 'label',
-          },
-          {
-            id: 1,
-            coordinates: [
-              55.1, 33
-            ],
-            location: 'Самара',
-            address: 'address',
-            schedules: [
-              'schedule',
-            ],
-          },
-          //- Воронеж
-          {
-            id: 2,
-            coordinates: [
-              55, 34
-            ],
-            location: 'Воронеж',
-            address: 'address',
-            schedules: [
-              'schedule',
-              'schedule',
-            ],
-            label: 'label',
-          },
-          {
-            id: 3,
-            coordinates: [
-              55.1, 34
-            ],
-            location: 'Воронеж',
-            address: 'address',
-            schedules: [
-              'schedule',
-            ],
-          },
-          {
-            id: 4,
-            coordinates: [
-              55, 34.1
-            ],
-            location: 'Воронеж',
-            address: 'address',
-            schedules: [
-              'schedule',
-              'schedule',
-              'schedule',
-            ],
-            label: 'label',
-          },
-          {
-            id: 5,
-            coordinates: [
-              56,
-              33,
-            ],
-            location: 'Тула',
-            address: 'address',
-            schedules: [
-              'schedule',
-              'schedule',
-              'schedule',
-            ],
-            label: 'label',
-          },
-        ],
-      }
+      // get data
+      $.getJSON('/assets/data/mapData.json', data => {
+        // clusters
+        const clusters = {}
+        data.geoPoints.forEach(geoPoint => {
+          const location = geoPoint.location
 
-
-
-      // clusters
-      const clusters = {}
-      data.geoPoints.forEach(geoPoint => {
-        const location = geoPoint.location
-
-        if (location in clusters) {
-          clusters[location].push(geoPoint)
-        } else {
-          clusters[location] = [geoPoint]
-        }
-      })
-
-
-
-      // select init
-      const select = $('[data-map-select]')
-
-      select.select2('destroy')
-
-      let selectHtml = ''
-      for (let location in clusters) {
-        selectHtml += `<option value="${location}" ${location === data.startLocation ? 'selected' : ''}>${location}</option>`
-      }
-
-      select.html(selectHtml)
-
-      { // копия из раздела select
-        const selectWrapper = select.closest('.select-wrapper');
-        const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
-        if (selectWrapperStyles.position === 'static') {
-          selectWrapper.css('position', 'relative');
-        }
-
-        select.select2({
-          dropdownParent: selectWrapper,
-          selectOnClose: true,
-        });
-
-        select.on('select2:open', () => {
-          selectWrapper.css('z-index', '100000');
-
-          const selectDropdown = selectWrapper.find('.select2-dropdown');
-
-          selectDropdown.hide();
-          const timeout = setTimeout(() => {
-            selectDropdown.slideDown({ duration: 500, });
-
-            clearTimeout(timeout);
-          }, 0);
-        });
-
-        select.on('select2:closing', event => {
-          event.preventDefault();
-
-          const selectDropdown = selectWrapper.find('.select2-dropdown');
-
-          const timeout = setTimeout(() => {
-            selectWrapper.css('z-index', '');
-
-            const select2 = selectWrapper.find('.select2');
-
-            select2.addClass('closing');
-            select2.removeClass('select2-container--open');
-            selectDropdown.slideUp(500, () => {
-              const timeout2 = setTimeout(() => {
-                select.select2('destroy');
-                select.select2({
-                  dropdownParent: selectWrapper,
-                  selectOnClose: true,
-                });
-                select.removeClass('closing');
-
-                selectWrapper.css('z-index', '');
-
-                clearTimeout(timeout2);
-              }, 300);
-            });
-            clearTimeout(timeout);
-          }, 0);
-        });
-      }
-
-
-
-      // update list
-      function updateList(location) {
-        const list = $('[data-map-list]')
-
-        let listHtml = ''
-        clusters[location].forEach(geoPoint => {
-          listHtml += `<li class="map-list__item">`
-          listHtml += `<div class="map-list__wrapper">`
-          listHtml += `<div class="map-balloon">`
-          listHtml += `<div class="map-balloon__container">`
-
-          if ('label' in geoPoint) {
-            listHtml += `<div class="map-balloon__store">${geoPoint.label}</div>`
+          if (location in clusters) {
+            clusters[location].push(geoPoint)
+          } else {
+            clusters[location] = [geoPoint]
           }
-
-          listHtml += `<div class="map-balloon__addres">${geoPoint.address}</div>`
-
-          listHtml += `<div class="map-balloon__times">`
-          geoPoint.schedules.forEach(schedule => {
-            listHtml += `<div class="map-balloon__time">${schedule}</div>`
-          })
-          listHtml += `</div>`
-
-          listHtml += `</div>`
-          listHtml += `</div>`
-          listHtml += `</div>`
-          listHtml += `</li>`
         })
 
-        list.html(listHtml)
-      }
+        // select init
+        const select = $('[data-map-select]')
 
+        select.select2('destroy')
 
+        let selectHtml = ''
+        for (let location in clusters) {
+          selectHtml += `<option value="${location}" ${location === data.startLocation ? 'selected' : ''}>${location}</option>`
+        }
 
-      // init list
-      updateList(data.startLocation)
+        select.html(selectHtml)
 
-
-
-      // map
-      const map = {}
-
-      // ?
-      const markWidth = 53;
-      const markHeight = 56;
-
-      map.ymap = new ymaps.Map('map', {
-        zoom: 12,
-        controls: [],
-
-        // ?
-        center: clusters[data.startLocation][0].coordinates,
-      })
-
-      map.clusters = {}
-      for (let location in clusters) {
-        // ?
-        map.clusters[location] = new ymaps.Clusterer({
-          clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="cluster">{{ properties.geoObjects.length }}</div>'),
-
-          clusterIconShape: {
-            type: 'Rectangle',
-            coordinates: [[0, 0], [50, 50]]
-          },
-        })
-
-        clusters[location].forEach(geoPoint => {
-          // ?
-          let template = [
-            '<div class="map-balloon--alt">',
-            '<div class="map-balloon__container">',
-          ]
-          if ('label' in geoPoint) {
-            template = template.concat([
-              '<div class="map-balloon__store">',
-              geoPoint.label,
-              '</div>',
-            ])
+        { // копия из раздела select
+          const selectWrapper = select.closest('.select-wrapper');
+          const selectWrapperStyles = getComputedStyle(selectWrapper[0]);
+          if (selectWrapperStyles.position === 'static') {
+            selectWrapper.css('position', 'relative');
           }
-          template = template.concat([
-            '<div class="map-balloon__addres">',
-            geoPoint.address,
-            '</div>',
-          ])
-          template = template.concat([
-            '<div class="map-balloon__times">',
-          ])
-          geoPoint.schedules.forEach(schedule => {
-            template = template.concat([
-              '<div class="map-balloon__time">',
-              schedule,
-              '</div>',
-            ])
-          })
-          template = template.concat([
-            '</div>',
-            '</div>',
-            '</div>',
-          ])
 
-          // ?
-          const layout = ymaps.templateLayoutFactory.createClass(
-            template.join(''),
-            {
-              build: function () {
-                this.constructor.superclass.build.call(this);
+          select.select2({
+            dropdownParent: selectWrapper,
+            selectOnClose: true,
+          });
 
-                this._$element = $('.map-balloon--alt', this.getParentElement());
+          select.on('select2:open', () => {
+            selectWrapper.css('z-index', '100000');
 
-                this.applyElementOffset();
-              },
-              onSublayoutSizeChange: function () {
-                layout.superclass.onSublayoutSizeChange.apply(this, arguments);
+            const selectDropdown = selectWrapper.find('.select2-dropdown');
 
-                if (!this._isElement(this._$element)) {
-                  return;
-                }
+            selectDropdown.hide();
+            const timeout = setTimeout(() => {
+              selectDropdown.slideDown({ duration: 500, });
 
-                this.applyElementOffset();
+              clearTimeout(timeout);
+            }, 0);
+          });
 
-                this.events.fire('shapechange');
-              },
-              applyElementOffset: function () {
-                this._$element.css({
-                  left: -(this._$element[0].offsetWidth / 2),
-                  top: -(this._$element[0].offsetHeight + markHeight / 2),
-                });
-              },
-              getShape: function () {
-                if (!this._isElement(this._$element)) {
-                  return layout.superclass.getShape.call(this);
-                }
+          select.on('select2:closing', event => {
+            event.preventDefault();
 
-                var position = this._$element.position();
+            const selectDropdown = selectWrapper.find('.select2-dropdown');
 
-                return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                  [position.left, position.top], [
-                    position.left + this._$element[0].offsetWidth,
-                    position.top + this._$element[0].offsetHeight,
-                  ]
-                ]));
-              },
-              _isElement: function (element) {
-                return element && element[0];
-              }
+            const timeout = setTimeout(() => {
+              selectWrapper.css('z-index', '');
+
+              const select2 = selectWrapper.find('.select2');
+
+              select2.addClass('closing');
+              select2.removeClass('select2-container--open');
+              selectDropdown.slideUp(500, () => {
+                const timeout2 = setTimeout(() => {
+                  select.select2('destroy');
+                  select.select2({
+                    dropdownParent: selectWrapper,
+                    selectOnClose: true,
+                  });
+                  select.removeClass('closing');
+
+                  selectWrapper.css('z-index', '');
+
+                  clearTimeout(timeout2);
+                }, 300);
+              });
+              clearTimeout(timeout);
+            }, 0);
+          });
+        }
+
+        // update list
+        function updateList(location) {
+          const list = $('[data-map-list]')
+
+          let listHtml = ''
+          clusters[location].forEach(geoPoint => {
+            listHtml += `<li class="map-list__item">`
+            listHtml += `<div class="map-list__wrapper">`
+            listHtml += `<div class="map-balloon">`
+            listHtml += `<div class="map-balloon__container">`
+
+            if ('label' in geoPoint) {
+              listHtml += `<div class="map-balloon__store">${geoPoint.label}</div>`
             }
-          )
-        
-          // ?
-          const placemarkGeo = new ymaps.Placemark(geoPoint.coordinates, {}, {
-            iconLayout: 'default#image',
-            iconImageHref: 'assets/images/svg/placemark.svg',
-            iconImageSize: [markWidth, markHeight],
-            iconImageOffset: [-markWidth / 2, -markHeight],
-  
-            balloonLayout: layout,
-            balloonPanelMaxMapArea: 0,
-            hideIconOnBalloonOpen: false,
+
+            listHtml += `<div class="map-balloon__addres">${geoPoint.address}</div>`
+
+            listHtml += `<div class="map-balloon__times">`
+            geoPoint.schedules.forEach(schedule => {
+              listHtml += `<div class="map-balloon__time">${schedule}</div>`
+            })
+            listHtml += `</div>`
+
+            listHtml += `</div>`
+            listHtml += `</div>`
+            listHtml += `</div>`
+            listHtml += `</li>`
           })
 
-          map.clusters[location].add(placemarkGeo)
+          list.html(listHtml)
+        }
+
+        // init list
+        updateList(data.startLocation)
+
+        // map
+        const map = {}
+
+        // ?
+        const markWidth = 53;
+        const markHeight = 56;
+
+        map.ymap = new ymaps.Map('map', {
+          zoom: 12,
+          controls: [],
+
+          // ?
+          center: clusters[data.startLocation][0].coordinates,
         })
 
-        map.ymap.geoObjects.add(map.clusters[location])
-      }
+        map.clusters = {}
+        for (let location in clusters) {
+          // ?
+          map.clusters[location] = new ymaps.Clusterer({
+            clusterIconLayout: ymaps.templateLayoutFactory.createClass('<div class="cluster">{{ properties.geoObjects.length }}</div>'),
 
-      map.ymap.events.add('click', (event) => {
-        if (map.ymap.balloon.isOpen()) {
-          map.ymap.balloon.close();
+            clusterIconShape: {
+              type: 'Rectangle',
+              coordinates: [[0, 0], [50, 50]]
+            },
+          })
+
+          clusters[location].forEach(geoPoint => {
+            // ?
+            let template = [
+              '<div class="map-balloon--alt">',
+              '<div class="map-balloon__container">',
+            ]
+            if ('label' in geoPoint) {
+              template = template.concat([
+                '<div class="map-balloon__store">',
+                geoPoint.label,
+                '</div>',
+              ])
+            }
+            template = template.concat([
+              '<div class="map-balloon__addres">',
+              geoPoint.address,
+              '</div>',
+            ])
+            template = template.concat([
+              '<div class="map-balloon__times">',
+            ])
+            geoPoint.schedules.forEach(schedule => {
+              template = template.concat([
+                '<div class="map-balloon__time">',
+                schedule,
+                '</div>',
+              ])
+            })
+            template = template.concat([
+              '</div>',
+              '</div>',
+              '</div>',
+            ])
+
+            // ?
+            const layout = ymaps.templateLayoutFactory.createClass(
+              template.join(''),
+              {
+                build: function () {
+                  this.constructor.superclass.build.call(this);
+
+                  this._$element = $('.map-balloon--alt', this.getParentElement());
+
+                  this.applyElementOffset();
+                },
+                onSublayoutSizeChange: function () {
+                  layout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                  if (!this._isElement(this._$element)) {
+                    return;
+                  }
+
+                  this.applyElementOffset();
+
+                  this.events.fire('shapechange');
+                },
+                applyElementOffset: function () {
+                  this._$element.css({
+                    left: -(this._$element[0].offsetWidth / 2),
+                    top: -(this._$element[0].offsetHeight + markHeight / 2),
+                  });
+                },
+                getShape: function () {
+                  if (!this._isElement(this._$element)) {
+                    return layout.superclass.getShape.call(this);
+                  }
+
+                  var position = this._$element.position();
+
+                  return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                    [position.left, position.top], [
+                      position.left + this._$element[0].offsetWidth,
+                      position.top + this._$element[0].offsetHeight,
+                    ]
+                  ]));
+                },
+                _isElement: function (element) {
+                  return element && element[0];
+                }
+              }
+            )
+
+            // ?
+            const placemarkGeo = new ymaps.Placemark(geoPoint.coordinates, {}, {
+              iconLayout: 'default#image',
+              iconImageHref: 'assets/images/svg/placemark.svg',
+              iconImageSize: [markWidth, markHeight],
+              iconImageOffset: [-markWidth / 2, -markHeight],
+
+              balloonLayout: layout,
+              balloonPanelMaxMapArea: 0,
+              hideIconOnBalloonOpen: false,
+            })
+
+            map.clusters[location].add(placemarkGeo)
+          })
+
+          map.ymap.geoObjects.add(map.clusters[location])
         }
-      });
 
-      map.ymap.setBounds(map.clusters[data.startLocation].getBounds(), {
-        zoomMargin: Math.max(markWidth, markHeight),
-      });
+        map.ymap.events.add('click', (event) => {
+          if (map.ymap.balloon.isOpen()) {
+            map.ymap.balloon.close();
+          }
+        });
 
-
-
-      // change location
-      select.on('change', () => {
-        const location = select.val()
-
-        updateList(location)
-
-        map.ymap.setBounds(map.clusters[location].getBounds(), {
+        map.ymap.setBounds(map.clusters[data.startLocation].getBounds(), {
           zoomMargin: Math.max(markWidth, markHeight),
         });
+
+        // change location
+        select.on('change', () => {
+          const location = select.val()
+
+          updateList(location)
+
+          map.ymap.setBounds(map.clusters[location].getBounds(), {
+            zoomMargin: Math.max(markWidth, markHeight),
+          });
+        })
       })
     }
   })
@@ -1325,14 +1228,14 @@ function toggleDataAttr($element, attr, value = '') {
 
         while (title.height() > (lineHeight * lineCount)) {
           newText = newText.substring(0, newText.length - 1).trim()
-  
+
           title.text(newText)
         }
 
         newText = newText.substring(0, newText.length - 5).trim() + '...'
         title.text(newText)
       }
-      
+
       updateTitle()
       $(window).on('resize', () => {
         updateTitle()
