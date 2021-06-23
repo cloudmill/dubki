@@ -131,11 +131,15 @@ block content
               .offers__container
                 form.form(action="/" data-type="feedback-form") 
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="name" required="required" placeholder="Имя")
+                    input.form__input(type="text" name="name" required="required")
+                    span.form__placeholder 
+                      |Имя
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="phone" data-parsley-phone="" placeholder="Телефон" data-mask="phone" required="required")
+                    input.form__input(type="text" name="phone" data-parsley-phone="" data-mask="phone" required="required")
+                    span.form__placeholder 
+                      |Телефон
                   .form__item(data-aos="fade-up")
-                    input.form__input(type="text" name="email" placeholder="E-mail" required="required")
+                    input.form__input(type="email" name="email" placeholder="E-mail" required="required")
                   .form__item(data-aos="fade-up")
                     input.form__input(type="text" name="addres" placeholder="Адрес помещения" required="required")
                   .form__item(data-aos="fade-up")

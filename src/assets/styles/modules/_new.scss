@@ -5840,6 +5840,7 @@ body>.wrapper {
 }
 
 .form {
+  $comp: &;
   width: 100%;
 
   transition: .4s;
@@ -5885,6 +5886,14 @@ body>.wrapper {
         }
       }
     }
+
+    &--active {
+      #{$comp}__placeholder {
+        top: 8px;
+        transform: none;
+        @include fsl(12px);
+      }
+    }
   }
 
   &__input {
@@ -5906,6 +5915,9 @@ body>.wrapper {
       color: $color-black;
     }
 
+    &:focus {
+      border-color: $color-light-green;
+    }
 
     &--large {
       height: 160px;
@@ -5918,10 +5930,13 @@ body>.wrapper {
     top: 50%;
     left: 35px;
     transform: translateY(-50%);
+
     color: $color-black;
     font-weight: 400;
     @include fsl(16px, 100%);
+
     transition: $transition;
+    pointer-events: none;
   }
 
   &__wrapper {
@@ -8028,6 +8043,12 @@ input:focus~.form__placeholder {
 
   &-error {
     border-color: #F2535F;
+  }
+
+  &-type {
+    color: #F2535F;
+    font-weight: 400;
+    @include fsl(12px, 80%);
   }
 
   &-errors-list {
