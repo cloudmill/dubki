@@ -975,7 +975,7 @@ function toggleDataAttr($element, attr, value = '') {
     const header = $('.header');
 
     if (header.length !== 0) {
-      $(window).on('scroll',
+      $(window).on('scroll load',
         {
           previousTop: 0
         },
