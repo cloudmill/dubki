@@ -333,9 +333,9 @@ function toggleDataAttr($element, attr, value = '') {
       }
     }
 
-    $(window).on('load', () => {
+    setTimeout(() => {
       $('.top__container').css('opacity', 1)
-    })
+    }, 1000)
   });
 }
 
