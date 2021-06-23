@@ -223,15 +223,12 @@ block content
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                         .shops-card__buttons
-                                            .product-card--alt
-                                                .product-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="2")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon product-card__item-icon--revers')
-                                                .shops-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="1")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon')
+                                            .button-slide.button-slide--second(data-slider-id="2")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+                                            .button-slide(data-slider-id="1")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon')
                     .shops(id="self-service")
                         .shops__row 
                             .shops__col 
@@ -253,15 +250,12 @@ block content
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                         .shops-card__buttons
-                                            .product-card--alt
-                                                .product-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="4")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon product-card__item-icon--revers')
-                                                .shops-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="3")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon')
+                                            .button-slide.button-slide--second(data-slider-id="4")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+                                            .button-slide(data-slider-id="3")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon')
 
     .section
         .container 

@@ -4665,19 +4665,19 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         padding: 20px;
 
-        width: 186px;
-        height: 108px;
         bottom: 20px;
         left: 20px;
 
         border-radius: 30px;
       }
-      width: 120px;
-      height: 70px;
       position: absolute;
       z-index: 1;
       bottom: 10px;
       left: 10px;
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       background-color: $color-white;
       border-radius: 20px;

@@ -70,7 +70,7 @@ block content
                       .video-button
                         +play-svg('video-button__icon')
                 .product-card__col
-                  .products.swiper-container
+                  .products.swiper-container(data-aos="fade-up") 
                     .swiper-wrapper
                       .products__item.swiper-slide
                         .products__container 
@@ -389,12 +389,14 @@ block content
               |Похожие товары
           .similar-products__col
             .similar-products__buttons
-              .button-slide.button-slide--second.slider-button--prev
-                .button-slide__button
-                  +cursor-svg('button-slide__icon button-slide__icon--revers')
-              .button-slide.slider-button--next
-                .button-slide__button
-                  +cursor-svg('button-slide__icon')
+              .slider-button.slider-button--prev
+                .button-slide.button-slide--second
+                  .button-slide__button
+                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+              .slider-button.slider-button--next
+                .button-slide
+                  .button-slide__button
+                    +cursor-svg('button-slide__icon')
   .section--grey.section--catalog
     .container 
       .section__inner 

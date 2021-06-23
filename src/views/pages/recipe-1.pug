@@ -167,15 +167,15 @@ block content
             h3.similar-products__title(data-aos="fade-up") 
               |Похожие товары
           .similar-products__col
-            .product-card(data-aos="fade-up")
-              .product-card__item
-                .product-card__item-thumb.product-card__item-thumb--black.slider-button.slider-button--prev
-                  .product-card__item-button 
-                    +cursor-svg('product-card__item-icon product-card__item-icon--revers')
-              .product-card__item
-                .product-card__item-thumb.product-card__item-thumb--black.slider-button.slider-button--next
-                  .product-card__item-button 
-                    +cursor-svg('product-card__item-icon')
+            .similar-products__buttons
+              .slider-button.slider-button--prev
+                .button-slide.button-slide--second
+                  .button-slide__button
+                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+              .slider-button.slider-button--next
+                .button-slide
+                  .button-slide__button
+                    +cursor-svg('button-slide__icon')
             
   .section--grey.section--catalog.section--hidden
     .container 
