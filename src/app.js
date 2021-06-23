@@ -1329,3 +1329,24 @@ function toggleDataAttr($element, attr, value = '') {
     })
   })
 }
+
+// product, yt
+{
+  $(() => {
+    $('.product-card__video-wrapper').on('click', () => {
+      $('.video-modal').addClass('video-modal--active')
+    })
+
+    $('.video-modal').on('click', event => {
+      if (
+        event.target === $('.video-modal')[0] ||
+        event.target === $('.video-modal__close')[0]
+      ) {
+        // ?
+        $('.video-modal__yt').attr('src', $('iframe').attr('src'));
+        
+        $('.video-modal').removeClass('video-modal--active')
+      }
+    })
+  })
+}

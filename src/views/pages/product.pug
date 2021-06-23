@@ -423,11 +423,15 @@ block content
                       |-20%
                       .product-announcement__label-subtext
                         |3 по 1
-              
-
-
 
 block footer 
   +footer({
     mod: 'catalog-grey',
   })
+
+block modals
+  .video-modal.video-modal--hidden
+    .video-modal__container
+      .button-modal.button-modal--active.video-modal__close
+        .button-modal__image
+      iframe.video-modal__yt(width="560" height="315" src="https://www.youtube.com/embed/onV3qp4N_Vc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
