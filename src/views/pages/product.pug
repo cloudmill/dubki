@@ -38,20 +38,30 @@ block content
               .product-card 
                 .product-card__col 
                   .product-card__thumbs(data-aos="fade-up")  
-                    ul.product-card__list
-                      li.product-card__item.product-card__item--active
-                        .product-card__item-thumb
-                          img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
-                      li.product-card__item 
-                        .product-card__item-thumb 
-                          img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
-                      li.product-card__item 
-                        .product-card__item-thumb 
-                          img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
-                    .product-card__item--button.slider-button
-                      .product-card__item-thumb.product-card__item-thumb--black
-                        .product-card__item-button 
-                          +cursor-svg('product-card__item-icon')
+                    ul.product-card__list.swiper-container
+                      .swiper-wrapper
+                        li.product-card__item.product-card__item--active.swiper-slide
+                          .product-card__item-thumb
+                            img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
+                        li.product-card__item.swiper-slide
+                          .product-card__item-thumb 
+                            img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
+                        li.product-card__item.swiper-slide
+                          .product-card__item-thumb 
+                            img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
+                        li.product-card__item.swiper-slide
+                          .product-card__item-thumb
+                            img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
+                        li.product-card__item.swiper-slide
+                          .product-card__item-thumb 
+                            img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
+                        li.product-card__item.swiper-slide
+                          .product-card__item-thumb 
+                            img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
+                    .slider-button
+                      .button-slide.button-slide--hidden
+                        .button-slide__button
+                          +cursor-svg('button-slide__icon')
 
                   .product-card__video(data-aos="fade-up") 
                     .product-card__video-text
@@ -60,18 +70,62 @@ block content
                       .video-button
                         +play-svg('video-button__icon')
                 .product-card__col
-                  .products.swiper-container
+                  .products.swiper-container(data-aos="fade-up") 
                     .swiper-wrapper
-                      - for (i = 0; i < 3; i++)
-                        .products__item.swiper-slide
-                          .products__container 
-                            .products__label 
-                              .products__icon 
-                                +top-icon-svg
-                              .products__text   
-                                |-30%
-                            .products__image 
-                              img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                      .products__item.swiper-slide
+                        .products__container 
+                          .products__label 
+                            .products__icon 
+                              +top-icon-svg
+                            .products__text   
+                              |-30%
+                          .products__image 
+                            img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                      .products__item.swiper-slide
+                        .products__container 
+                          .products__label 
+                            .products__icon 
+                              +top-icon-svg
+                            .products__text   
+                              |-30%
+                          .products__image 
+                            img.products__img(src="assets/images/meat.jpg", alt="")    
+                      .products__item.swiper-slide
+                        .products__container 
+                          .products__label 
+                            .products__icon 
+                              +top-icon-svg
+                            .products__text   
+                              |-30%
+                          .products__image 
+                            img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                      .products__item.swiper-slide
+                        .products__container 
+                          .products__label 
+                            .products__icon 
+                              +top-icon-svg
+                            .products__text   
+                              |-30%
+                          .products__image 
+                            img.products__img(src="assets/images/meat.jpg", alt="")    
+                      .products__item.swiper-slide
+                        .products__container 
+                          .products__label 
+                            .products__icon 
+                              +top-icon-svg
+                            .products__text   
+                              |-30%
+                          .products__image 
+                            img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                      .products__item.swiper-slide
+                        .products__container 
+                          .products__label 
+                            .products__icon 
+                              +top-icon-svg
+                            .products__text   
+                              |-30%
+                          .products__image 
+                            img.products__img(src="assets/images/meat.jpg", alt="")    
             .row__col
               ul.block-list.block-list--hidden.block-list--faded(data-aos="fade-up") 
                 li.block-list__item 
@@ -334,15 +388,15 @@ block content
             h3.similar-products__title(data-aos="fade-up")  
               |Похожие товары
           .similar-products__col
-            .product-card(data-aos="fade-up") 
-              .product-card__item--nav
-                .product-card__item-thumb.product-card__item-thumb--black.slider-button.slider-button--prev
-                  .product-card__item-button
-                    +cursor-svg('product-card__item-icon product-card__item-icon--revers')
-              .product-card__item--nav
-                .product-card__item-thumb.product-card__item-thumb--black.slider-button.slider-button--next
-                  .product-card__item-button
-                    +cursor-svg('product-card__item-icon')
+            .similar-products__buttons
+              .slider-button.slider-button--prev
+                .button-slide.button-slide--second
+                  .button-slide__button
+                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+              .slider-button.slider-button--next
+                .button-slide
+                  .button-slide__button
+                    +cursor-svg('button-slide__icon')
   .section--grey.section--catalog
     .container 
       .section__inner 

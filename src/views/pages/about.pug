@@ -33,13 +33,21 @@ block content
     .section 
         .container 
             .about-info 
-                .about-info__inner 
-                    .about-info__wrapper 
-                        h3.about-info__title(data-aos="fade-up")
-                            |«Дубки. Продукты от производителя» — торговая сеть продуктовых магазинов «у дома». Широкий ассортимент от мясколбасных изделий до молочной продукции — все от производителей.
-                    .about-info__description
-                        p.about-info__text(data-aos="fade-up")
-                            |Помимо продуктов питания, наша сеть радует клиентов вкусными готовыми блюдами. В магазинах новой концепции мы готовим:
+                .about-info__frame 
+                    .about-info__layout
+                        img.about-info__svg(src="assets/images/svg/about-1.svg", alt="")(data-aos="fade-up")
+                        img.about-info__img(src="assets/images/svg/about-2.svg", alt="")(data-aos="fade-up")
+                        img.about-info__img.about-info__img--small(src="assets/images/svg/about-3.svg", alt="")(data-aos="fade-up")
+                        img.about-info__image(src="assets/images/svg/about-4.svg", alt="")(data-aos="fade-up")
+                        img.about-info__layout-image.about-info__layout-image--small(src="assets/images/svg/about-6.svg", alt="")(data-aos="fade-up")
+                        img.about-info__layout-image(src="assets/images/svg/about-5.svg", alt="")(data-aos="fade-up")
+                    .about-info__inner 
+                        .about-info__wrapper 
+                            h3.about-info__title(data-aos="fade-up")
+                                |«Дубки. Продукты от производителя» — торговая сеть продуктовых магазинов «у дома». Широкий ассортимент от мясколбасных изделий до молочной продукции — все от производителей.
+                        .about-info__description
+                            p.about-info__text(data-aos="fade-up")
+                                |Помимо продуктов питания, наша сеть радует клиентов вкусными готовыми блюдами. В магазинах новой концепции мы готовим:
 
     .section
         .container 
@@ -223,15 +231,12 @@ block content
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                         .shops-card__buttons
-                                            .product-card--alt
-                                                .product-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="2")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon product-card__item-icon--revers')
-                                                .shops-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="1")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon')
+                                            .button-slide.button-slide--second(data-slider-id="2")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+                                            .button-slide(data-slider-id="1")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon')
                     .shops(id="self-service")
                         .shops__row 
                             .shops__col 
@@ -253,15 +258,12 @@ block content
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                                 img.shops-card__img.swiper-slide(src="assets/images/shops-card-1.jpg", alt="")
                                         .shops-card__buttons
-                                            .product-card--alt
-                                                .product-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="4")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon product-card__item-icon--revers')
-                                                .shops-card__item
-                                                    .product-card__item-thumb.product-card__item-thumb--black(data-slider-id="3")
-                                                        .product-card__item-button 
-                                                            +cursor-svg('product-card__item-icon')
+                                            .button-slide.button-slide--second(data-slider-id="4")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon button-slide__icon--revers')
+                                            .button-slide(data-slider-id="3")
+                                                .button-slide__button
+                                                    +cursor-svg('button-slide__icon')
 
     .section
         .container 
@@ -275,21 +277,28 @@ block content
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item 
                                     .gifts__img 
-                                        +smile-svg
+                                        img.gifts__image(src="assets/images/svg/gifts-1.svg", alt="")
+                            .gifts__col(data-aos="fade-up")
+                                .gifts__item 
+                                    .gifts__img 
+                                        img.gifts__image(src="assets/images/svg/gifts-2.svg", alt="")
+                            .gifts__col(data-aos="fade-up")
+                                .gifts__item
+                                    .gifts__img 
+                                        img.gifts__image(src="assets/images/svg/gifts-3.svg", alt="")
+                        .gifts__row
+                            .gifts__col(data-aos="fade-up")
+                                .gifts__item 
                                     p.gifts__text 
                                         |Eженедельно на продукты первой необходимости предоставляется скидка до 40%
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item 
-                                    .gifts__img 
-                                        +smile-svg
                                     p.gifts__text 
                                         |В праздничные дни сеть дарит своим клиентам подарочные купоны 
                                         span.question
                                             +quest-svg('question__mark')
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item
-                                    .gifts__img 
-                                        +smile-svg
                                     p.gifts__text 
                                         |Часто проходят дегустации новинок и продуктов «хитов»
 

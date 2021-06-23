@@ -2435,13 +2435,15 @@ body>.wrapper {
   }
 
   &--mobile {
-    display: flex;
-    justify-content: center;
     width: 100%;
     overflow-x: auto;
-
+    display: flex;
     @media (min-width: $breakpoint) {
       display: none;
+    }
+    justify-content: center;
+    @media (max-width: $breakpoint-m) {
+      justify-content: flex-start;
     }
   }
 
@@ -3059,24 +3061,35 @@ body>.wrapper {
 
   &__thumbs {
     display: flex;
+    justify-content: space-between;
   }
 
   &__list {
+    margin-left: 0;
+    margin-right: 0;
     display: flex;
+    width: 185px;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} * 3 - #{$grid-gap-d})
+    }
   }
 
   &__item {
     $comp: &;
 
     flex-shrink: 0;
-
-    &:not(:first-child) {
-      margin-left: 15px;
-
-      @media (min-width: $breakpoint) {
-        margin-left: calc(#{$grid-gap-d});
-      }
+    width: 51px;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$grid-part-d} - #{$grid-gap-d});
     }
+
+    // &:not(:first-child) {
+    //   margin-left: 15px;
+
+    //   @media (min-width: $breakpoint) {
+    //     margin-left: calc(#{$grid-gap-d});
+    //   }
+    // }
 
     &--active {
       #{$comp}-thumb {
@@ -3098,12 +3111,13 @@ body>.wrapper {
     }
 
     &-thumb {
-      width: 44px;
-      height: 44px;
+      $size: 51px;
+      width: $size;
+      height: $size;
 
       @media (min-width: $breakpoint) {
-        width: 68px;
-        height: 68px;
+        width: calc(#{$grid-part-d} - #{$grid-gap-d});
+        height: calc(#{$grid-part-d} - #{$grid-gap-d});
       }
 
       display: flex;
@@ -3129,29 +3143,6 @@ body>.wrapper {
       transform: scale(0.8);
     }
 
-    &-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &-icon {
-      transform: rotate(45deg);
-      width: 18px;
-      height: 18px;
-      @media (min-width: $breakpoint) {
-        width: 27px;
-        height: 27px;
-      }
-
-      path {
-        stroke: $color-black;
-      }
-
-      &--revers {
-        transform: rotate(-135deg);
-      }
-    }
   }
 
   &__video {
@@ -3248,6 +3239,67 @@ body>.wrapper {
   }
 }
 
+.button-slide {
+  width: 44px;
+  height: 44px;
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$grid-part-d} - #{$grid-gap-d});
+    height: calc(#{$grid-part-d} - #{$grid-gap-d});
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid $color-black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $transition;
+
+  border: 2px solid $color-black;
+
+  &:hover {
+    border-color: $color-yellow;
+    background-color: $color-yellow;
+  }
+
+  &--hidden {
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+
+  &--second {
+    margin-right: 10px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    transform: rotate(45deg);
+    width: 18px;
+    height: 18px;
+    @media (min-width: $breakpoint) {
+      width: 27px;
+      height: 27px;
+    }
+
+    path {
+      stroke: $color-black;
+    }
+
+    &--revers {
+      transform: rotate(-135deg);
+    }
+  }
+}
+
 .video-button {
   padding: 13px;
 
@@ -3294,7 +3346,7 @@ body>.wrapper {
     position: relative;
     height: 345px;
     @media (min-width: $breakpoint) {
-      height: 419px;
+      height: calc(#{$grid-part-d} * 5 - #{$grid-gap-d});
     }
     display: flex;
     align-items: center;
@@ -3308,6 +3360,7 @@ body>.wrapper {
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index: 1;
     
     display: flex;
     align-items: center;
@@ -3966,6 +4019,11 @@ body>.wrapper {
       @include fsl(50px, 80%);
     }
   }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .nav-modal {
@@ -4125,6 +4183,90 @@ body>.wrapper {
 }
 
 .about-info {
+
+  &__frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__layout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    &-image {
+      position: absolute;
+      left: calc(#{$grid-pard-m} + #{$grid-gap-m});
+      bottom: -10px;
+      @media (min-width: $breakpoint) {
+        bottom: -10px;
+        left: calc(#{$grid-part-d} * 2 + #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        height: 80px;
+      }
+
+      &--small {
+        left: calc(#{$grid-pard-m} + #{$grid-gap-m} + 50px);
+        @media (min-width: $breakpoint) {
+          left: calc(#{$grid-part-d} * 3 + #{$grid-gap-d});
+        }
+        @media (max-width: $breakpoint - 1px) {
+          height: 60px;
+        }
+      }
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    bottom: 23px;
+    left: calc(#{$grid-part-d} * 9);
+
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    right: calc(#{$grid-col-m} / 2);
+    bottom: -10%;
+    @media (min-width: $breakpoint) {
+      bottom: -15%;
+      right: 0;
+
+      width: auto;
+    }
+    width: 160px;
+
+    &--small {
+      bottom: -7%;
+      right: calc(#{$grid-pard-m} + #{$grid-gap-m});
+      @media (min-width: $breakpoint) {
+        right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+
+        width: auto;
+      }
+      width: 60px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    bottom: -6%;
+    @media (min-width: $breakpoint) {
+      bottom: -5%;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      width: 130px;
+    }
+  }
 
   &__inner {
     padding-top: 60px;
@@ -4404,19 +4546,19 @@ body>.wrapper {
       @media (min-width: $breakpoint) {
         padding: 20px;
 
-        width: 186px;
-        height: 108px;
         bottom: 20px;
         left: 20px;
 
         border-radius: 30px;
       }
-      width: 120px;
-      height: 70px;
       position: absolute;
       z-index: 1;
       bottom: 10px;
       left: 10px;
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       background-color: $color-white;
       border-radius: 20px;
@@ -5563,6 +5705,17 @@ body>.wrapper {
         margin-right: 60px;
       }
     }
+  }
+
+  &__files {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
   }
 
   &__button {
