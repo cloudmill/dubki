@@ -4,7 +4,7 @@ $(() => {
 
 $(function () {
   vacancy();
-  submitForm();
+  // submitForm();
   redirectBuy();
   buyListFilter();
   autocompleteDefineRegion();
@@ -175,20 +175,42 @@ function forms() {
 
     let thisObj = $(this),
         container = thisObj.parents('[data-type=form-container]'),
+        form = container.find('form'),
+        formResponse = container.find('[data-type=form-response]'),
         url = container.attr('data-url'),
+        eventType = container.attr('data-event-type'),
+        contentType = 'application/x-www-form-urlencoded; charset=UTF-8',
+        processData = true,
         data = {};
 
-    container.find('input:not([type="checkbox"]), textarea, [data-type=form-type]').each(function () {
-      data[$(this).attr('data-uf')] = $(this).val();
+    if (eventType != 'CONTACT_FORM') {
+      data = new FormData();
+      contentType = false;
+      processData = false;
+
+      let file = container.find('[data-type=file]');
+      data.append('file', file[0].files[0]);
+    }
+
+    container.find('[data-type=get-field], [data-type=get-offer]:checked, [data-type=get-manufacturer]:checked, [data-type=get-organizational]:checked').each(function () {
+      let field = $(this).attr('data-uf'),
+          val = $(this).val();
+
+      eventType != 'CONTACT_FORM' ? data.append(field, val) : data[field] = val;
     });
 
     $.ajax({
       type: 'POST',
       url: url,
       dataType: 'json',
+      contentType: contentType,
+      processData: processData,
       data: data,
       success: function (r) {
-        console.log(r);
+        if (r.success === true) {
+          form.addClass('form--hidden');
+          formResponse.addClass('response--active');
+        }
       },
     });
   });
