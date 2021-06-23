@@ -758,35 +758,37 @@ function toggleDataAttr($element, attr, value = '') {
     const header = $('.header');
 
     if (header.length !== 0) {
-      $(window).on('scroll',
-        {
-          previousTop: 0
-        },
-        function () {
-          const currentTop = $(window).scrollTop();
+      let previousTop = $(window).scrollTop()
+      
+      $(window).on('scroll', function () {  
+        const currentTop = $(window).scrollTop();
 
-          if (!(
-            header.hasClass('header--nav-modal') ||
-            header.hasClass('header--catalog-search') ||
-            header.hasClass('header--catalog-modal') ||
-            header.hasClass('header--city-search')
-          )) {
-            if (currentTop < this.previousTop) {
-              header.removeClass('header--scroll--down');
-              header.addClass('header--scroll--up');
-            } else {
-              header.removeClass('header--scroll--up');
-              header.addClass('header--scroll--down');
-            }
-          }
-
-          if (currentTop < 1) {
-            header.removeClass('header--scroll--up');
+        if (!(
+          header.hasClass('header--nav-modal') ||
+          header.hasClass('header--catalog-search') ||
+          header.hasClass('header--catalog-modal') ||
+          header.hasClass('header--city-search')
+        )) {
+          if (currentTop < previousTop) {
             header.removeClass('header--scroll--down');
+            header.addClass('header--scroll--up');
+          } else {
+            header.removeClass('header--scroll--up');
+            header.addClass('header--scroll--down');
           }
+        }
 
-          this.previousTop = currentTop;
-        });
+        if (currentTop < 1) {
+          header.removeClass('header--scroll--up');
+          header.removeClass('header--scroll--down');
+        }
+
+        previousTop = currentTop;
+      });
+
+      if ($(window).scrollTop() >= 1) {
+        header.addClass('header--scroll--up');
+      }
     };
   });
 }
@@ -1245,7 +1247,7 @@ function toggleDataAttr($element, attr, value = '') {
 
         if (title.height() > (lineHeight * lineCount)) {
           let newText = originalText
-          
+
           while (title.height() > (lineHeight * lineCount)) {
             newText = newText.substring(0, newText.length - 1).trim()
 
