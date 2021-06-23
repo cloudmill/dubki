@@ -125,7 +125,7 @@ function searchHeader() {
 
     let form = $(document).find("[data-type=header-search-form]"),
       search = form.find("input[name=search]").val();
-      
+
       document.location.href = 'http://dubki.hellem.ru/search/?search=' + search;
   });
 }
@@ -165,22 +165,26 @@ function buyListFilter() {
 }
 
 function autocompleteDefineRegion() {
-  $("[data-type=autocomplete-region-define]").autocomplete({
-    appendTo: "[data-autocomplete-place]",
+  $('[data-type=autocomplete-region-define]').autocomplete({
+    appendTo: '[data-autocomplete-place]',
     source: function (request, response) {
       $.ajax({
-        url: "/local/templates/main/include/ajax/autocomplete_define_region.php",
-        dataType: "json",
+        url: '/local/templates/main/include/ajax/autocomplete_define_region.php',
+        dataType: 'json',
         data: {
           q: request.term,
         },
-        success: function (data) {
-          response(data);
+        success: function (r) {
+          !r.error ? response(r) : console.log(r.error);
         },
       });
     },
     position: {
-      my: "left top+5",
+      my: 'left top+5',
+    },
+    select: function(event, ui) {
+      location.href = window.location.href + '?selectRegionId=' + ui.item.id + '&selectRegionVal=' + ui.item.value;
+      return false;
     },
   });
 }
