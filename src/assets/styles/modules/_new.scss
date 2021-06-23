@@ -4399,6 +4399,29 @@ body>.wrapper {
     bottom: 0;
     left: 0;
     z-index: 0;
+
+    &-image {
+      position: absolute;
+      left: calc(#{$grid-pard-m} + #{$grid-gap-m});
+      bottom: -10px;
+      @media (min-width: $breakpoint) {
+        bottom: -10px;
+        left: calc(#{$grid-part-d} * 2 + #{$grid-gap-d});
+      }
+      @media (max-width: $breakpoint - 1px) {
+        height: 80px;
+      }
+
+      &--small {
+        left: calc(#{$grid-pard-m} + #{$grid-gap-m} + 50px);
+        @media (min-width: $breakpoint) {
+          left: calc(#{$grid-part-d} * 3 + #{$grid-gap-d});
+        }
+        @media (max-width: $breakpoint - 1px) {
+          height: 60px;
+        }
+      }
+    }
   }
 
   &__svg {
