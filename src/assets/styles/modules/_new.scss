@@ -2638,13 +2638,15 @@ body>.wrapper {
   }
 
   &--mobile {
-    display: flex;
-    justify-content: center;
     width: 100%;
     overflow-x: auto;
-
+    display: flex;
     @media (min-width: $breakpoint) {
       display: none;
+    }
+    justify-content: center;
+    @media (max-width: $breakpoint-m) {
+      justify-content: flex-start;
     }
   }
 
