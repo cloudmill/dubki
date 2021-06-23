@@ -10,6 +10,7 @@ $(function () {
   autocompleteDefineRegion();
   forms();
   searchForm();
+  searchHeader();
 });
 
 function vacancy() {
@@ -112,6 +113,17 @@ function searchForm() {
     }).done(function (a) {
       searchList.html(a);
     });
+  });
+}
+
+function searchHeader() {
+  $(document).on("click", "[data-type=search-button-header]", function (e) {
+    e.preventDefault();
+
+    let form = $(document).find("[data-type=header-search-form]"),
+      search = form.find("input[name=search]").val();
+      
+      document.location.href = 'http://dubki.hellem.ru/search/?search=' + search;
   });
 }
 
