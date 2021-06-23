@@ -564,18 +564,17 @@ function toggleDataAttr($element, attr, value = '') {
 
 // vacancies dropdown
 {
-  const vacanciesItem = $('.vacancies-list__item');
+  $(window).on('click', event => {
+    const button = $(event.target).closest('.vacancies-list__row')
 
-  vacanciesItem.each(function () {
-    const vacancies = $(this);
-    const vacanciesButton = vacancies.find('.vacancies-list__row');
-    const vacanciesDrop = vacancies.find('.vacancies-list__dropdown');
-
-    vacanciesButton.on('click', function () {
-      vacanciesButton.toggleClass('vacancies-list__row--active');
-      vacanciesDrop.slideToggle();
-    });
-  });
+    if (button.lenght !== 0) {
+      const item = button.closest('.vacancies-list__item')
+      const drop = item.find('.vacancies-list__dropdown')
+      
+      button.toggleClass('vacancies-list__row--active')
+      drop.slideToggle()
+    }
+  })
 }
 
 // select
