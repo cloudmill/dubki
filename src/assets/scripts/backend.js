@@ -183,7 +183,7 @@ function autocompleteDefineRegion() {
       my: 'left top+5',
     },
     select: function(event, ui) {
-      location.href = window.location.href + '?selectRegionId=' + ui.item.id + '&selectRegionVal=' + ui.item.value;
+      location.href = window.location.href + '?region=' + ui.item.id;
       return false;
     },
   });
