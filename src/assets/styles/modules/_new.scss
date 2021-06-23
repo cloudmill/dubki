@@ -2631,6 +2631,25 @@ body>.wrapper {
 
   &--second {
     width: 100%;
+    #{$comp}__card {
+      min-height: 180px;
+      @media (min-width: $breakpoint) {
+        min-height: 220px;
+      }
+
+      &--big {
+        height: 333px;
+        @media (min-width: $breakpoint) {
+          height: 460px;
+        }
+      }
+
+      #{$comp}__content-list {
+        @media (min-width: $breakpoint) {
+          height: 180px;
+        }
+      }
+    }
   }
 
   &__row {
@@ -2667,19 +2686,6 @@ body>.wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-  }
-
-  &__row {
-    display: flex;
-    @media (max-width: $breakpoint - 1px) {
-      flex-wrap: wrap;
-    }
-  }
-
-  &__col {
-    @media (max-width: $breakpoint - 1px) {
-      width: 100%;
-    }
   }
 
   &__card {
@@ -2736,6 +2742,32 @@ body>.wrapper {
           transform: scale(0.7);
         }
       }
+
+      #{$comp}__title {
+        margin-bottom: 20px;
+        @media (min-width: $breakpoint) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &__container {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    height: 92px;
+    @media (min-width: $breakpoint) {
+      height: 130px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    @media (min-width: $breakpoint) {
+      left: 30px;
     }
   }
 
@@ -2800,52 +2832,35 @@ body>.wrapper {
     position: relative;
 
     &-list {
-      margin-top: 20px;
+      margin-top: -15px;
       @media (min-width: $breakpoint) {
-        margin-top: 30px;
 
         flex-wrap: wrap;
-        height: 130px
+        height: 150px
       }
       display: flex;
       flex-direction: column;
     }
 
     &-item {
-      
+      margin-top: 15px;
       @media (min-width: $breakpoint) {
-        margin-top: 10px;
-
         width: calc(#{$grid-part-d} * 3 - 30px);
 
         font-size: 15px;
-
-        &:nth-child(5n + 1) {
-          margin-top: 0;
-        }
       }
       font-weight: 400;
       font-size: 13px;
-      line-height: 1.2;
-
-      @media (max-width: $breakpoint - 1px) {
-        &:not(:first-child) {
-          margin-top: 10px;
-        }
-      }
+      line-height: 1;
     }
   }
 
   &__title {
-    color: $color-black;
-    font-weight: 700;
-    font-size: 16px;
-
+    
+    @include fsl(16px, 120%);
     @media (min-width: $breakpoint) {
-      font-size: 25px;
+      @include fsl(25px);
     }
-
-    line-height: 1.2;
   }
 }
 
@@ -4644,6 +4659,36 @@ body>.wrapper {
 }
 
 .video {
+
+  &__frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    &-img {
+      position: absolute;
+      left: calc(#{$grid-gap-d});
+      bottom: 55px;
+
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
+
+      &--second {
+        left: auto;
+        right: -60px;
+      }
+    }
+  }
 
   &__wrapper {
     @media (min-width: $breakpoint) {
