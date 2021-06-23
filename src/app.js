@@ -1195,7 +1195,7 @@ function toggleDataAttr($element, attr, value = '') {
             // ?
             const placemarkGeo = new ymaps.Placemark(geoPoint.coordinates, {}, {
               iconLayout: 'default#image',
-              iconImageHref: 'assets/images/svg/placemark.svg',
+              iconImageHref: '/local/templates/main/assets/images/svg/placemark.svg',
               iconImageSize: [markWidth, markHeight],
               iconImageOffset: [-markWidth / 2, -markHeight],
 
