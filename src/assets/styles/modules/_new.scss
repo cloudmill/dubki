@@ -5661,6 +5661,7 @@ body>.wrapper {
 }
 
 .form {
+  $comp: &;
   width: 100%;
 
   transition: .4s;
@@ -5685,18 +5686,6 @@ body>.wrapper {
     position: relative;
     display: flex;
 
-    // &::before {
-    //   content: "Имя";
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 0;
-    //   transform: translateY(-50%);
-    //   color: $color-black;
-    //   @include f-main();
-    //   font-weight: 400;
-    //   @include fsl(16px, 100%);
-    // }
-
     &--select {
 
       .select2-container--default .select2-selection--single {
@@ -5716,6 +5705,14 @@ body>.wrapper {
         li {
           padding: 5px 35px;
         }
+      }
+    }
+
+    &--active {
+      #{$comp}__placeholder {
+        top: 8px;
+        transform: none;
+        @include fsl(12px);
       }
     }
   }
@@ -5739,12 +5736,28 @@ body>.wrapper {
       color: $color-black;
     }
 
+    &:focus {
+      border-color: $color-light-green;
+    }
 
     &--large {
       height: 160px;
       resize: none;
     }
+  }
 
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+
+    color: $color-black;
+    font-weight: 400;
+    @include fsl(16px, 100%);
+
+    transition: $transition;
+    pointer-events: none;
   }
 
   &__wrapper {
@@ -5815,11 +5828,16 @@ body>.wrapper {
     display: flex;
     justify-content: flex-end;
   }
+}
 
-  
+input:focus~.form__placeholder {
+  top: 8px;
+  transform: none;
+  @include fsl(12px);
 }
 
 .checkbox {
+  position: relative;
 
   &__label {
     display: flex;
@@ -5872,6 +5890,11 @@ body>.wrapper {
 
   &__link {
     color: $color-light-green;
+  }
+
+  .parsley-errors-list {
+    bottom: -10px;
+    left: 45px;
   }
 }
 
@@ -7841,6 +7864,12 @@ body>.wrapper {
 
   &-error {
     border-color: #F2535F;
+  }
+
+  &-type {
+    color: #F2535F;
+    font-weight: 400;
+    @include fsl(12px, 80%);
   }
 
   &-errors-list {
