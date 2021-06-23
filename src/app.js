@@ -869,7 +869,7 @@ function toggleDataAttr($element, attr, value = '') {
       const responseButton = $('.response__btn');
       const formButton = $('.form__btn');
 
-      formButton.on('click', function () {
+      formButton.on('submit', function () {
         form.addClass('form--hidden');
         response.addClass('response--active');
         $('.provider__row').addClass('provider__row--active');
