@@ -4387,6 +4387,67 @@ body>.wrapper {
 
 .about-info {
 
+  &__frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__layout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  &__svg {
+    position: absolute;
+    bottom: 23px;
+    left: calc(#{$grid-part-d} * 9);
+
+    display: none;
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    right: calc(#{$grid-col-m} / 2);
+    bottom: -10%;
+    @media (min-width: $breakpoint) {
+      bottom: -15%;
+      right: 0;
+
+      width: auto;
+    }
+    width: 160px;
+
+    &--small {
+      bottom: -7%;
+      right: calc(#{$grid-pard-m} + #{$grid-gap-m});
+      @media (min-width: $breakpoint) {
+        right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+
+        width: auto;
+      }
+      width: 60px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    bottom: -6%;
+    @media (min-width: $breakpoint) {
+      bottom: -5%;
+    }
+    @media (max-width: $breakpoint - 1px) {
+      width: 130px;
+    }
+  }
+
   &__inner {
     padding-top: 60px;
     padding-bottom: 155px;
