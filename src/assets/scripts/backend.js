@@ -9,6 +9,7 @@ $(function () {
   buyListFilter();
   autocompleteDefineRegion();
   forms();
+  searchForm();
 });
 
 function vacancy() {
