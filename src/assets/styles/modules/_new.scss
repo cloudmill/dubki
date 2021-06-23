@@ -6156,6 +6156,17 @@ input:focus~.form__placeholder {
     $comp: &;
     display: flex;
 
+    &-input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+
     &-row {
       padding: 10px 0;
 
