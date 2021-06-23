@@ -1312,3 +1312,20 @@ function toggleDataAttr($element, attr, value = '') {
     })
   })
 }
+
+// about, yt
+{
+  $(() => {
+    const videos = $('.video')
+    
+    videos.each(function () {
+      const video = $(this)
+      const videoBtn = video.find('.video__button')
+      const videoYt = video.find('.video__yt')
+
+      videoBtn.on('click', () => {
+        videoYt.addClass('video__yt--active')
+      })
+    })
+  })
+}
