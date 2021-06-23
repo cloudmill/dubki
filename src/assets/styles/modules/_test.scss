@@ -331,6 +331,12 @@
       height: $frame;
     }
 
+    #{$comp}__title-wrapper {
+      $line-height: 16px;
+      $line-count: 2;
+
+      max-height: $line-height * $line-count;
+    }
     #{$comp}__title {
       @include fsl(13px);
     }
@@ -358,6 +364,12 @@
       height: $frame;
     }
     
+    #{$comp}__title-wrapper {
+      $line-height: 22px;
+      $line-count: 3;
+
+      max-height: $line-height * $line-count;
+    }
     #{$comp}__title {
       @include fsl(18px);
     }
