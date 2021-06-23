@@ -1184,4 +1184,22 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
+// input
+{
+  $(() => {
+    const formInput = $('.form__input');
 
+    formInput.each(function() {
+      const currentInput = $(this);
+      const formItem = currentInput.closest('.form__item');
+
+      currentInput.on('input', function() {
+        if (currentInput.value !== 0) {
+          formItem.addClass('form__item--active');
+        } else {
+          formItem.removeClass('form__item--active');
+        }
+      });
+    });
+  });
+}

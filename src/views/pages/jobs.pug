@@ -19,9 +19,13 @@ block content
           .modal__form
             form.form(action="/" data-type="feedback-form") 
               .form__item 
-                input.form__input(type="text" name="name" placeholder="Имя" required="required")
+                input.form__input(type="text" name="name" required="required")
+                span.form__placeholder 
+                  |Имя
               .form__item 
-                input.form__input(type="text" name="phone" placeholder="Телефон" data-parsley-phone="" data-mask="phone" required="required")
+                input.form__input(type="text" name="phone" data-parsley-phone="" data-mask="phone" required="required")
+                span.form__placeholder 
+                  |Телефон
               .form__item.form__item--select
                 .select-wrapper.select-wrapper--wide
                   .select 
