@@ -332,6 +332,10 @@ function toggleDataAttr($element, attr, value = '') {
         })
       }
     }
+
+    $(window).on('load', () => {
+      $('.top__container').css('opacity', 1)
+    })
   });
 }
 
@@ -1208,14 +1212,26 @@ function toggleDataAttr($element, attr, value = '') {
 {
   $(() => {
     $('.product-announcement').each(function () {
-      const title = $(this).find('.product-announcement__title')
+      const comp = $(this)
+      const title = comp.find('.product-announcement__title')
 
       const originalText = title.text()
-      const lineCount = 3
+
+      let lineCount = 3
+      if (comp.hasClass('product-announcement--small')) {
+        lineCount = 2
+      }
+
       const lineHeightM = 12
       const lineHeightD = 18
 
       function getLineHeight() {
+        if (comp.hasClass('product-announcement--small')) {
+          return 16
+        }
+        if (comp.hasClass('product-announcement--large')) {
+          return 22
+        }
         return BREAKPOINT_MEDIA.matches ? lineHeightD : lineHeightM
       }
 
@@ -1224,22 +1240,24 @@ function toggleDataAttr($element, attr, value = '') {
         lineHeight = getLineHeight()
       })
 
-      // ? оптимизация
       function updateTitle() {
         title.text(originalText)
 
-        let newText = originalText
+        if (title.height() > (lineHeight * lineCount)) {
+          let newText = originalText
+          
+          while (title.height() > (lineHeight * lineCount)) {
+            newText = newText.substring(0, newText.length - 1).trim()
 
-        while (title.height() > (lineHeight * lineCount)) {
-          newText = newText.substring(0, newText.length - 1).trim()
+            title.text(newText)
+          }
 
+          newText = newText.substring(0, newText.length - 5).trim() + '...'
           title.text(newText)
         }
-
-        newText = newText.substring(0, newText.length - 5).trim() + '...'
-        title.text(newText)
       }
 
+      // ? оптимизация
       updateTitle()
       $(window).on('resize', () => {
         updateTitle()

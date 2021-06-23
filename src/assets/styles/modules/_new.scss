@@ -2137,7 +2137,7 @@ body>.wrapper {
     color: $color-white;
   }
 
-  // top-slide sliders
+  // sliders
   &__container {
     margin: 40px #{-$col-pad-m} 0;
     @media (max-width: $breakpoint - 1px) {
@@ -2149,7 +2149,13 @@ body>.wrapper {
     }
     pointer-events: none;
 
+    opacity: 0;
+    transition: $transition;
+
     .swiper-slide {
+      pointer-events: none;
+    }
+    .product-announcement {
       pointer-events: all;
     }
   }
@@ -2165,18 +2171,18 @@ body>.wrapper {
           align-items: flex-end;
         }
         &__swiper {
-          width: $top-slide-width-m;
+          width: $top-slide-width-small;
 
           &:not(:first-child) {
             margin-left: 25px;
           }
 
-          &--big {
-            width: $top-slide-width-d;
-          }
-
           .swiper-slide {
             width: auto;
+          }
+
+          &--large {
+            width: $top-slide-width-large;
           }
         }
       }
@@ -2188,215 +2194,6 @@ body>.wrapper {
 
       .swiper-slide {
         width: auto;
-      }
-    }
-  }
-}
-
-.top-slide {
-  $comp: &;
-
-  // padding-bottom: 25px;
-  // padding-top: 65px;
-
-  // width: $top-slide-width-m;
-  // height: 302px;
-  // flex-shrink: 0;
-  // display: flex;
-  // align-items: flex-end;
-  // justify-content: center;
-  // position: relative;
-  // z-index: 0;
-
-  // pointer-events: all;
-
-  // transition: .4s;
-
-  // background-color: $color-white;
-  // border-radius: 137px;
-
-
-  &--catalog {
-    // padding-top: 45px;
-    // height: 241px;
-
-    // @media (min-width: $breakpoint) 
-    // @media (min-width: $breakpoint-ll) {
-    //   width: 240px;
-    // }
-
-    // @media (min-width: $breakpoint) {
-    //   width: calc((#{$grid-part-d}) * 3 - #{$grid-gap-d});
-    // }
-    // @media (max-width: $breakpoint - 1px) {
-    //   width: 165px;
-    // }
-    //   height: 350px;
-    // }
-
-    // @media (max-width: $breakpoint) {
-    //   &:nth-child(-n + 2) {
-    //     margin-top: 0;
-    //   }
-
-    //   &:nth-child(2n + 1) {
-    //     margin-left: 0;
-    //   }
-    // }
-
-  }
-  
-  &__discont {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: $transition;
-
-    &-text {
-      position: absolute;
-      z-index: 1;
-
-      @include f-alt();
-      @include fsl(28px, 80%);
-
-      &--catalog {
-        @include fsl(20px, 80%);
-
-        @media (min-width: $breakpoint) {
-          @include fsl(28px, 80%);
-        }
-      }
-    }
-
-    &-subtext {
-      @include fsl(14px, 80%);
-      display: none;
-      @media (min-width: $breakpoint) {
-        display: block;
-      }
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-    }
-  }
-
-  &__container {
-    padding: 0 27px;
-
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-    &--catalog {
-      padding: 0 10px;
-
-      height: 100%;
-    }
-  }
-
-  &__frame {
-    // margin-top: 20px;
-
-    @media (min-width: $breakpoint) {
-      // margin-top: 30px;
-    }
-
-    // height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-    border-radius: 50%;
-  }
-
-  &__image {
-    width: 129px;
-    height: 91px;
-    flex-shrink: 0;
-    transition: $transition;
-
-    &--catalog {
-      flex-shrink: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    &--product {
-      transform: scale(0.5);
-
-      @media (min-width: $breakpoint) {
-        transform: scale(0.7);
-      }
-    }
-  }
-
-  &__info {
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__text {
-    width: 167px;
-    flex-shrink: 0;
-    text-align: center;
-    @include fsl(13px, 120%);
-
-    &--crop {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    &--catalog {
-      margin-top: 0;
-
-      @include fsl(10px, 120%);
-      @media (min-width: $breakpoint) {
-        @include fsl(15px, 120%);
-      }
-    }
-  }
-
-  &__price {
-    color: $color-black;
-    font-size: 16px;
-    line-height: 1.2;
-
-    span {
-      margin-right: 8px;
-
-      color: $color-light-grey;
-      line-height: 1.2;
-      text-decoration: line-through;
-
-    }
-
-    &--catalog {
-
-      font-size: 10px;
-
-      @media (min-width: $breakpoint) {
-        font-size: 15px;
-      }
-
-      span {
-        font-size: 10px;
-
-        @media (min-width: $breakpoint) {
-          font-size: 15px;
-        }
       }
     }
   }

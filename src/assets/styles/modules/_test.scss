@@ -312,18 +312,17 @@
     width: 100%;
   }
 
-  &--top {
+  &--small {
     $width: 221px;
     $frame: $width - ($offset-d * 2);
-    $offset: 11px;
 
-    padding: $offset 0 20px;
-    height: 302px;
+    padding: $offset-d 0 20px;
     width: $width;
+    height: 302px;
 
     &:hover {
       #{$comp}__frame {
-        transform: scale(#{1 + (($offset * 2) / $frame)});
+        transform: scale(#{1 + (($offset-d * 2) / $frame)});
       }
     }
 
@@ -340,19 +339,17 @@
       @include fsl(16px);
     }
   }
-
-  &--big {
+  &--large {
     $width: 414px;
-    $offset: 10px;
-    $frame: $width - ($offset * 2);
+    $frame: $width - ($offset-d * 2);
 
-    padding: $offset 0 30px;
-    height: 563px;
+    padding: $offset-d 0 30px;
     width: $width;
+    height: 563px;
 
     &:hover {
       #{$comp}__frame {
-        transform: scale(#{1 + (($offset * 2) / $frame)});
+        transform: scale(#{1 + (($offset-d * 2) / $frame)});
       }
     }
 
