@@ -460,21 +460,23 @@
     justify-content: space-between;
   }
 
+  &__title-wrapper {
+    $line-height-m: 12px; // 10px * 120%
+    $line-height-d: 18px; // ~ 15px * 120%
+    $line-count: 3;
+
+    max-height: $line-height-m * $line-count;
+    @media (min-width: $breakpoint) {
+      max-height: $line-height-d * $line-count;
+    }
+    overflow: hidden;
+  }
   &__title {
     @include fsl(10px, 120%);
     @media (min-width: $breakpoint) {
       @include fsl(15px);
     }
     text-align: center;
-  }
-  &__title-line {
-    white-space: nowrap;
-
-    &--crop {
-      overflow: hidden;
-
-      text-overflow: ellipsis;
-    }
   }
 
   &__price {

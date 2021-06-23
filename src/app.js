@@ -905,16 +905,99 @@ function toggleDataAttr($element, attr, value = '') {
   })
 }
 
-// test
+// map
 {
   ymaps.ready(() => {
     const container = $('#map')
 
     if (container.length !== 0) {
-      // data
-      const dataJSON = $('.placemarks').text().trim()
-      const data = JSON.parse(dataJSON)
-      console.log(data);
+      // data (получение данных)
+      const data = {
+        startLocation: 'Самара',
+        geoPoints: [
+          //- Самара
+          {
+            id: 0,
+            coordinates: [
+              55,
+              33,
+            ],
+            location: 'Самара',
+            address: 'address',
+            schedules: [
+              'schedule',
+              'schedule',
+              'schedule',
+            ],
+            label: 'label',
+          },
+          {
+            id: 1,
+            coordinates: [
+              55.1, 33
+            ],
+            location: 'Самара',
+            address: 'address',
+            schedules: [
+              'schedule',
+            ],
+          },
+          //- Воронеж
+          {
+            id: 2,
+            coordinates: [
+              55, 34
+            ],
+            location: 'Воронеж',
+            address: 'address',
+            schedules: [
+              'schedule',
+              'schedule',
+            ],
+            label: 'label',
+          },
+          {
+            id: 3,
+            coordinates: [
+              55.1, 34
+            ],
+            location: 'Воронеж',
+            address: 'address',
+            schedules: [
+              'schedule',
+            ],
+          },
+          {
+            id: 4,
+            coordinates: [
+              55, 34.1
+            ],
+            location: 'Воронеж',
+            address: 'address',
+            schedules: [
+              'schedule',
+              'schedule',
+              'schedule',
+            ],
+            label: 'label',
+          },
+          {
+            id: 5,
+            coordinates: [
+              56,
+              33,
+            ],
+            location: 'Тула',
+            address: 'address',
+            schedules: [
+              'schedule',
+              'schedule',
+              'schedule',
+            ],
+            label: 'label',
+          },
+        ],
+      }
 
 
 
@@ -1212,4 +1295,48 @@ function toggleDataAttr($element, attr, value = '') {
 
     Inputmask({ mask: "+7 (999) 999-9999" }).mask("[data-mask=phone]");
   });
+}
+
+// product-announcement
+{
+  $(() => {
+    $('.product-announcement').each(function () {
+      const title = $(this).find('.product-announcement__title')
+
+      const originalText = title.text()
+      const lineCount = 3
+      const lineHeightM = 12
+      const lineHeightD = 18
+
+      function getLineHeight() {
+        return BREAKPOINT_MEDIA.matches ? lineHeightD : lineHeightM
+      }
+
+      let lineHeight = getLineHeight()
+      BREAKPOINT_MEDIA.addListener(() => {
+        lineHeight = getLineHeight()
+      })
+
+      // ? оптимизация
+      function updateTitle() {
+        title.text(originalText)
+
+        let newText = originalText
+
+        while (title.height() > (lineHeight * lineCount)) {
+          newText = newText.substring(0, newText.length - 1)
+  
+          title.text(newText)
+        }
+
+        newText = newText.substring(0, newText.length - 5) + '...'
+        title.text(newText)
+      }
+      
+      updateTitle()
+      $(window).on('resize', () => {
+        updateTitle()
+      })
+    })
+  })
 }
