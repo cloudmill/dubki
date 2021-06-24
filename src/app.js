@@ -968,6 +968,7 @@ function toggleDataAttr($element, attr, value = '') {
     if (container.length !== 0) {
       // get data
       $.getJSON('/shops.json', data => {
+      // $.getJSON('/assets/data/mapData.json', data => {
         // clusters
         const clusters = {}
         data.geoPoints.forEach(geoPoint => {
@@ -1048,7 +1049,7 @@ function toggleDataAttr($element, attr, value = '') {
           });
         }
 
-        // update list
+        // list
         function updateList(location) {
           const list = $('[data-map-list]')
 
@@ -1079,17 +1080,13 @@ function toggleDataAttr($element, attr, value = '') {
 
           list.html(listHtml)
         }
-
-        // init list
         updateList(data.startLocation)
 
         // map
-        const map = {}
-
-        // ?
-        const markWidth = 53;
-        const markHeight = 56;
-
+        const map = {
+          markWidth: 53,
+          markHeight: 56,
+        }
         map.ymap = new ymaps.Map('map', {
           zoom: 12,
           controls: [],
@@ -1097,7 +1094,6 @@ function toggleDataAttr($element, attr, value = '') {
           // ?
           center: clusters[data.startLocation][0].coordinates,
         })
-
         map.placemarks = {}
         map.clusters = {}
         for (let location in clusters) {
@@ -1170,7 +1166,7 @@ function toggleDataAttr($element, attr, value = '') {
                 applyElementOffset: function () {
                   this._$element.css({
                     left: -(this._$element[0].offsetWidth / 2),
-                    top: -(this._$element[0].offsetHeight + markHeight / 2),
+                    top: -(this._$element[0].offsetHeight + map.markHeight / 2),
                   });
                 },
                 getShape: function () {
@@ -1199,8 +1195,9 @@ function toggleDataAttr($element, attr, value = '') {
             }, {
               iconLayout: 'default#image',
               iconImageHref: '/local/templates/main/assets/images/svg/placemark.svg',
-              iconImageSize: [markWidth, markHeight],
-              iconImageOffset: [-markWidth / 2, -markHeight],
+              // iconImageHref: '/assets/images/svg/placemark.svg',
+              iconImageSize: [map.markWidth, map.markHeight],
+              iconImageOffset: [-map.markWidth / 2, -map.markHeight],
 
               balloonLayout: layout,
               balloonPanelMaxMapArea: 0,
@@ -1210,29 +1207,27 @@ function toggleDataAttr($element, attr, value = '') {
             map.placemarks[geoPoint.id] = placemarkGeo
             map.clusters[location].add(placemarkGeo)
           })
-
-          map.ymap.geoObjects.add(map.clusters[location])
         }
-
         map.ymap.events.add('click', (event) => {
           if (map.ymap.balloon.isOpen()) {
             map.ymap.balloon.close();
           }
         });
+        function updateMap(location) {
+          map.ymap.geoObjects.removeAll()
+          map.ymap.geoObjects.add(map.clusters[location])
+          map.ymap.setBounds(map.clusters[location].getBounds(), {
+            zoomMargin: Math.max(map.markWidth, map.markHeight),
+          })
+        }
+        updateMap(data.startLocation)
 
-        map.ymap.setBounds(map.clusters[data.startLocation].getBounds(), {
-          zoomMargin: Math.max(markWidth, markHeight),
-        });
-
-        // change location
+        // change
         select.on('change', () => {
           const location = select.val()
 
           updateList(location)
-
-          map.ymap.setBounds(map.clusters[location].getBounds(), {
-            zoomMargin: Math.max(markWidth, markHeight),
-          });
+          updateMap(location)
         })
       
         // list -> point
@@ -1247,8 +1242,8 @@ function toggleDataAttr($element, attr, value = '') {
             
             const targetPlacemark = map.placemarks[listItemID]
 
-            map.ymap.setCenter(targetPlacemark.geometry._coordinates, 15);
-            targetPlacemark.balloon.open();
+            map.ymap.setCenter(targetPlacemark.geometry._coordinates, 15)
+            targetPlacemark.balloon.open()
 
             if (listItemWrapper.hasClass('map-list__item--active')) {
               listItemWrapper.addClass('map-list__item--active')
