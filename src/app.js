@@ -1203,3 +1203,20 @@ function toggleDataAttr($element, attr, value = '') {
     });
   });
 }
+
+// animation about
+{
+  $(() => {
+    const gifts = $('.gifts');
+
+    if (gifts.lenght !== 0) {
+      const giftPos = gifts.offset().top;
+
+      $(window).on('scroll', function() {
+        if ($(this).scrollTop() > giftPos - 200) {
+          $('.animation').addClass('animation--animated')
+        }
+      });
+    }
+  });
+}

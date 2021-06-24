@@ -4804,6 +4804,85 @@ body>.wrapper {
 }
 
 .gifts {
+  position: relative;
+
+  &__layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    &-img {
+      opacity: 0;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      @media (min-width: $breakpoint) {
+        top: 215px;
+      }
+
+      &--distant {
+        @media (min-width: $breakpoint) {
+          top: 140px;
+        }
+      }
+    }
+
+    &-img.animation--animated {
+      @media (min-width: $breakpoint) {
+        opacity: 1;
+        left: calc(#{$grid-part-d} * 2);
+        transform: rotate(720deg);
+        animation-name: fade-left;
+        animation-duration: 4s;
+      }
+    }
+
+    &-img--distant.animation--animated {
+      @media (min-width: $breakpoint) {
+        left: calc(#{$grid-part-d} * 5); 
+        animation-name: fade-left-further;
+        animation-duration: 4s;
+      }
+    }
+    
+    &-image {
+      opacity: 0;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      @media (min-width: $breakpoint) {
+        // right: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
+        top: 130px;
+      }
+      &--distant {
+        @media (min-width: $breakpoint) {
+          // right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+          top: 215px;
+        }
+      }
+    }
+
+    &-image.animation--animated {
+      @media (min-width: $breakpoint) {
+        opacity: 1;
+        transform: rotate(-720deg);
+        right: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
+        animation-name: fade-right;
+        animation-duration: 4s;
+      }
+    }
+
+    &-image--distant.animation--animated {
+      @media (min-width: $breakpoint) {
+        right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+        animation-name: fade-right-further;
+        animation-duration: 4s;
+      }
+    }
+  }
 
   &__inner {
     padding-top: 60px;

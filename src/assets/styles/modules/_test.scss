@@ -592,3 +592,21 @@
     }
   }
 }
+
+@keyframes fade-left {
+  0% {transform: rotate(720deg); left: 0;}
+  100% {transform: rotate(0deg); left: calc(#{$grid-part-d} * 2);} 
+}
+@keyframes fade-left-further {
+  0% {transform: rotate(720deg); left: 0;}
+  100% {transform: rotate(0deg); left: calc(#{$grid-part-d} * 5);} 
+}
+
+@keyframes fade-right {
+  0% {transform: rotate(-720deg); right: 0;}
+  100% {transform: rotate(0deg); right: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});} 
+}
+@keyframes fade-right-further {
+  0% {transform: rotate(-720deg); right: 0;}
+  100% {transform: rotate(0deg); right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});} 
+}
