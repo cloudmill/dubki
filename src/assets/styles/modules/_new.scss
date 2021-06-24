@@ -4865,10 +4865,19 @@ body>.wrapper {
   }
 
   &__text {
-    font-weight: 400;
-    @include fsl(14px, 140%);
+    display: none;
     @media (min-width: $breakpoint) {
+      display: block;
       @include fsl(18px, 140%);
+    }
+    @include fsl(14px, 140%);
+    font-weight: 400;
+
+    &--mobile {
+      display: block;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
     }
   }
 }
