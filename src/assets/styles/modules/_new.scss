@@ -2832,6 +2832,8 @@ body>.wrapper {
     width: calc(100% + 20px);
   }
 
+  
+
   &--second {
     width: 100%;
     #{$comp}__card {
@@ -2924,9 +2926,16 @@ body>.wrapper {
     display: flex;
     align-items: flex-end;
     position: relative;
+    overflow: hidden;
 
     background-color: $color-white;
     border-radius: 20px;
+
+    &:hover {
+      #{$comp}__frame {
+        transform: scale(1.1);
+      }
+    }
 
     &--big {
 
@@ -2938,11 +2947,11 @@ body>.wrapper {
         height: 520px;
       }
 
-      #{$comp}__img {
-        transform: scale(0.4);
-
+      #{$comp}__frame {
+        
         @media (min-width: $breakpoint) {
-          transform: scale(0.7);
+          width: 350px;
+          height: 250px;
         }
       }
 
@@ -2978,23 +2987,19 @@ body>.wrapper {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
+    width: 200px;
+    height: 100px;
+    @media (min-width: $breakpoint) {
+      width: 250px;
+      height: 150px;
+    }
 
     pointer-events: none;
-
-    border-radius: inherit;
+    transition: $transition;
   }
 
   &__img {
-    transform: scale(0.35);
-
-    @media (min-width: $breakpoint) {
-      transform: scale(0.5);
-    }
-
-    transform-origin: left top;
+    transition: $transition;
   }
 
   &__discont {
