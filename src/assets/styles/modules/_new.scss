@@ -2762,8 +2762,6 @@ body>.wrapper {
     width: calc(100% + 20px);
   }
 
-  
-
   &--second {
     width: 100%;
     #{$comp}__card {
@@ -2865,6 +2863,10 @@ body>.wrapper {
       #{$comp}__frame {
         transform: scale(1.1);
       }
+
+      #{$comp}__container {
+        transform: scale(1.1);
+      }
     }
 
     &--big {
@@ -2902,6 +2904,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       height: 130px;
     }
+    transition: $transition;
   }
 
   &__logo {
