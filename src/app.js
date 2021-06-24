@@ -304,9 +304,13 @@ function toggleDataAttr($element, attr, value = '') {
     {
       const shops = $('.shops');
       if (shops.lenght !== 0) {
+        let isSliderInit = false;
+        
         shops.addClass('shops--hidden');
+
         $('[data-tab]').on('click', function() {
           const tabId = $(this).data('tab');
+          const hiddenSlider = $(this).find('#self-service');
 
           if ($(tabId).hasClass('shops--active')) {
             $(tabId).addClass('shops--active');
@@ -317,7 +321,19 @@ function toggleDataAttr($element, attr, value = '') {
             $(this).addClass('shops-format__button--active');
             $(tabId).addClass('shops--active');
           }
+
+          if (isSliderInit === true) {
+            console.log(1)
+            return;
+          } else {
+            console.log(2)
+            const shopSlider = new Swiper(hiddenSlider[0], {
+              slidesPerView: 'auto',
+            });
+            isSliderInit = true;
+          }
         });
+
       }
     }
   });
