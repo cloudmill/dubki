@@ -13,7 +13,7 @@ $(function () {
   searchHeader();
   recipes();
   ajaxRecipes();
-
+  changeCityProduct();
 });
 
 function vacancy() {
@@ -21,6 +21,28 @@ function vacancy() {
   $("[data-type=js-vacancy-filter]").on("change", function (e) {
     ajaxVacancy(this.value);
   });
+}
+
+function changeCityProduct() {
+  console.log("product change city");
+  if ($("[data-type=product-change-city]").length) {
+    changeCityProductAction();
+  }
+
+  $("[data-type=product-change-city]").on("change", function (e) {
+    console.log("change");
+    changeCityProductAction();
+  });
+
+  function changeCityProductAction() {
+    let select = $("[data-type=product-change-city]"),
+      option = select.find("option:selected"),
+      newPrice = option.attr("data-new"),
+      oldPrice = option.attr("data-old");
+
+    $("[data-type=product-price-old]").html(oldPrice + " ₽");
+    $("[data-type=product-price-new]").html(newPrice + " ₽");
+  }
 }
 
 function ajaxVacancy(cityId) {
@@ -126,7 +148,7 @@ function searchHeader() {
     let form = $(document).find("[data-type=header-search-form]"),
       search = form.find("input[name=search]").val();
 
-      document.location.href = 'http://dubki.hellem.ru/search/?search=' + search;
+    document.location.href = "http://dubki.hellem.ru/search/?search=" + search;
   });
 }
 
@@ -165,12 +187,12 @@ function buyListFilter() {
 }
 
 function autocompleteDefineRegion() {
-  $('[data-type=autocomplete-region-define]').autocomplete({
-    appendTo: '[data-autocomplete-place]',
+  $("[data-type=autocomplete-region-define]").autocomplete({
+    appendTo: "[data-autocomplete-place]",
     source: function (request, response) {
       $.ajax({
-        url: '/local/templates/main/include/ajax/autocomplete_define_region.php',
-        dataType: 'json',
+        url: "/local/templates/main/include/ajax/autocomplete_define_region.php",
+        dataType: "json",
         data: {
           q: request.term,
         },
@@ -180,59 +202,64 @@ function autocompleteDefineRegion() {
       });
     },
     position: {
-      my: 'left top+5',
+      my: "left top+5",
     },
-    select: function(event, ui) {
-      location.href = window.location.pathname + '?region=' + ui.item.id;
+    select: function (event, ui) {
+      location.href = window.location.pathname + "?region=" + ui.item.id;
       return false;
     },
   });
 }
 
 function forms() {
-  $(document).on('click', '[data-type=submit-form]', function (e) {
+  $(document).on("click", "[data-type=submit-form]", function (e) {
     e.preventDefault();
 
     let thisObj = $(this),
-        container = thisObj.parents('[data-type=form-container]'),
-        form = container.find('form'),
-        formResponse = container.find('[data-type=form-response]'),
-        url = container.attr('data-url'),
-        eventType = container.attr('data-event-type'),
-        contentType = 'application/x-www-form-urlencoded; charset=UTF-8',
-        processData = true,
-        data = {};
+      container = thisObj.parents("[data-type=form-container]"),
+      form = container.find("form"),
+      formResponse = container.find("[data-type=form-response]"),
+      url = container.attr("data-url"),
+      eventType = container.attr("data-event-type"),
+      contentType = "application/x-www-form-urlencoded; charset=UTF-8",
+      processData = true,
+      data = {};
 
-    if (eventType != 'CONTACT_FORM') {
+    if (eventType != "CONTACT_FORM") {
       data = new FormData();
       contentType = false;
       processData = false;
 
-      let file = container.find('[data-type=file]');
-      data.append('file', file[0].files[0]);
+      let file = container.find("[data-type=file]");
+      data.append("file", file[0].files[0]);
     }
 
-    container.find('[data-type=get-field], [data-type=get-offer]:checked, [data-type=get-manufacturer]:checked, [data-type=get-organizational]:checked').each(function () {
-      let field = $(this).attr('data-uf'),
+    container
+      .find(
+        "[data-type=get-field], [data-type=get-offer]:checked, [data-type=get-manufacturer]:checked, [data-type=get-organizational]:checked"
+      )
+      .each(function () {
+        let field = $(this).attr("data-uf"),
           val = $(this).val();
 
-      eventType != 'CONTACT_FORM' ? data.append(field, val) : data[field] = val;
-    });
+        eventType != "CONTACT_FORM"
+          ? data.append(field, val)
+          : (data[field] = val);
+      });
 
     $.ajax({
-      type: 'POST',
+      type: "POST",
       url: url,
-      dataType: 'json',
+      dataType: "json",
       contentType: contentType,
       processData: processData,
       data: data,
       success: function (r) {
         if (r.success === true) {
-          form.addClass('form--hidden');
-          formResponse.addClass('response--active');
+          form.addClass("form--hidden");
+          formResponse.addClass("response--active");
         }
       },
     });
   });
 }
-
