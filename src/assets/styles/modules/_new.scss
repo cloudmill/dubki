@@ -8100,17 +8100,11 @@ input:focus~.form__placeholder {
     position: absolute;
     bottom: 8px;
     left: 35px;
-  }
 
-  &-required {
-    color: #F2535F;
-    font-weight: 400;
-    @include fsl(12px, 80%);
-  }
-
-  &-phone {
-    color: #F2535F;
-    font-weight: 400;
-    @include fsl(12px, 80%);
+    li {
+      color: #F2535F;
+      font-weight: 400;
+      @include fsl(12px, 80%);
+    }
   }
 }
