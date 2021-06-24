@@ -4480,6 +4480,10 @@ body>.wrapper {
 
   &-card {
 
+    &__container {
+      position: relative;
+    }
+
     &__frame {
       position: relative;
       overflow: hidden;
