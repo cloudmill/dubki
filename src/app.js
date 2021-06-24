@@ -1268,7 +1268,7 @@ function toggleDataAttr($element, attr, value = '') {
 {
   $(() => {
 
-    $("[data-type=feedback-form]").parsley();
+    $("form").parsley();
 
     window.Parsley.addValidator("phone", {
       validateString: function (value) {

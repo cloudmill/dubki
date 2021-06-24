@@ -212,15 +212,13 @@ function autocompleteDefineRegion() {
 }
 
 function forms() {
-  $(document).on("click", "[data-type=submit-form]", function (e) {
+  $(document).on("submit", "[data-type=js-form]", function (e) {
     e.preventDefault();
 
-    let thisObj = $(this),
-      container = thisObj.parents("[data-type=form-container]"),
-      form = container.find("form"),
-      formResponse = container.find("[data-type=form-response]"),
-      url = container.attr("data-url"),
-      eventType = container.attr("data-event-type"),
+    let form = $(this),
+      formResponse = form.siblings("[data-type=form-response]"),
+      url = form.attr("data-url"),
+      eventType = form.attr("data-event-type"),
       contentType = "application/x-www-form-urlencoded; charset=UTF-8",
       processData = true,
       data = {};
@@ -230,11 +228,11 @@ function forms() {
       contentType = false;
       processData = false;
 
-      let file = container.find("[data-type=file]");
+      let file = form.find("[data-type=file]");
       data.append("file", file[0].files[0]);
     }
 
-    container
+    form
       .find(
         "[data-type=get-field], [data-type=get-offer]:checked, [data-type=get-manufacturer]:checked, [data-type=get-organizational]:checked"
       )
