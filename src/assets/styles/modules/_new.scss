@@ -2235,10 +2235,7 @@ body>.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    @media (min-width: $breakpoint) {
-      border-radius: 50px;
-    }
+    
   }
 
   &__inner {
@@ -2249,6 +2246,10 @@ body>.wrapper {
   }
 
   &__img {
+    @media (min-width: $breakpoint) {
+      border-radius: 50px;
+    }
+    border-radius: 30px;
 
     &--desctop {
       display: none;
@@ -2263,77 +2264,6 @@ body>.wrapper {
         display: none;
       }
     }
-  }
-
-  &__layout {
-    position: absolute;
-    z-index: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    top: 0;
-  }
-
-  &__row {
-    padding: 72px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  &__col {
-
-    &:nth-child(1) {
-      padding-left: calc(#{$grid-part-d});
-    }
-
-    &:nth-child(2) {
-      padding-right: calc((#{$grid-part-d} * 3 - #{$grid-gap-d}));
-    }
-  }
-
-  &__title {
-    width: calc((#{$grid-part-d}) * 8);
-    flex-shrink: 0;
-
-    font-weight: 900;
-    font-size: 60px;
-    line-height: 1;
-    color: #8A7C01;
-  }
-
-  &__wrapper {
-    position: relative;
-    z-index: 0;
-  }
-
-  &__image {
-    max-width: 387px;
-    max-height: 275px;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  &__discont {
-    position: absolute;
-    top: 0;
-    left: -109px;
-    z-index: 0;
-
-    font-weight: 900;
-    font-size: 148px;
-    line-height: 0.8;
-    color: $color-white;
-  }
-
-  &__icon {
-    cursor: pointer;
   }
 }
 
@@ -2721,9 +2651,20 @@ body>.wrapper {
     display: flex;
     align-items: flex-end;
     position: relative;
+    overflow: hidden;
 
     background-color: $color-white;
     border-radius: 20px;
+
+    &:hover {
+      #{$comp}__frame {
+        transform: scale(1.1);
+      }
+
+      #{$comp}__container {
+        transform: scale(1.1);
+      }
+    }
 
     &--big {
 
@@ -2735,11 +2676,11 @@ body>.wrapper {
         height: 520px;
       }
 
-      #{$comp}__img {
-        transform: scale(0.4);
-
+      #{$comp}__frame {
+        
         @media (min-width: $breakpoint) {
-          transform: scale(0.7);
+          width: 350px;
+          height: 250px;
         }
       }
 
@@ -2760,6 +2701,7 @@ body>.wrapper {
     @media (min-width: $breakpoint) {
       height: 130px;
     }
+    transition: $transition;
   }
 
   &__logo {
@@ -2775,23 +2717,19 @@ body>.wrapper {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
+    width: 200px;
+    height: 100px;
+    @media (min-width: $breakpoint) {
+      width: 250px;
+      height: 150px;
+    }
 
     pointer-events: none;
-
-    border-radius: inherit;
+    transition: $transition;
   }
 
   &__img {
-    transform: scale(0.35);
-
-    @media (min-width: $breakpoint) {
-      transform: scale(0.5);
-    }
-
-    transform-origin: left top;
+    transition: $transition;
   }
 
   &__discont {
@@ -4197,6 +4135,10 @@ body>.wrapper {
   }
 }
 
+[data-aos^='fade'][data-aos^='fade'].aos-animate {
+  transform: scale(1) rotate(0) !important;
+}
+
 .about-info {
 
   &__frame {
@@ -4223,6 +4165,7 @@ body>.wrapper {
       @media (max-width: $breakpoint - 1px) {
         height: 80px;
       }
+      transform: scale(0.5) rotate(-45deg) !important;
 
       &--small {
         left: calc(#{$grid-pard-m} + #{$grid-gap-m} + 50px);
@@ -4258,6 +4201,7 @@ body>.wrapper {
       width: auto;
     }
     width: 160px;
+    transform: scale(0.5) rotate(45deg) !important;
 
     &--small {
       bottom: -7%;
@@ -4275,6 +4219,7 @@ body>.wrapper {
     position: absolute;
     left: 0;
     bottom: -6%;
+    transform: scale(0.5) rotate(-45deg) !important;
     @media (min-width: $breakpoint) {
       bottom: -5%;
     }
@@ -4589,6 +4534,85 @@ body>.wrapper {
 }
 
 .gifts {
+  position: relative;
+
+  &__layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    &-img {
+      opacity: 0;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      @media (min-width: $breakpoint) {
+        top: 215px;
+      }
+
+      &--distant {
+        @media (min-width: $breakpoint) {
+          top: 140px;
+        }
+      }
+    }
+
+    &-img.animation--animated {
+      @media (min-width: $breakpoint) {
+        opacity: 1;
+        left: calc(#{$grid-part-d} * 2);
+        transform: rotate(720deg);
+        animation-name: fade-left;
+        animation-duration: 4s;
+      }
+    }
+
+    &-img--distant.animation--animated {
+      @media (min-width: $breakpoint) {
+        left: calc(#{$grid-part-d} * 5); 
+        animation-name: fade-left-further;
+        animation-duration: 4s;
+      }
+    }
+    
+    &-image {
+      opacity: 0;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      @media (min-width: $breakpoint) {
+        // right: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
+        top: 130px;
+      }
+      &--distant {
+        @media (min-width: $breakpoint) {
+          // right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+          top: 215px;
+        }
+      }
+    }
+
+    &-image.animation--animated {
+      @media (min-width: $breakpoint) {
+        opacity: 1;
+        transform: rotate(-720deg);
+        right: calc(#{$grid-part-d} * 3 - #{$grid-gap-d});
+        animation-name: fade-right;
+        animation-duration: 4s;
+      }
+    }
+
+    &-image--distant.animation--animated {
+      @media (min-width: $breakpoint) {
+        right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+        animation-name: fade-right-further;
+        animation-duration: 4s;
+      }
+    }
+  }
 
   &__inner {
     padding-top: 60px;
@@ -4650,10 +4674,19 @@ body>.wrapper {
   }
 
   &__text {
-    font-weight: 400;
-    @include fsl(14px, 140%);
+    display: none;
     @media (min-width: $breakpoint) {
+      display: block;
       @include fsl(18px, 140%);
+    }
+    @include fsl(14px, 140%);
+    font-weight: 400;
+
+    &--mobile {
+      display: block;
+      @media (min-width: $breakpoint) {
+        display: none;
+      }
     }
   }
 }
@@ -5181,7 +5214,7 @@ body>.wrapper {
     overflow: hidden;
     border-radius: 0 0 50px 50px;
     
-    background: url("assets/images/about-bg.jpg") center no-repeat;
+    background: url("assets/images/about-bg.jpeg") center no-repeat;
     background-size: cover;
   }
 }
@@ -5976,6 +6009,17 @@ input:focus~.form__placeholder {
   &__download {
     $comp: &;
     display: flex;
+
+    &-input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
 
     &-row {
       padding: 10px 0;

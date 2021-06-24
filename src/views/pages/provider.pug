@@ -40,7 +40,8 @@ block content
                   p.provider-intro__text(data-aos="fade-up")
                     |Вы хотите увеличить свою прибыль? Иметь гарантированный объем продаж? Расширить географию своих поставок? Познакомить покупателя со своим брендом?
                 .provider-intro__download(data-aos="fade-up")
-                  .provider-intro__download-row
+                  input(type="file" id="contract" name="contract").provider-intro__download-input
+                  label.provider-intro__download-row(for="contract")
                     .provider-intro__download-col
                       .provider-intro__download-text
                         |Типовая форма договора
