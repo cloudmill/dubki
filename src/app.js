@@ -986,9 +986,9 @@ function toggleDataAttr($element, attr, value = '') {
         select.select2('destroy')
 
         let selectHtml = ''
-        for (let location in clusters) {
+        Object.keys(clusters).sort().forEach(location => {
           selectHtml += `<option value="${location}" ${location === data.startLocation ? 'selected' : ''}>${location}</option>`
-        }
+        })
 
         select.html(selectHtml)
 
@@ -1054,7 +1054,7 @@ function toggleDataAttr($element, attr, value = '') {
 
           let listHtml = ''
           clusters[location].forEach(geoPoint => {
-            listHtml += `<li class="map-list__item">`
+            listHtml += `<li class="map-list__item" data-map-id="${geoPoint.id}">`
             listHtml += `<div class="map-list__wrapper">`
             listHtml += `<div class="map-balloon">`
             listHtml += `<div class="map-balloon__container">`
@@ -1098,6 +1098,7 @@ function toggleDataAttr($element, attr, value = '') {
           center: clusters[data.startLocation][0].coordinates,
         })
 
+        map.placemarks = {}
         map.clusters = {}
         for (let location in clusters) {
           // ?
@@ -1193,7 +1194,9 @@ function toggleDataAttr($element, attr, value = '') {
             )
 
             // ?
-            const placemarkGeo = new ymaps.Placemark(geoPoint.coordinates, {}, {
+            const placemarkGeo = new ymaps.Placemark(geoPoint.coordinates, {
+              id: geoPoint.id,
+            }, {
               iconLayout: 'default#image',
               iconImageHref: '/local/templates/main/assets/images/svg/placemark.svg',
               iconImageSize: [markWidth, markHeight],
@@ -1204,6 +1207,7 @@ function toggleDataAttr($element, attr, value = '') {
               hideIconOnBalloonOpen: false,
             })
 
+            map.placemarks[geoPoint.id] = placemarkGeo
             map.clusters[location].add(placemarkGeo)
           })
 
@@ -1229,6 +1233,31 @@ function toggleDataAttr($element, attr, value = '') {
           map.ymap.setBounds(map.clusters[location].getBounds(), {
             zoomMargin: Math.max(markWidth, markHeight),
           });
+        })
+      
+        // list -> point
+        $(window).on('click', event => {
+          const listItem = $(event.target).closest('.map-balloon')
+
+          if (listItem.length !== 0) {
+            const listItemWrapper = listItem.closest('.map-list__item')
+            const listItemWrapperAll = $('.map-list__item')
+            
+            const listItemID = listItemWrapper.data('map-id')
+            
+            const targetPlacemark = map.placemarks[listItemID]
+
+            map.ymap.setCenter(targetPlacemark.geometry._coordinates, 15);
+            targetPlacemark.balloon.open();
+
+            if (listItemWrapper.hasClass('map-list__item--active')) {
+              listItemWrapper.addClass('map-list__item--active')
+            } else {
+              listItemWrapperAll.removeClass('map-list__item--active')
+
+              listItemWrapper.addClass('map-list__item--active')
+            }
+          }
         })
       })
     }
