@@ -281,7 +281,7 @@ function toggleDataAttr($element, attr, value = '') {
 // about slider 
 {
   $(() => {
-    $('.shops-card__container').each(function (){
+    $('#at-home .shops-card__container').each(function (){
       const slider = $(this);
 			const slider_swiper_el = slider.find('.shops-card__frame');
 
@@ -304,13 +304,11 @@ function toggleDataAttr($element, attr, value = '') {
     {
       const shops = $('.shops');
       if (shops.lenght !== 0) {
-        let isSliderInit = false;
-        
         shops.addClass('shops--hidden');
 
+        let isInit = true
         $('[data-tab]').on('click', function() {
           const tabId = $(this).data('tab');
-          const hiddenSlider = $(this).find('#self-service');
 
           if ($(tabId).hasClass('shops--active')) {
             $(tabId).addClass('shops--active');
@@ -322,23 +320,37 @@ function toggleDataAttr($element, attr, value = '') {
             $(tabId).addClass('shops--active');
           }
 
-          if (isSliderInit === true) {
-            console.log(1)
-            return;
-          } else {
-            console.log(2)
-            const shopSlider = new Swiper(hiddenSlider[0], {
-              slidesPerView: 'auto',
-            });
-            isSliderInit = true;
+          if (tabId === '#self-service') {
+            if (isInit) {
+              $('#self-service .shops-card__container').each(function (){
+                const slider = $(this);
+                const slider_swiper_el = slider.find('.shops-card__frame');
+
+                const slider_prev_id = slider.data('slider-prev-id');
+                const slider_next_id = slider.data('slider-next-id');
+
+                const sliderShops = new Swiper(slider_swiper_el[0], {
+                  slidesPerView: 'auto',
+                });
+                console.log(123);
+
+                $('[data-slider-id="' + slider_prev_id + '"]').on('click', () => {
+                  sliderShops.slidePrev();
+                });
+
+                $('[data-slider-id="' + slider_next_id + '"]').on('click', () => {
+                  sliderShops.slideNext();
+                });
+              })
+
+              isInit = false
+            }
           }
         });
-
       }
     }
   });
 }
-
 
 // top slider
 {
