@@ -34,7 +34,7 @@ block content
         .container 
             .about-info 
                 .about-info__frame 
-                    .about-info__layout
+                    .about-info__layout.data-animation-aos(data-aos="fade-up")
                         img.about-info__svg(src="assets/images/svg/about-1.svg", alt="")(data-aos="fade-up")
                         img.about-info__img(src="assets/images/svg/about-2.svg", alt="")(data-aos="fade-up")
                         img.about-info__img.about-info__img--small(src="assets/images/svg/about-3.svg", alt="")(data-aos="fade-up")
@@ -63,7 +63,8 @@ block content
                                             img.action-catalog__svg(src="assets/images/svg/logo-catalog.svg", alt="")
                                     .action-catalog__content
                                         h4.action-catalog__title
-                                            |Ароматная выпечка
+                                            a(href="#")
+                                                |Ароматная выпечка
                                         ul.action-catalog__content-list 
                                             a.action-catalog__content-item(href="#")
                                                 |Хлеб
@@ -87,7 +88,8 @@ block content
                                             img.action-catalog__svg(src="assets/images/svg/logo-catalog.svg", alt="")
                                         .action-catalog__content
                                             h4.action-catalog__title
-                                                |Блюда гриль
+                                                a(href="#")
+                                                    |Блюда гриль
                                             ul.action-catalog__content-list 
                                                 a.action-catalog__content-item(href="#")
                                                     |Курица
@@ -100,7 +102,7 @@ block content
                         .about-card__col 
                             .action-catalog.action-catalog--second
                                 .about-card__item(data-aos="fade-up")
-                                    .action-catalog__card.about-card__wrapper
+                                    a(href="#").action-catalog__card.about-card__wrapper
                                         .action-catalog__container 
                                             img.action-catalog__image(src="assets/images/salads.jpg", alt="")
                                         .action-catalog__logo 
@@ -108,7 +110,7 @@ block content
                                         h4.action-catalog__title
                                             |Салаты
                                 .about-card__item(data-aos="fade-up")
-                                    .action-catalog__card.about-card__wrapper
+                                    a(href="#").action-catalog__card.about-card__wrapper
                                         .action-catalog__container 
                                             img.action-catalog__image(src="assets/images/hot-dishes.jpg", alt="")
                                         .action-catalog__logo 
@@ -240,6 +242,11 @@ block content
         .container 
             .section__inner
                 .gifts 
+                    .gifts__layout
+                        img.gifts__layout-img.animation(src="assets/images/svg/gift-1.svg", alt="")
+                        img.gifts__layout-img.gifts__layout-img--distant.animation(src="assets/images/svg/gift-2.svg", alt="")
+                        img.gifts__layout-image.gifts__layout-image--distant.animation(src="assets/images/svg/gift-3.svg", alt="")
+                        img.gifts__layout-image.animation(src="assets/images/svg/gift-4.svg", alt="")
                     .gifts__inner 
                         .gifts__wrapper 
                             h3.gifts__title(data-aos="fade-up") 
@@ -249,14 +256,22 @@ block content
                                 .gifts__item 
                                     .gifts__img 
                                         img.gifts__image(src="assets/images/svg/gifts-1.svg", alt="")
+                                    p.gifts__text.gifts__text--mobile
+                                        |Eженедельно на продукты первой необходимости предоставляется скидка до 40%
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item 
                                     .gifts__img 
                                         img.gifts__image(src="assets/images/svg/gifts-2.svg", alt="")
+                                    p.gifts__text.gifts__text--mobile
+                                        |В праздничные дни сеть дарит своим клиентам подарочные купоны 
+                                        span.question
+                                            +quest-svg('question__mark')
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item
                                     .gifts__img 
                                         img.gifts__image(src="assets/images/svg/gifts-3.svg", alt="")
+                                    p.gifts__text.gifts__text--mobile
+                                        |Часто проходят дегустации новинок и продуктов «хитов»
                         .gifts__row
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item 
@@ -388,8 +403,8 @@ block content
                 a(href="#").banner
                     .banner__inner
                         .banner__frame(data-aos="fade-up") 
-                            img.banner__img.banner__img--desctop(src="assets/images/banner-desctop-2.png", alt="")
-                            img.banner__img.banner__img--mobile(src="assets/images/banner-mobile-2.png", alt="")
+                            img.banner__img.banner__img--desctop(src="assets/images/dubki-banner-d.jpeg", alt="")
+                            img.banner__img.banner__img--mobile(src="assets/images/dubki-banner-m.jpeg", alt="")
             
 
 block footer 
