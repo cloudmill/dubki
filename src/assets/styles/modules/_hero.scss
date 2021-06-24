@@ -1,0 +1,57 @@
+.hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+
+    background: url("assets/images/svg/index-bg.svg") center no-repeat;
+    background-size: cover;
+  }
+
+  &__background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  &__svg {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    
+    &--first {
+      left: 0;
+    }
+    &--second {
+      left: calc((#{$grid-part-d} * 2 - #{$grid-gap-d}) + 60px);
+    }
+    &--third {
+      left: calc((#{$grid-part-d} * 4 - #{$grid-gap-d} * 2) + 60px);
+    }
+    &--fourth {
+      left: 0;
+    }
+    &--fifth {
+      left: 0;
+    }
+    &--sixth {
+      left: 0;
+    }
+    &--seventh {
+      left: 0;
+    }
+    
+  }
+}
