@@ -158,7 +158,6 @@ function toggleDataAttr($element, attr, value = '') {
 
       // перемещаем катомный курсор (верстку, dom эл-т) в конец .wrapper страниц из секции
       cursor.remove();
-      console.log('123');
       cursor.css('visibility', 'visible')
       cursor.appendTo($('body > .wrapper'))
 
@@ -1453,7 +1452,7 @@ function toggleDataAttr($element, attr, value = '') {
   $(() => {
     const gifts = $('.gifts');
 
-    if (gifts.lenght !== 0) {
+    if (gifts.length !== 0) {
       const giftPos = gifts.offset().top;
 
       $(window).on('scroll', function() {
