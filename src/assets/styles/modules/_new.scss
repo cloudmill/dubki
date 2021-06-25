@@ -4507,10 +4507,76 @@ body>.wrapper {
 }
 
 .about {
+  position: relative;
+  z-index: 0;
+
+  &__layout {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @media (max-width: $breakpoint) {
+      left: -15px;
+      right: -15px;
+    }
+    overflow: hidden;    
+  }
+
+  &__bg {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    @media (max-width: $breakpoint - 1px) {
+      top: 50%;
+      transform: translateY(-50%);
+      
+      max-width: 176px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    
+    &--first {
+      bottom: 0;
+      right: -60px;
+      @media (max-width: $breakpoint - 1px) {
+        right: auto;
+        left: -100px;
+        bottom: 27px;
+
+        max-width: 690px;
+      }
+    }
+    &--second {
+      bottom: 240px;
+      right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+      @media (max-width: $breakpoint - 1px) {
+        right: auto;
+        left: calc(#{$grid-pard-m} - #{$grid-gap-m});
+        bottom: 130px;
+
+        max-height: 320px;
+      }
+    }
+    &--third {
+      bottom: 90px;
+      right: calc(#{$grid-part-d} - #{$grid-gap-d});
+      @media (max-width: $breakpoint - 1px) {
+        right: auto;
+        left: calc(#{$grid-pard-m});
+        bottom: 44px;
+
+        max-width: 310px;
+      }
+    }
+  }
 
   &__inner {
     padding-top: 60px;
-    padding-bottom: 100px; // Временно
+    padding-bottom: 490px;
     @media (min-width: $breakpoint) {
       padding-top: 150px;
       padding-bottom: 300px;

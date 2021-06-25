@@ -1263,3 +1263,29 @@ function toggleDataAttr($element, attr, value = '') {
     }
   });
 }
+
+// parallax 
+{
+  $(() => {
+    
+    $('[data-parallax-ratio]').each(function() {
+      const parallaxElem = $(this);
+      const parallaxRatio = parallaxElem.data('parallax-ratio');
+
+      $(window).on('scroll', function() {
+        const background = $('.about__layout');
+
+        if (
+          $(this).scrollTop() + $(window).height() >= background.offset().top &&
+          $(this).scrollTop() <= background.offset().top + background.innerHeight()
+        ) {
+            const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+
+            requestAnimationFrame(() => {
+              parallaxElem.css('transform', `translateY(${parallax}px)`);
+            })
+          }
+      });
+    });
+  });
+}
