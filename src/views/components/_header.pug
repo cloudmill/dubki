@@ -551,6 +551,12 @@ mixin header(opt={})
                     .button-modal.button-modal--active(data-fancybox-close='1')
                       .button-modal__image
         .catalog-modal
+          .catalog-modal__close
+            .header__catalog-button.cata(data-modal-button="")
+              .header__catalog-text
+                |Акционный каталог
+              .header__catalog-icon
+                +arrow-svg('header__catalog-arrow')
           .catalog-modal__row
             -
               var categories = [

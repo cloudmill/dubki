@@ -252,6 +252,12 @@
       color: $color-green;
     }
   }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+  }
 }
 
 .qwe {
