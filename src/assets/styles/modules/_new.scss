@@ -4086,6 +4086,17 @@ body>.wrapper {
       }
     }
   }
+
+  &__close {
+    position: absolute;
+    z-index: 0;
+    top: 15px;
+    right: 15px;
+    @media (min-width: $breakpoint) {
+      top: 30px;
+      right: 60px;
+    }
+  }
 }
 
 .about-card {

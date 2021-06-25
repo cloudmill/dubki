@@ -255,6 +255,7 @@
 
   &__close {
     position: absolute;
+    z-index: 0;
     top: 30px;
     left: 60px;
   }
