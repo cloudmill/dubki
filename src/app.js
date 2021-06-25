@@ -1438,14 +1438,20 @@ function toggleDataAttr($element, attr, value = '') {
 // tooltip 
 {
   $(() => {
-    const tooltipContent = $('.question__content').text().trim();
 
-    tippy('.question__mark',  {
-      content: tooltipContent,
-      trigger: 'click',
-      appendTo: $('.main')[0],
-      offset: [0, 5 + 8],
+    $('.question').each(function() {
+      const tooltipContent = $(this).find('.question__content').text().trim();
+      const tooltipMark = $(this).find('.question__mark');
+
+      tippy(tooltipMark[0],  {
+        content: tooltipContent,
+        trigger: 'click',
+        appendTo: $('.main')[0],
+        offset: [0, 5 + 8],
+      });
     });
+
+    
   });
 }
 

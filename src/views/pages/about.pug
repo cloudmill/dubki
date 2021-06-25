@@ -270,7 +270,7 @@ block content
                                 .gifts__item 
                                     .gifts__img 
                                         img.gifts__image(src="assets/images/svg/gifts-2.svg", alt="")
-                                    p.gifts__text.gifts__text--mobile
+                                    .gifts__text.gifts__text--mobile
                                         |В праздничные дни сеть дарит своим клиентам подарочные купоны 
                                         span.question
                                             +quest-svg('question__mark')
@@ -293,6 +293,8 @@ block content
                                         |В праздничные дни сеть дарит своим клиентам подарочные купоны 
                                         span.question
                                             +quest-svg('question__mark')
+                                            .question__content 
+                                                |В своей работе мы учитываем потребности местных сообществ, с которыми взаимодействуем, а также потребности различных групп стейкхолдеров, на которых влияют наши решения. Мы гордимся своей благотворительной деятельностью и поддержкой важных инициатив, включая защиту окружающей среды.
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item
                                     p.gifts__text 
@@ -360,10 +362,12 @@ block content
                                         .button__wrapper.button__wrapper--alt
                                             +cursor-svg('button__icon button__svg') 
                         .contact__col(data-aos="fade-up")
-                            p.contact__text 
+                            .contact__text 
                                 |Книга отзывов и предложений в каждой точке продаж
                                 span.question
                                     +quest-svg('question__mark')
+                                    .question__content 
+                                        |В своей работе мы учитываем потребности местных сообществ, с которыми взаимодействуем, а также потребности различных групп стейкхолдеров, на которых влияют наши решения. Мы гордимся своей благотворительной деятельностью и поддержкой важных инициатив, включая защиту окружающей среды.
 
     .section
         .section__inner

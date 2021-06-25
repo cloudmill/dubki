@@ -24,6 +24,14 @@ html(lang='en')
     meta(name="viewport", content="width=device-width, initial-scale=1")
     meta(name="format-detection", content="telephone=no")
     meta(name="format-detection", content="address=no")
+    //- iOS
+    link(rel="apple-touch-icon", href="assets/images/svg/apple-touch-icon.svg")
+    //- Facebook
+    meta(property='og:image' content="assets/images/fb-banner.jpg")
+    meta(property='og:type', content='website')
+    //- favicon
+    link(rel="shortcut icon", href="assets/images/favicon.ico")
+    
     script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
   body.body
     if (gridTestActive)
