@@ -33,24 +33,59 @@
     
     &--first {
       left: 0;
+      transform: scale(0.3) rotate(90deg) !important;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
     }
     &--second {
       left: calc((#{$grid-part-d} * 2 - #{$grid-gap-d}) + 60px);
+      transform: scale(0.3) rotate(90deg) !important;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
     }
     &--third {
       left: calc((#{$grid-part-d} * 4 - #{$grid-gap-d} * 2) + 60px);
+      transform: scale(0.3) rotate(90deg) !important;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
     }
     &--fourth {
-      left: 0;
+      left: calc((#{$grid-part-d} * 5 - #{$grid-gap-d}) + 60px);
+      transform: scale(0.3) rotate(90deg) !important;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
     }
     &--fifth {
-      left: 0;
+      right: calc((#{$grid-part-d} * 4) + 60px);
+      transform: scale(0.3) rotate(-90deg) !important;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
     }
     &--sixth {
-      left: 0;
+      right: calc(#{$grid-part-d} + 60px);
+      transform: scale(0.3) rotate(-90deg) !important;
     }
     &--seventh {
-      left: 0;
+      right: 30px;
+      transform: scale(0.3) rotate(-90deg) !important;
+    }
+    &--eighth {
+      right: 30px;
+      transform: scale(0.3) rotate(-90deg) !important;
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: block;
+      }
     }
     
   }
