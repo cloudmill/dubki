@@ -1,4 +1,4 @@
-exports.pages = function(env, folder = '') {
+exports.pages = function (env, folder = '') {
 	const rootPagesFolderName = 'pages';
 	const HtmlWebpackPlugin = require('html-webpack-plugin');
 	const fs = require('fs');
@@ -9,7 +9,7 @@ exports.pages = function(env, folder = '') {
 
 	// eslint-disable-next-line consistent-return
 	fs.readdirSync(viewsFolder).forEach(view => {
-		if (view.split('.')[1] === undefined) {return false;}
+		if (view.split('.')[1] === undefined) { return false; }
 
 		const viewName = view.split('.')[0];
 		let fileName;
