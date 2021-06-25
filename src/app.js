@@ -158,7 +158,6 @@ function toggleDataAttr($element, attr, value = '') {
 
       // перемещаем катомный курсор (верстку, dom эл-т) в конец .wrapper страниц из секции
       cursor.remove();
-      cursor.css('visibility', 'visible')
       cursor.appendTo($('body > .wrapper'))
 
       // появление (opacity: 1) кастомного курсора только над карточками рецептов
