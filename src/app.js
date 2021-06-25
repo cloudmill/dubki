@@ -1236,10 +1236,13 @@ function toggleDataAttr($element, attr, value = '') {
 // tooltip 
 {
   $(() => {
+    const tooltipContent = $('.question__content').text().trim();
 
     tippy('.question__mark',  {
-      content: 'В своей работе мы учитываем потребности местных сообществ, с которыми взаимодействуем, а также потребности различных групп стейкхолдеров, на которых влияют наши решения. Мы гордимся своей благотворительной деятельностью и поддержкой важных инициатив, включая защиту окружающей среды.',
+      content: tooltipContent,
       trigger: 'click',
+      appendTo: $('.main')[0],
+      offset: [0, 5 + 8],
     });
   });
 }
