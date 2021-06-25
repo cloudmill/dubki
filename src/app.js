@@ -209,22 +209,25 @@ function toggleDataAttr($element, attr, value = '') {
     }
 
     // Похожие товары, Карточка продукта
-    const swiperProductSlider = new Swiper($('.product-slider')[0], {
-      slidesPerView: 'auto',
-      spaceBetween: 5,
-
-      breakpoints: {
-        [BREAKPOINT]: {
-          spaceBetween: 20,
+    if ($('.product-slider').length !== 0) {
+      const swiperProductSlider = new Swiper($('.product-slider')[0], {
+        slidesPerView: 'auto',
+        spaceBetween: 5,
+  
+        breakpoints: {
+          [BREAKPOINT]: {
+            spaceBetween: 20,
+          }
         }
-      }
-    });
-    $('.similar-products .slider-button--next').on('click', function () {
-      swiperProductSlider.slideNext();
-    });
-    $('.similar-products .slider-button--prev').on('click', function () {
-      swiperProductSlider.slidePrev();
-    });
+      });
+
+      $('.slider-button--next').on('click', function () {
+        swiperProductSlider.slideNext();
+      });
+      $('.slider-button--prev').on('click', function () {
+        swiperProductSlider.slidePrev();
+      });
+    }
 
     // страница product
     
@@ -1445,7 +1448,7 @@ function toggleDataAttr($element, attr, value = '') {
 
       tippy(tooltipMark[0],  {
         content: tooltipContent,
-        trigger: 'click',
+        // trigger: 'click',
         appendTo: $('.main')[0],
         offset: [0, 5 + 8],
       });
