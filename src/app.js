@@ -7,6 +7,7 @@ import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
 import mask from "inputmask";
+import tippy from 'tippy.js';
 require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
@@ -1431,6 +1432,17 @@ function toggleDataAttr($element, attr, value = '') {
           formItem.removeClass('form__item--active');
         }
       });
+    });
+  });
+}
+
+// tooltip 
+{
+  $(() => {
+
+    tippy('.question__mark',  {
+      content: 'В своей работе мы учитываем потребности местных сообществ, с которыми взаимодействуем, а также потребности различных групп стейкхолдеров, на которых влияют наши решения. Мы гордимся своей благотворительной деятельностью и поддержкой важных инициатив, включая защиту окружающей среды.',
+      trigger: 'click',
     });
   });
 }
