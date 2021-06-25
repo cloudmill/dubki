@@ -4781,6 +4781,7 @@ body>.wrapper {
     right: 0;
     left: 0;
     z-index: 1;
+    pointer-events: none;
 
     &-img {
       opacity: 0;
@@ -5409,7 +5410,10 @@ body>.wrapper {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
   }
+
+ 
 }
 
 .intro {
@@ -8145,4 +8149,34 @@ input:focus~.form__placeholder {
       @include fsl(12px, 80%);
     }
   }
+}
+
+.tippy {
+
+  &-box {
+    padding: 20px 26px;
+
+    border-radius: 10px;
+    background-color: $color-white;
+  }
+
+  &-content {
+    text-align: center;
+    font-weight: 400;
+    @include fsl(13px, 140%);
+    color: $color-black;
+  }
+
+  &-arrow {
+    color: $color-white;
+  }
+}
+.tippy-box[data-placement^=top] > .tippy-arrow:before {
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-style: solid;
+    border-width: 8px 21px 0 21px;
+    border-color: $color-white transparent transparent transparent;
 }
