@@ -1356,11 +1356,21 @@ function toggleDataAttr($element, attr, value = '') {
         }
       }
 
-      // ? оптимизация
       updateTitle()
-      $(window).on('resize', () => {
-        updateTitle()
+      
+      window.addEventListener('resize', handleResize, {
+        once: true,
       })
+
+      function handleResize() {
+        updateTitle()
+
+        setTimeout(() => {
+          window.addEventListener('resize', handleResize, {
+            once: true,
+          })
+        }, 1000)
+      }
     })
   })
 }
