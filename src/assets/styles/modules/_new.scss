@@ -4531,10 +4531,12 @@ body>.wrapper {
 
   &__bg {
     position: absolute;
+    z-index: 1;
     top: 70px;
     right: 60px;
     @media (max-width: $breakpoint - 1px) {
-      top: 50%;
+      left: calc(50% - 88px + 60px);
+      top: calc(50% - 50px);
       transform: translateY(-50%);
       
       max-width: 176px;
@@ -4546,10 +4548,11 @@ body>.wrapper {
     
     &--first {
       bottom: 0;
+      // left: calc((#{$grid-part-d} * 5 - #{$grid-gap-d}) + #{$col-pad-d});
       right: 0;
       @media (max-width: $breakpoint - 1px) {
         right: auto;
-        left: -100px;
+        left: calc(50% - 345px - 100px);
         bottom: 27px;
 
         max-width: 690px;
@@ -4560,7 +4563,7 @@ body>.wrapper {
       right: calc((#{$grid-part-d} * 4 - #{$grid-gap-d}) + 60px);
       @media (max-width: $breakpoint - 1px) {
         right: auto;
-        left: calc(#{$grid-pard-m} - #{$grid-gap-m});
+        left: calc(50% - 160px - 25px);
         bottom: 130px;
 
         max-height: 320px;
@@ -4571,7 +4574,7 @@ body>.wrapper {
       right: calc(#{$grid-part-d} - #{$grid-gap-d});
       @media (max-width: $breakpoint - 1px) {
         right: auto;
-        left: calc(#{$grid-pard-m} + 60px);
+        left: calc(50% - 155px + 25px);
         bottom: 44px;
 
         max-width: 310px;
