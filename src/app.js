@@ -1439,10 +1439,13 @@ function toggleDataAttr($element, attr, value = '') {
 // tooltip 
 {
   $(() => {
+    const tooltipContent = $('.question__content').text().trim();
 
     tippy('.question__mark',  {
-      content: 'В своей работе мы учитываем потребности местных сообществ, с которыми взаимодействуем, а также потребности различных групп стейкхолдеров, на которых влияют наши решения. Мы гордимся своей благотворительной деятельностью и поддержкой важных инициатив, включая защиту окружающей среды.',
+      content: tooltipContent,
       trigger: 'click',
+      appendTo: $('.main')[0],
+      offset: [0, 5 + 8],
     });
   });
 }
@@ -1461,5 +1464,31 @@ function toggleDataAttr($element, attr, value = '') {
         }
       });
     }
+  });
+}
+
+// parallax 
+{
+  $(() => {
+    
+    $('[data-parallax-ratio]').each(function() {
+      const parallaxElem = $(this);
+      const parallaxRatio = parallaxElem.data('parallax-ratio');
+
+      $(window).on('scroll', function() {
+        const background = $('.about__layout');
+
+        if (
+          $(this).scrollTop() + $(window).height() >= background.offset().top &&
+          $(this).scrollTop() <= background.offset().top + background.innerHeight()
+        ) {
+            const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+
+            requestAnimationFrame(() => {
+              parallaxElem.css('transform', `translateY(${parallax}px)`);
+            })
+          }
+      });
+    });
   });
 }

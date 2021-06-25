@@ -120,8 +120,16 @@ block content
 
     .section
         .frame--green
+            .frame__layout
+                .frame__image 
+                    .frame__img
             .container 
                 .about
+                    .about__layout(data-aos="fade-up")
+                        img.about__bg(src="assets/images/svg/about-bg.svg", alt="")
+                        img.about__background.about__background--first(src="assets/images/svg/about-bg-1.svg", alt="")(data-parallax-ratio="5")
+                        img.about__background.about__background--second(src="assets/images/svg/about-bg-2.svg", alt="")(data-parallax-ratio="10")
+                        img.about__background.about__background--third(src="assets/images/svg/about-bg-3.svg", alt="")(data-parallax-ratio="15")
                     .about__inner 
                         .about__wrapper 
                             .about__indent
@@ -266,6 +274,8 @@ block content
                                         |В праздничные дни сеть дарит своим клиентам подарочные купоны 
                                         span.question
                                             +quest-svg('question__mark')
+                                            .question__content 
+                                                |В своей работе мы учитываем потребности местных сообществ, с которыми взаимодействуем, а также потребности различных групп стейкхолдеров, на которых влияют наши решения. Мы гордимся своей благотворительной деятельностью и поддержкой важных инициатив, включая защиту окружающей среды.
                             .gifts__col(data-aos="fade-up")
                                 .gifts__item
                                     .gifts__img 
