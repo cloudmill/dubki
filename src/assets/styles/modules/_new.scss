@@ -4356,8 +4356,7 @@ body>.wrapper {
     
     &--first {
       bottom: 0;
-      // left: calc((#{$grid-part-d} * 5 - #{$grid-gap-d}) + #{$col-pad-d});
-      right: 0;
+      left: calc(#{$col-part-d} * 12 - 1195px / 2);
       @media (max-width: $breakpoint - 1px) {
         right: auto;
         left: calc(50% - 345px - 100px);
