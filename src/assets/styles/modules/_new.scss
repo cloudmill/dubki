@@ -1505,7 +1505,7 @@ body>.wrapper {
     }
 
     &--second {
-      position: static;
+      position: relative;
     }
   }
 
@@ -1893,6 +1893,37 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &-layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+
+    &__img {
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      transform: scale(0.5) rotate(90deg);
+      @media (min-width: $breakpoint) {
+        left: calc((#{$grid-part-d} * 3 - #{$grid-gap-d}) + 60px);
+      }
+      @media (max-width: $breakpoint - 1px) {
+        left: calc((#{$grid-pard-m} * 2 - #{$grid-gap-m}) + 15px);
+        width: 60px;
+      }
+
+      &--big {
+        @media (min-width: $breakpoint) {
+          z-index: 0;
+          left: calc(#{$grid-part-d});
+          bottom: -35%;
+        }
+      }
+    }
   }
 }
 
