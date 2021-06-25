@@ -2106,11 +2106,12 @@ body>.wrapper {
 }
 
 .top {
-
   &__content {
+    @media (min-width: $breakpoint) {
+      padding-left: calc(415px + #{$col-part-d});
+    }
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
   &__button {
