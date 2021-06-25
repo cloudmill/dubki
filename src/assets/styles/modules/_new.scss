@@ -1485,6 +1485,7 @@ body>.wrapper {
     left: 0;
     bottom: 0;
     z-index: 0;
+    pointer-events: none;
 
     &-image {
       display: none;
@@ -4515,19 +4516,23 @@ body>.wrapper {
     z-index: -1;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
-    @media (max-width: $breakpoint) {
+    left: -60px;
+    right: -60px;
+    @media (max-width: $breakpoint - 1px) {
       left: -15px;
       right: -15px;
+
+      border-radius: 0px 0px 70px 70px;
     }
-    overflow: hidden;    
+    border-radius: 170px 170px 0 0;
+    overflow: hidden;  
+    pointer-events: none;
   }
 
   &__bg {
     position: absolute;
     top: 70px;
-    right: 0;
+    right: 60px;
     @media (max-width: $breakpoint - 1px) {
       top: 50%;
       transform: translateY(-50%);
@@ -4541,7 +4546,7 @@ body>.wrapper {
     
     &--first {
       bottom: 0;
-      right: -60px;
+      right: 0;
       @media (max-width: $breakpoint - 1px) {
         right: auto;
         left: -100px;
@@ -4552,7 +4557,7 @@ body>.wrapper {
     }
     &--second {
       bottom: 240px;
-      right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});
+      right: calc((#{$grid-part-d} * 4 - #{$grid-gap-d}) + 60px);
       @media (max-width: $breakpoint - 1px) {
         right: auto;
         left: calc(#{$grid-pard-m} - #{$grid-gap-m});
@@ -4566,7 +4571,7 @@ body>.wrapper {
       right: calc(#{$grid-part-d} - #{$grid-gap-d});
       @media (max-width: $breakpoint - 1px) {
         right: auto;
-        left: calc(#{$grid-pard-m});
+        left: calc(#{$grid-pard-m} + 60px);
         bottom: 44px;
 
         max-width: 310px;
@@ -5377,11 +5382,12 @@ body>.wrapper {
 
   &__layout {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    pointer-events: none;
   }
 
   &__img {
