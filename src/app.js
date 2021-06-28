@@ -7,6 +7,7 @@ import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
 import mask from "inputmask";
+import SweetScroll from 'sweet-scroll'
 import tippy from 'tippy.js';
 require('jquery-ui/ui/widgets/autocomplete');
 
@@ -212,7 +213,7 @@ function toggleDataAttr($element, attr, value = '') {
       const swiperProductSlider = new Swiper($('.product-slider')[0], {
         slidesPerView: 'auto',
         spaceBetween: 5,
-  
+
         breakpoints: {
           [BREAKPOINT]: {
             spaceBetween: 20,
@@ -229,13 +230,13 @@ function toggleDataAttr($element, attr, value = '') {
     }
 
     // страница product
-    
 
-    
+
+
   });
 }
 
-// product 
+// product
 {
   const product = $('.product-card');
 
@@ -313,7 +314,7 @@ function toggleDataAttr($element, attr, value = '') {
       const shops = $('.shops');
       if (shops.length !== 0) {
         shops.addClass('shops--hidden');
-        
+
         let isInit = true
         $('[data-tab]').on('click', function() {
           const tabId = $(this).data('tab');
@@ -648,7 +649,7 @@ function toggleDataAttr($element, attr, value = '') {
     if (button.lenght !== 0) {
       const item = button.closest('.vacancies-list__item')
       const drop = item.find('.vacancies-list__dropdown')
-      
+
       button.toggleClass('vacancies-list__row--active')
       drop.slideToggle()
     }
@@ -836,8 +837,8 @@ function toggleDataAttr($element, attr, value = '') {
 
     if (header.length !== 0) {
       let previousTop = $(window).scrollTop()
-      
-      $(window).on('scroll', function () {  
+
+      $(window).on('scroll', function () {
         const currentTop = $(window).scrollTop();
 
         if (!(
@@ -1261,7 +1262,7 @@ function toggleDataAttr($element, attr, value = '') {
           updateList(location)
           updateMap(location)
         })
-      
+
         // list -> point
         $(window).on('click', event => {
           const listItem = $(event.target).closest('.map-balloon')
@@ -1269,9 +1270,9 @@ function toggleDataAttr($element, attr, value = '') {
           if (listItem.length !== 0) {
             const listItemWrapper = listItem.closest('.map-list__item')
             const listItemWrapperAll = $('.map-list__item')
-            
+
             const listItemID = listItemWrapper.data('map-id')
-            
+
             const targetPlacemark = map.placemarks[listItemID]
 
             map.ymap.setCenter(targetPlacemark.geometry._coordinates, 15)
@@ -1361,7 +1362,7 @@ function toggleDataAttr($element, attr, value = '') {
       }
 
       updateTitle()
-      
+
       window.addEventListener('resize', handleResize, {
         once: true,
       })
@@ -1383,7 +1384,7 @@ function toggleDataAttr($element, attr, value = '') {
 {
   $(() => {
     const videos = $('.video')
-    
+
     videos.each(function () {
       const video = $(this)
       const videoBtn = video.find('.video__button')
@@ -1410,7 +1411,7 @@ function toggleDataAttr($element, attr, value = '') {
       ) {
         // ?
         $('.video-modal__yt').attr('src', $('iframe').attr('src'));
-        
+
         $('.video-modal').removeClass('video-modal--active')
       }
     })
@@ -1437,7 +1438,7 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// tooltip 
+// tooltip
 {
   $(() => {
 
@@ -1453,7 +1454,7 @@ function toggleDataAttr($element, attr, value = '') {
       });
     });
 
-    
+
   });
 }
 
@@ -1474,7 +1475,7 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// parallax 
+// parallax
 {
   $(() => {
     // about intro
@@ -1494,7 +1495,7 @@ function toggleDataAttr($element, attr, value = '') {
           }
       });
     }
-    
+
     // about
     if ($('.about').length !== 0) {
 
@@ -1519,7 +1520,7 @@ function toggleDataAttr($element, attr, value = '') {
       });
     }
 
-    //index 
+    //index
     const hero = $('.hero');
     if (hero.length !== 0) {
       $('[data-layer-ratio]').each(function() {
@@ -1540,5 +1541,14 @@ function toggleDataAttr($element, attr, value = '') {
         });
       });
     }
+  });
+}
+
+// scroll
+{
+  $(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const sweetScroll = new SweetScroll({ /* some options */ });
+    }, false);
   });
 }
