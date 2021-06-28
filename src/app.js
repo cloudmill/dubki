@@ -7,7 +7,7 @@ import AOS from 'aos';
 import '@fancyapps/fancybox';
 import 'parsleyjs';
 import mask from "inputmask";
-import SweetScroll from 'sweet-scroll'
+import SmoothScroll from 'smoothscroll-for-websites';
 import tippy from 'tippy.js';
 require('jquery-ui/ui/widgets/autocomplete');
 
@@ -1544,11 +1544,9 @@ function toggleDataAttr($element, attr, value = '') {
   });
 }
 
-// scroll
+// smooth scroll
 {
-  $(() => {
-    document.addEventListener('DOMContentLoaded', () => {
-      const sweetScroll = new SweetScroll({ /* some options */ });
-    }, false);
+  $(window).on('load', () => {
+    SmoothScroll();
   });
 }
