@@ -1278,6 +1278,24 @@ function toggleDataAttr($element, attr, value = '') {
       const parallaxElem = $(this);
       const parallaxRatio = parallaxElem.data('parallax-ratio');
 
+      // about intro-bg
+      $(window).on('scroll', function() {
+        const background = $('.intro__bg');
+
+        if (
+          $(this).scrollTop() + $(window).height() >= background.offset().top &&
+          $(this).scrollTop() <= background.offset().top + background.innerHeight()
+        ) {
+            const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+
+            requestAnimationFrame(() => {
+              parallaxElem.css('transform', `translateY(${parallax}px)`);
+            })
+          }
+      });
+
+
+      // about
       $(window).on('scroll', function() {
         const background = $('.about__layout');
 

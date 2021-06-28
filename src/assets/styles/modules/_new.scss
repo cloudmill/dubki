@@ -5551,21 +5551,27 @@ body>.wrapper {
 }
 
 .intro {
+  margin-top: -49px;
+  @media (min-width: $breakpoint) {
+    margin-top: -172px;
+    height: 810px;
+  }
+  height: 370px;
 
-  &__bg {
-    margin-top: -49px;
+
+  &__frame {
+    height: 100%;
+
+    border-radius: 0 0 50px 50px;
     @media (min-width: $breakpoint) {
-      margin-top: -172px;
-
-      height: 810px;
-
       border-radius: 0 0 170px 170px;
     }
-    height: 370px;
-
     overflow: hidden;
-    border-radius: 0 0 50px 50px;
-    
+  }
+
+  &__bg {
+    height: 100%;
+
     background: url("assets/images/about-bg.jpeg") center no-repeat;
     background-size: cover;
   }
