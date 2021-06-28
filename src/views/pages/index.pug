@@ -8,9 +8,9 @@ block content
       .section__inner
         .section__frame.section__frame--top
           .hero 
-            .hero__bg
-            img.hero__background(src="assets/images/svg/index-bg-2.svg", alt="")
-            .hero__images
+            .hero__bg(data-layer-ratio="7")
+            img.hero__background(src="assets/images/svg/index-bg-2.svg", alt="")(data-layer-ratio="10")
+            .hero__images(data-layer-ratio="13")
               img.hero__svg.hero__svg--first(src="assets/images/svg/index-1.svg", alt="")(data-aos="fade-up")
               img.hero__svg.hero__svg--second(src="assets/images/svg/index-2.svg", alt="")(data-aos="fade-up")
               img.hero__svg.hero__svg--third(src="assets/images/svg/index-3.svg", alt="")(data-aos="fade-up")
@@ -201,7 +201,7 @@ block content
             img.news-layout__img(src="assets/images/svg/index-news.svg", alt="")(data-aos="fade-up")
             img.news-layout__img.news-layout__img--big(src="assets/images/svg/index-news-2.svg", alt="")(data-aos="fade-up")
           .container 
-            .section__inner
+            .section__inner.section__inner--second
               .row 
                 .row__side 
                   .section__content 
@@ -247,7 +247,10 @@ block content
       .index__recipes-cursor
         +recipes-cursor-svg.index__recipes-cursor-svg
       .section__frame
-        .section__layot 
+        .section__layout 
+          img.recipes-layout__img(src="assets/images/svg/recipe-layout-1.svg", alt="")
+          img.recipes-layout__image(src="assets/images/svg/recipe-layout-2.svg", alt="")
+          img.recipes-layout__image.recipes-layout__image--small(src="assets/images/svg/recipe-layout-3.svg", alt="")
         .container
           .section__inner
             .row.index__recipes-row

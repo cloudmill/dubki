@@ -16,25 +16,24 @@ $(() => {
 
 // AOS
 {
-  AOS.init({
-    // Global settings:
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init', // class applied after initialization
-    animatedClassName: 'aos-animate', // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  $(() => {
+    AOS.init({
+      once: true, // whether animation should happen only once - while scrolling down
+      offset: 0,
+      duration: 1000,
+    });
 
+    window.addEventListener('scroll', aosRefresh);
 
-    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    offset: 0, // offset (in px) from the original trigger point
-    delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 1000, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: true, // whether animation should happen only once - while scrolling down
-    mirror: false,
+    function aosRefresh() {
+      const timeout = setTimeout( () => {
+        clearTimeout(timeout)
+        AOS.refresh();
+        window.addEventListener('scroll', aosRefresh);
+      },1000);
+
+      window.removeEventListener('scroll', aosRefresh);
+    }
   });
 }
 
@@ -312,7 +311,7 @@ function toggleDataAttr($element, attr, value = '') {
     // tabs
     {
       const shops = $('.shops');
-      if (shops.lenght !== 0) {
+      if (shops.length !== 0) {
         shops.addClass('shops--hidden');
         
         let isInit = true
@@ -1478,25 +1477,68 @@ function toggleDataAttr($element, attr, value = '') {
 // parallax 
 {
   $(() => {
-    
-    $('[data-parallax-ratio]').each(function() {
-      const parallaxElem = $(this);
-      const parallaxRatio = parallaxElem.data('parallax-ratio');
+    // about intro
+    if ($('.intro').length !== 0) {
 
       $(window).on('scroll', function() {
-        const background = $('.about__layout');
+        const background = $('.intro__frame');
 
         if (
-          $(this).scrollTop() + $(window).height() >= background.offset().top &&
-          $(this).scrollTop() <= background.offset().top + background.innerHeight()
+          $(this).scrollTop() <= background.offset().top + background.height()
         ) {
-            const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+            const parallax = ($(this).scrollTop()) / 5;
 
             requestAnimationFrame(() => {
-              parallaxElem.css('transform', `translateY(${parallax}px)`);
+              $('.intro__bg').css('transform', `translateY(${parallax}px)`);
             })
           }
       });
-    });
+    }
+    
+    // about
+    if ($('.about').length !== 0) {
+
+      $('[data-parallax-ratio]').each(function() {
+        const parallaxElem = $(this);
+        const parallaxRatio = parallaxElem.data('parallax-ratio');
+
+        $(window).on('scroll', function() {
+          const background = $('.about__layout');
+
+          if (
+            $(this).scrollTop() + $(window).height() >= background.offset().top &&
+            $(this).scrollTop() <= background.offset().top + background.innerHeight()
+          ) {
+              const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+
+              requestAnimationFrame(() => {
+                parallaxElem.css('transform', `translateY(${parallax}px)`);
+              })
+            }
+        });
+      });
+    }
+
+    //index 
+    const hero = $('.hero');
+    if (hero.length !== 0) {
+      $('[data-layer-ratio]').each(function() {
+        const parallaxElem = $(this);
+        const parallaxRatio = parallaxElem.data('layer-ratio');
+
+        $(window).on('scroll', function() {
+
+          if (
+            $(this).scrollTop() <= hero.offset().top + hero.innerHeight()
+          ) {
+              const parallax = ($(this).scrollTop() - hero.offset().top) / parallaxRatio;
+
+              requestAnimationFrame(() => {
+                parallaxElem.css('transform', `translateY(${parallax}px)`);
+              })
+            }
+        });
+      });
+    }
   });
 }
