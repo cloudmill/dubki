@@ -148,7 +148,7 @@ function searchHeader() {
     let form = $(document).find("[data-type=header-search-form]"),
       search = form.find("input[name=search]").val();
 
-    document.location.href = "http://dubki.hellem.ru/search/?search=" + search;
+    document.location.href = "http://dubki-produkty.ru/search/?search=" + search;
   });
 }
 
