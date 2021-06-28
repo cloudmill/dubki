@@ -304,7 +304,7 @@ function toggleDataAttr($element, attr, value = '') {
     // tabs
     {
       const shops = $('.shops');
-      if (shops.lenght !== 0) {
+      if (shops.length !== 0) {
         shops.addClass('shops--hidden');
 
         let isInit = true
@@ -1258,7 +1258,7 @@ function toggleDataAttr($element, attr, value = '') {
   $(() => {
     const gifts = $('.gifts');
 
-    if (gifts.lenght !== 0) {
+    if (gifts.length !== 0) {
       const giftPos = gifts.offset().top;
 
       $(window).on('scroll', function() {
@@ -1273,8 +1273,9 @@ function toggleDataAttr($element, attr, value = '') {
 // parallax 
 {
   $(() => {
+    // about intro
+    if ($('.intro').length !== 0) {
 
-    if ($('.intro').lenght !== 0) {
       $(window).on('scroll', function() {
         const background = $('.intro__frame');
 
@@ -1290,25 +1291,50 @@ function toggleDataAttr($element, attr, value = '') {
       });
     }
     
-    $('[data-parallax-ratio]').each(function() {
-      const parallaxElem = $(this);
-      const parallaxRatio = parallaxElem.data('parallax-ratio');
+    // about
+    if ($('.about').length !== 0) {
 
-      // about
-      $(window).on('scroll', function() {
-        const background = $('.about__layout');
+      $('[data-parallax-ratio]').each(function() {
+        const parallaxElem = $(this);
+        const parallaxRatio = parallaxElem.data('parallax-ratio');
 
-        if (
-          $(this).scrollTop() + $(window).height() >= background.offset().top &&
-          $(this).scrollTop() <= background.offset().top + background.innerHeight()
-        ) {
-            const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+        $(window).on('scroll', function() {
+          const background = $('.about__layout');
 
-            requestAnimationFrame(() => {
-              parallaxElem.css('transform', `translateY(${parallax}px)`);
-            })
-          }
+          if (
+            $(this).scrollTop() + $(window).height() >= background.offset().top &&
+            $(this).scrollTop() <= background.offset().top + background.innerHeight()
+          ) {
+              const parallax = ($(this).scrollTop() - background.offset().top) / parallaxRatio;
+
+              requestAnimationFrame(() => {
+                parallaxElem.css('transform', `translateY(${parallax}px)`);
+              })
+            }
+        });
       });
-    });
+    }
+
+    //index 
+    const hero = $('.hero');
+    if (hero.length !== 0) {
+      $('[data-layer-ratio]').each(function() {
+        const parallaxElem = $(this);
+        const parallaxRatio = parallaxElem.data('layer-ratio');
+
+        $(window).on('scroll', function() {
+
+          if (
+            $(this).scrollTop() <= hero.offset().top + hero.innerHeight()
+          ) {
+              const parallax = ($(this).scrollTop() - hero.offset().top) / parallaxRatio;
+
+              requestAnimationFrame(() => {
+                parallaxElem.css('transform', `translateY(${parallax}px)`);
+              })
+            }
+        });
+      });
+    }
   });
 }
