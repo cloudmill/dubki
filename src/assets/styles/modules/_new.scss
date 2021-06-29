@@ -1699,8 +1699,6 @@ body>.wrapper {
   overflow: hidden;
   transition: $transition;
   &:hover {
-    background-color: $color-green;
-    color: $color-white;
 
     #{$comp}__svg {
       path {
@@ -1745,10 +1743,29 @@ body>.wrapper {
     transition-timing-function: linear;
   }
 
+  &:hover {
+    background-color: $color-green;
+    color: $color-white;
+
+    span {
+      animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
+    }
+
+    #{$comp}__svg {
+      path {
+        stroke: $color-white;
+      }
+    }
+
+    #{$comp}__wrapper {
+      animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
+    }
+  }
+
   span {
     display: block;
     position: relative;
-    z-index: 10;
+    z-index: 1;
   }
 
   &--l {
@@ -1837,6 +1854,8 @@ body>.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 
     &--alt {
       margin-right: 0;
@@ -8250,7 +8269,6 @@ input:focus~.form__placeholder {
 .test__button span {
 	display: block;
 	position: relative;
-	// mix-blend-mode: difference;
 	z-index: 10;
 }
 

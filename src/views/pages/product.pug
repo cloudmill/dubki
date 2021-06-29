@@ -1,321 +1,322 @@
 extends ../layouts/master.pug
 
 
-block header 
+block header
   +header({
     mod: 'dark',
   })
 
-block content 
-  .section--grey 
+block content
+  .section--grey
     .section__frame.section__frame--product
-      .section__layout 
+      .section__layout
         img.section__layout-image(src="assets/images/svg/product-layout-1.svg", alt="")
         img.section__layout-image.section__layout-image--small(src="assets/images/svg/product-layout-2.svg", alt="")
-      .container 
+      .container
         .section__wrapper
           ul.block-list.block-list--mobile(data-aos="fade-up")
-            li.block-list__item 
-              p.block-list__item-text 
+            li.block-list__item
+              p.block-list__item-text
                 |Главная
             li.block-list__item
               .block-list__item-icon
-                +leaflet-svg 
-              p.block-list__item-text 
+                +leaflet-svg
+              p.block-list__item-text
                 |Акционный каталог
             li.block-list__item
-              .block-list__item-icon 
-                +leaflet-svg 
+              .block-list__item-icon
+                +leaflet-svg
               p.block-list__item-text
                 |Мясная гастрономия
             li.block-list__item
-              .block-list__item-icon 
-                +leaflet-svg 
+              .block-list__item-icon
+                +leaflet-svg
               p.block-list__item-text.block-list__item-text--active
-                |Мясная гастрономия 
-          .row 
-            .row__col 
-              .product-card 
-                .product-card__col 
-                  .product-card__thumbs(data-aos="fade-up")  
+                |Мясная гастрономия
+          .row
+            .row__col
+              .product-card
+                .product-card__col
+                  .product-card__thumbs(data-aos="fade-up")
                     ul.product-card__list.swiper-container
                       .swiper-wrapper
                         li.product-card__item.product-card__item--active.swiper-slide
                           .product-card__item-thumb
                             img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
                         li.product-card__item.swiper-slide
-                          .product-card__item-thumb 
+                          .product-card__item-thumb
                             img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
                         li.product-card__item.swiper-slide
-                          .product-card__item-thumb 
+                          .product-card__item-thumb
                             img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
                         li.product-card__item.swiper-slide
                           .product-card__item-thumb
                             img.product-card__item-img(src="assets/images/product-thumb-1.png", alt="")
                         li.product-card__item.swiper-slide
-                          .product-card__item-thumb 
+                          .product-card__item-thumb
                             img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
                         li.product-card__item.swiper-slide
-                          .product-card__item-thumb 
+                          .product-card__item-thumb
                             img.product-card__item-img(src="assets/images/product-thumb-2.png", alt="")
                     .slider-button
                       .button-slide.button-slide--hidden
                         .button-slide__button
                           +cursor-svg('button-slide__icon')
 
-                  .product-card__video(data-aos="fade-up") 
+                  .product-card__video(data-aos="fade-up")
                     .product-card__video-text
                       |Видео-обзор продукта
                     .product-card__video-wrapper
                       .video-button
                         +play-svg('video-button__icon')
                 .product-card__col
-                  .products.swiper-container(data-aos="fade-up") 
+                  .products.swiper-container(data-aos="fade-up")
                     .swiper-wrapper
                       .products__item.swiper-slide
-                        .products__container 
-                          .products__label 
-                            .products__icon 
+                        .products__container
+                          .products__label
+                            .products__icon
                               +top-icon-svg
-                            .products__text   
+                            .products__text
                               |-30%
-                          .products__image 
-                            img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                          .products__image
+                            img.products__img(src="assets/images/top-slide-1.png", alt="")
                       .products__item.swiper-slide
-                        .products__container 
-                          .products__label 
-                            .products__icon 
+                        .products__container
+                          .products__label
+                            .products__icon
                               +top-icon-svg
-                            .products__text   
+                            .products__text
                               |-30%
-                          .products__image 
-                            img.products__img(src="assets/images/meat.jpg", alt="")    
+                          .products__image
+                            img.products__img(src="assets/images/meat.jpg", alt="")
                       .products__item.swiper-slide
-                        .products__container 
-                          .products__label 
-                            .products__icon 
+                        .products__container
+                          .products__label
+                            .products__icon
                               +top-icon-svg
-                            .products__text   
+                            .products__text
                               |-30%
-                          .products__image 
-                            img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                          .products__image
+                            img.products__img(src="assets/images/top-slide-1.png", alt="")
                       .products__item.swiper-slide
-                        .products__container 
-                          .products__label 
-                            .products__icon 
+                        .products__container
+                          .products__label
+                            .products__icon
                               +top-icon-svg
-                            .products__text   
+                            .products__text
                               |-30%
-                          .products__image 
-                            img.products__img(src="assets/images/meat.jpg", alt="")    
+                          .products__image
+                            img.products__img(src="assets/images/meat.jpg", alt="")
                       .products__item.swiper-slide
-                        .products__container 
-                          .products__label 
-                            .products__icon 
+                        .products__container
+                          .products__label
+                            .products__icon
                               +top-icon-svg
-                            .products__text   
+                            .products__text
                               |-30%
-                          .products__image 
-                            img.products__img(src="assets/images/top-slide-1.png", alt="")    
+                          .products__image
+                            img.products__img(src="assets/images/top-slide-1.png", alt="")
                       .products__item.swiper-slide
-                        .products__container 
-                          .products__label 
-                            .products__icon 
+                        .products__container
+                          .products__label
+                            .products__icon
                               +top-icon-svg
-                            .products__text   
+                            .products__text
                               |-30%
-                          .products__image 
-                            img.products__img(src="assets/images/meat.jpg", alt="")    
+                          .products__image
+                            img.products__img(src="assets/images/meat.jpg", alt="")
             .row__col
-              ul.block-list.block-list--hidden.block-list--faded(data-aos="fade-up") 
-                li.block-list__item 
-                  p.block-list__item-text 
+              ul.block-list.block-list--hidden.block-list--faded(data-aos="fade-up")
+                li.block-list__item
+                  p.block-list__item-text
                     |Главная
                 li.block-list__item
                   .block-list__item-icon
-                    +leaflet-svg 
-                  p.block-list__item-text 
+                    +leaflet-svg
+                  p.block-list__item-text
                     |Акционный каталог
                 li.block-list__item
-                  .block-list__item-icon 
-                    +leaflet-svg 
+                  .block-list__item-icon
+                    +leaflet-svg
                   p.block-list__item-text
                     |Мясная гастрономия
                 li.block-list__item
-                  .block-list__item-icon 
-                    +leaflet-svg 
+                  .block-list__item-icon
+                    +leaflet-svg
                   p.block-list__item-text.block-list__item-text--active
                     |Мясная гастрономия
                 li.block-list__item
-                  .block-list__item-icon 
-                    +leaflet-svg 
+                  .block-list__item-icon
+                    +leaflet-svg
                   p.block-list__item-text.block-list__item-text--active
                     |Мясная гастрономия
-              .product 
-                h3.product__title(data-aos="fade-up") 
+              .product
+                h3.product__title(data-aos="fade-up")
                   |Колбаса Прованс с крупным шпиком ТМ Дубки, 1 кг
-                .product__wrapper 
-                  .product__row 
+                .product__wrapper
+                  .product__row
                     .product__col
-                      .product__info(data-aos="fade-up") 
-                        .product__text 
+                      .product__info(data-aos="fade-up")
+                        .product__text
                           |Артикул
                         .product__text.product__text--bold
                           |10345
-                      .product__city(data-aos="fade-up") 
-                        .product__text 
+                      .product__city(data-aos="fade-up")
+                        .product__text
                           |Цена для города
                         .product__city-item
                           .select-wrapper
                             .select
                               select.select__select(name="city")(style="width: 100%")
-                                option(value="saratov", selected) 
+                                option(value="saratov", selected)
                                   |Саратов
-                                option(value="moscov") 
+                                option(value="moscov")
                                   |Москва
-                                option(value="spb") 
+                                option(value="spb")
                                   |Санкт-Питербург
-                                option(value="voronezh") 
+                                option(value="voronezh")
                                   |Воронеж
-                                option(value="saratov") 
+                                option(value="saratov")
                                   |Саратов
-                                option(value="moscov") 
+                                option(value="moscov")
                                   |Москва
-                                option(value="spb") 
+                                option(value="spb")
                                   |Санкт-Питербург
-                                option(value="voronezh") 
+                                option(value="voronezh")
                                   |Воронеж
-                                option(value="saratov") 
+                                option(value="saratov")
                                   |Саратов
-                                option(value="moscov") 
+                                option(value="moscov")
                                   |Москва
-                                option(value="spb") 
+                                option(value="spb")
                                   |Санкт-Питербург
-                                option(value="voronezh") 
+                                option(value="voronezh")
                                   |Воронеж
                     .product__col
-                      .product__info(data-aos="fade-up") 
-                        .product__text 
+                      .product__info(data-aos="fade-up")
+                        .product__text
                           |Производитель
                         .product__text.product__text--bold
                           |ТМ Дубки
-                      .product__price(data-aos="fade-up")  
+                      .product__price(data-aos="fade-up")
                         .product__price-old
                           |760 ₽
                         .product__price-new
                           |610 ₽
-                  .product__row--mobile 
+                  .product__row--mobile
                     .product__col--mobile
-                      .product__info(data-aos="fade-up") 
-                        .product__text 
+                      .product__info(data-aos="fade-up")
+                        .product__text
                           |Артикул
                         .product__text.product__text--bold
                           |10345
-                      .product__info(data-aos="fade-up") 
-                        .product__text 
+                      .product__info(data-aos="fade-up")
+                        .product__text
                           |Производитель
                         .product__text.product__text--bold
                           |ТМ Дубки
                     .product__col--mobile
-                      .product__city(data-aos="fade-up") 
-                        .product__text 
+                      .product__city(data-aos="fade-up")
+                        .product__text
                           |Цена для города
                         .product__city-item
                           .select-wrapper
                             .select
                               select.select__select(name="city")(style="width: 100%")
-                                option(value="saratov", selected) 
+                                option(value="saratov", selected)
                                   |Саратов
-                                option(value="moscov") 
+                                option(value="moscov")
                                   |Москва
-                                option(value="spb") 
+                                option(value="spb")
                                   |Санкт-Питербург
-                                option(value="voronezh") 
+                                option(value="voronezh")
                                   |Воронеж
-                                option(value="saratov") 
+                                option(value="saratov")
                                   |Саратов
-                                option(value="moscov") 
+                                option(value="moscov")
                                   |Москва
-                                option(value="spb") 
+                                option(value="spb")
                                   |Санкт-Питербург
-                                option(value="voronezh") 
+                                option(value="voronezh")
                                   |Воронеж
-                                option(value="saratov") 
+                                option(value="saratov")
                                   |Саратов
-                                option(value="moscov") 
+                                option(value="moscov")
                                   |Москва
-                                option(value="spb") 
+                                option(value="spb")
                                   |Санкт-Питербург
-                                option(value="voronezh") 
+                                option(value="voronezh")
                                   |Воронеж
-                      .product__price(data-aos="fade-up")  
+                      .product__price(data-aos="fade-up")
                         .product__price-old
                           |760 ₽
                         .product__price-new
                           |610 ₽
-                .product-card__video--mobile(data-aos="fade-up") 
-                  .product-card__video-text 
+                .product-card__video--mobile(data-aos="fade-up")
+                  .product-card__video-text
                     |Видео-обзор продукта
-                  .product-card__video-wrapper 
+                  .product-card__video-wrapper
                     .video-button
                       +play-svg('video-button__icon')
-                .product__link(data-aos="fade-up") 
+                .product__link(data-aos="fade-up")
                   a.button(href="#")
-                    |Купить в интернет-магазине
-  .section--grey 
-    .container 
+                    span
+                      |Купить в интернет-магазине
+  .section--grey
+    .container
       .section__inner
-        .info 
-          .info__inner 
+        .info
+          .info__inner
             .info__description
-              .info__description-container 
-                p.info__description-text(data-aos="fade-up") 
+              .info__description-container
+                p.info__description-text(data-aos="fade-up")
                   |Сырокопченая колбаса из свинины с добавлением филе куриных грудок. Букет специй: красная паприка, перец, свежий чеснок и любисток. Идеальное украшение для праздничного стола.
-                
-          .info__inner 
+
+          .info__inner
             .info__structure
-              h3.info__title(data-aos="fade-up") 
+              h3.info__title(data-aos="fade-up")
                 |Состав
               .info__wrapper
-                p.info__text(data-aos="fade-up") 
-                  |Молоко нормализованное, закваска для творога. Количество молочнокислых микроорганизмов КОЕ в 1 г продукта в течение срока годности - не менее 106   
-          .info__inner 
-            .info-card 
-              .info-card__row 
+                p.info__text(data-aos="fade-up")
+                  |Молоко нормализованное, закваска для творога. Количество молочнокислых микроорганизмов КОЕ в 1 г продукта в течение срока годности - не менее 106
+          .info__inner
+            .info-card
+              .info-card__row
                 .info-card__col
-                  .info-card__card.info-card__card--green(data-aos="fade-up") 
-                    .info-card__frame 
+                  .info-card__card.info-card__card--green(data-aos="fade-up")
+                    .info-card__frame
                       .info-card__layout
                         img.info-card__layout-img(src="assets/images/svg/info-card-1.svg", alt="")
                         img.info-card__layout-image(src="assets/images/svg/info-card-2.svg", alt="")
                         img.info-card__layout-image.info-card__layout-image--small(src="assets/images/svg/info-card-3.svg", alt="")
                       .info-card__container
-                        .info-card__content 
-                          .info-card__item.info-card__item--first 
-                            p.info-card__item-text 
+                        .info-card__content
+                          .info-card__item.info-card__item--first
+                            p.info-card__item-text
                               |Энергетическая ценность, кКал
-                            .info-card__item-num 
+                            .info-card__item-num
                               |100
-                          ul.info-card__list 
-                            li.info-card__item 
-                              p.info-card__item-text 
+                          ul.info-card__list
+                            li.info-card__item
+                              p.info-card__item-text
                                 |Белки, г
-                              .info-card__item-num 
+                              .info-card__item-num
                                 |12
-                            li.info-card__item 
-                              p.info-card__item-text 
+                            li.info-card__item
+                              p.info-card__item-text
                                 |Жиры, г
-                              .info-card__item-num 
+                              .info-card__item-num
                                 |34
-                            li.info-card__item 
-                              p.info-card__item-text 
+                            li.info-card__item
+                              p.info-card__item-text
                                 |Углеводы, г
-                              .info-card__item-num 
+                              .info-card__item-num
                                 |67
-          
-                .info-card__col 
-                  .info-card__card.info-card__card--yellow(data-aos="fade-up") 
-                    .info-card__frame 
+
+                .info-card__col
+                  .info-card__card.info-card__card--yellow(data-aos="fade-up")
+                    .info-card__frame
                       .info-card__layout
                         img.info-card__img(src="assets/images/svg/info-card-5.svg", alt="")
                         img.info-card__image(src="assets/images/svg/info-card-4.svg", alt="")
@@ -323,69 +324,69 @@ block content
                         .info-card__content.info-card__content--alt
                           h4.info-card__content-title
                             |На 100 гр продукта % от суточной нормы КБЖУ
-                          .info-card__wrapper 
+                          .info-card__wrapper
                             ul.info-card__list.info-card__list--alt
-                              li.info-card__item 
-                                p.info-card__item-text 
+                              li.info-card__item
+                                p.info-card__item-text
                                   |Белки, г
-                                .info-card__item-num 
+                                .info-card__item-num
                                   |16%
-                              li.info-card__item 
-                                p.info-card__item-text 
+                              li.info-card__item
+                                p.info-card__item-text
                                   |Жиры, г
-                                .info-card__item-num 
+                                .info-card__item-num
                                   |0%
-                              li.info-card__item 
-                                p.info-card__item-text 
+                              li.info-card__item
+                                p.info-card__item-text
                                   |Углеводы, г
-                                .info-card__item-num 
+                                .info-card__item-num
                                   |1%
-                              li.info-card__item 
-                                p.info-card__item-text 
+                              li.info-card__item
+                                p.info-card__item-text
                                   |кКал
-                                .info-card__item-num 
+                                .info-card__item-num
                                   |6%
 
-          .info__inner 
-            .conditions 
-              .conditions__row 
+          .info__inner
+            .conditions
+              .conditions__row
                 .conditions__col
-                  h4.conditions__title(data-aos="fade-up")  
+                  h4.conditions__title(data-aos="fade-up")
                     |Срок и условия хранения
                 .conditions__col
-                  .conditions__day(data-aos="fade-up")  
-                    p.conditions__text 
+                  .conditions__day(data-aos="fade-up")
+                    p.conditions__text
                       |Количество суток
-                    .conditions__num 
+                    .conditions__num
                       |4
-                  .conditions__temp(data-aos="fade-up") 
-                    p.conditions__text 
+                  .conditions__temp(data-aos="fade-up")
+                    p.conditions__text
                       |Температура
-                    .conditions__num 
+                    .conditions__num
                       |4±2 ºС
   .section--grey
-    .container 
-      .section__inner 
+    .container
+      .section__inner
         .store-buttons
-          .store-buttons__row 
-            .store-buttons__col(data-aos="fade-up") 
+          .store-buttons__row
+            .store-buttons__col(data-aos="fade-up")
               .button--xl.button.button--m
                 .button__wrapper
-                  +cursor-svg('button__wrapper-icon button__svg') 
-                .button__text
+                  +cursor-svg('button__wrapper-icon button__svg')
+                span
                   |Вернуться в каталог
-            .store-buttons__col(data-aos="fade-up") 
+            .store-buttons__col(data-aos="fade-up")
               .button--xl.button.button--m-yellow
-                .button__text
+                span
                   |Где купить
                 .button__wrapper.button__wrapper--alt
-                  +cursor-svg('button__icon button__svg') 
-  .section--grey 
-    .container 
-      .similar-products 
-        .similar-products__row 
+                  +cursor-svg('button__icon button__svg')
+  .section--grey
+    .container
+      .similar-products
+        .similar-products__row
           .similar-products__col
-            h3.similar-products__title(data-aos="fade-up")  
+            h3.similar-products__title(data-aos="fade-up")
               |Похожие товары
           .similar-products__col
             .similar-products__buttons
@@ -398,10 +399,10 @@ block content
                   .button-slide__button
                     +cursor-svg('button-slide__icon')
   .section--grey.section--catalog
-    .container 
-      .section__inner 
+    .container
+      .section__inner
         .swiper-container.swiper-container--slide-width-auto.swiper-container--visible.product-slider(data-slider-prev-id = "2" data-slider-next-id = "1")
-          .swiper-wrapper 
+          .swiper-wrapper
             - for (i = 0; i < 9; i++)
               .swiper-slide
                 a.product-announcement(href='#')
@@ -424,7 +425,7 @@ block content
                       .product-announcement__label-subtext
                         |3 по 1
 
-block footer 
+block footer
   +footer({
     mod: 'catalog-grey',
   })
