@@ -14,12 +14,33 @@ $(function () {
   recipes();
   ajaxRecipes();
   changeCityProduct();
+  discounts();
+  ajaxCatalog();
 });
 
-function vacancy() {
-  console.log("vacancy");
-  $("[data-type=js-vacancy-filter]").on("change", function (e) {
-    ajaxVacancy(this.value);
+function discounts() {
+  console.log("discounts");
+  $("[data-type=js-discounts-filter]").on("click", function (e) {
+    $(document).find("[data-type=js-discounts-filter]").each(function () {
+      $(this).removeClass("category__item--active")
+    });
+    $(this).addClass("category__item--active");
+    ajaxCatalog(this.getAttribute("data-value"));
+  });
+}
+
+function ajaxCatalog(discount) {
+  let catalogList = $("[data-type=js-catalog-list]");
+
+  $.ajax({
+    method: "POST",
+    url: window.location.href,
+    data: {
+      ajax: 1,
+      discount: discount,
+    },
+  }).done(function (a) {
+    catalogList.html(a);
   });
 }
 
@@ -43,6 +64,13 @@ function changeCityProduct() {
     $("[data-type=product-price-old]").html(oldPrice + " ₽");
     $("[data-type=product-price-new]").html(newPrice + " ₽");
   }
+}
+
+function vacancy() {
+  console.log("vacancy");
+  $("[data-type=js-vacancy-filter]").on("change", function (e) {
+    ajaxVacancy(this.value);
+  });
 }
 
 function ajaxVacancy(cityId) {
