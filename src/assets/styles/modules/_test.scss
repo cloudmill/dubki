@@ -39,6 +39,33 @@
     opacity: 0;
     transition: opacity 0.25s;
   }
+
+  h1 {
+    margin-left: 14px;
+    width: 233px;
+    @media (min-width: $breakpoint) {
+      margin-left: 80px;
+      width: 418px;
+    }
+
+    @include f-alt();
+    @include fsl(50px, 80%);
+    @media (min-width: $breakpoint) {
+      @include fsl(90px);
+    }
+    color: $color-white;
+  }
+  h2 {
+    margin-bottom: 15px;
+
+    @include f-alt();
+    @include fsl(30px, 80%);
+    @media (min-width: $breakpoint) {
+      margin-bottom: 40px;
+
+      @include fsl(70px, 80%);
+    }
+  }
 }
 
 .catalog-modal {
