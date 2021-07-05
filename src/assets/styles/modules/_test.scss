@@ -750,13 +750,6 @@
   100% {transform: rotate(0deg); right: calc(#{$grid-part-d} * 4 - #{$grid-gap-d});} 
 }
 
-body {
-  padding: 100px 0;
-  min-height: 300vh;
-
-  background-color: gainsboro;
-}
-
 .stocks {
   $gap-m: 15px;
   $gap-d: 20px;
