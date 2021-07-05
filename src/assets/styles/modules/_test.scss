@@ -936,10 +936,7 @@ body {
     display: flex;
 
     &:not(:first-child) {
-      margin-top: 15px;
-      @media (min-width: $breakpoint) {
-        margin-top: 20px;
-      }
+      margin-top: 10px;
     }
   }
   &__item-link {
