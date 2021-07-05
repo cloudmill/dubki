@@ -8453,12 +8453,6 @@ input:focus~.form__placeholder {
   @include fsl(22px, 80%);
 }
 
-.test {
-  background-color: $color-black;
-  height: 100vh;
-}
-
-
 .form .parsley {
 
   &-error {

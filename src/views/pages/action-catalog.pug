@@ -29,316 +29,422 @@ block content
   .section--grey.section--catalog
     .container
       .section__inner
-        .action-catalog
-          ul.action-catalog__list
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-1.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |23
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+        .stocks
+          .stocks__list
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-1.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |23
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
                     |Мясная гастрономия
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Вареные колбасы
-                  a.action-catalog__content-item(href='#') 
-                    |Ветчина
-                  a.action-catalog__content-item(href='#') 
-                    |Деликатесы
-                  a.action-catalog__content-item(href='#') 
-                    |Копченые колбасы
-                  a.action-catalog__content-item(href='#') 
-                    |Паштеты
-                  a.action-catalog__content-item(href='#') 
-                    |Сардельки
-                  a.action-catalog__content-item(href='#') 
-                    |Сосиски  
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-2.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |12
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list.stock__list--row
+                  .stock__col
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Вареные колбасы
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Ветчина
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Деликатесы
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Копченые колбасы
+                  .stock__col
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Паштеты
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Сардельки
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Сосиски
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-2.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |12
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Мясо охлажденное
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Курица гриль
-                  a.action-catalog__content-item(href='#') 
-                    |Свинина
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-3.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |11
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Курица гриль
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Свинина
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-3.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |11
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Молочные продукты, сыры, масло
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Кисломолочные продукты
-                  a.action-catalog__content-item(href='#') 
-                    |Масло
-                  a.action-catalog__content-item(href='#') 
-                    |Молоко
-                  a.action-catalog__content-item(href='#') 
-                    |Сыры
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-4.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |8
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Кисломолочные продукты
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Масло
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Молоко
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Сыры
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-4.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |8
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Замороженные полуфабрикаты
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Весовые полуфабрикаты
-                  a.action-catalog__content-item(href='#') 
-                    |Готовые блюда
-                  a.action-catalog__content-item(href='#') 
-                    |Тесто
-                  a.action-catalog__content-item(href='#') 
-                    |Штучные полуфабрикаты
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-5.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |15
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Весовые полуфабрикаты
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Готовые блюда
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Тесто
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Штучные полуфабрикаты
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-5.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |15
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Кондитерские изделия
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Вафли
-                  a.action-catalog__content-item(href='#') 
-                    |Зефир, мармелад, пастила
-                  a.action-catalog__content-item(href='#') 
-                    |Конфеты вес
-                  a.action-catalog__content-item(href='#') 
-                    |Конфеты наборы
-                  a.action-catalog__content-item(href='#') 
-                    |Крекер
-                  a.action-catalog__content-item(href='#') 
-                    |Печенье
-                  a.action-catalog__content-item(href='#') 
-                    |Пряники
-                  a.action-catalog__content-item(href='#') 
-                    |Торты, пирожные
-                  a.action-catalog__content-item(href='#') 
-                    |Шоколад
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-6.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |4
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list.stock__list--row
+                  .stock__col
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Вафли
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Зефир, мармелад, пастила
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Конфеты вес
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Конфеты наборы
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Крекер
+                  .stock__col
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Печенье
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Пряники
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Торты, пирожные
+                    li.stock__item
+                      a.stock__item-link(href='#')
+                        |Шоколад
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-6.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |4
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Бакалея
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Крупы
-                  a.action-catalog__content-item(href='#') 
-                    |Каши
-                  a.action-catalog__content-item(href='#') 
-                    |Макаронные изделия
-                  a.action-catalog__content-item(href='#') 
-                    |Молоко сгущенное
-            a.action-catalog__card(href='#')(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-7.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |15
-                  .action-catalog__discont-text
-                    |позиции по акции
-              h4.action-catalog__title
-                |Вода, напитки
-            a.action-catalog__card(href='#')(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-8.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |18
-                  .action-catalog__discont-text
-                    |позиции по акции
-              h4.action-catalog__title
-                |Рыба
-            a.action-catalog__card(href='#')(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-9.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |11
-                  .action-catalog__discont-text
-                    |позиции по акции
-              h4.action-catalog__title
-                |Снеки
-            a.action-catalog__card(href='#')(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-10.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |3
-                  .action-catalog__discont-text
-                    |позиции по акции
-              h4.action-catalog__title
-                |Овощи
-            a.action-catalog__card(href='#')(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-11.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |14
-                  .action-catalog__discont-text
-                    |позиции по акции
-              h4.action-catalog__title
-                |Приправы
-            a.action-catalog__card(href='#')(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-12.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |17
-                  .action-catalog__discont-text
-                    |позиции по акции
-              h4.action-catalog__title
-                |Мясо замороженное
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-13.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |9
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Крупы
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Каши
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Макаронные изделия
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Молоко сгущенное
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-7.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |15
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Вода, напитки
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-8.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |18
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Рыба
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-9.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |11
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Снеки
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-10.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |3
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Овощи
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-11.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |14
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Приправы
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-12.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |17
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Мясо замороженное
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-13.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |9
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Чай, кофе
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Кофе, кофейные напитки
-                  a.action-catalog__content-item(href='#') 
-                    |Прикасса
-                  a.action-catalog__content-item(href='#') 
-                    |Чай, чайные напитки
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-14.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |29
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Кофе, кофейные напитки
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Прикасса
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Чай, чайные напитки
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-14.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |29
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Консервы
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Консервы овощные
-                  a.action-catalog__content-item(href='#') 
-                    |Консервы рыбные
-                  a.action-catalog__content-item(href='#') 
-                    |Мясные консервы
-                  a.action-catalog__content-item(href='#') 
-                    |Мясорастительные консервы
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-15.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |32
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#")
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Консервы овощные
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Консервы рыбные
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Мясные консервы
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Мясорастительные консервы
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-15.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |32
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Хлебобулочные изделия
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Мелкоштучная выпечка
-                  a.action-catalog__content-item(href='#') 
-                    |Хлеб
-            .action-catalog__card.action-catalog__card--big(data-aos="fade-up") 
-              .action-catalog__frame 
-                img.action-catalog__img(src="assets/images/action-catalog-16.jpg", alt="")
-              .action-catalog__discont 
-                +top-icon-svg
-                .action-catalog__discont-content 
-                  .action-catalog__discont-num
-                    |16
-                  .action-catalog__discont-text
-                    |позиции по акции
-              .action-catalog__content
-                h4.action-catalog__title
-                  a(href="#") 
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Мелкоштучная выпечка
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Хлеб
+            .stocks__item
+              .stock
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-16.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |16
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  a.stock__title-link(href='#')
                     |Соусы
-                ul.action-catalog__content-list 
-                  a.action-catalog__content-item(href='#')
-                    |Кетчуп
-                  a.action-catalog__content-item(href='#') 
-                    |Майонезный соус
-                  a.action-catalog__content-item(href='#') 
-                    |Соусы
+                ul.stock__list
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Кетчуп
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Майонезный соус
+                  li.stock__item
+                    a.stock__item-link(href='#')
+                      |Соусы
+            .stocks__item
+              a.stock(href='#')
+                .stock__layout
+                  img.stock__background(src='assets/images/stock-17.jpeg')
+                  .stock__mark
+                    +stock-mark-svg.stock__mark-svg
+                    .stock__mark-content
+                      .stock__mark-amount
+                        |16
+                      .stock__mark-text
+                        |позиции
+                        br
+                        |по акции
+                h3.stock__title
+                  .stock__title-link
+                    |Готовые блюда
+            
 
-              
 block footer
   +footer({
     mod: 'catalog-grey',
