@@ -5394,7 +5394,7 @@ body>.wrapper {
   &__img {
     position: absolute;
     z-index: 0;
-    bottom: -10%;
+    bottom: -114px;
     left: 0;
 
     width: 777px;
@@ -5424,8 +5424,8 @@ body>.wrapper {
     &::after {
       content: "";
       position: absolute;
-      bottom: 103px;
-      right: -173px;
+      bottom: 112px;
+      right: -170px;
       z-index: 0;
 
       width: 185px;
