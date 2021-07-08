@@ -1,18 +1,18 @@
 // imports
 import "Styles/_app.scss";
 
-// import Swiper from "swiper/bundle";
-// import 'select2';
+import Swiper from "swiper/bundle";
+import 'select2';
 import AOS from 'aos';
-// import '@fancyapps/fancybox';
-// import 'parsleyjs';
-// import mask from "inputmask";
-// import SmoothScroll from 'smoothscroll-for-websites';
-// import tippy from 'tippy.js';
-// require('jquery-ui/ui/widgets/autocomplete');
+import '@fancyapps/fancybox';
+import 'parsleyjs';
+import mask from "inputmask";
+import SmoothScroll from 'smoothscroll-for-websites';
+import tippy from 'tippy.js';
+require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
-  // require("assets/scripts/backend");
+  require("assets/scripts/backend");
 });
 
 // AOS
@@ -21,7 +21,7 @@ $(() => {
     AOS.init({
       once: true, // whether animation should happen only once - while scrolling down
       offset: 0,
-      duration: 50,
+      duration: 1000,
     });
 
     window.addEventListener('scroll', aosRefresh);
@@ -38,7 +38,6 @@ $(() => {
   });
 }
 
-/*
 // vars
 const BREAKPOINT = 1280
 const BREAKPOINT_MEDIA = matchMedia(`(min-width: ${BREAKPOINT}px)`)
@@ -1551,4 +1550,3 @@ function toggleDataAttr($element, attr, value = '') {
     SmoothScroll();
   });
 }
-*/
