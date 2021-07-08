@@ -21,7 +21,7 @@ $(() => {
     AOS.init({
       once: true, // whether animation should happen only once - while scrolling down
       offset: 0,
-      duration: 1000,
+      duration: 50,
     });
 
     window.addEventListener('scroll', aosRefresh);
