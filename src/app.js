@@ -21,7 +21,7 @@ $(() => {
     AOS.init({
       once: true, // whether animation should happen only once - while scrolling down
       offset: 0,
-      duration: 10,
+      duration: 1000,
     });
 
     window.addEventListener('scroll', aosRefresh);
@@ -1313,72 +1313,72 @@ function toggleDataAttr($element, attr, value = '') {
 }
 
 // product-announcement
-{
-  $(() => {
-    $('.product-announcement').each(function () {
-      const comp = $(this)
-      const title = comp.find('.product-announcement__title')
+// {
+//   $(() => {
+//     $('.product-announcement').each(function () {
+//       const comp = $(this)
+//       const title = comp.find('.product-announcement__title')
 
-      const originalText = title.text()
+//       const originalText = title.text()
 
-      let lineCount = 3
-      if (comp.hasClass('product-announcement--small')) {
-        lineCount = 2
-      }
+//       let lineCount = 3
+//       if (comp.hasClass('product-announcement--small')) {
+//         lineCount = 2
+//       }
 
-      const lineHeightM = 12
-      const lineHeightD = 18
+//       const lineHeightM = 12
+//       const lineHeightD = 18
 
-      function getLineHeight() {
-        if (comp.hasClass('product-announcement--small')) {
-          return 16
-        }
-        if (comp.hasClass('product-announcement--large')) {
-          return 22
-        }
-        return BREAKPOINT_MEDIA.matches ? lineHeightD : lineHeightM
-      }
+//       function getLineHeight() {
+//         if (comp.hasClass('product-announcement--small')) {
+//           return 16
+//         }
+//         if (comp.hasClass('product-announcement--large')) {
+//           return 22
+//         }
+//         return BREAKPOINT_MEDIA.matches ? lineHeightD : lineHeightM
+//       }
 
-      let lineHeight = getLineHeight()
-      BREAKPOINT_MEDIA.addListener(() => {
-        lineHeight = getLineHeight()
-      })
+//       let lineHeight = getLineHeight()
+//       BREAKPOINT_MEDIA.addListener(() => {
+//         lineHeight = getLineHeight()
+//       })
 
-      function updateTitle() {
-        title.text(originalText)
+//       function updateTitle() {
+//         title.text(originalText)
 
-        if (title.height() > (lineHeight * lineCount)) {
-          let newText = originalText
+//         if (title.height() > (lineHeight * lineCount)) {
+//           let newText = originalText
 
-          while (title.height() > (lineHeight * lineCount)) {
-            newText = newText.substring(0, newText.length - 1).trim()
+//           while (title.height() > (lineHeight * lineCount)) {
+//             newText = newText.substring(0, newText.length - 1).trim()
 
-            title.text(newText)
-          }
+//             title.text(newText)
+//           }
 
-          newText = newText.substring(0, newText.length - 5).trim() + '...'
-          title.text(newText)
-        }
-      }
+//           newText = newText.substring(0, newText.length - 5).trim() + '...'
+//           title.text(newText)
+//         }
+//       }
 
-      updateTitle()
+//       updateTitle()
 
-      window.addEventListener('resize', handleResize, {
-        once: true,
-      })
+//       window.addEventListener('resize', handleResize, {
+//         once: true,
+//       })
 
-      function handleResize() {
-        updateTitle()
+//       function handleResize() {
+//         updateTitle()
 
-        setTimeout(() => {
-          window.addEventListener('resize', handleResize, {
-            once: true,
-          })
-        }, 1000)
-      }
-    })
-  })
-}
+//         setTimeout(() => {
+//           window.addEventListener('resize', handleResize, {
+//             once: true,
+//           })
+//         }, 1000)
+//       }
+//     })
+//   })
+// }
 
 // about, yt
 {
