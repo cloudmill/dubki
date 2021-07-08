@@ -12,7 +12,7 @@ import tippy from 'tippy.js';
 require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
-  require("assets/scripts/backend");
+  // require("assets/scripts/backend");
 });
 
 // AOS
@@ -38,6 +38,7 @@ $(() => {
   });
 }
 
+/*
 // vars
 const BREAKPOINT = 1280
 const BREAKPOINT_MEDIA = matchMedia(`(min-width: ${BREAKPOINT}px)`)
@@ -1550,3 +1551,4 @@ function toggleDataAttr($element, attr, value = '') {
     SmoothScroll();
   });
 }
+*/
