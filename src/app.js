@@ -1,15 +1,15 @@
 // imports
 import "Styles/_app.scss";
 
-import Swiper from "swiper/bundle";
-import 'select2';
-import AOS from 'aos';
-import '@fancyapps/fancybox';
-import 'parsleyjs';
-import mask from "inputmask";
-import SmoothScroll from 'smoothscroll-for-websites';
-import tippy from 'tippy.js';
-require('jquery-ui/ui/widgets/autocomplete');
+// import Swiper from "swiper/bundle";
+// import 'select2';
+// import AOS from 'aos';
+// import '@fancyapps/fancybox';
+// import 'parsleyjs';
+// import mask from "inputmask";
+// import SmoothScroll from 'smoothscroll-for-websites';
+// import tippy from 'tippy.js';
+// require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
   // require("assets/scripts/backend");
