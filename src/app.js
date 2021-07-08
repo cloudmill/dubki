@@ -3,7 +3,7 @@ import "Styles/_app.scss";
 
 // import Swiper from "swiper/bundle";
 // import 'select2';
-// import AOS from 'aos';
+import AOS from 'aos';
 // import '@fancyapps/fancybox';
 // import 'parsleyjs';
 // import mask from "inputmask";
