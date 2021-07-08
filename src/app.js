@@ -12,7 +12,7 @@ import tippy from 'tippy.js';
 require('jquery-ui/ui/widgets/autocomplete');
 
 $(() => {
-  require("assets/scripts/backend");
+  // require("assets/scripts/backend");
 });
 
 // AOS
