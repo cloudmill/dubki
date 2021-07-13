@@ -233,7 +233,7 @@ function autocompleteDefineRegion() {
       my: "left top+5",
     },
     select: function (event, ui) {
-      location.href = window.location.pathname + "?region=" + ui.item.id;
+      location.href = window.location.pathname + "?region=" + ui.item.id + "&region_name=" + ui.item.value;
       return false;
     },
   });
