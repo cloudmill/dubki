@@ -21,9 +21,11 @@ $(function () {
 function discounts() {
   console.log("discounts");
   $("[data-type=js-discounts-filter]").on("click", function (e) {
-    $(document).find("[data-type=js-discounts-filter]").each(function () {
-      $(this).removeClass("category__item--active")
-    });
+    $(document)
+      .find("[data-type=js-discounts-filter]")
+      .each(function () {
+        $(this).removeClass("category__item--active");
+      });
     $(this).addClass("category__item--active");
     ajaxCatalog(this.getAttribute("data-value"));
   });
@@ -47,7 +49,7 @@ function ajaxCatalog(discount) {
 function changeCityProduct() {
   console.log("product change city");
   if ($("[data-type=product-change-city]").length) {
-    changeCityProductAction();
+    //changeCityProductAction();
   }
 
   $("[data-type=product-change-city]").on("change", function (e) {
@@ -58,11 +60,15 @@ function changeCityProduct() {
   function changeCityProductAction() {
     let select = $("[data-type=product-change-city]"),
       option = select.find("option:selected"),
-      newPrice = option.attr("data-new"),
-      oldPrice = option.attr("data-old");
+      region = option.attr("data-region"),
+      regionName = option.attr("data-region-name");
 
-    $("[data-type=product-price-old]").html(oldPrice + " ₽");
-    $("[data-type=product-price-new]").html(newPrice + " ₽");
+    location.href =
+      window.location.pathname +
+      "?region=" +
+      region +
+      "&region_name=" +
+      regionName;
   }
 }
 
@@ -176,7 +182,8 @@ function searchHeader() {
     let form = $(document).find("[data-type=header-search-form]"),
       search = form.find("input[name=search]").val();
 
-    document.location.href = "http://dubki-produkty.ru/search/?search=" + search;
+    document.location.href =
+      "http://dubki-produkty.ru/search/?search=" + search;
   });
 }
 
@@ -233,7 +240,12 @@ function autocompleteDefineRegion() {
       my: "left top+5",
     },
     select: function (event, ui) {
-      location.href = window.location.pathname + "?region=" + ui.item.id + "&region_name=" + ui.item.value;
+      location.href =
+        window.location.pathname +
+        "?region=" +
+        ui.item.id +
+        "&region_name=" +
+        ui.item.value;
       return false;
     },
   });
