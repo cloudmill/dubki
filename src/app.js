@@ -1000,8 +1000,8 @@ function toggleDataAttr($element, attr, value = '') {
 
     if (container.length !== 0) {
       // get data
-      // $.getJSON('/shops.json', data => {
-      $.getJSON('/assets/data/mapData.json', data => {
+      $.getJSON('/shops.json', data => {
+      // $.getJSON('/assets/data/mapData.json', data => {
         // clusters
         const clusters = {}
         data.geoPoints.forEach(geoPoint => {
@@ -1127,7 +1127,7 @@ function toggleDataAttr($element, attr, value = '') {
           // ?
           center: clusters[data.startLocation][0].coordinates,
         },{
-          maxZoom: 18,
+          maxZoom: 22,
         })
         map.placemarks = {}
         map.clusters = {}
@@ -1229,8 +1229,8 @@ function toggleDataAttr($element, attr, value = '') {
               id: geoPoint.id,
             }, {
               iconLayout: 'default#image',
-              // iconImageHref: '/local/templates/main/assets/images/svg/placemark.svg',
-              iconImageHref: '/assets/images/svg/placemark.svg',
+              iconImageHref: '/local/templates/main/assets/images/svg/placemark.svg',
+              // iconImageHref: '/assets/images/svg/placemark.svg',
               iconImageSize: [map.markWidth, map.markHeight],
               iconImageOffset: [-map.markWidth / 2, -map.markHeight],
 
@@ -1253,6 +1253,10 @@ function toggleDataAttr($element, attr, value = '') {
           map.ymap.geoObjects.add(map.clusters[location])
           map.ymap.setBounds(map.clusters[location].getBounds(), {
             zoomMargin: Math.max(map.markWidth, map.markHeight),
+          }).then(() => {
+            if (clusters[location].length === 1) {
+              map.ymap.setZoom(18)
+            }
           })
         }
         updateMap(data.startLocation)
