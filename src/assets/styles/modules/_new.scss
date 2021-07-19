@@ -8542,12 +8542,32 @@ input:focus~.form__placeholder {
   }
 }
 .header__city {
+  position: absolute;
+  right: calc(100% + 20px);
+  @media (min-width: $breakpoint-l) {
+    right: calc(100% + 30px);
+  }
+  @media (min-width: $breakpoint-ll) {
+    right: calc(100% + 40px);
+  }
+  @media (min-width: $breakpoint-xl) {
+    right: calc(100% + 50px);
+  }
+  @media (min-width: $breakpoint-xxl) {
+    right: calc(100% + 60px);
+  }
+
   width: auto;
 }
 .header__nav {
-  margin: 0 30px;
-  @media (min-width: $breakpoint-xl) {
-    margin: 0 50px;
+  position: relative;
+
+  margin-right: 20px;
+  @media (min-width: $breakpoint-l) {
+    margin-right: 30px;
+  }
+  @media (min-width: $breakpoint-ll) {
+    margin-right: 40px;
   }
   width: auto;
 }

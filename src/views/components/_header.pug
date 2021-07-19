@@ -19,13 +19,13 @@ mixin header(opt={})
             a.header__logo-link(href="#")
               +logo-svg('header__logo-svg')
           .header__city-nav
-            .header__city(data-aos="fade-up")
-              .header__city-button
-                .header__city-text
-                  |Саратов
-                .header__city-icon
-                  +arrow-svg('header__arrow')
             .header__nav(data-aos="fade-up")
+              .header__city(data-aos="fade-up")
+                .header__city-button
+                  .header__city-text
+                    |Саратов
+                  .header__city-icon
+                    +arrow-svg('header__arrow')
               a.header__nav-link(href="#")
                 |Где купить
           .header__search(data-aos="fade-up")
