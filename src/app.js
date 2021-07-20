@@ -1129,6 +1129,30 @@ function toggleDataAttr($element, attr, value = '') {
         },{
           maxZoom: 22,
         })
+
+        // margin area
+        // list margin area
+        function getListMarginArea() {
+          return map.ymap.margin.addArea({
+            top: 0,
+            left: 0,
+            width: '350px',
+            height: '100%',
+          })
+        }
+        // init
+        map.marginArea = {
+          list: BREAKPOINT_MEDIA.matches ? getListMarginArea() : null,
+        }
+        // breakpoint
+        BREAKPOINT_MEDIA.addListener(event => {
+          if (event.matches) {
+            map.marginArea.list = getListMarginArea()
+          } else {
+            map.marginArea.list.remove()
+          }
+        })
+
         map.placemarks = {}
         map.clusters = {}
         for (let location in clusters) {
@@ -1251,8 +1275,13 @@ function toggleDataAttr($element, attr, value = '') {
         function updateMap(location) {
           map.ymap.geoObjects.removeAll()
           map.ymap.geoObjects.add(map.clusters[location])
+
+          let mapMargin = map.ymap.margin.getMargin()
+          let maxIconSize = Math.max(map.markWidth, map.markHeight)
+          mapMargin = mapMargin.map(margin => margin + maxIconSize)
+          
           map.ymap.setBounds(map.clusters[location].getBounds(), {
-            zoomMargin: Math.max(map.markWidth, map.markHeight),
+            zoomMargin: mapMargin,
           }).then(() => {
             if (clusters[location].length === 1) {
               map.ymap.setZoom(18)
