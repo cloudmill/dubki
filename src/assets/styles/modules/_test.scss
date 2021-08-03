@@ -103,7 +103,7 @@
   transform: translateX(-100%);
 
   height: 100%;
-  @media (max-width: $breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
     display: none;
   }
   overflow: hidden;
