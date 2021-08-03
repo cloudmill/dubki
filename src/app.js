@@ -1014,16 +1014,26 @@ function toggleDataAttr($element, attr, value = '') {
           }
         })
 
+        data.regionList = data.regionList.sort((a, b) => {
+          if (a.NAME > b.NAME) {
+            return 1
+          } else if (a.NAME < b.NAME) {
+            return -1
+          } else {
+            return 0
+          }
+        })
+
         // select init
         const select = $('[data-map-select]')
 
         select.select2('destroy')
 
         let selectHtml = ''
-        Object.keys(clusters).sort().forEach(location => {
-          selectHtml += `<option value="${location}" ${location === data.startLocation ? 'selected' : ''}>${location}</option>`
+        data.regionList.forEach(region => {
+          selectHtml += `<option value="${region.ID}" ${region.NAME === data.startLocation ? 'selected' : ''}>${region.NAME}</option>`
         })
-
+        
         select.html(selectHtml)
 
         { // копия из раздела select
@@ -1291,11 +1301,12 @@ function toggleDataAttr($element, attr, value = '') {
         updateMap(data.startLocation)
 
         // change
-        select.on('change', () => {
-          const location = select.val()
+        select.on('change', event => {
+          const region_id = select.val()
+          const region_name = select.find('option:selected').text() // ?
 
-          updateList(location)
-          updateMap(location)
+          updateList(region_name)
+          updateMap(region_name)
         })
 
         // list -> point
