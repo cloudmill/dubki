@@ -6,6 +6,7 @@ $(function () {
   vacancy();
   // submitForm();
   redirectBuy();
+  redirectBuyChangeCity();
   buyListFilter();
   autocompleteDefineRegion();
   forms();
@@ -187,13 +188,30 @@ function searchHeader() {
   });
 }
 
+function redirectBuyChangeCity() {
+  $(document).on("change", "select[name=city]", function () {
+    let obj = $(this),
+      region = obj.val(),
+      region_name = obj.find("option[value=" + region + "]").html();
+    console.log("id region=" + region);
+    console.log("name region=" + region_name);
+
+    location.href =
+      window.location.pathname +
+      "?region=" +
+      region +
+      "&region_name=" +
+      region_name;
+  });
+}
+
 function redirectBuy() {
   $("[data-type=redirect-buy-list]").on("click", function () {
-    window.location.href = "/buy/list";
+    window.location.href = "/buy/list/";
   });
 
   $("[data-type=redirect-buy-map]").on("click", function () {
-    window.location.href = "/buy";
+    window.location.href = "/buy/";
   });
 }
 
